@@ -1,3 +1,6 @@
+/**
+ * Prepares a proposition's data in json format.
+ */
 class PropositionBuilder{
 
     constructor(){
