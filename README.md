@@ -24,6 +24,6 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 * Easy-to-use interface for teachers to prepare lessons.
 * Lessons can be taken fully offline, once sideloaded/prepared.
 * Support for audio playback of sentences.
-* Support for hover-over word definitions.
+* Support for hover-over-the-word definitions.
 
 
