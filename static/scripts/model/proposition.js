@@ -25,11 +25,12 @@ class Proposition{
      */
     check(users_translation){
         let counter = 0;
-        for (let userWord in users_translation.split(/\s+/)){
+        for (let userWord of users_translation.split(/\s+/)){
             if (this.sentenceTwo.split(/\s+/).includes(userWord)){
                 counter++
             }
         }
+        
         return parseInt(100 *  counter/this.sentenceTwo.split(/\s+/).length)
     }
 
