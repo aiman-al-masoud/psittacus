@@ -26,7 +26,7 @@ class LessonBuilder{
     }
 
     toJson(){
-        return {    propositions : this.propositions.map((p)=> p.toJson()) }
+        return {    propositions : this.propositions.filter((p)=> !p.isEmpty()  ) .map((p)=> p.toJson()) }
     }
 
 }

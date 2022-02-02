@@ -33,6 +33,10 @@ class PropositionBuilder{
         return this
     }
 
+    isEmpty(){
+        return !(this.sentenceOne && this.sentenceTwo)
+    }
+
     toJson(){
         return {
             sentence_one : this.sentenceOne,
