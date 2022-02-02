@@ -1,7 +1,3 @@
-// window.addEventListener("load", function () {
-
-// })
-
 document.getElementById("input_lesson_file").addEventListener("change", function(){
     let fr = new FileReader()
     fr.onload = function(){
@@ -20,7 +16,7 @@ function startLesson(lesson){
 
 
 function displayProposition(proposition){
-    // document.getElementById("p_sentence_one").innerHTML = proposition.sentenceOne;
+
     document.getElementById("p_sentence_two").innerHTML = proposition.sentenceTwo;
     
     let sentenceOneDiv = document.getElementById("div_sentence_one");
@@ -61,7 +57,6 @@ document.getElementById("button_next").addEventListener("click", new (function()
     }
 
 }))
-
 
 
 
