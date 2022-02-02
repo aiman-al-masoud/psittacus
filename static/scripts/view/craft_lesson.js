@@ -1,27 +1,12 @@
-// window.addEventListener("load", function(){
 window.lessonBuilder = new LessonBuilder()
-// })
+
 
 document.getElementById("button_next").addEventListener("click", function(){
-    let sentenceOne = document.getElementById("input_sentence_one").value
-    let sentenceTwo = document.getElementById("input_sentence_two").value
-    window.lessonBuilder.getCurrent().setSentenceOne(sentenceOne).setSentenceTwo(sentenceTwo)
-    window.lessonBuilder.getCurrent().wordDict = defintionTableToDict()
-    window.lessonBuilder.next()
-    document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
-    document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
-    dictToDefinitionTable(window.lessonBuilder.getCurrent().wordDict)
+    move(true)
 })
 
 document.getElementById("button_previous").addEventListener("click", function(){
-    let sentenceOne = document.getElementById("input_sentence_one").value
-    let sentenceTwo = document.getElementById("input_sentence_two").value
-    window.lessonBuilder.getCurrent().setSentenceOne(sentenceOne).setSentenceTwo(sentenceTwo)
-    window.lessonBuilder.getCurrent().wordDict = defintionTableToDict()
-    window.lessonBuilder.prev()
-    document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
-    document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
-    dictToDefinitionTable(window.lessonBuilder.getCurrent().wordDict)
+    move(false)
 })
 
 document.getElementById("button_audio").addEventListener("click", new (function(){    
@@ -40,7 +25,6 @@ document.getElementById("button_audio").addEventListener("click", new (function(
 })  )
 
 
-
 document.getElementById("input_sentence_one").addEventListener("input", function(){
     window.lessonBuilder.getCurrent().wordDict = defintionTableToDict()
     clearDefintionsTable()
@@ -50,11 +34,21 @@ document.getElementById("input_sentence_one").addEventListener("input", function
 })
 
 
-
 document.getElementById("button_done").addEventListener("click", function(){
     console.log(window.lessonBuilder.toJson())
 })
 
+
+function move(forward){
+    let sentenceOne = document.getElementById("input_sentence_one").value
+    let sentenceTwo = document.getElementById("input_sentence_two").value
+    window.lessonBuilder.getCurrent().setSentenceOne(sentenceOne).setSentenceTwo(sentenceTwo)
+    window.lessonBuilder.getCurrent().wordDict = defintionTableToDict()
+    forward? window.lessonBuilder.next() : window.lessonBuilder.prev()
+    document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
+    document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
+    dictToDefinitionTable(window.lessonBuilder.getCurrent().wordDict)
+}
 
 
 
