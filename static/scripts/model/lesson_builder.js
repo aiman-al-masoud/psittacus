@@ -10,6 +10,12 @@ class LessonBuilder{
     }
 
     next(){
+
+        //no new proposition if current one is incomplete
+        if( !(this.propositions[this.current].sentenceOne && this.propositions[this.current].sentenceTwo)  ){
+            return
+        }
+
         this.current++
         this.propositions[this.current] = this.propositions[this.current] ?? new PropositionBuilder()
     }
