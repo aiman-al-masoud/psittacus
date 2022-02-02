@@ -30,6 +30,8 @@ function displayProposition(proposition){
         sentenceOneDiv.appendChild(wordSpan)
     }
 
+    proposition.play()
+
 }
 
 document.getElementById("button_play_audio").addEventListener("click", function(){
