@@ -20,7 +20,7 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 * Conlangers that want the world to learn their language.
 * And many more...
 
-## What are some of its main (upcoming) features?
+## What are some of its main features?
 * Easy-to-use interface for teachers to prepare lessons.
 * Lessons can be taken fully offline, once sideloaded/prepared.
 * Support for audio playback of sentences.
