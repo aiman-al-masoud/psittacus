@@ -39,7 +39,7 @@ document.getElementById("button_play_audio").addEventListener("click", function(
 })
 
 
-document.getElementById("button_done").addEventListener("click", function(){
+document.getElementById("button_save_to_computer").addEventListener("click", function(){
     move(true)
     console.log(window.lessonBuilder.toJson())
     saveToComp( JSON.stringify(window.lessonBuilder.toJson()), "lesson", "text/plain")
