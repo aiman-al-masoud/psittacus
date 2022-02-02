@@ -37,7 +37,18 @@ document.getElementById("input_sentence_one").addEventListener("input", function
 document.getElementById("button_done").addEventListener("click", function(){
     move(true)
     console.log(window.lessonBuilder.toJson())
+    saveToComp( JSON.stringify(window.lessonBuilder.toJson())  , "lesson", "text/plain")
 })
+
+
+function saveToComp(content, fileName, contentType) {
+    var a = document.createElement("a");
+    var file = new Blob([content], {type: contentType});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+}
+
 
 
 function move(forward){
