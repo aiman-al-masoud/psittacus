@@ -37,6 +37,10 @@ class PropositionBuilder{
         return !(this.sentenceOne && this.sentenceTwo)
     }
 
+    playAudio(){
+        this.recorder.play()
+    }
+
     toJson(){
         return {
             sentence_one : this.sentenceOne,

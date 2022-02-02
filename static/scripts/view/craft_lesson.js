@@ -16,6 +16,7 @@ document.getElementById("button_audio").addEventListener("click", new (function(
             window.lessonBuilder.getCurrent().stopRecording()
             recording =  false;
             document.getElementById("button_audio").value = "Record Audio"
+            document.getElementById("button_play_audio").style = "visibility:visible; display:block;"
         }else{
             window.lessonBuilder.getCurrent().record();
             recording = true;
@@ -33,11 +34,15 @@ document.getElementById("input_sentence_one").addEventListener("input", function
     }
 })
 
+document.getElementById("button_play_audio").addEventListener("click", function(){
+    window.lessonBuilder.getCurrent().playAudio()
+})
+
 
 document.getElementById("button_done").addEventListener("click", function(){
     move(true)
     console.log(window.lessonBuilder.toJson())
-    saveToComp( JSON.stringify(window.lessonBuilder.toJson())  , "lesson", "text/plain")
+    saveToComp( JSON.stringify(window.lessonBuilder.toJson()), "lesson", "text/plain")
 })
 
 
