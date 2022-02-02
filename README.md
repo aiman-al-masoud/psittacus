@@ -28,9 +28,10 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 
 
 
+# Details
 
 <details>
-  <summary><b><strong>Setting up a Local Testing Environment</strong></b></summary>
+  <summary><strong>Setting up a Local Testing Environment</strong></summary>
 
 ## 1) Clone this repo
 ...and navigate to its root directory.
