@@ -35,6 +35,7 @@ document.getElementById("input_sentence_one").addEventListener("input", function
 
 
 document.getElementById("button_done").addEventListener("click", function(){
+    move(true)
     console.log(window.lessonBuilder.toJson())
 })
 
