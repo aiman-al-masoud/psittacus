@@ -20,8 +20,16 @@ function startLesson(lesson){
 
 
 function displayProposition(proposition){
-    document.getElementById("p_sentence_one").innerHTML = proposition.sentenceOne;
+    // document.getElementById("p_sentence_one").innerHTML = proposition.sentenceOne;
     document.getElementById("p_sentence_two").innerHTML = proposition.sentenceTwo;
+    
+    let sentenceOneDiv = document.getElementById("div_sentence_one");
+    sentenceOneDiv.innerHTML = ""
+    for(let word of proposition.sentenceOne.split(/\s+/)){
+        let wordSpan = createElementFromHTML(`<span class="word">${word}</span> <span class="tool_tip">${proposition.wordDict[word]??""} </span>`)
+        sentenceOneDiv.appendChild(wordSpan)
+    }
+
 }
 
 document.getElementById("button_play_audio").addEventListener("click", function(){
@@ -51,6 +59,16 @@ document.getElementById("button_next").addEventListener("click", new (function()
     }
 
 }))
+
+
+
+
+
+function createElementFromHTML(htmlString) {
+    var div = document.createElement('span');
+    div.innerHTML = htmlString.trim();
+    return div
+}
 
 
 

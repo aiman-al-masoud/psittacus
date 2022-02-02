@@ -1,0 +1,10 @@
+.tool_tip{
+    color: red;
+    visibility: hidden;
+    display: none;
+}
+
+.word:hover + .tool_tip{
+    display: inline;
+    visibility: visible;
+}
