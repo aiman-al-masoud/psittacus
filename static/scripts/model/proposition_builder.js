@@ -4,22 +4,22 @@
 class PropositionBuilder{
 
     constructor(){
-        this.word_dict = {}
+        this.wordDict = {}
         this.recorder = new Recorder()
     }
 
     setSentenceOne(sentence_one){
-        this.sentence_one = sentence_one
+        this.sentenceOne = sentence_one
         return this
     }
 
     setSentenceTwo(sentence_two){
-        this.sentence_two = sentence_two
+        this.sentenceTwo = sentence_two
         return this
     }
 
     setDefinition(word, definition){
-        this.word_dict[word] = definition
+        this.wordDict[word] = definition
         return this
     }
 
@@ -35,9 +35,9 @@ class PropositionBuilder{
 
     toJson(){
         return {
-            sentence_one : this.sentence_one,
-            sentence_two : this.sentence_two,
-            word_dict : this.word_dict,
+            sentence_one : this.sentenceOne,
+            sentence_two : this.sentenceTwo,
+            word_dict : this.wordDict,
             audio_base64 : this.recorder.base64
         }
     }

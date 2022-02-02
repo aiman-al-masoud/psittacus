@@ -8,11 +8,30 @@
 </head>
 <body>
 
+    <input type="text" id="input_sentence_one">
+    <br>
+    <input type="text" id="input_sentence_two">
+    <br>
+    <input type="button" value="Record Audio" id="button_audio">
+    <br>
+    <br>
+
+    <table id="table_definitions">
+
+    </table>
+
+
+    <input type="button" value="Next" id="button_next">
+    <input type="button" value="Previous" id="button_previous">
+    <input type="button" value="Done" id="button_done">
+
+
 
     <script src="{{url_for('static', filename='/scripts/model/recorder.js')}}"></script>
-    <script src="{{url_for('static', filename='/scripts/model/proposition.js')}}"></script>
     <script src="{{url_for('static', filename='/scripts/model/proposition_builder.js')}}"></script>
+    <script src="{{url_for('static', filename='/scripts/model/lesson_builder.js')}}"></script>
+    <script src="{{url_for('static', filename='/scripts/view/craft_lesson.js')}}"></script>
 
-
+    
 </body>
 </html>

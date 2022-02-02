@@ -10,6 +10,13 @@ CORS(app)
 def on_index():
     return render_template("index.html")
 
+@app.route("/craft-lesson", methods=["GET", "POST"])
+def on_craft_lesson():
+    return render_template("craft_lesson.html")
+
+@app.route("/take-lesson", methods=["GET", "POST"])
+def on_take_lesson():
+    return render_template("take_lesson.html")
 
 
 
