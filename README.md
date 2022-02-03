@@ -7,7 +7,7 @@
 
 ## What is it?
 
-Psittacus is an open-source tool meant to facilitate language-learning and teaching, with a vision to empower teachers and learners of any written+spoken language.
+Psittacus is a lightweight, open-source tool meant to facilitate language-learning and teaching, with a vision to empower teachers and learners of any written+spoken language.
 
 It is based on the gamification of the sentence-mining approach, having an interface inspired by that of Duolingo and other competing interactive 
 language learning-tools. Psittacus aims at democratizing the process of lesson-preparation, making it easy for teachers to prepare and share their lessons in a standardized and easily accessible format. 
@@ -29,6 +29,38 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 
 
 # Details
+
+<details>
+  <summary><strong>Code Organization</strong></summary>
+  
+  # Name Conflicts
+
+This website is being developed as an SPA <a target="_blank" href="https://it.wikipedia.org/wiki/Single-page_application">(Single Page Application)</a>, in light of making it easily downloadable, with as much functionality as possible available to the user offline. 
+  
+  
+  Being the final product a single page, means that all html templates have to share the same namespace. The solution 
+  currently being adopted to avoid naming conflicts is to have a **UNIQUE ID FOR EACH HTML ELEMENT**. 
+  
+  If you find/introduce any bugs, and are attempting to fix them, please consider checking for html element id conflicts.
+    
+  The convention that will be used in case of a naming conflict (two html elements with the same id) is to prepend the name    
+  of the template to the id of the element. 
+  
+  Eg:
+    
+   ```
+    <!--inside of the file 'take_lesson.html'-->
+    <input id="button_play_audio" type="button"/>
+      
+    <!--Becomes: -->
+    <input id="take_lesson_button_play_audio" type="button"/>
+     
+   ```
+  
+  
+</details>
+
+
 
 <details>
   <summary><strong>Setting up a Local Testing Environment</strong></summary>
@@ -87,4 +119,7 @@ $ . .my_env/bin/activate
 Click on the link, and the homepage will be launched on your default browser.
 
 </details>
+
+
+
 
