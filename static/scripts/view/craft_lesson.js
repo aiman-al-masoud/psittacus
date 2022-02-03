@@ -16,7 +16,7 @@ document.getElementById("button_audio").addEventListener("click", new (function(
             window.lessonBuilder.getCurrent().stopRecording()
             recording =  false;
             document.getElementById("button_audio").value = "Record Audio"
-            document.getElementById("button_play_audio").style = "visibility:visible; display:block;"
+            document.getElementById("button_play_audio").classList.add("displayed") 
         }else{
             window.lessonBuilder.getCurrent().record();
             recording = true;
