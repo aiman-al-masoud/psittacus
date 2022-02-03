@@ -45,3 +45,16 @@ body{
     margin-top: 200px; 
     text-align: center;
 }
+
+
+.textbox{
+    size: 50;
+    border-radius: 30px;
+    margin: 30px;
+}
+
+
+.centered{
+    width: 50%;
+    margin: 0 auto;
+}
