@@ -11,11 +11,27 @@
     <h1>Main Menu</h1>
 
 
-    <a href="/craft-lesson">Craft Lesson</a>
+    <!-- <a href="/craft-lesson">Craft Lesson</a>
     <br>
     <a href="/take-lesson">Take Lesson</a>
-    <br>
-    
+    <br> -->
+
+    <input id="button_take_lesson" type="button" value="Take Lesson">
+    <input id="button_craft_lesson" type="button" value="Craft Lesson">
+
+
+    <div id="div_take_lesson" class="hidden">
+        {% include "take_lesson.html" %}
+    </div>
+
+    <div id="div_craft_lesson" class="hidden">
+        {% include "craft_lesson.html" %}
+    </div>
+
+
+
+    <script src="{{url_for('static', filename='/scripts/view/index.js')}}" ></script>
+
 
 </body>
 </html>

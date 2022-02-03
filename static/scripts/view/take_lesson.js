@@ -33,27 +33,27 @@ function displayProposition(proposition){
 
 }
 
-document.getElementById("button_play_audio").addEventListener("click", function(){
+document.getElementById("take_lesson_button_play_audio").addEventListener("click", function(){
     window.lesson.getCurrent().play()
 })
 
 
-document.getElementById("button_next").addEventListener("click", new (function(){
+document.getElementById("take_lesson_button_next").addEventListener("click", new (function(){
     let seenSolution = false
 
     return function(){
         if(seenSolution){
             document.getElementById("p_sentence_two").style = "display: none; visibility: hidden;"
-            document.getElementById("input_sentence_two").value = ""
+            document.getElementById("take_lesson_input_sentence_two").value = ""
             document.getElementById("p_grading").innerHTML = ""
             window.lesson.next()
             displayProposition(window.lesson.getCurrent())
-            document.getElementById("button_next").value = "See Solution"
+            document.getElementById("take_lesson_button_next").value = "See Solution"
         }else{
             document.getElementById("p_sentence_two").style = "display: block; visibility: visible;"
-            let grading = window.lesson.getCurrent().check(document.getElementById("input_sentence_two").value)
+            let grading = window.lesson.getCurrent().check(document.getElementById("take_lesson_input_sentence_two").value)
             document.getElementById("p_grading").innerHTML = `${grading}%`
-            document.getElementById("button_next").value = "Next"
+            document.getElementById("take_lesson_button_next").value = "Next"
         }
 
         seenSolution = !seenSolution
