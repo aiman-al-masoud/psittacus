@@ -30,7 +30,6 @@ document.getElementById("input_sentence_one").addEventListener("input", function
     window.lessonBuilder.getCurrent().wordDict = defintionTableToDict()
     clearDefintionsTable()
     for( let word of document.getElementById("input_sentence_one").value.split(/\s+/) ){
-        console.log(word)
         newRowInDefinitionsTable(word,  window.lessonBuilder.getCurrent().wordDict[word]??""  )
     }
 })
