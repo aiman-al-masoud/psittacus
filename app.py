@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_cors import CORS
+from rjsmin import jsmin
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -24,7 +25,7 @@ def concatJs():
         with open(path, "r") as f:
             script+=f.read()+"\n"
     
-     return script
+     return jsmin(script)
 
 def concatCss():
     with open(os.path.join(app.root_path, "static", "stylesheets", "style.css"), "r") as f:
