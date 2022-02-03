@@ -31,6 +31,36 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 # Details
 
 <details>
+  <summary><strong>Code Organization</strong></summary>
+  
+  # Name Conflicts
+  
+   This website is being developed as an SPA (Single Page Application), in light of making it downloadable, with as much    
+   functionality as possible available offline. 
+  
+  Being the final product a single page, means that all html templates have to share the same namespace. The solution 
+  currently being adopted to avoid naming conflicts is to have a **UNIQUE ID FOR EACH HTML ELEMENT**.
+    
+  The convention that will be used in case of a naming conflict (two html elements with the same id) is to prepend the name    
+  of the template to the id of the element. 
+  
+  Eg:
+    
+   ```
+    <!--inside of the file 'take_lesson.html'-->
+    <input id="button_play_audio" type="button"/>
+      
+    <!--Becomes: -->
+    <input id="take_lesson_button_play_audio" type="button"/>
+     
+   ```
+  
+  
+</details>
+
+
+
+<details>
   <summary><strong>Setting up a Local Testing Environment</strong></summary>
 
 ## 1) Clone this repo
@@ -90,31 +120,4 @@ Click on the link, and the homepage will be launched on your default browser.
 
 
 
-<details>
-  <summary><strong>Code Organization</strong></summary>
-  
-  # Name Conflicts
-  
-   This website is being developed as an SPA (Single Page Application), in light of making it downloadable, with as much    
-   functionality as possible available offline. 
-  
-  Being the final product a single page, means that all html templates have to share the same namespace. The solution 
-  currently being adopted to avoid naming conflicts is to have a **UNIQUE ID FOR EACH HTML ELEMENT**.
-    
-  The convention that will be used in case of a naming conflict (two html elements with the same id) is to prepend the name    
-  of the template to the id of the element. 
-  
-  Eg:
-    
-   ```
-    <!--inside of the file 'take_lesson.html'-->
-    <input id="button_play_audio" type="button"/>
-      
-    <!--Becomes: -->
-    <input id="take_lesson_button_play_audio" type="button"/>
-     
-   ```
-  
-  
-</details>
 
