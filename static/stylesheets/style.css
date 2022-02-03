@@ -1,3 +1,8 @@
+body{
+    background: greenyellow;
+}
+
+
 .tool_tip{
     color: red;
     visibility: hidden;
@@ -21,10 +26,10 @@
 
 .navbar, .footer{
     margin: 10px; 
-    border: solid red 1px; 
-    background: black; 
+    border: solid green 1px; 
+    background: rgb(255, 255, 39); 
     border-radius: 60px;
-    color: red;
+    color: green;
     padding: 10px; 
 }
 
