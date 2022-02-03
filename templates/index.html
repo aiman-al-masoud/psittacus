@@ -13,12 +13,11 @@
 
 <body>
 
-
-
-    <header>
+    <header class="navbar">
         <input id="button_take_lesson" type="button" value="Take Lesson">
         <input id="button_craft_lesson" type="button" value="Craft Lesson">
     </header>
+
 
     <div id="div_take_lesson" class="hidden">
         {% include "take_lesson.html" %}
@@ -30,6 +29,11 @@
 
 
     <script defer> {{ script|safe }} </script>
+
+
+    <footer class="footer">
+        <p>Aiman Al Masoud © Psittacus is free software, distributed under GNU GPLv3.</p>
+    </footer>
 
 </body>
 
