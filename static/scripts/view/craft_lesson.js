@@ -29,7 +29,9 @@ document.getElementById("button_audio").addEventListener("click", new (function(
 document.getElementById("input_sentence_one").addEventListener("input", function(){
     window.lessonBuilder.getCurrent().wordDict = defintionTableToDict()
     clearDefintionsTable()
+    console.log("-------SEPARATOR-------")
     for( let word of document.getElementById("input_sentence_one").value.split(/\s+/) ){
+        console.log(word)
         newRowInDefinitionsTable(word,  window.lessonBuilder.getCurrent().wordDict[word]??""  )
     }
 })
@@ -77,8 +79,12 @@ function newRowInDefinitionsTable(word, translation) {
     var row = document.getElementById("table_definitions").insertRow();
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    cell1.innerHTML = `<input  type='text' value='${word}'>`;
-    cell2.innerHTML = `<input  type='text' value='${translation}'>`;
+    
+    word = word.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+    translation = translation.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+
+    cell1.innerHTML = `<input  type='text' value="${word}">`;
+    cell2.innerHTML = `<input  type='text' value="${translation}">`;
 }
 
 function clearDefintionsTable() {
