@@ -39,7 +39,9 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
    functionality as possible available offline. 
   
   Being the final product a single page, means that all html templates have to share the same namespace. The solution 
-  currently being adopted to avoid naming conflicts is to have a **UNIQUE ID FOR EACH HTML ELEMENT**.
+  currently being adopted to avoid naming conflicts is to have a **UNIQUE ID FOR EACH HTML ELEMENT**. 
+  
+  If you find/introduce any bugs, and are attempting to fix them, please consider checking for html element id conflicts.
     
   The convention that will be used in case of a naming conflict (two html elements with the same id) is to prepend the name    
   of the template to the id of the element. 
