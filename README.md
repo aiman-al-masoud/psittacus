@@ -35,7 +35,7 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
   
   # Name Conflicts
 
-This website is being developed as an SPA <a href="https://it.wikipedia.org/wiki/Single-page_application">(Single Page Application)</a>, in light of making it easily downloadable, with as much functionality as possible available to the user offline. 
+This website is being developed as an SPA <a target="_blank" href="https://it.wikipedia.org/wiki/Single-page_application">(Single Page Application)</a>, in light of making it easily downloadable, with as much functionality as possible available to the user offline. 
   
   
   Being the final product a single page, means that all html templates have to share the same namespace. The solution 
