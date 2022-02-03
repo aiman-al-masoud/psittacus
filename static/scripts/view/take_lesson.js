@@ -1,6 +1,3 @@
-import {Lesson} from "../model/lesson.js"
-
-
 document.getElementById("input_lesson_file").addEventListener("change", function(){
     let fr = new FileReader()
     fr.onload = function(){

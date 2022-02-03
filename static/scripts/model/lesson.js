@@ -1,4 +1,4 @@
-import {Proposition} from "./proposition.js"
+// import {Proposition} from "./proposition.js"
 
 /**
  * A lesson is mainly a list of Propositions.
@@ -22,4 +22,4 @@ class Lesson{
 
 }
 
-export {Lesson}
+// export {Lesson}

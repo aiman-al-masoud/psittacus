@@ -1,5 +1,3 @@
-import {LessonBuilder} from "../model/lesson_builder.js"
-
 window.lessonBuilder = new LessonBuilder()
 
 

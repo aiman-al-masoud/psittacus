@@ -1,4 +1,3 @@
-import {playBase64} from "./recorder.js"
 
 /**
  * A Proposition is an idea, expressed in two sentences in two different languages.
@@ -39,4 +38,3 @@ class Proposition{
 }
 
 
-export {Proposition} 

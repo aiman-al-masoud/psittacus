@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psittacus</title>
+    
+    {{ style|safe }}
+
 </head>
+
 <body>
 
 
@@ -14,8 +19,6 @@
         <input id="button_take_lesson" type="button" value="Take Lesson">
         <input id="button_craft_lesson" type="button" value="Craft Lesson">
     </header>
-
-
 
     <div id="div_take_lesson" class="hidden">
         {% include "take_lesson.html" %}
@@ -26,7 +29,8 @@
     </div>
 
 
-    <script src="{{url_for('static', filename='/scripts/view/index.js')}}" ></script>
+    <script defer> {{ script|safe }} </script>
 
 </body>
+
 </html>

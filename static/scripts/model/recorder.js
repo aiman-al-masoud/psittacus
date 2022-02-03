@@ -85,5 +85,3 @@ function playBase64(base64String){
 
 
 
-
-export {playBase64, Recorder}

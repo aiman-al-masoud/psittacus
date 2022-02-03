@@ -1,4 +1,4 @@
-import {PropositionBuilder} from "./proposition_builder.js"
+// import {PropositionBuilder} from "./proposition_builder.js"
 
 class LessonBuilder{
     
@@ -33,4 +33,4 @@ class LessonBuilder{
 
 }
 
-export {LessonBuilder}
+// export {LessonBuilder}
