@@ -40,7 +40,7 @@ document.getElementById("button_play_audio").addEventListener("click", function(
 
 
 document.getElementById("button_save_to_computer").addEventListener("click", function(){
-    move(true)
+    saveCurrentProposition()
     console.log(window.lessonBuilder.toJson())
     saveToComp( JSON.stringify(window.lessonBuilder.toJson()), "lesson", "text/plain")
 })
@@ -55,12 +55,16 @@ function saveToComp(content, fileName, contentType) {
 }
 
 
-
-function move(forward){
+function saveCurrentProposition(){
     let sentenceOne = document.getElementById("input_sentence_one").value
     let sentenceTwo = document.getElementById("input_sentence_two").value
     window.lessonBuilder.getCurrent().setSentenceOne(sentenceOne).setSentenceTwo(sentenceTwo)
     window.lessonBuilder.getCurrent().wordDict = defintionTableToDict()
+}
+
+
+function move(forward){
+    saveCurrentProposition()
     forward? window.lessonBuilder.next() : window.lessonBuilder.prev()
     document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
     document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
