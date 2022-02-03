@@ -1,3 +1,5 @@
+import {PropositionBuilder} from "./proposition_builder.js"
+
 class LessonBuilder{
     
     constructor(){
@@ -30,3 +32,5 @@ class LessonBuilder{
     }
 
 }
+
+export {LessonBuilder}

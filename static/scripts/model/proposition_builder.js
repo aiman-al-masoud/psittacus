@@ -1,3 +1,5 @@
+import {Recorder} from "./recorder.js"
+
 /**
  * Prepares a proposition's data in json format.
  */
@@ -51,3 +53,5 @@ class PropositionBuilder{
     }
 
 }
+
+export {PropositionBuilder}
