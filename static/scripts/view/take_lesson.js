@@ -40,14 +40,16 @@ document.getElementById("take_lesson_button_next").addEventListener("click", new
 
     return function(){
         if(seenSolution){
-            document.getElementById("p_sentence_two").style = "display: none; visibility: hidden;"
+            document.getElementById("p_sentence_two").classList.add("hidden")
+            document.getElementById("p_sentence_two").classList.remove("displayed")
             document.getElementById("take_lesson_input_sentence_two").value = ""
             document.getElementById("p_grading").innerHTML = ""
             window.lesson.next()
             displayProposition(window.lesson.getCurrent())
             document.getElementById("take_lesson_button_next").value = "See Solution"
         }else{
-            document.getElementById("p_sentence_two").style = "display: block; visibility: visible;"
+            document.getElementById("p_sentence_two").classList.add("displayed")
+            document.getElementById("p_sentence_two").classList.remove("hidden")
             let grading = window.lesson.getCurrent().check(document.getElementById("take_lesson_input_sentence_two").value)
             document.getElementById("p_grading").innerHTML = `${grading}%`
             document.getElementById("take_lesson_button_next").value = "Next"
