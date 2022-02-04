@@ -33,6 +33,37 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 # Details
 
 <details>
+   <summary><strong>Lesson Format</strong></summary>
+   
+  A lesson (sentence-pairs + word-definitions + audio-data) is stored as a json file. 
+  
+  The structure is the following:
+  
+  ```
+  {
+  propositions : [{}, {}, {}...]
+  }
+  ```
+  
+  A lesson-json contains a list of 'propositions'. Each proposition has the following structure:
+  
+  ```
+  {
+   sentence_one : "ciao mondo",
+   sentence_two : "hello world",
+   word_dict : {"ciao":"hello", "mondo":"world"},
+   audio_base64 : "data:audio/mpeg;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKEd2VibUK..."
+  }
+  
+  ```
+  
+  
+  
+  
+  
+</details>
+
+<details>
   <summary><strong>Code Organization</strong></summary>
   
   # Name Conflicts
