@@ -33,19 +33,27 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 # Details
 
 <details>
-   <summary><strong>Lesson Format</strong></summary>
+   <summary><strong>Lesson File Format</strong></summary>
    
-  A lesson (sentence-pairs + word-definitions + audio-data) is stored as a json file. 
-  
-  The structure is the following:
+   # Lesson File Format
+   
+  A 'lesson' comprises: sentence-pairs, word-definitions and audio-data. Each single lesson is made up of multiple 'propositions'. 
+  Each proposition expresses an idea in two different languages. The information of a lesson is stored in the widely-known json format, 
+  and can be shared as a simple text file. 
+   
+   
+  ## The structure of a lesson-json is the following:
   
   ```
   {
-  propositions : [{}, {}, {}...]
+  propositions : [proposition1, proposition2, proposition3...]
   }
   ```
   
-  A lesson-json contains a list of 'propositions'. Each proposition has the following structure:
+  (Metadata may get added to a lesson in the future).
+   
+  
+  ## Each of the propositions has the following structure:
   
   ```
   {
@@ -56,7 +64,8 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
   }
   
   ```
-  
+   
+   * sentence_one: the sentence 
   
   
   
@@ -66,7 +75,7 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 <details>
   <summary><strong>Code Organization</strong></summary>
   
-  # Name Conflicts
+  # Avoiding Name Conflicts
 
 This website is being developed as an SPA <a target="_blank" href="https://it.wikipedia.org/wiki/Single-page_application">(Single Page Application)</a>, in light of making it easily downloadable, with as much functionality as possible available to the user offline. 
   
