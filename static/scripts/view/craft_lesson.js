@@ -5,24 +5,11 @@ document.getElementById("craft_lesson_input_existing_lesson").addEventListener("
     let fr = new FileReader()
     fr.onload = function(){
         window.lessonBuilder = LessonBuilder.fromExistingJson(JSON.parse(fr.result))
-        
-        // console.log(window.lessonBuilder)
-        // document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
-        // document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
-        // dictToDefinitionTable(window.lessonBuilder.getCurrent().wordDict)
         displayProposition(window.lessonBuilder.getCurrent())
-        document.getElementById("button_play_audio").classList.add("displayed") 
-
-
-
-
-
-    
+        document.getElementById("button_play_audio").classList.add("displayed")     
     } 
     fr.readAsText(this.files[0]) //'this' meaning the file input element
 })
-
-
 
 
 document.getElementById("button_next").addEventListener("click", function(){
@@ -98,9 +85,6 @@ function displayProposition(proposition){
 function move(forward){
     saveCurrentProposition()
     forward? window.lessonBuilder.next() : window.lessonBuilder.prev()
-    // document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
-    // document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
-    // dictToDefinitionTable(window.lessonBuilder.getCurrent().wordDict)
     displayProposition(window.lessonBuilder.getCurrent())
 }
 
