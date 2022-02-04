@@ -57,6 +57,23 @@ This website is being developed as an SPA <a target="_blank" href="https://it.wi
      
    ```
   
+  And for javascript functions, to append the camelCase name of the module they're in:
+  
+  ```
+  //inside of craft_lesson.js
+  
+  function displayProposition(proposition){
+  /*...*/
+  }
+  
+  // becomes:
+ 
+  function displayPropositionCraftLesson(proposition){
+  /*...*/
+  }
+  
+  ```
+  
   
 </details>
 
