@@ -21,8 +21,10 @@ language learning-tools. Psittacus aims at democratizing the process of lesson-p
 * And many more...
 
 ## What are some of its main features?
-* Easy-to-use interface for teachers to prepare lessons.
-* Lessons can be taken fully offline, once sideloaded/prepared.
+* Simple interface for lang-teachers to prepare lessons.
+* Possibility to easily edit existing lessons.
+* Lessons are stored in an easily shareable format. 
+* Lessons can be taken fully offline, once downloaded/sideloaded.
 * Support for audio playback of sentences.
 * Support for hover-over-the-word definitions.
 
