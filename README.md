@@ -68,7 +68,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    
    * sentence_one: the sentence in the **target language** (ie: the language the student wishes to learn).
    * sentence_two: the same idea expressed in the **student's language**.
-   * audio_base64: the audio of sentence_one (in the **target language**) recorded by a native or proficient speaker of the language. Encoded
+   * audio_base64: the audio of sentence_one (in the **target language**) recorded by a native or proficient speaker. Encoded
    as audio-data in base-64. 
    * word_dict: a dictionary that provides a brief description of each word contained in sentence_one. 
    
