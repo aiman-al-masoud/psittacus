@@ -1,11 +1,19 @@
-// import {PropositionBuilder} from "./proposition_builder.js"
-
 class LessonBuilder{
     
     constructor(){
         this.propositions = [new PropositionBuilder()]
         this.current = 0
     }
+
+    /**
+     * Alt 'constructor' that takes in a json in the format produced by 'toJson'.
+     */
+    static fromExistingJson(jsonData){
+        let lb = new LessonBuilder()
+        lb.propositions = jsonData.propositions.map((p)=> {return PropositionBuilder.fromExistingJson(p)}) 
+        return lb  
+    }
+
 
     getCurrent(){
         return this.propositions[this.current]
@@ -33,4 +41,3 @@ class LessonBuilder{
 
 }
 
-// export {LessonBuilder}

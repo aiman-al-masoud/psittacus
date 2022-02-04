@@ -1,8 +1,33 @@
 window.lessonBuilder = new LessonBuilder()
 
 
+document.getElementById("craft_lesson_input_existing_lesson").addEventListener("change", function(){
+    let fr = new FileReader()
+    fr.onload = function(){
+        window.lessonBuilder = LessonBuilder.fromExistingJson(JSON.parse(fr.result))
+        
+        // console.log(window.lessonBuilder)
+        // document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
+        // document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
+        // dictToDefinitionTable(window.lessonBuilder.getCurrent().wordDict)
+        displayProposition(window.lessonBuilder.getCurrent())
+        document.getElementById("button_play_audio").classList.add("displayed") 
+
+
+
+
+
+    
+    } 
+    fr.readAsText(this.files[0]) //'this' meaning the file input element
+})
+
+
+
+
 document.getElementById("button_next").addEventListener("click", function(){
     move(true)
+    console.log(window.lessonBuilder)
 })
 
 document.getElementById("button_previous").addEventListener("click", function(){
@@ -63,12 +88,20 @@ function saveCurrentProposition(){
 }
 
 
+function displayProposition(proposition){
+    document.getElementById("input_sentence_one").value = proposition.sentenceOne??""
+    document.getElementById("input_sentence_two").value = proposition.sentenceTwo??""
+    dictToDefinitionTable(proposition.wordDict)
+}
+
+
 function move(forward){
     saveCurrentProposition()
     forward? window.lessonBuilder.next() : window.lessonBuilder.prev()
-    document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
-    document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
-    dictToDefinitionTable(window.lessonBuilder.getCurrent().wordDict)
+    // document.getElementById("input_sentence_one").value = window.lessonBuilder.getCurrent().sentenceOne??""
+    // document.getElementById("input_sentence_two").value = window.lessonBuilder.getCurrent().sentenceTwo??""
+    // dictToDefinitionTable(window.lessonBuilder.getCurrent().wordDict)
+    displayProposition(window.lessonBuilder.getCurrent())
 }
 
 

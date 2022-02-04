@@ -9,6 +9,18 @@ class PropositionBuilder{
         this.recorder = new Recorder()
     }
 
+    /**
+    * Alt 'constructor' that takes in a json in the format produced by 'toJson'.
+    */
+    static fromExistingJson(jsonData){
+        let pb = new PropositionBuilder()
+        pb.sentenceOne = jsonData.sentence_one
+        pb.sentenceTwo = jsonData.sentence_two
+        pb.wordDict = jsonData.word_dict
+        pb.recorder.base64 = jsonData.audio_base64
+        return pb
+    }
+
     setSentenceOne(sentence_one){
         this.sentenceOne = sentence_one
         return this
@@ -39,7 +51,7 @@ class PropositionBuilder{
     }
 
     playAudio(){
-        this.recorder.play()
+        playBase64(this.recorder.base64)
     }
 
     toJson(){
