@@ -7,9 +7,9 @@
 
 ## What is it?
 
-Psittacus is a lightweight, open-source tool meant to facilitate language-learning and teaching, with a vision to empower teachers and learners of any written+spoken language.
+Psittacus is a lightweight, open-source tool meant to facilitate language-learning and teaching, with a vision to empower teachers and learners of any written+spoken language. It is based on the gamification of the sentence-mining approach, having an interface vaguely inspired by that of Duolingo and other competing interactive language learning-tools. 
 
-It is based on the gamification of the sentence-mining approach, having an interface vaguely inspired by that of Duolingo and other competing interactive language learning-tools. Psittacus aims at democratizing the process of lesson-preparation, making it easy for teachers to prepare and collaborate on their own lessons, and share them in a standardized and easily accessible format. 
+Psittacus aims at democratizing the process of lesson-preparation, making it easy for teachers to prepare and collaborate on their own lessons, and share them in a standardized and easily accessible format. 
 
 ## Whom does it appeal to?
 
