@@ -7,7 +7,7 @@
 
 ## What is it?
 
-Psittacus is a lightweight, open-source tool meant to facilitate language-learning and teaching, with a vision to empower teachers and learners of any written+spoken language. 
+Psittacus is a lightweight, open-source tool, meant to facilitate language-learning and teaching, and with a vision to empower teachers and learners of any written+spoken language around the world. 
 
 Psittacus is based on the gamification of the sentence-mining approach, having an interface vaguely inspired by that of Duolingo and other competing interactive language learning-tools. 
 
@@ -23,7 +23,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 
 ## What are some of its main features?
 * Simple interface for lang-teachers to prepare lessons.
-* Possibility to easily edit existing lessons.
+* Possibility to edit and extend existing lessons.
 * Lessons are stored in an easily shareable format. 
 * Lessons can be taken fully offline, once downloaded/sideloaded.
 * Support for audio playback of sentences.
@@ -47,29 +47,39 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
   
   ```
   {
-  propositions : [proposition1, proposition2, proposition3...]
+  "propositions" : [proposition1, proposition2, proposition3, ...]
   }
   ```
   
   (Metadata may get added to a lesson in the future).
    
   
-  ## Each of the propositions has the following structure:
+  ## Each proposition has the following structure:
   
   ```
   {
-   sentence_one : "ciao mondo",
-   sentence_two : "hello world",
-   word_dict : {"ciao":"hello", "mondo":"world"},
-   audio_base64 : "data:audio/mpeg;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKEd2VibUK..."
+   "sentence_one" : "ciao mondo",
+   "sentence_two" : "hello world",
+   "word_dict" : {"ciao":"hello", "mondo":"world"},
+   "audio_base64" : "data:audio/mpeg;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKEd2VibUK..."
   }
   
   ```
    
-   * sentence_one: the sentence 
-  
-  
-  
+   * sentence_one: the sentence in the **target language** (ie: the language the student wishes to learn).
+   * sentence_two: the same idea expressed in the **student's language**.
+   * word_dict: a dictionary that provides a brief description of each word contained in sentence_one. 
+   
+   #### Please note that: 
+   
+   * A 'word' here simply means: 'a string of unicode characters surrounded by spaces'. 
+   
+   * The definition can and should be made up of more words, and may eventually include a brief analysis of the grammar (tense, gender, case
+   markings...) if that helps the student understand the context better. In more 'advanced' lessons, this brief definition may be provided in
+   terms of the target language, for those who favor a full-immersion approach.
+   
+   * audio_base64: the audio of sentence_one (in the **target language**) recorded by a native or proficient speaker of the language. Encoded
+   as audio-data in base-64. 
   
 </details>
 
