@@ -15,10 +15,10 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 
 ## Whom does it appeal to?
 
-* Language lovers.
-* Teachers of any language that need to share quick homeworks/lessons with their students.
-* Speakers of endangered languages that wish to preserve and spread their native tounge.
-* Conlangers that want the world to learn their language.
+* Language lovers in general. 🌍
+* Teachers of any language that need to share quick homeworks/lessons with their students. 📚
+* Speakers of endangered languages that wish to preserve and spread their native tounge. 🌱
+* Conlangers that want the world to learn their constructed language. 🤓
 * And many more...
 
 ## What are some of its main features?
