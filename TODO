@@ -1,2 +1,3 @@
 * Allow multiple translations of the same original sentence.
 * Introduce 'translate into the taget language' questions.
+* Add author and lang1-lang2 metadata to lesson json.
