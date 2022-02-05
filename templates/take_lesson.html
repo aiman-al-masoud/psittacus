@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Take Lesson</title>
 </head>
+
 <body>
 
     <label for="input_lesson_file" class="normal_button">
         Open Lesson From File
-        <input type="file"  id="input_lesson_file" hidden>
+        <input type="file" id="input_lesson_file" hidden>
     </label>
 
     <br>
     <br>
 
 
-    <div id="div_sentence_one"></div>
+    <div id="take_lesson_div_root" class="hidden">
 
-    <br>
-    <input id="take_lesson_button_play_audio" type="button" value="Play Audio" class="normal_button">
-    <br>
-    <input id="take_lesson_input_sentence_two" type="text" name="" class="textbox">
-    <br>
-    <p id="p_sentence_two"  class="hidden" ></p>
-    <p id="p_grading"></p>
 
-    <br>
+        <div id="div_sentence_one"></div>
 
-    <input id="take_lesson_button_next" type="button" value="See Solution" class="normal_button">
+        <br>
+        <input id="take_lesson_button_play_audio" type="button" value="Play Audio" class="normal_button">
+        <br>
+        <input id="take_lesson_input_sentence_two" type="text" name="" class="textbox">
+        <br>
+
+
+        <div id="take_lesson_div_solution" class="hidden">
+            <p>Solution:</p>
+            <p id="p_sentence_two"></p>
+            <p>Your accuracy: <span id="p_grading"></span></p>
+        </div>
+
+
+
+        <br>
+
+        <input id="take_lesson_button_next" type="button" value="See Solution" class="normal_button">
+
+
+    </div>
 
 </body>
+
 </html>

@@ -48,8 +48,10 @@ body{
 
 .textbox{
     size: 50;
-    border-radius: 30px;
+    border-radius: 20px;
     margin: 30px;
+    font-size: large;
+    padding: 10px;
 }
 
 
@@ -65,4 +67,12 @@ body{
     color: red;
     background: yellow;
     padding: 3px;
+}
+
+
+
+#take_lesson_div_solution{
+    border: solid green 1px;
+    padding: 3px;
+    border-radius: 5px;
 }
