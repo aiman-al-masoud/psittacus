@@ -20,15 +20,16 @@ class Proposition{
     }
 
     /**
-     * Give a rating from 0% to 100% to the user's translation of sentence_one to sentence_two.
+     * Give a rating from 0% to 100% to the user's translation.
      * @param {*} users_translation 
      * @returns 
      */
     check(users_translation){
-        //TODO CASE DIRECTION INVERTED
+
+        let correctSentence = this.targetToNative? this.sentenceTwo : this.sentenceOne
         let counter = 0;
         for (let userWord of users_translation.split(/\s+/)){
-            if (this.sentenceTwo.split(/\s+/).includes(userWord)){
+            if (correctSentence.split(/\s+/).includes(userWord)){
                 counter++
             }
         }
