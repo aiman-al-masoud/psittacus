@@ -73,17 +73,17 @@ document.getElementById("take_lesson_button_next").addEventListener("click", new
             if(!window.lesson.getCurrent().targetToNative){
                 showElement(document.getElementById("div_sentence_one"))
                 window.lesson.getCurrent().play()
+            }else{
+                showElement(document.getElementById("p_sentence_two"))
             }
+
+
         }
-
-
        
         seenSolution = !seenSolution
     }
 
 }))
-
-
 
 
 function createElementFromHTML(htmlString) {

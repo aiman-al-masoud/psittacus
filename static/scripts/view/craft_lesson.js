@@ -1,4 +1,5 @@
 window.lessonBuilder = new LessonBuilder()
+displayPropositionCraftLesson(window.lessonBuilder.getCurrent())
 
 
 document.getElementById("craft_lesson_input_existing_lesson").addEventListener("change", function(){
