@@ -1,3 +1,7 @@
-* Allow multiple translations of the same original sentence.
-
 * Add author and lang1-lang2 metadata to lesson json.
+
+* Always display solution down, in both directions of translation
+
+* hover-over-the-word hints for native to target direction as well.
+
+* Allow multiple translations of the same original sentence.
