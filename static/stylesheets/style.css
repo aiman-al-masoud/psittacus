@@ -1,5 +1,5 @@
 body{
-    background: yellowgreen;
+    background: whitesmoke;
 }
 
 .tool_tip{
@@ -25,10 +25,10 @@ body{
 
 .navbar, .footer{
     margin: 10px; 
-    border: solid red 1px; 
+    border: solid black 1px; 
     background: green;
     border-radius: 60px;
-    color: red;
+    color: black;
     padding: 10px; 
 }
 
@@ -41,7 +41,8 @@ body{
 
 .footer{
     float: bottom; 
-    margin-top: 200px; 
+    margin-top: 50vh; 
+    margin-bottom: 0;
     text-align: center;
 }
 
@@ -63,8 +64,8 @@ body{
 
 .normal_button{
     border-radius: 30px;
-    border: solid 2px red;
-    color: red;
+    border: solid 2px black;
+    color: black;
     background: yellow;
     padding: 3px;
 }
