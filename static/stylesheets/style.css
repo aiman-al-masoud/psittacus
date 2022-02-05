@@ -26,7 +26,7 @@ body{
 
 .navbar, .footer{
     margin: 10px; 
-    border: solid black 1px; 
+    border: double black 3px; 
     background: green;
     border-radius: 60px;
     color: black;
