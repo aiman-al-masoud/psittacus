@@ -28,12 +28,12 @@ document.getElementById("button_audio").addEventListener("click", new (function(
         if(recording){
             window.lessonBuilder.getCurrent().stopRecording()
             recording =  false;
-            document.getElementById("button_audio").value = "Record Audio"
+            document.getElementById("button_audio").value = "Record Audio🎙️"
             document.getElementById("button_play_audio").classList.add("displayed") 
         }else{
             window.lessonBuilder.getCurrent().record();
             recording = true;
-            document.getElementById("button_audio").value = "Stop Recording"
+            document.getElementById("button_audio").value = "Stop Recording 🔴"
         }
     }    
 })  )
