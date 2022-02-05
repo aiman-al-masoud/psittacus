@@ -1,6 +1,6 @@
 * Allow multiple translations of the same original sentence.
 
-* Introduce 'translate into the taget language' questions:
+* Introduce 'translate into target language' questions:
 PropositionBuilder has extra method askTranslateToTarget(), 
 triggered each time by a checkbox in craft lesson. This will add a new 
 attribute to the proposition json, that will get added to the proposition, 
