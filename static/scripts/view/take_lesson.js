@@ -33,11 +33,13 @@ function displayProposition(proposition){
         //user needs to see (and hear) just the sentence in the target language.
         showElement(sentenceOneDiv)
         hideElement(sentenceTwo)
+        showElement(document.getElementById("take_lesson_button_play_audio"));
         proposition.play()
     }else{
         //... only the sentence in their native lang.
         showElement(sentenceTwo)
         hideElement(sentenceOneDiv)
+        hideElement(document.getElementById("take_lesson_button_play_audio"));
     }
 
 }
