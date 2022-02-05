@@ -57,6 +57,10 @@ document.getElementById("button_save_to_computer").addEventListener("click", fun
     saveToComp( JSON.stringify(window.lessonBuilder.toJson()), "lesson", "text/plain")
 })
 
+document.getElementById("invert_translation_direction").addEventListener("change", function(){
+    window.lessonBuilder.getCurrent().invertTranslationDirection();
+})
+
 
 function saveToComp(content, fileName, contentType) {
     var a = document.createElement("a");
@@ -79,6 +83,7 @@ function displayPropositionCraftLesson(proposition){
     document.getElementById("input_sentence_one").value = proposition.sentenceOne??""
     document.getElementById("input_sentence_two").value = proposition.sentenceTwo??""
     dictToDefinitionTable(proposition.wordDict)
+    document.getElementById("invert_translation_direction").checked = proposition.targetToNative   
 }
 
 

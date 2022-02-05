@@ -6,6 +6,7 @@ class PropositionBuilder{
     constructor(){
         this.wordDict = {}
         this.recorder = new Recorder()
+        this.targetToNative = true; //to be translated from target lang to native by default.
     }
 
     /**
@@ -17,6 +18,7 @@ class PropositionBuilder{
         pb.sentenceTwo = jsonData.sentence_two
         pb.wordDict = jsonData.word_dict
         pb.recorder.base64 = jsonData.audio_base64
+        pb.targetToNative = jsonData.target_to_native??true
         return pb
     }
 
@@ -53,12 +55,21 @@ class PropositionBuilder{
         playBase64(this.recorder.base64)
     }
 
+    /**
+     * By default, the user should be asked to translate target to native, this method inverts the order.
+     */
+    invertTranslationDirection(){
+        this.targetToNative = !this.targetToNative;
+    }
+
+
     toJson(){
         return {
             sentence_one : this.sentenceOne,
             sentence_two : this.sentenceTwo,
             word_dict : this.wordDict,
-            audio_base64 : this.recorder.base64
+            audio_base64 : this.recorder.base64,
+            target_to_native  : this.targetToNative
         }
     }
 

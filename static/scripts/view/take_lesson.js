@@ -18,8 +18,10 @@ function startLesson(lesson){
 
 function displayProposition(proposition){
 
-    document.getElementById("p_sentence_two").innerHTML = proposition.sentenceTwo;
+    let sentenceTwo  = document.getElementById("p_sentence_two");
+    sentenceTwo.innerHTML = proposition.sentenceTwo;
     
+
     let sentenceOneDiv = document.getElementById("div_sentence_one");
     sentenceOneDiv.innerHTML = ""
     for(let word of proposition.sentenceOne.split(/\s+/)){
@@ -27,9 +29,19 @@ function displayProposition(proposition){
         sentenceOneDiv.appendChild(wordSpan)
     }
 
-    proposition.play()
+    if(proposition.targetToNative){
+        //user needs to see (and hear) just the sentence in the target language.
+        showElement(sentenceOneDiv)
+        hideElement(sentenceTwo)
+        proposition.play()
+    }else{
+        //... only the sentence in their native lang.
+        showElement(sentenceTwo)
+        hideElement(sentenceOneDiv)
+    }
 
 }
+
 
 document.getElementById("take_lesson_button_play_audio").addEventListener("click", function(){
     window.lesson.getCurrent().play()
@@ -41,21 +53,31 @@ document.getElementById("take_lesson_button_next").addEventListener("click", new
 
     return function(){
         if(seenSolution){
-            document.getElementById("take_lesson_div_solution").classList.add("hidden")
-            document.getElementById("take_lesson_div_solution").classList.remove("displayed")
+
+            hideElement(document.getElementById("take_lesson_div_solution"))
+
             document.getElementById("take_lesson_input_sentence_two").value = ""
             document.getElementById("p_grading").innerHTML = ""
             window.lesson.next()
             displayProposition(window.lesson.getCurrent())
             document.getElementById("take_lesson_button_next").value = "See Solution"
         }else{
-            document.getElementById("take_lesson_div_solution").classList.add("displayed")
-            document.getElementById("take_lesson_div_solution").classList.remove("hidden")
+
+            showElement( document.getElementById("take_lesson_div_solution"))
+
             let grading = window.lesson.getCurrent().check(document.getElementById("take_lesson_input_sentence_two").value)
             document.getElementById("p_grading").innerHTML = `${grading}%`
             document.getElementById("take_lesson_button_next").value = "Next"
+
+
+            if(!window.lesson.getCurrent().targetToNative){
+                showElement(document.getElementById("div_sentence_one"))
+                window.lesson.getCurrent().play()
+            }
         }
 
+
+       
         seenSolution = !seenSolution
     }
 
@@ -70,6 +92,15 @@ function createElementFromHTML(htmlString) {
     return div
 }
 
+function hideElement(element){
+    element.classList.add("hidden");
+    element.classList.remove("displayed");
+}
+
+function showElement(element){
+    element.classList.add("displayed");
+    element.classList.remove("hidden");
+}
 
 
 

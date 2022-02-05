@@ -9,6 +9,7 @@ class Proposition{
         this.sentenceTwo = jsonData.sentence_two
         this.audioBase64 = jsonData.audio_base64
         this.wordDict = jsonData.word_dict
+        this.targetToNative = jsonData.target_to_native??true
     }
 
     /**
@@ -24,6 +25,7 @@ class Proposition{
      * @returns 
      */
     check(users_translation){
+        //TODO CASE DIRECTION INVERTED
         let counter = 0;
         for (let userWord of users_translation.split(/\s+/)){
             if (this.sentenceTwo.split(/\s+/).includes(userWord)){
