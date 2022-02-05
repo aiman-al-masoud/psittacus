@@ -1,4 +1,3 @@
-
 /**
  * Prepares a proposition's data in json format.
  */
