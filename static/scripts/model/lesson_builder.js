@@ -43,6 +43,7 @@ class LessonBuilder{
         target_language : this.targetLanguage??"",
         source_language : this.sourceLanguage??"",
         author : this.author??"",  
+        last_modified : new Date().getTime(),
         propositions : this.propositions.filter((p)=> !p.isEmpty()  ) .map((p)=> p.toJson())
         }
     }

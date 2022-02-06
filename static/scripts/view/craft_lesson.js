@@ -7,7 +7,12 @@ document.getElementById("craft_lesson_input_existing_lesson").addEventListener("
     fr.onload = function(){
         window.lessonBuilder = LessonBuilder.fromExistingJson(JSON.parse(fr.result))
         displayPropositionCraftLesson(window.lessonBuilder.getCurrent())
-        document.getElementById("button_play_audio").classList.add("displayed")     
+        document.getElementById("button_play_audio").classList.add("displayed") 
+
+        document.getElementById("input_metadata_target_lang").value = window.lessonBuilder.targetLanguage
+        document.getElementById("input_metadata_source_lang").value = window.lessonBuilder.sourceLanguage
+        document.getElementById("input_metadata_author").value = window.lessonBuilder.author        
+
     } 
     fr.readAsText(this.files[0]) //'this' meaning the file input element
 })
