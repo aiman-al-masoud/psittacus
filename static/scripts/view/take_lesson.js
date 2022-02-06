@@ -1,5 +1,8 @@
 document.getElementById("input_lesson_file").addEventListener("change", function(){
     let fr = new FileReader()
+
+    this.onclick = ()=> {this.value = null}
+
     fr.onload = function(){
         let lesson  = new Lesson(JSON.parse(fr.result) )
         console.log(lesson)        
