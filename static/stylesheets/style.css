@@ -70,4 +70,15 @@ body{
     color: black;
     background: yellow;
     padding: 3px;
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+.normal_button:hover{
+    transform: scale(1.1,1.1);
+}
+
+
+.normal_button:active{
+    transform: scale(0.9,0.9);
 }
