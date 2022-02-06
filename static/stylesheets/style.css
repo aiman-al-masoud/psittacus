@@ -70,11 +70,3 @@ body{
     background: yellow;
     padding: 3px;
 }
-
-
-
-#take_lesson_div_solution{
-    border: solid green 1px;
-    padding: 3px;
-    border-radius: 5px;
-}
