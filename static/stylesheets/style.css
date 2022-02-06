@@ -1,7 +1,6 @@
 body{
     background: whitesmoke;
     font-family: sans-serif;
-    /* width: 100vw; */
 }
 
 .tool_tip{
@@ -26,18 +25,18 @@ body{
 }
 
 .navbar, .footer{
-    margin: 10px; 
-    border: double black 3px; 
+    margin: 1vw; 
+    border: double black 0.5vw; 
     background: green;
-    border-radius: 60px;
+    border-radius: 6vw;
     color: black;
-    padding: 10px; 
+    padding: 1vw; 
 }
 
 
 .navbar{
     float: top; 
-    margin-bottom: 20px; 
+    margin-bottom: 5vh; 
 }
 
 
@@ -51,10 +50,10 @@ body{
 
 .textbox{
     width: 50vw;
-    border-radius: 20px;
-    margin: 30px;
+    border-radius: 6vw;
+    margin: 1vw;
     font-size: large;
-    padding: 10px;
+    padding: 1vw;
 }
 
 
@@ -65,11 +64,11 @@ body{
 
 
 .normal_button{
-    border-radius: 30px;
-    border: solid 2px black;
+    border-radius: 6vw;
+    border: solid 0.2vw black;
     color: black;
     background: yellow;
-    padding: 3px;
+    padding: 0.5vw;
     margin-right: 1vw;
     margin-left: 1vw;
 }
