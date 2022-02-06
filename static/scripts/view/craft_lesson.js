@@ -63,6 +63,23 @@ document.getElementById("invert_translation_direction").addEventListener("change
 })
 
 
+
+document.getElementById("input_metadata_target_lang").addEventListener("input", function(){
+    window.lessonBuilder.targetLanguage = document.getElementById("input_metadata_target_lang").value
+})
+
+
+document.getElementById("input_metadata_source_lang").addEventListener("input", function(){
+    window.lessonBuilder.sourceLanguage = document.getElementById("input_metadata_source_lang").value
+})
+
+
+document.getElementById("input_metadata_author").addEventListener("input", function(){
+    window.lessonBuilder.author = document.getElementById("input_metadata_author").value
+})
+
+
+
 function saveCurrentProposition(){
     let sentenceOne = document.getElementById("input_sentence_one").value
     let sentenceTwo = document.getElementById("input_sentence_two").value
@@ -120,11 +137,4 @@ function dictToDefinitionTable(dict){
         newRowInDefinitionsTable(entry[0], entry[1])
     }
 }
-
-
-
-
-
-
-
 

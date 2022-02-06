@@ -6,6 +6,10 @@ class Lesson{
 
     constructor(jsonData){
         this.propositions = jsonData.propositions.map( p => {return new Proposition(p)} )
+        this.targetLanguage = jsonData.target_language??""
+        this.sourceLanguage = jsonData.source_language??""
+        this.author = jsonData.author??""
+        
         this.iterator = this.propositions.values()
         this.next()
     }

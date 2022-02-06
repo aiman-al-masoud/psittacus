@@ -11,6 +11,9 @@ class LessonBuilder{
     static fromExistingJson(jsonData){
         let lb = new LessonBuilder()
         lb.propositions = jsonData.propositions.map((p)=> {return PropositionBuilder.fromExistingJson(p)}) 
+        lb.targetLanguage = jsonData.target_language??""
+        lb.sourceLanguage = jsonData.source_language??""
+        lb.author = jsonData.author??""
         return lb  
     }
 
@@ -36,7 +39,12 @@ class LessonBuilder{
     }
 
     toJson(){
-        return {    propositions : this.propositions.filter((p)=> !p.isEmpty()  ) .map((p)=> p.toJson()) }
+        return {   
+        target_language : this.targetLanguage??"",
+        source_language : this.sourceLanguage??"",
+        author : this.author??"",  
+        propositions : this.propositions.filter((p)=> !p.isEmpty()  ) .map((p)=> p.toJson())
+        }
     }
 
 }
