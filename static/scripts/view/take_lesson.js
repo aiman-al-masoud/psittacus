@@ -73,8 +73,11 @@ document.getElementById("take_lesson_button_next").addEventListener("click", new
             document.getElementById("p_grading").innerHTML = `${grading}%`
             document.getElementById("take_lesson_button_next").value = "Next"
 
-            showElement(document.getElementById("take_lesson_button_play_audio"))
-            window.lesson.getCurrent().play()
+            if(!window.lesson.getCurrent().targetToNative){
+                showElement(document.getElementById("take_lesson_button_play_audio"))
+                window.lesson.getCurrent().play()
+            }
+
         }
        
         seenSolution = !seenSolution
