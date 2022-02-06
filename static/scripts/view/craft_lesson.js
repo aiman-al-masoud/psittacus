@@ -63,15 +63,6 @@ document.getElementById("invert_translation_direction").addEventListener("change
 })
 
 
-function saveToComp(content, fileName, contentType) {
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
-}
-
-
 function saveCurrentProposition(){
     let sentenceOne = document.getElementById("input_sentence_one").value
     let sentenceTwo = document.getElementById("input_sentence_two").value
@@ -93,7 +84,6 @@ function move(forward){
     forward? window.lessonBuilder.next() : window.lessonBuilder.prev()
     displayPropositionCraftLesson(window.lessonBuilder.getCurrent())
 }
-
 
 
 function newRowInDefinitionsTable(word, translation) {

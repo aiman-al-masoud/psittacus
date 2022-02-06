@@ -2,6 +2,12 @@
 
 * Always display solution down, in both directions of translation
 
+* add mechanism to post lessons to server and retrieve them by metadata.
+
+
+
 * hover-over-the-word hints for native to target direction as well.
+(NOPE, too costly, maybe later. Just show tips on target-lang sentence whenever displayed).
 
 * Allow multiple translations of the same original sentence.
+(LATER, too costly right now.)

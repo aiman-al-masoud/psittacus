@@ -10,7 +10,7 @@ document.getElementById("input_lesson_file").addEventListener("change", function
 
 
 function startLesson(lesson){
-    document.getElementById("take_lesson_div_root").classList.add("displayed")
+    showElement(document.getElementById("take_lesson_div_root"))
     window.lesson = lesson
     displayProposition(lesson.getCurrent())
 }
@@ -20,8 +20,6 @@ function displayProposition(proposition){
 
     let sentenceTwo  = document.getElementById("p_sentence_two");
     sentenceTwo.innerHTML = proposition.sentenceTwo;
-    
-
     let sentenceOneDiv = document.getElementById("div_sentence_one");
     sentenceOneDiv.innerHTML = ""
     for(let word of proposition.sentenceOne.split(/\s+/)){
@@ -88,21 +86,21 @@ document.getElementById("take_lesson_button_next").addEventListener("click", new
 }))
 
 
-function createElementFromHTML(htmlString) {
-    var div = document.createElement('span');
-    div.innerHTML = htmlString.trim();
-    return div
-}
+// function createElementFromHTML(htmlString) {
+//     var div = document.createElement('span');
+//     div.innerHTML = htmlString.trim();
+//     return div
+// }
 
-function hideElement(element){
-    element.classList.add("hidden");
-    element.classList.remove("displayed");
-}
+// function hideElement(element){
+//     element.classList.add("hidden");
+//     element.classList.remove("displayed");
+// }
 
-function showElement(element){
-    element.classList.add("displayed");
-    element.classList.remove("hidden");
-}
+// function showElement(element){
+//     element.classList.add("displayed");
+//     element.classList.remove("hidden");
+// }
 
 
 
