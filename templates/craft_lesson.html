@@ -18,13 +18,23 @@
     <br>
     <br>
 
+
+    <input type="button" value="Next" id="button_next" class="normal_button">
+    <input type="button" value="Previous" id="button_previous" class="normal_button">
+
+    <br>
+
     <h3>Write a sentence in the target language:</h3>
     <input type="text" id="input_sentence_one" class="textbox">
     <br>
     <h3>Record yourself saying it:</h3>
     <input type="button" value="Record Audio🎙️" id="button_audio" class="normal_button">
     <input type="button" value="Play Audio ▶" id="button_play_audio"  class="hidden   normal_button">
-    <h3>Translate to the students' language:</h3>
+    
+    <br>
+    
+    <h3>Translate to the source language:</h3>
+    <p><em>(A language that your students undestand.)</em></p>
     <input type="text" id="input_sentence_two" class="textbox">
     <br>
     
@@ -32,22 +42,28 @@
     <br>
     <br>
     <h3>Give a brief definition of each word you used:</h3>
+    <p><em>(The words will appear here as you type them)</em></p>
     <table id="table_definitions"></table>
 
     <br>
     <br>
 
+    <h3>Choose a Direction of Translation:</h3>
+
     <label for="invert_translation_direction">From target lang to native lang (default)</label>
     <input type="checkbox" id="invert_translation_direction">
 
     <br>
-    <br>
 
-    <input type="button" value="Next" id="button_next" class="normal_button">
-    <input type="button" value="Previous" id="button_previous" class="normal_button">
+    <p><em>By default the student is asked to translate from the language they're learning to their native language. You can change this behavior for any sentence, by unchecking the box.</em></p>
 
     <br>
     <br>
+
+    <br>
+    <br>
+
+    <h3>This Lesson:</h3>
 
 
     <details id="input_metadata">
