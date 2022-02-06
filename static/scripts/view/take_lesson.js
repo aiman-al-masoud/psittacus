@@ -18,25 +18,27 @@ function startLesson(lesson){
 
 function displayProposition(proposition){
 
-    let sentenceTwo  = document.getElementById("p_sentence_two");
-    sentenceTwo.innerHTML = proposition.sentenceTwo;
-    let sentenceOneDiv = document.getElementById("div_sentence_one");
-    sentenceOneDiv.innerHTML = ""
+    let inNativeLang = createElementFromHTML(`<p> ${proposition.sentenceTwo} </p>`)
+    
+    let  inTargetLang = document.createElement("div");
     for(let word of proposition.sentenceOne.split(/\s+/)){
         let wordSpan = createElementFromHTML(`<span class="word">${word}</span> <span class="tool_tip">${proposition.wordDict[word]??""} </span>`)
-        sentenceOneDiv.appendChild(wordSpan)
+        inTargetLang.appendChild(wordSpan)
     }
+
+    document.getElementById("div_problem").innerHTML = ""
+    document.getElementById("div_solution").innerHTML = ""
 
     if(proposition.targetToNative){
         //user needs to see (and hear) just the sentence in the target language.
-        showElement(sentenceOneDiv)
-        hideElement(sentenceTwo)
+        document.getElementById("div_problem").appendChild(inTargetLang)
+        document.getElementById("div_solution").appendChild(inNativeLang)
         showElement(document.getElementById("take_lesson_button_play_audio"));
         proposition.play()
     }else{
         //... only the sentence in their native lang.
-        showElement(sentenceTwo)
-        hideElement(sentenceOneDiv)
+        document.getElementById("div_problem").appendChild(inNativeLang)
+        document.getElementById("div_solution").appendChild(inTargetLang)
         hideElement(document.getElementById("take_lesson_button_play_audio"));
     }
 
@@ -49,35 +51,26 @@ document.getElementById("take_lesson_button_play_audio").addEventListener("click
 
 
 document.getElementById("take_lesson_button_next").addEventListener("click", new (function(){
-    let seenSolution = false
+    let seenSolution = false //alt name: gimmeNextPropo
 
     return function(){
         if(seenSolution){
-
-            hideElement(document.getElementById("take_lesson_div_solution"))
-
-            document.getElementById("take_lesson_input_sentence_two").value = ""
+        
+            hideElement(document.getElementById("div_solution"))
+            document.getElementById("input_translation_answer").value = ""
             document.getElementById("p_grading").innerHTML = ""
             window.lesson.next()
             displayProposition(window.lesson.getCurrent())
             document.getElementById("take_lesson_button_next").value = "See Solution"
         }else{
 
-            showElement( document.getElementById("take_lesson_div_solution"))
+            showElement( document.getElementById("div_solution"))
 
-            let grading = window.lesson.getCurrent().check(document.getElementById("take_lesson_input_sentence_two").value)
+            let grading = window.lesson.getCurrent().check(document.getElementById("input_translation_answer").value)
             document.getElementById("p_grading").innerHTML = `${grading}%`
             document.getElementById("take_lesson_button_next").value = "Next"
 
-
-            if(!window.lesson.getCurrent().targetToNative){
-                showElement(document.getElementById("div_sentence_one"))
-                window.lesson.getCurrent().play()
-            }else{
-                showElement(document.getElementById("p_sentence_two"))
-            }
-
-
+            window.lesson.getCurrent().play()
         }
        
         seenSolution = !seenSolution
