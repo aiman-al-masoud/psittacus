@@ -45,13 +45,17 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    
   ## The structure of a lesson-json is the following:
   
-  ```
-  {
-  "propositions" : [proposition1, proposition2, proposition3, ...]
-  }
+  ```   
+   {   
+        "target_language" : "target lang",
+        "source_language" : "source lang",
+        "author" : "author-or-authors",  
+        "last_modified" : 1644144766547,
+        "propositions" : [proposition1, proposition2, proposition3, ...]        
+   }
   ```
   
-  (Metadata may get added to a lesson in the future).
+  (More metadata may get added to lessons in the future).
    
   
   ## Each proposition has the following structure:
