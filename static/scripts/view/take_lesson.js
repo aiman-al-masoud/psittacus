@@ -86,22 +86,6 @@ document.getElementById("take_lesson_button_next").addEventListener("click", new
 }))
 
 
-// function createElementFromHTML(htmlString) {
-//     var div = document.createElement('span');
-//     div.innerHTML = htmlString.trim();
-//     return div
-// }
-
-// function hideElement(element){
-//     element.classList.add("hidden");
-//     element.classList.remove("displayed");
-// }
-
-// function showElement(element){
-//     element.classList.add("displayed");
-//     element.classList.remove("hidden");
-// }
-
 
 
 
