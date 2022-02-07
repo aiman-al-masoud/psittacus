@@ -30,6 +30,11 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 * Support for hover-over-the-word definitions.
 
 
+<img src="./icons/crafting_a_lesson.gif"></img>
+
+<img src="./icons/taking_a_lesson.gif"></img>
+
+
 
 # Details
 
