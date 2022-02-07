@@ -198,5 +198,14 @@ Click on the link, and the homepage will be launched on your default browser.
 </details>
 
 
+<details>
+   <summary><strong>Experimental</strong></summary>
+   
+   # Automatic Lesson Generator:
+   <a href="https://github.com/aiman-al-masoud/psittacus_automatic_lesson_generator">https://github.com/aiman-al-masoud/psittacus_automatic_lesson_generator</a>.
+
+   
+</details>
+
 
 
