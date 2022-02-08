@@ -12,4 +12,5 @@ document.getElementById("button_take_lesson").addEventListener("click", function
 function hideEverything(){ 
     hideElement(document.getElementById("div_take_lesson"))
     hideElement(document.getElementById("div_craft_lesson"))
+    hideElement(document.getElementById("div_welcome"))
 }
