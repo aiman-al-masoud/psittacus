@@ -9,6 +9,11 @@ document.getElementById("button_take_lesson").addEventListener("click", function
 
 })
 
+document.getElementById("button_welcome").addEventListener("click", function(){
+    hideEverything()
+    showElement(document.getElementById("div_welcome"))
+})
+
 function hideEverything(){ 
     hideElement(document.getElementById("div_take_lesson"))
     hideElement(document.getElementById("div_craft_lesson"))
