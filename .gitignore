@@ -134,3 +134,4 @@ dmypy.json
 .my_env/
 .vscode/
 
+node_modules/
