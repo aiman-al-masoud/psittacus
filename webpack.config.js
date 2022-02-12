@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = { 
 
-    
-
     entry: './src/js/view/index.js', 
     
     output: { 
@@ -21,18 +19,6 @@ module.exports = {
     ]
 
 
-    // , module : {
-        
-    //     rules:[
-    //         {
-    //             test: /\.html$/,
-    //             use: ["html-loader"]
-    //         }
-    //     ]
-    // }
-
-
-
     ,module: {
 
         rules: [
@@ -47,8 +33,5 @@ module.exports = {
         ],
     
       },
-
-   
-
 
 };
