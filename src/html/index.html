@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psittacus</title>
     
-    <!-- {{ style|safe }} -->
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -43,16 +43,12 @@
 
 
     <div id="div_take_lesson" class="hidden centered" >
-        <!-- {% include "take_lesson.html" %} -->
+        <%= require('html-loader!./take_lesson.html').default %>
     </div>
 
     <div id="div_craft_lesson" class="hidden centered">
-        <!-- {% include "craft_lesson.html" %} -->
+        <%= require('html-loader!./craft_lesson.html').default %>
     </div>
-
-
-    <!-- <script defer> {{ script|safe }} </script> -->
-
 
     <footer class="footer">
         <p>Aiman Al Masoud © <a href="https://github.com/aiman-al-masoud/psittacus" title="link to the code" target="_blank">Psittacus</a> is free software, distributed under <a href="https://www.gnu.org/licenses/gpl-3.0.html" title="link to the license" target="_blank">GNU GPLv3</a>.</p>
