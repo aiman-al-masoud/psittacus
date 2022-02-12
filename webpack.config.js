@@ -21,16 +21,32 @@ module.exports = {
     ]
 
 
-    , module : {
+    // , module : {
         
-        rules:[
-            {
-                test: /\.html$/,
-                use: ["html-loader"]
-            }
-        ]
-    }
+    //     rules:[
+    //         {
+    //             test: /\.html$/,
+    //             use: ["html-loader"]
+    //         }
+    //     ]
+    // }
 
+
+
+    ,module: {
+
+        rules: [
+    
+          {
+    
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+    
+          },
+    
+        ],
+    
+      },
 
    
 

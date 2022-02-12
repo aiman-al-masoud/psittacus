@@ -3,6 +3,9 @@ import {hideElement, showElement} from "../model/utils.js"
 import "./craft_lesson.js"
 import "./take_lesson.js"
 
+import "../../css/style.css"
+
+
 document.getElementById("button_craft_lesson").addEventListener("click", function(){
     hideEverything()
     showElement(document.getElementById("div_craft_lesson"))

@@ -1,5 +1,5 @@
 import {Lesson} from "../model/lesson.js"
-import {hideElement, showElement} from "../model/utils.js"
+import {hideElement, showElement, createElementFromHTML} from "../model/utils.js"
 
 document.getElementById("input_lesson_file").addEventListener("change", function(){
     let fr = new FileReader()
