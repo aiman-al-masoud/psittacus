@@ -151,4 +151,12 @@ This website is being developed as an SPA <a target="_blank" href="https://it.wi
   
 </details>
 
+<details>
+   <summary><strong>Experimental</strong></summary>
+   
+   # Automatic Lesson Generator
+   
+   <a href="https://github.com/aiman-al-masoud/psittacus_automatic_lesson_generator">https://github.com/aiman-al-masoud/psittacus_automatic_lesson_generator</a>
+</details>
+
 
