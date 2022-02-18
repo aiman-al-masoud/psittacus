@@ -1,11 +1,37 @@
-* add mechanism to post lessons to server and retrieve them by metadata.
+* add mechanism to post lessons to *a* server and retrieve them by metadata.
 
 * translate UI with templates
 
-## FOR LATER:
+Currently:
 
-* hover-over-the-word hints for native to target direction as well.
-(NOPE, too costly, maybe later. Just show tips on target-lang sentence whenever displayed).
+Proposition
+{
+sentence_one
+sentence_two
+word_dict
+audio_base64
+target_to_native
+}
 
-* Allow multiple translations of the same original sentence.
-(LATER, too costly right now.)
+* Add New Attributes to Proposition:
+
+alt_sentence_two [ ]
+reverse_dict {}
+ignored_chars []
+case_insensitive bool
+audio_dict {}
+
+* alt_sentence_two
+To be able to correct user attempts in a more accurate manner.
+
+* reverse_dict
+To be able to provide hover-over-the-word translations also from native to target.
+
+* ignored_chars:
+characters to be ignored when tokenizing words based on whitespace. (eg : comma, fullstop, semicolon)
+provide a default ignore list.
+
+* case_insensitive: to ignore case differences in a proposition (default, but in some languages it may be important)
+
+* audio_dict
+A recording of each separate word in the target language.
