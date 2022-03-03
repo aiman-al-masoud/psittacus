@@ -1,0 +1,43 @@
+body{
+    background-color: rgba(245, 245, 245, 0.445);
+    font-family: sans-serif;
+}
+
+body h1{
+    font-size: medium;
+}
+
+.normal_textbox{
+    width: 40vw;
+    border: 1px black dotted;
+    margin: 1vh;
+    padding: 1vh;
+}
+
+.normal_textbox:focus{
+    outline: 2px orange solid;
+}
+
+.normal_button{
+    border: 1px black dotted;
+    margin: 1vh;
+    padding: 1vh;
+    background-color: rgb(7, 7, 92);
+    color: white;
+}
+
+.normal_button:active{
+    transform: scale(0.8);
+}
+
+.normal_button:hover, .normal_button:focus{
+    outline: 2px orange solid;
+    color: orange;
+}
+
+.text_tip{
+    font-size: x-small;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 2vh;
+}

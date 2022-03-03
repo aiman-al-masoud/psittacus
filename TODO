@@ -2,30 +2,15 @@
 
 * translate UI with templates
 
-Currently:
-
-Proposition
-{
-sentence_one
-sentence_two
-word_dict
-audio_base64
-target_to_native
-}
-
 * Add New Attributes to Proposition:
 
 alt_sentence_two [ ]
-reverse_dict {}
 ignored_chars []
 case_insensitive bool
 audio_dict {}
 
 * alt_sentence_two
 To be able to correct user attempts in a more accurate manner.
-
-* reverse_dict
-To be able to provide hover-over-the-word translations also from native to target.
 
 * ignored_chars:
 characters to be ignored when tokenizing words based on whitespace. (eg : comma, fullstop, semicolon)

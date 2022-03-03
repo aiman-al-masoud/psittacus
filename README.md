@@ -61,14 +61,22 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
   
   ```   
    {   
-        "target_language" : "target lang",
-        "source_language" : "source lang",
-        "author" : "author-or-authors",  
-        "last_modified" : 1644144766547,
+        "metadata" : {}
         "propositions" : [proposition1, proposition2, proposition3, ...]        
    }
   ```
-  
+
+  ## Metadata looks like this:
+
+  ```
+  {
+    "target_language" : "target lang",
+    "source_language" : "source lang",
+    "author" : "author-or-authors",  
+    "last_modified" : 1644144766547
+  }
+  ```
+
   (More metadata may get added to lessons in the future).
    
   
@@ -79,7 +87,8 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    "sentence_one" : "ciao mondo",
    "sentence_two" : "hello world",
    "word_dict" : {"ciao":"hello", "mondo":"world"},
-   "audio_base64" : "data:audio/mpeg;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKEd2VibUK...",
+   "reverse_dict" : {"hello":"ciao", "world":"mondo"},
+   "audio_base64" : "data:audio/mpeg;base64GkXfo5..."
    "target_to_native" : true
   }
   
@@ -90,66 +99,18 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    * audio_base64: the audio of sentence_one (in the **target language**) recorded by a native or proficient speaker. Encoded
    as audio-data in base-64. 
    * target_to_native: true if the user should be asked to translate from the target language to his/her native one, false otherwise.
-   * word_dict: a dictionary that provides a brief description of each word contained in sentence_one. 
+   * word_dict: a dictionary that provides a brief description of each word of the target lang.
+   * word_dict: a dictionary that provides a brief description of each word of the source lang in terms of the target lang.
    
    #### Please note that: 
    
    * A 'word' here simply means: 'a string of unicode characters surrounded by spaces'. 
    
-   * The definition can and should be made up of more words, and may eventually include a brief analysis of the grammar (tense, gender, case
-   markings...) if that helps the student understand the context better. In more 'advanced' lessons, this brief definition may be provided in
+   * The definition can and should be made up of more words, and may eventually include a brief analysis of the grammar (tense, gender, case markings...) if that helps the student understand the context better. In more 'advanced' lessons, this brief definition may be provided in
    terms of the target language, for those who favor a full-immersion approach.
    
-  
-  
 </details>
 
-<details>
-  <summary><strong>Code Organization</strong></summary>
-  
-  # Avoiding Name Conflicts
-
-This website is being developed as an SPA <a target="_blank" href="https://it.wikipedia.org/wiki/Single-page_application">(Single Page Application)</a>, in light of making it easily downloadable, with as much functionality as possible available to the user offline. 
-  
-  
-  Being the final product a single page, means that all html templates have to share the same namespace. The solution 
-  currently being adopted to avoid naming conflicts is to have a **UNIQUE ID FOR EACH HTML ELEMENT**. 
-  
-  If you find/introduce any bugs, and are attempting to fix them, please consider checking for html element id conflicts.
-    
-  The convention that will be used in case of a naming conflict (two html elements with the same id) is to prepend the name    
-  of the template to the id of the element. 
-  
-  Eg:
-    
-   ```
-    <!--inside of the file 'take_lesson.html'-->
-    <input id="button_play_audio" type="button"/>
-      
-    <!--Becomes: -->
-    <input id="take_lesson_button_play_audio" type="button"/>
-     
-   ```
-  
-  And for javascript functions, to append the camelCase name of the module they're in:
-  
-  ```
-  //inside of craft_lesson.js
-  
-  function displayProposition(proposition){
-  /*...*/
-  }
-  
-  // becomes:
- 
-  function displayPropositionCraftLesson(proposition){
-  /*...*/
-  }
-  
-  ```
-  
-  
-</details>
 
 <details>
    <summary><strong>Experimental</strong></summary>
