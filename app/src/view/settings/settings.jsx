@@ -21,7 +21,7 @@ export default class Settings extends Component {
 
         return (<div>
 
-            <h1>Choose your language:</h1>
+            <h1>{L.choose_lang}</h1>
             <select value={ this.state.currentLang  }>
                 {L.available().map((opt)=>{return <Option value={opt}  onChoose={this.onChooseLang}  />  })}
             </select>
