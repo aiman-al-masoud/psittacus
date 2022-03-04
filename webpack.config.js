@@ -1,7 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// const fs = require('fs')
+// console.log(fs.readdirSync("app/res/lang_packs"))
+
+
+
 module.exports = {
+
+
   entry: path.join(__dirname, "app", "src", "index.js"),
   output: {
     path:path.resolve(__dirname, "dist"),
@@ -48,4 +55,6 @@ module.exports = {
       template: path.join(__dirname, "app","src", "index.html"),
     }),  
   ],
+
+
 }
