@@ -25,7 +25,7 @@ export default class Settings extends Component {
 
             <h1>{L.choose_lang}</h1>
             <select value={this.state.currentLang}  onChange={this.onChooseLang} >
-                {L.available().map((opt)=>{return <option id={opt}>{opt}</option>  })}
+                {L.available().map((opt)=>{return <option title={opt}>{opt}</option>  })}
             </select>
 
         </div>)
