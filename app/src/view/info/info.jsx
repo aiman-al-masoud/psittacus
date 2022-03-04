@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import L from "../../model/language.js";
+
+
 
 export default class Info extends Component {
 
@@ -9,15 +12,15 @@ export default class Info extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to Psittacus!</h1>
-                <p>To use this app offline, just save it as a .html.</p>
-                <p>Windows/Linux: Ctrl + S</p>
-                <p>Mac: ⌘ + S</p>
+                <h1>{L.welcome}</h1>
+                <p>{L.to_use_app_offline}</p>
+                <p>{L.win_linux_save_offline}</p>
+                <p>{L.mac_save_offline}</p>
 
-                <h1>Link to the source-code:</h1>
-                <a href="https://github.com/aiman-al-masoud/psittacus" target="_blank">https://github.com/aiman-al-masoud/psittacus</a>
+                <h1>{L.link_to_source_code_title}</h1>
+                <a href={L.link_to_source_code} target="_blank">{L.link_to_source_code}</a>
 
-                <p>Psittacus is free software, licensed under GNU GPLv3.</p>
+                <p>{L.license_notice}</p>
 
             </div>
 

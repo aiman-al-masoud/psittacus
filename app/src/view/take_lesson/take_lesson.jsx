@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import HoverableSentence from "./hoverable_sentence.jsx";
 import "../../index.css"
+import L from  "../../model/language.js"
+
 
 export default class TakeLesson extends Component {
+
+    
 
     constructor(props) {
         super(props)
@@ -43,22 +47,22 @@ export default class TakeLesson extends Component {
         return (
 
             <div>
-                <h1>Translate this sentence:</h1>
+                <h1>{L.translate_this_sentence}</h1>
                 <br />
                 
                 <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()}  />
 
-                <button onClick={this.state.proposition.play} className="normal_button"  style={{visibility : this.state.proposition.targetToNative?"visible":"hidden"  }} >Play</button>
+                <button onClick={this.state.proposition.play} className="normal_button"  style={{visibility : this.state.proposition.targetToNative?"visible":"hidden"  }} >{L.play_audio}</button>
                 <br />
                 <input ref={this.userInput} type="text" className="normal_textbox"/>
                 <br />
-                <button onClick={this.next} className="normal_button">{this.state.solutionHidden?"See Solution":"Next" }  </button>
+                <button onClick={this.next} className="normal_button">{this.state.solutionHidden? L.see_solution : L.next }  </button>
                 <br />
 
                 <div style={{visibility : this.state.solutionHidden?"hidden":"visible" } }>
-                    <h1>Solution:</h1>
+                    <h1>{L.solution}:</h1>
                     <HoverableSentence wordDict={this.state.proposition.getAnswerWordDict()}  />
-                    <h2>Your Accuracy: {this.state.userAccuracy}%</h2>
+                    <h2>{L.your_accuracy}: {this.state.userAccuracy}%</h2>
                 </div>
 
             </div>
