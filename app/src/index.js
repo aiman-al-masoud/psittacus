@@ -2,7 +2,24 @@ import React, {Component} from "react";
 import reactDOM from "react-dom";
 import App from "./view/app.jsx";
 
-import Language from "./model/language.js";
+import L from "./model/language.js" ;
+
+L.set("english")
+// console.log(L.get())
+
+// console.log(L.get().hello_world)
+// console.log(L.hello_world)
+
+// console.log(L.ciao)
+
+// console.log(L)
+console.log(L.hello_world)
+
+L.set("italian")
+
+console.log(L.hello_world)
+
+
 
 
 
