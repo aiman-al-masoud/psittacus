@@ -100,7 +100,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    as audio-data in base-64. 
    * target_to_native: true if the user should be asked to translate from the target language to his/her native one, false otherwise.
    * word_dict: a dictionary that provides a brief description of each word of the target lang.
-   * word_dict: a dictionary that provides a brief description of each word of the source lang in terms of the target lang.
+   * reverse_dict: a dictionary that provides a brief description of each word of the source lang in terms of the target lang.
    
    #### Please note that: 
    
