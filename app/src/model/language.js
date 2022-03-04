@@ -10,12 +10,9 @@ langNames.forEach( (obj, i)=>{langs[obj] = langPacks[i]})
  */
 export default class Language{
 
-    static lang = localStorage.getItem("langPack")??"english"
-
-    static set(langPack){
-        localStorage.setItem("langPack", langPack)
-        Language.lang = langPack
-        Object.entries(langs[langPack]).forEach((entry, i)=>{Language[entry[0]] = entry[1]  })
+    static set(langName){
+        localStorage.setItem("langPack", langName)
+        Object.entries(langs[langName]).forEach((entry, i)=>{Language[entry[0]] = entry[1]  })
     }
 
     static available(){
@@ -23,5 +20,8 @@ export default class Language{
     }
 
 }
+
+Language.set(localStorage.getItem("langPack")??"english")
+
 
 
