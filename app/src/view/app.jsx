@@ -9,6 +9,7 @@ import LessonBuilder from "../model/lesson_builder.js";
 import HomeIcon from "../../res/home.png"
 import Settings from "./settings/settings.jsx";
 import L from "../model/language.js";
+import "../index.css"
 
 
 
@@ -22,15 +23,15 @@ export default class App extends Component {
         super(props)
 
         this.menu = (<div>
-            <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}>{L.take_lesson}</button>
+            <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}  className="normal_button">{L.take_lesson}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }}>{L.craft_new_lesson}</button>
+            <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} className="normal_button" >{L.craft_new_lesson}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }}>{L.edit_lesson}</button>
+            <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} className="normal_button" >{L.edit_lesson}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.INFO) }}>{L.info}</button>
+            <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="normal_button" >{L.info}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }}>{L.settings}</button>
+            <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="normal_button" >{L.settings}</button>
 
         </div>)
 
