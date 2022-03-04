@@ -14,7 +14,7 @@ To be able to correct user attempts in a more accurate manner.
 characters to be ignored when tokenizing words based on whitespace. (eg : comma, fullstop, semicolon)
 provide a default ignore list.
 
-* case_insensitive: to ignore case differences in a proposition (default, but in some languages it may be important)
+* case_insensitive: to ignore case differences in a sentence (default, but in some languages it may be important)
 
 * audio_dict
 A recording of each separate word in the target language.
