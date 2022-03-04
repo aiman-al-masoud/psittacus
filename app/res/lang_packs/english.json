@@ -11,6 +11,7 @@
     "edit_metadata" : "Edit Metadata",
     "save_lesson" : "Save Lesson",
     "previous_sentence" : "Previous Sentence",
+    "next_sentence" : "Next Sentence",
     "write_and_pronounce" : "Write and pronounce a sentence in the target language:",
     "target_lang_is" : "The target language is the language that your students wish to learn.",
     "record" : "Record",
@@ -35,6 +36,8 @@
     "link_to_source_code" : "https://github.com/aiman-al-masoud/psittacus",
     "welcome" : "Welcome to Psittacus!",
     "license_notice" : "Psittacus is free software, licensed under GNU GPLv3.",
-    "your_work_may_be_lost" : "Your work may be lost. Ok?"
+    "your_work_may_be_lost" : "Your work may be lost. Ok?",
+    "stop_recording" : "Stop Recording",
+    "metadata" : "Metadata"
 
 }

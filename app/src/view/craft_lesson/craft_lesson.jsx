@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import LessonBuilder from "../../model/lesson_builder";
 import DefinitionsTable from "./definitions_table.jsx";
 import Metadata from "./metadata.jsx";
+import L from "../../model/language.js"
 
 
 export default class CraftLesson extends Component {
 
+    
     constructor(props) {
         super(props)
+        
 
         this.inputSentenceOne = React.createRef()
         this.inputSentenceTwo = React.createRef()
@@ -88,36 +91,35 @@ export default class CraftLesson extends Component {
 
         let mainBody = (<div>
 
-            <button onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }}   >Previous Sentence</button>
-            <button onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }}   >Next Sentence</button>
+            <button onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }}   > {L.previous_sentence} </button>
+            <button onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }}   > {L.next_sentence} </button>
 
             <br />
-            <h1>Write and pronounce a sentence in the target language:</h1>
-            <div className="text_tip">The target language is the language that your students wish to learn.</div>
-
+            <h1>{L.write_and_pronounce}</h1>
+            <div className="text_tip">{L.target_lang_is}</div>
             <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} />
-            <button onClick={this.toggleRecorder}>{this.state.recording ? "Stop Recording" : "Record"}</button>
-            <button onClick={this.state.propositionBuilder.playAudio}>Play</button>
-            <h1>Translate it to the source language:</h1>
-            <div className="text_tip">The source language is the language that your students understand.</div>
+            <button onClick={this.toggleRecorder}>{this.state.recording ? L.stop_recording : L.record }</button>
+            <button onClick={this.state.propositionBuilder.playAudio}>{L.play_audio}</button>
+            <h1>{L.translate_to_source_lang}</h1>
+            <div className="text_tip">{L.source_lang_is}</div>
 
             <input onInput={this.onSentenceTwoInput} type="text" ref={this.inputSentenceTwo} value={this.state.propositionBuilder.sentenceTwo} />
             <br />
-            <h1>Give a brief definition of each word from the target language:</h1>
-            <div className="text_tip">Words will appear here as you type in the sentence in the target language.</div>
+            <h1>{L.write_word_dict}</h1>
+            <div className="text_tip">{L.words_will_appear_word_dict}</div>
 
             <DefinitionsTable wordDict={this.state.propositionBuilder.wordDict} onTableModified={(newDict) => {  /*console.log(newDict)*/   let updatedDict = this.getUpdatedWordDict(this.state.propositionBuilder.wordDict, newDict); let propoBuilder = this.lessonBuilder.getCurrent(); propoBuilder.wordDict = updatedDict; this.setState({ propositionBuilder: propoBuilder }) }} />
 
-            <h1>Do the same, but in the opposite direction:</h1>
-            <div className="text_tip">Words will appear here as you type in the sentence in the source language.</div>
+            <h1>{L.write_reverse_dict}</h1>
+            <div className="text_tip">{L.words_will_appear_reverse_dict}</div>
 
             <DefinitionsTable wordDict={this.state.propositionBuilder.reverseDict} onTableModified={(newDict) => {  /*console.log(newDict)*/   let updatedDict = this.getUpdatedWordDict(this.state.propositionBuilder.reverseDict, newDict); let propoBuilder = this.lessonBuilder.getCurrent(); propoBuilder.reverseDict = updatedDict; this.setState({ propositionBuilder: propoBuilder }) }} />
 
 
 
             <br />
-            <h1>Choose the Direction of Translation:</h1>
-            <div className="text_tip">By default students will be asked to translate from target to source. But you can change that by un-checking this box:</div>
+            <h1>{L.choose_translation_direction}</h1>
+            <div className="text_tip">{L.translation_direction_is}</div>
 
             <input type="checkbox" checked={this.state.propositionBuilder.targetToNative} onClick={this.onToggleTargetToNative} />
 
@@ -125,8 +127,8 @@ export default class CraftLesson extends Component {
 
         return (<div>
 
-            <button onClick={() => { this.setState({ editingMetadata: !this.state.editingMetadata }) }}  >{this.state.editingMetadata ? "Edit Lesson" : "Edit Metadata"}  </button>
-            <button onClick={() => { this.lessonBuilder.save() }}  >Save Lesson</button>
+            <button onClick={() => { this.setState({ editingMetadata: !this.state.editingMetadata }) }}  >{this.state.editingMetadata ? L.edit_lesson : L.edit_metadata }  </button>
+            <button onClick={() => { this.lessonBuilder.save() }}  >{L.save_lesson}</button>
 
             {this.state.editingMetadata ? <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> : mainBody}
 
