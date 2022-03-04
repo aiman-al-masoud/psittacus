@@ -17,6 +17,7 @@ export default class Settings extends Component {
         choice = choice.options[choice.selectedIndex].text    
         L.set(choice)
         this.setState({currentLang : L.current()})   
+        window.location.reload() //danger, may loose work
     }
 
     render() {

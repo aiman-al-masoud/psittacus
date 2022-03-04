@@ -1,6 +1,7 @@
 {
 
     "app_name" : "Psittacus",
+    "home" : "Home",
     "take_lesson" : "Take Lesson",
     "craft_new_lesson" : "Craft New Lesson",
     "edit_lesson" : "Edit Lesson",

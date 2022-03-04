@@ -8,6 +8,8 @@ import Lesson from "../model/lesson"
 import LessonBuilder from "../model/lesson_builder.js";
 import HomeIcon from "../../res/home.png"
 import Settings from "./settings/settings.jsx";
+import L from "../model/language.js";
+
 
 
 export default class App extends Component {
@@ -20,15 +22,15 @@ export default class App extends Component {
         super(props)
 
         this.menu = (<div>
-            <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}>Take Lesson</button>
+            <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}>{L.take_lesson}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }}>Craft New Lesson</button>
+            <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }}>{L.craft_new_lesson}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }}>Edit Lesson</button>
+            <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }}>{L.edit_lesson}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.INFO) }}>Info</button>
+            <button onClick={() => { this.onMenuChoose(Pages.INFO) }}>{L.info}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }}>Settings</button>
+            <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }}>{L.settings}</button>
 
         </div>)
 
@@ -42,7 +44,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <button onClick={() => { this.onMenuChoose(Pages.MENU) }}> <img src={HomeIcon} alt="home" title="home" />   </button>
+                <button onClick={() => { this.onMenuChoose(Pages.MENU) }}> <img src={HomeIcon} alt={L.home} title={L.home} />   </button>
                 {this.state.page}
             </div>
         )
@@ -52,7 +54,7 @@ export default class App extends Component {
 
         //alert user if exiting with potentially unsaved data.
         if (App.sensitive_pages.includes(this.state.pageId)) {
-            if (!confirm("Your work may be lost. Ok?")) {
+            if (!confirm(L.your_work_may_be_lost)) {
                 return
             }
         }
@@ -94,7 +96,7 @@ export default class App extends Component {
     componentDidMount() {
         window.addEventListener('beforeunload', (e) => {
             if (App.sensitive_pages.includes(this.state.pageId)) {
-                e.returnValue = 'Your work may be lost. Ok?';
+                e.returnValue = L.your_work_may_be_lost;
             }
         })
     }
