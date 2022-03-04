@@ -97,13 +97,13 @@ export default class CraftLesson extends Component {
             <br />
             <h1>{L.write_and_pronounce}</h1>
             <div className="text_tip">{L.target_lang_is}</div>
-            <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} />
+            <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} className="normal_textbox" />
             <button onClick={this.toggleRecorder} className="normal_button" >{this.state.recording ? L.stop_recording : L.record }</button>
             <button onClick={this.state.propositionBuilder.playAudio} className="normal_button" >{L.play_audio}</button>
             <h1>{L.translate_to_source_lang}</h1>
             <div className="text_tip">{L.source_lang_is}</div>
 
-            <input onInput={this.onSentenceTwoInput} type="text" ref={this.inputSentenceTwo} value={this.state.propositionBuilder.sentenceTwo} />
+            <input onInput={this.onSentenceTwoInput} type="text" ref={this.inputSentenceTwo} value={this.state.propositionBuilder.sentenceTwo}  className="normal_textbox" />
             <br />
             <h1>{L.write_word_dict}</h1>
             <div className="text_tip">{L.words_will_appear_word_dict}</div>
