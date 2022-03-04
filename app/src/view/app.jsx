@@ -7,6 +7,7 @@ import { readText } from "../model/utils.js";
 import Lesson from "../model/lesson"
 import LessonBuilder from "../model/lesson_builder.js";
 import HomeIcon from "../../res/home.png"
+import Settings from "./settings/settings.jsx";
 
 
 export default class App extends Component {
@@ -26,6 +27,9 @@ export default class App extends Component {
             <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }}>Edit Lesson</button>
             <br />
             <button onClick={() => { this.onMenuChoose(Pages.INFO) }}>Info</button>
+            <br />
+            <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }}>Settings</button>
+
         </div>)
 
         this.state = {
@@ -76,6 +80,9 @@ export default class App extends Component {
                 break
             case Pages.MENU:
                 this.setState({ page: this.menu })
+                break
+            case Pages.SETTINGS:
+                this.setState({page : <Settings/>})
                 break
         }
 

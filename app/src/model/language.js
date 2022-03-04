@@ -12,11 +12,16 @@ export default class Language{
 
     static set(langName){
         localStorage.setItem("langPack", langName)
+        Language.currentLang = langName
         Object.entries(langs[langName]).forEach((entry, i)=>{Language[entry[0]] = entry[1]  })
     }
 
     static available(){
         return langNames
+    }
+
+    static current(){
+        return Language.currentLang
     }
 
 }

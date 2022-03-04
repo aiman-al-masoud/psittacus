@@ -7,4 +7,5 @@ export default class Pages{
     static EDIT_LESSON = "EDIT_LESSON"
     static INFO = "INFO"
     static MENU = "MENU"
+    static SETTINGS = "SETTINGS"
 }
