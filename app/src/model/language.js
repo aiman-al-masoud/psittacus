@@ -15,16 +15,7 @@ export default class Language{
     static set(langPack){
         localStorage.setItem("langPack", langPack)
         Language.lang = langPack
-
-   
-        
         Object.entries(langs[langPack]).forEach((entry, i)=>{Language[entry[0]] = entry[1]  })
-
-
-    }
-
-    static get(){
-        return langs[Language.lang]
     }
 
     static available(){
