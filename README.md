@@ -88,7 +88,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    "sentence_two" : "hello world",
    "word_dict" : {"ciao":"hello", "mondo":"world"},
    "reverse_dict" : {"hello":"ciao", "world":"mondo"},
-   "audio_base64" : "data:audio/mpeg;base64GkXfo5..."
+   "audio_base64" : "data:audio/mpeg;base64GkXfo5...",
    "target_to_native" : true
   }
   
@@ -111,6 +111,41 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    
 </details>
 
+<details>
+<summary><strong>Testing</strong></summary>
+
+# To build this web-app:
+
+(You have to have yarn or npm installed).
+
+## 1. Clone this repo:
+
+... and open up its directory.
+
+## 2. Install the dependencies:
+
+```
+yarn install 
+```
+## 3. Build:
+
+```
+yarn run build
+```
+
+
+## 4. Run:
+
+Copy and paste the full path of:
+
+```
+/dist/index.html
+```
+... to your browser's navigation bar.
+
+
+</details>
+
 
 <details>
    <summary><strong>Experimental</strong></summary>
@@ -119,5 +154,8 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    
    <a href="https://github.com/aiman-al-masoud/psittacus_automatic_lesson_generator">https://github.com/aiman-al-masoud/psittacus_automatic_lesson_generator</a>
 </details>
+
+
+
 
 

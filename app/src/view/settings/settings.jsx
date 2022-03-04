@@ -14,7 +14,7 @@ export default class Settings extends Component {
 
     onChooseLang  = (choice)=>{
         L.set(choice)
-        this.setState({currentLang: L.current()})
+        this.setState({currentLang : L.current()})
     }
 
     render() {
