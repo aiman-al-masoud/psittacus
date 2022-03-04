@@ -12,9 +12,11 @@ export default class Settings extends Component {
         }
     }
 
-    onChooseLang  = (choice)=>{
+    onChooseLang  = (event)=>{
+        let choice = event.target
+        choice = choice.options[choice.selectedIndex].text    
         L.set(choice)
-        this.setState({currentLang : L.current()})
+        this.setState({currentLang : L.current()})   
     }
 
     render() {
@@ -22,27 +24,11 @@ export default class Settings extends Component {
         return (<div>
 
             <h1>{L.choose_lang}</h1>
-            <select value={ this.state.currentLang  }>
-                {L.available().map((opt)=>{return <Option value={opt}  onChoose={this.onChooseLang}  />  })}
+            <select value={this.state.currentLang}  onChange={this.onChooseLang} >
+                {L.available().map((opt)=>{return <option id={opt}>{opt}</option>  })}
             </select>
 
         </div>)
-    }
-
-}
-
-
-/**
- * Option element that calls back select whenever it is clicked.
- */
-class Option extends Component {
-    
-    constructor(props) {
-        super(props)
-    }
-
-    render(){
-        return <option onClick={()=>{this.props.onChoose(this.props.value)}}   >{this.props.value}</option>
     }
 
 }
