@@ -10,7 +10,8 @@ import HomeIcon from "../../res/home.png"
 import Settings from "./settings/settings.jsx";
 import L from "../model/language.js";
 import "../index.css"
-
+import SelectSound from "../../res/select.mp3"
+import { playBase64 } from "../model/recorder.js";
 
 
 export default class App extends Component {
@@ -52,6 +53,9 @@ export default class App extends Component {
     }
 
     onMenuChoose = async (option) => {
+
+        //play select button sound
+        playBase64(SelectSound)
 
         //alert user if exiting with potentially unsaved data.
         if (App.sensitive_pages.includes(this.state.pageId)) {
