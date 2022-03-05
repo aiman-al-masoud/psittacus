@@ -16,15 +16,9 @@ export default class Lesson{
     next(){
         this.current = this.iterator.next().value
         
-        console.log("current proposition", this.current)
-
         if(!this.current){ //if undefined
-            // throw new Error("reached end of lesson")
             this.lesson_over = true
-            console.log("current proposition is null")
-        } 
-
-        
+        }         
 
     }
 
@@ -33,7 +27,6 @@ export default class Lesson{
     }
 
     isOver(){
-        console.log("is over called", this.lesson_over)
         return this.lesson_over
     }
 
