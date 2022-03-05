@@ -51,7 +51,7 @@ class Proposition {
         let result = parseInt(100 * counter / this.sentenceTwo.split(/\s+/).length)
         this.score = result
 
-        if (result > 50) {
+        if (result > Proposition.MIN_PASSING_SCORE) {
             playBase64(CorrectSound)
         } else {
             playBase64(WrongSound)
