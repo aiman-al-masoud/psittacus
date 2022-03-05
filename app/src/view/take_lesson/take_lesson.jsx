@@ -19,7 +19,6 @@ export default class TakeLesson extends Component {
             proposition: this.lesson.getCurrent(),
             userAccuracy: 0,
             solutionHidden: true,
-            lessonOver: this.lesson.isOver(),
             overallUserAccuracy: 0,
             mode: Modes.STANDARD
         }
@@ -43,7 +42,6 @@ export default class TakeLesson extends Component {
         }
 
         this.setState({ solutionHidden: !this.state.solutionHidden })
-        // this.setState({ lessonOver: this.lesson.isOver() })
         this.setState({mode :  this.lesson.isOver()? Modes.LESSON_OVER : this.state.mode })
         this.setState({ overallUserAccuracy: this.lesson.getScore() })
 
@@ -64,7 +62,7 @@ export default class TakeLesson extends Component {
 
             <div style={this.state.mode == Modes.STANDARD ? visible : invisible}>
                 
-                <button onClick={()=>{this.setState({mode: Modes.EXPLANATION})}}>Read Explanation</button>
+                <button onClick={()=>{this.setState({mode: Modes.EXPLANATION})}} className="normal_button">Read Explanation</button>
 
                 <h1>{L.translate_this_sentence}</h1>
                 <div className="text_tip">{L.need_a_tip_hover_words}</div>
@@ -72,7 +70,7 @@ export default class TakeLesson extends Component {
 
                 <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
 
-                <button onClick={this.state.proposition.play} className="normal_button" style={{ visibility: this.state.proposition.targetToNative && (!this.state.lessonOver) ? "visible" : "hidden" }} >{L.play_audio}</button>
+                <button onClick={this.state.proposition.play} className="normal_button" style={{ visibility: this.state.proposition.targetToNative && (!this.state.mode==Modes.LESSON_OVER) ? "visible" : "hidden" }} >{L.play_audio}</button>
                 <br />
                 <input ref={this.userInput} type="text" className="normal_textbox" />
                 <br />
@@ -95,7 +93,7 @@ export default class TakeLesson extends Component {
 
 
             <div style={this.state.mode == Modes.EXPLANATION ? visible : invisible}   >
-                <button onClick={()=>{this.setState({mode: Modes.STANDARD})}}>Back</button>
+                <button onClick={()=>{this.setState({mode: Modes.STANDARD})}} className="normal_button">Back</button>
                 <div>{this.lesson.explanationText}</div>
             </div>
             

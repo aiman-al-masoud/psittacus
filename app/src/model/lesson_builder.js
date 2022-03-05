@@ -45,8 +45,6 @@ export default class LessonBuilder {
         this.current = this.propositions[this.current - 1] == undefined ? this.current : this.current - 1
     }
 
-
-
     toJson() {
         return {
             metadata  : {...this.metadata, last_modified: new Date().getTime()},
@@ -54,7 +52,6 @@ export default class LessonBuilder {
             explanation : {text : this.explanationText}
         }
     }
-
 
 
     save = ()=>{
