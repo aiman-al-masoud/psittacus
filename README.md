@@ -54,8 +54,9 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
   
   ```   
    {   
-        "metadata" : {}
-        "propositions" : [proposition1, proposition2, proposition3, ...]        
+        "metadata" : {},
+        "propositions" : [proposition1, proposition2, proposition3, ...],
+        "explanation" : {text : "some in-depth explanation of the lesson..."}
    }
   ```
 
