@@ -38,6 +38,7 @@
     "license_notice" : "Psittacus is free software, licensed under GNU GPLv3.",
     "your_work_may_be_lost" : "Your work may be lost. Ok?",
     "stop_recording" : "Stop Recording",
-    "metadata" : "Metadata"
-
+    "metadata" : "Metadata",
+    "overall_accuracy" : "Overall Accuracy:",
+    "thank_you_for_taking_lesson" : "Thank you for taking this lesson"
 }

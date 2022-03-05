@@ -75,8 +75,8 @@ export default class TakeLesson extends Component {
             </div>
 
             <div style={{visibility : this.state.lessonOver?  "visible" :"hidden"  }}   >
-                <h1>Thank you for taking this lesson</h1>
-                <h2>Overall Accuracy: {this.state.overallUserAccuracy}%</h2>
+                <h1>{L.thank_you_for_taking_lesson}</h1>
+                <h2>{L.overall_accuracy} {this.state.overallUserAccuracy}%</h2>
             </div>
 
             </div>
