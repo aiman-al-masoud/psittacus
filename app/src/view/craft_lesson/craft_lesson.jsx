@@ -139,19 +139,10 @@ export default class CraftLesson extends Component {
 
         return (<div>
 
-
-
-            {/* <button onClick={() => { this.setState({ editingMetadata: !this.state.editingMetadata }) }} className="normal_button" >{this.state.editingMetadata ? L.edit_lesson : L.edit_metadata}  </button> */}
             <button onClick={()=>{ this.setState({editingMode : EditingModes.METADATA}) }} className="normal_button" >Edit Metadata</button>
             <button onClick={()=>{ this.setState({editingMode : EditingModes.LESSON}) }}   className="normal_button" >Edit Sentences</button>
             <button  onClick={()=>{ this.setState({editingMode : EditingModes.EXPLAINATION}) }}  className="normal_button" >Edit Explaination</button>
-
             <button onClick={() => { this.lessonBuilder.save() }} className="normal_button" >{L.save_lesson}</button>
-
-
-
-            
-            {/* <button onClick={() => { this.setState({ editingMetadata: !this.state.editingMetadata }) }} className="normal_button" >{this.state.editingMetadata ? L.edit_lesson : L.edit_metadata}  </button> */}
 
             
             <div style={this.state.editingMode==EditingModes.METADATA? visible : invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> </div>

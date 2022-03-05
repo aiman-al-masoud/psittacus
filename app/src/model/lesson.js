@@ -44,5 +44,7 @@ export default class Lesson{
         return parseInt(this.propositions.map((p)=>{return p.getScore()}).reduce((a,b)=>{return a+b })/this.propositions.length)
     }
 
+    
+
 
 }
