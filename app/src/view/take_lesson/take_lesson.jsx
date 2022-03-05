@@ -59,13 +59,22 @@ export default class TakeLesson extends Component {
 
             <div style={this.state.mode == Modes.STANDARD ? visible : invisible}>
                 
-                <button onClick={()=>{this.setState({mode: Modes.EXPLANATION})}} className="normal_button">{L.read_explanation}</button>
 
                 <h1>{L.translate_this_sentence}</h1>
                 <div className="text_tip">{L.need_a_tip_hover_words}</div>
+                
+
+             
                 <br />
 
                 <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
+
+                <br />
+
+                <div className="text_tip">{L.need_a_lot_of_tips}</div>
+                <a  onClick={()=>{this.setState({mode: Modes.EXPLANATION})}}>{L.read_explanation}</a>
+                
+
 
                 <button onClick={this.state.proposition.play} className="normal_button" style={{ visibility: this.state.proposition.targetToNative && (!this.state.mode==Modes.LESSON_OVER) ? "visible" : "hidden" }} >{L.play_audio}</button>
                 <br />
