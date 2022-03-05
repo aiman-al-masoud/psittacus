@@ -69,6 +69,7 @@ export default class TakeLesson extends Component {
 
                 <div style={{visibility : this.state.solutionHidden?"hidden":"visible" } }>
                     <h1>{L.solution}:</h1>
+                    <div className="text_tip">{L.need_a_tip_hover_words}</div>
                     <HoverableSentence wordDict={this.state.proposition.getAnswerWordDict()}  />
                     <h2>{L.your_accuracy}: {this.state.userAccuracy}%</h2>
                 </div>
