@@ -14,8 +14,16 @@ export default class Lesson{
     }
 
     next(){
+
         this.current = this.iterator.next().value
         
+        //decide if the lesson is over or not
+
+        this.screwedUpPropositions = this.propositions.filter((p)=>{return p.getScore() < Proposition.MIN_PASSING_SCORE })
+        if(this.screwedUpPropositions.length > 0){
+            return 
+        }
+
         if(!this.current){ //if undefined
             this.lesson_over = true
         }         
@@ -23,7 +31,7 @@ export default class Lesson{
     }
 
     getCurrent(){
-        return this.current   ??this.propositions[this.propositions.length-1]
+        return this.current ??this.screwedUpPropositions[0] ??this.propositions[0]
     }
 
     isOver(){

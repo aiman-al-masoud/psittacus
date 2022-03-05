@@ -11,6 +11,8 @@ export { Proposition }
  */
 class Proposition {
 
+    static MIN_PASSING_SCORE = 51
+
     constructor(jsonData) {
         this.sentenceOne = jsonData.sentence_one
         this.sentenceTwo = jsonData.sentence_two
