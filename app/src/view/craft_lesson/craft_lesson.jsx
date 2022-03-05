@@ -4,13 +4,15 @@ import DefinitionsTable from "./definitions_table.jsx";
 import Metadata from "./metadata.jsx";
 import L from "../../model/language.js"
 import "../../index.css"
+import TextEditor from "./text_editor.jsx";
+import EditingModes from "./editing_modes";
 
 export default class CraftLesson extends Component {
 
-    
+
     constructor(props) {
         super(props)
-        
+
 
         this.inputSentenceOne = React.createRef()
         this.inputSentenceTwo = React.createRef()
@@ -20,7 +22,7 @@ export default class CraftLesson extends Component {
             propositionBuilder: this.lessonBuilder.getCurrent(),
             recording: false,
             lessonBuilder: this.lessonBuilder,
-            editingMetadata: false
+            editingMode: EditingModes.LESSON
         }
     }
 
@@ -87,23 +89,30 @@ export default class CraftLesson extends Component {
     }
 
 
+    onExplainationChange = (newExplaination) => {
+        // console.log(newExplaination)
+        this.lessonBuilder.setExplanationText(newExplaination)
+        this.setState({lessonBuilder : this.lessonBuilder })
+    }
+
+
     render() {
 
         let mainBody = (<div>
 
-            <button onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }}  className="normal_button" > {L.previous_sentence} </button>
-            <button onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }}  className="normal_button" > {L.next_sentence} </button>
+            <button onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} className="normal_button" > {L.previous_sentence} </button>
+            <button onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} className="normal_button" > {L.next_sentence} </button>
 
             <br />
             <h1>{L.write_and_pronounce}</h1>
             <div className="text_tip">{L.target_lang_is}</div>
             <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} className="normal_textbox" />
-            <button onClick={this.toggleRecorder} className="normal_button" >{this.state.recording ? L.stop_recording : L.record }</button>
+            <button onClick={this.toggleRecorder} className="normal_button" >{this.state.recording ? L.stop_recording : L.record}</button>
             <button onClick={this.state.propositionBuilder.playAudio} className="normal_button" >{L.play_audio}</button>
             <h1>{L.translate_to_source_lang}</h1>
             <div className="text_tip">{L.source_lang_is}</div>
 
-            <input onInput={this.onSentenceTwoInput} type="text" ref={this.inputSentenceTwo} value={this.state.propositionBuilder.sentenceTwo}  className="normal_textbox" />
+            <input onInput={this.onSentenceTwoInput} type="text" ref={this.inputSentenceTwo} value={this.state.propositionBuilder.sentenceTwo} className="normal_textbox" />
             <br />
             <h1>{L.write_word_dict}</h1>
             <div className="text_tip">{L.words_will_appear_word_dict}</div>
@@ -125,12 +134,31 @@ export default class CraftLesson extends Component {
 
         </div>)
 
+        let invisible = {display:"none", visibility:"hidden"} 
+        let visible =  {display:"block", visibility:"visible"} 
+
         return (<div>
 
-            <button onClick={() => { this.setState({ editingMetadata: !this.state.editingMetadata }) }} className="normal_button" >{this.state.editingMetadata ? L.edit_lesson : L.edit_metadata }  </button>
+
+
+            {/* <button onClick={() => { this.setState({ editingMetadata: !this.state.editingMetadata }) }} className="normal_button" >{this.state.editingMetadata ? L.edit_lesson : L.edit_metadata}  </button> */}
+            <button onClick={()=>{ this.setState({editingMode : EditingModes.METADATA}) }} className="normal_button" >Edit Metadata</button>
+            <button onClick={()=>{ this.setState({editingMode : EditingModes.LESSON}) }}   className="normal_button" >Edit Sentences</button>
+            <button  onClick={()=>{ this.setState({editingMode : EditingModes.EXPLAINATION}) }}  className="normal_button" >Edit Explaination</button>
+
             <button onClick={() => { this.lessonBuilder.save() }} className="normal_button" >{L.save_lesson}</button>
 
-            {this.state.editingMetadata ? <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> : mainBody}
+
+
+            
+            {/* <button onClick={() => { this.setState({ editingMetadata: !this.state.editingMetadata }) }} className="normal_button" >{this.state.editingMetadata ? L.edit_lesson : L.edit_metadata}  </button> */}
+
+            
+            <div style={this.state.editingMode==EditingModes.METADATA? visible : invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> </div>
+            <div style={this.state.editingMode==EditingModes.LESSON? visible : invisible }>{mainBody}</div>
+            <div style={this.state.editingMode==EditingModes.EXPLAINATION? visible : invisible }><TextEditor onTextChange={this.onExplainationChange} text={this.state.lessonBuilder.explanationText}  /></div>
+
+
 
 
         </div>)

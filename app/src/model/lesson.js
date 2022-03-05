@@ -11,6 +11,7 @@ export default class Lesson{
         this.iterator = this.propositions.values()
         this.next()
         this.lesson_over = false
+        this.explanationText = jsonData.explanation.text
     }
 
     next(){

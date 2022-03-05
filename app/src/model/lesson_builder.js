@@ -6,7 +6,8 @@ export default class LessonBuilder {
     constructor() {
         this.propositions = [new PropositionBuilder()]
         this.current = 0
-        this.metadata = {author:"", source_language:"", target_language:""}
+        this.metadata = {author:"", source_language:"", target_language:""},
+        this.explanationText = ""
     }
 
     /**
@@ -18,14 +19,7 @@ export default class LessonBuilder {
       
         
         lb.metadata = jsonData.metadata??{}
-
-        //for backwards compatibility:
-        lb.metadata = {
-            author : jsonData.author??"",
-            source_language : jsonData.source_language ?? "",
-            target_language : jsonData.target_language ?? "",
-            ...lb.metadata
-        }
+        lb.explanationText = jsonData.explanation.text
 
         return lb
     }
@@ -56,7 +50,8 @@ export default class LessonBuilder {
     toJson() {
         return {
             metadata  : {...this.metadata, last_modified: new Date().getTime()},
-            propositions: this.propositions.filter((p) => !p.isEmpty()).map((p) => p.toJson())
+            propositions: this.propositions.filter((p) => !p.isEmpty()).map((p) => p.toJson()),
+            explanation : {text : this.explanationText}
         }
     }
 
@@ -64,6 +59,11 @@ export default class LessonBuilder {
 
     save = ()=>{
         saveToComp(JSON.stringify(this.toJson()), "lesson.txt", "text/plain")
+    }
+
+
+    setExplanationText = (explanationText)=>{
+        this.explanationText = explanationText
     }
 
 
