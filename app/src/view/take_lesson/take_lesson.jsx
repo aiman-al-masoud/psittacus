@@ -91,7 +91,7 @@ export default class TakeLesson extends Component {
 
             <div style={this.state.mode == Modes.EXPLANATION ? visible : invisible}   >
                 <button onClick={()=>{this.setState({mode: Modes.STANDARD})}} className="normal_button">{L.back}</button>
-                <div>{this.lesson.explanationText}</div>
+                <div> <pre> {this.lesson.explanationText}</pre></div>
             </div>
             
 
