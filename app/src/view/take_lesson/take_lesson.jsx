@@ -57,9 +57,6 @@ export default class TakeLesson extends Component {
 
         return (<div>
 
-            
-            
-
             <div style={this.state.mode == Modes.STANDARD ? visible : invisible}>
                 
                 <button onClick={()=>{this.setState({mode: Modes.EXPLANATION})}} className="normal_button">Read Explanation</button>
