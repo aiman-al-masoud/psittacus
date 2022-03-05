@@ -12,6 +12,7 @@ export { Proposition }
 class Proposition {
 
     static MIN_PASSING_SCORE = 51
+    static NULL = new Proposition({sentence_one:"ciao", sentence_two:"hello", audio_base64:"data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", word_dict:{"ciao":"hello"}, reverse_dict:{"hello":"ciao"}, target_to_native:true})
 
     constructor(jsonData) {
         this.sentenceOne = jsonData.sentence_one
@@ -20,7 +21,6 @@ class Proposition {
         this.wordDict = jsonData.word_dict
         this.reverseDict = jsonData.reverse_dict
         this.targetToNative = jsonData.target_to_native ?? true
-        
     }
 
     /**

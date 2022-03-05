@@ -31,7 +31,7 @@ export default class Lesson{
     }
 
     getCurrent(){
-        return this.current ??this.screwedUpPropositions[0] ??this.propositions[0]
+        return this.current ??this.screwedUpPropositions[0] ??Proposition.NULL
     }
 
     isOver(){
