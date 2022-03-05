@@ -18,6 +18,7 @@ class Proposition {
         this.wordDict = jsonData.word_dict
         this.reverseDict = jsonData.reverse_dict
         this.targetToNative = jsonData.target_to_native ?? true
+        
     }
 
     /**
@@ -46,6 +47,7 @@ class Proposition {
         }
 
         let result = parseInt(100 * counter / this.sentenceTwo.split(/\s+/).length)
+        this.score = result
 
         if (result > 50) {
             playBase64(CorrectSound)
@@ -68,6 +70,14 @@ class Proposition {
      */
     getAnswerWordDict = ()=>{
         return this.targetToNative? this.reverseDict : this.wordDict
+    }
+
+    /**
+     * Get the user's score as a percentage (integer from 0 to 100)
+     * @returns number
+     */
+    getScore = ()=>{
+        return this.score
     }
 
 

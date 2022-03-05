@@ -8,25 +8,39 @@ export default class Lesson{
 
     constructor(jsonData){
         this.propositions = jsonData.propositions.map( p => {return new Proposition(p)} )
-        // this.targetLanguage = jsonData.target_language??""
-        // this.sourceLanguage = jsonData.source_language??""
-        // this.author = jsonData.author??""
-        
         this.iterator = this.propositions.values()
         this.next()
+        this.lesson_over = false
     }
 
     next(){
         this.current = this.iterator.next().value
         
+        console.log("current proposition", this.current)
+
         if(!this.current){ //if undefined
-            throw new Error("reached end of lesson")
+            // throw new Error("reached end of lesson")
+            this.lesson_over = true
+            console.log("current proposition is null")
         } 
+
+        
 
     }
 
     getCurrent(){
-        return this.current
+        return this.current   ??this.propositions[this.propositions.length-1]
     }
+
+    isOver(){
+        console.log("is over called", this.lesson_over)
+        return this.lesson_over
+    }
+
+
+    getScore(){
+        return parseInt(this.propositions.map((p)=>{return p.getScore()}).reduce((a,b)=>{return a+b })/this.propositions.length)
+    }
+
 
 }

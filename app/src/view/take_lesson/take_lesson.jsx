@@ -17,7 +17,9 @@ export default class TakeLesson extends Component {
         this.state = {
             proposition: this.lesson.getCurrent(),
             userAccuracy: 0,
-            solutionHidden : true
+            solutionHidden : true,
+            lessonOver : this.lesson.isOver(),
+            overallUserAccuracy : 0
         }
 
         this.lesson.getCurrent().targetToNative?this.lesson.getCurrent().play():""
@@ -39,6 +41,9 @@ export default class TakeLesson extends Component {
         }
 
         this.setState({solutionHidden : !this.state.solutionHidden})
+        this.setState({lessonOver : this.lesson.isOver()})
+        this.setState({overallUserAccuracy: this.lesson.getScore()})
+        
     }
 
 
@@ -46,13 +51,15 @@ export default class TakeLesson extends Component {
     render() {
         return (
 
+
             <div>
+            <div style={{visibility : this.state.lessonOver? "hidden" : "visible", display :  this.state.lessonOver? "none" : "block" }}>
                 <h1>{L.translate_this_sentence}</h1>
                 <br />
                 
                 <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()}  />
 
-                <button onClick={this.state.proposition.play} className="normal_button"  style={{visibility : this.state.proposition.targetToNative?"visible":"hidden"  }} >{L.play_audio}</button>
+                <button onClick={this.state.proposition.play} className="normal_button"  style={{visibility : this.state.proposition.targetToNative&&(!this.state.lessonOver)  ?"visible":"hidden"  }} >{L.play_audio}</button>
                 <br />
                 <input ref={this.userInput} type="text" className="normal_textbox"/>
                 <br />
@@ -66,6 +73,14 @@ export default class TakeLesson extends Component {
                 </div>
 
             </div>
+
+            <div style={{visibility : this.state.lessonOver?  "visible" :"hidden"  }}   >
+                <h1>Thank you for taking this lesson</h1>
+                <h2>Overall Accuracy: {this.state.overallUserAccuracy}%</h2>
+            </div>
+
+            </div>
+            
 
         )
     }
