@@ -30,17 +30,10 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 * Support for hover-over-the-word definitions.
 
 
-## Crafting a Lesson:
+## Quick Demo
 
-<a href="https://www.youtube.com/watch?v=-uog_4TvUDg" title="Click me!">
-<img src="./icons/crafting_a_lesson.gif"></img>
-</a>
+<a href="https://youtu.be/estAGLc3uoE">https://youtu.be/estAGLc3uoE</a>
 
-## Taking a Lesson:
-
-<a href="https://www.youtube.com/watch?v=A1P5fVyRzfg" title="Click me!">
-<img src="./icons/taking_a_lesson.gif"></img>
-</a>
 
 
 
