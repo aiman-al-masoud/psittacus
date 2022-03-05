@@ -71,11 +71,6 @@ export default class TakeLesson extends Component {
 
                 <br />
 
-                <div className="text_tip">{L.need_a_lot_of_tips}</div>
-                <a  onClick={()=>{this.setState({mode: Modes.EXPLANATION})}}>{L.read_explanation}</a>
-                
-
-
                 <button onClick={this.state.proposition.play} className="normal_button" style={{ visibility: this.state.proposition.targetToNative && (!this.state.mode==Modes.LESSON_OVER) ? "visible" : "hidden" }} >{L.play_audio}</button>
                 <br />
                 <input ref={this.userInput} type="text" className="normal_textbox" />
@@ -89,6 +84,11 @@ export default class TakeLesson extends Component {
                     <HoverableSentence wordDict={this.state.proposition.getAnswerWordDict()} />
                     <h2>{L.your_accuracy}: {this.state.userAccuracy}%</h2>
                 </div>
+
+                <br />
+
+                <div className="text_tip">{L.need_a_lot_of_tips} <a href="js:this.setState({mode: Modes.EXPLANATION})" onClick={()=>{this.setState({mode: Modes.EXPLANATION})}}>{L.read_explanation}</a></div>
+                
 
             </div>
 
