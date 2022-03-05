@@ -9,7 +9,6 @@ export default class TextEditor extends Component{
 
     render(){
         return (<div>
-            <p>Edit the Explaination:</p>
             <textarea ref={this.textarea} cols="30" rows="30"  onInput={()=>{this.props.onTextChange(this.textarea.current.value)}}  value={this.props.text}></textarea>
         </div>)
     }

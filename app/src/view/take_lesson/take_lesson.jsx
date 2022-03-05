@@ -59,7 +59,7 @@ export default class TakeLesson extends Component {
 
             <div style={this.state.mode == Modes.STANDARD ? visible : invisible}>
                 
-                <button onClick={()=>{this.setState({mode: Modes.EXPLANATION})}} className="normal_button">Read Explanation</button>
+                <button onClick={()=>{this.setState({mode: Modes.EXPLANATION})}} className="normal_button">{L.read_explanation}</button>
 
                 <h1>{L.translate_this_sentence}</h1>
                 <div className="text_tip">{L.need_a_tip_hover_words}</div>
@@ -90,7 +90,7 @@ export default class TakeLesson extends Component {
 
 
             <div style={this.state.mode == Modes.EXPLANATION ? visible : invisible}   >
-                <button onClick={()=>{this.setState({mode: Modes.STANDARD})}} className="normal_button">Back</button>
+                <button onClick={()=>{this.setState({mode: Modes.STANDARD})}} className="normal_button">{L.back}</button>
                 <div>{this.lesson.explanationText}</div>
             </div>
             
