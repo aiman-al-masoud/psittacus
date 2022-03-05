@@ -15,7 +15,7 @@ export default class HoverableWord extends Component {
         return (
             <span>
                 <span onMouseLeave={this.toggleDefinition}   onMouseEnter={this.toggleDefinition}>{this.props.word} </span>
-                <span style={{visibility : this.state.hidden?"hidden":"visible", display : this.state.hidden?"none":"inline", color : "red" }}>{this.props.definition}</span>
+                <span style={{visibility : this.state.hidden?"hidden":"visible", display : this.state.hidden?"none":"inline", color : "red" }}>{this.props.definition} </span>
             </span>)
     }
 
