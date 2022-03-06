@@ -53,3 +53,11 @@ select option{
     color: white;   
 }
 
+
+
+.normal_link{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+

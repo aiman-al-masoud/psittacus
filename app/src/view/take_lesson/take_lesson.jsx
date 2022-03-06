@@ -88,8 +88,7 @@ export default class TakeLesson extends Component {
 
                 <br />
 
-                <div className="text_tip">{L.need_a_lot_of_tips} <a href="js:this.setState({mode: Modes.EXPLANATION})" onClick={()=>{this.setState({mode: Modes.EXPLANATION})}}>{L.read_explanation}</a></div>
-                
+                <span className="text_tip">{L.need_a_lot_of_tips} <span className="normal_link"  onClick={()=>{this.setState({mode: Modes.EXPLANATION})}}>{L.read_explanation}</span></span>
 
             </div>
 
