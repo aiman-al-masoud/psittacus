@@ -1,8 +1,11 @@
 # Psittacus
 
 
+
+
 <p>Psittacus iratus linguas docet 🦜</p>
 <p><em>The angry parrot teaches languages 🦜</em></p>
+
 
 
 ## What is it?
@@ -12,6 +15,7 @@ Psittacus is a lightweight, open-source tool, meant to facilitate language-learn
 Psittacus is based on the gamification of the sentence-mining approach, having an interface vaguely inspired by that of Duolingo and other competing interactive language learning-tools. 
 
 Psittacus aims at democratizing the process of language-learning and teaching, making it easy for teachers to prepare and collaborate on their own lessons, and share them in a standardized and easily accessible format. 
+
 
 ## Whom does it appeal to?
 
@@ -34,6 +38,9 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 
 <a href="https://youtu.be/estAGLc3uoE">https://youtu.be/estAGLc3uoE</a>
 
+
+
+<img src="./app/res/favicon.png" width="50" />
 
 
 
