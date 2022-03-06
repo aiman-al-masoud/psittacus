@@ -21,6 +21,7 @@ export default class Lesson{
         //decide if the lesson is over or not
 
         this.screwedUpPropositions = this.propositions.filter((p)=>{return p.getScore() < Proposition.MIN_PASSING_SCORE })
+        console.log(this.screwedUpPropositions)
         if(this.screwedUpPropositions.length > 0){
             return 
         }
