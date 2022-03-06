@@ -64,3 +64,10 @@ select option{
 .normal_link:hover{
     color: orange;
 }
+
+
+.textarea{
+  width: 60vw; 
+  height: 80vh;
+  font-size: large;
+}
