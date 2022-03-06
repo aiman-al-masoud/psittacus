@@ -3,7 +3,7 @@ import HoverableSentence from "./hoverable_sentence.jsx";
 import "../../index.css"
 import L from "../../model/language.js"
 import Modes from "./modes.js";
-
+import {createElementFromHTML} from "../../model/utils"
 
 export default class TakeLesson extends Component {
 
@@ -55,6 +55,8 @@ export default class TakeLesson extends Component {
         let visible = { display: "block", visibility: "visible" }
 
 
+
+
         return (<div>
 
             <div style={this.state.mode == Modes.STANDARD ? visible : invisible}>
@@ -100,10 +102,10 @@ export default class TakeLesson extends Component {
 
             <div style={this.state.mode == Modes.EXPLANATION ? visible : invisible}   >
                 <button onClick={()=>{this.setState({mode: Modes.STANDARD})}} className="normal_button">{L.back}</button>
-                <div> <pre> {this.lesson.explanationText}</pre></div>
+                {/* Doesn't seem to execute javascript in Chromium and Firefox, but someone said it could... (could lead to xss problems) */}
+                <div dangerouslySetInnerHTML={{ __html: this.lesson.explanationText }}></div>
             </div>
-            
-
+          
 
 
         </div>)

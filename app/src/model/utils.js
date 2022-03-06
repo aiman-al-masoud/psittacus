@@ -1,4 +1,4 @@
-export {  saveToComp, readText }
+export {  saveToComp, readText  /*, createElementFromHTML*/ }
 
 function saveToComp(content, fileName, contentType) {
     var a = document.createElement("a");
@@ -35,6 +35,12 @@ const readText = ()=> {
 })}
 
 
+
+// function createElementFromHTML(htmlString) {
+//     let div = document.createElement('div');
+//     div.innerHTML = htmlString.trim();
+//     return div
+// }
 
 
 
