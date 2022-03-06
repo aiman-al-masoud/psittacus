@@ -3,7 +3,6 @@ import HoverableSentence from "./hoverable_sentence.jsx";
 import "../../index.css"
 import L from "../../model/language.js"
 import Modes from "./modes.js";
-import {createElementFromHTML} from "../../model/utils"
 
 export default class TakeLesson extends Component {
 
