@@ -76,7 +76,7 @@ export default class TakeLesson extends Component {
                 <button onClick={this.next} className="normal_button">{this.state.solutionHidden ? L.see_solution : L.next}  </button>
                 <br />
 
-                <div style={{ visibility: this.state.solutionHidden ? "hidden" : "visible" }}>
+                <div style={ this.state.solutionHidden? invisible : visible }>
                     <h1>{L.solution}:</h1>
                     <div className="text_tip">{L.need_a_tip_hover_words}</div>
                     <HoverableSentence wordDict={this.state.proposition.getAnswerWordDict()} />
