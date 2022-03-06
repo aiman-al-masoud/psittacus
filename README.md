@@ -56,7 +56,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
    {   
         "metadata" : {},
         "propositions" : [proposition1, proposition2, proposition3, ...],
-        "explanation" : {text : "some in-depth explanation of the lesson..."}
+        "explanation" : {text : "<h1>some in-depth explanation of the lesson...</h1>"}
    }
   ```
 
@@ -73,6 +73,12 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 
   (More metadata may get added to lessons in the future).
    
+   
+  ## The Explanation Part
+   
+   Contains 'text', which is an html string of styled text, it can include external resources such as links to other pages or linked multimedia content.
+
+
   
   ## Each proposition has the following structure:
   
