@@ -13,7 +13,6 @@ import "../index.css"
 import SelectSound from "../../res/select.mp3"
 import { playBase64 } from "../model/recorder.js";
 
-
 export default class App extends Component {
 
     //pages which may contain unsaved data
@@ -47,6 +46,7 @@ export default class App extends Component {
         return (
             <div>
                 <button onClick={() => { this.onMenuChoose(Pages.MENU) }}> <img src={HomeIcon} alt={L.home} title={L.home} />   </button>
+
                 {this.state.page}
             </div>
         )
