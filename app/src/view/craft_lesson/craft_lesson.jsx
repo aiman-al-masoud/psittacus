@@ -151,6 +151,7 @@ export default class CraftLesson extends Component {
             <div style={this.state.editingMode==EditingModes.EXPLAINATION? visible : invisible }>
                 <h1>{L.make_your_point}</h1>
                 <div className="text_tip">{L.make_your_point_is}</div>
+                <div className="text_tip">{L.use_html_tags}</div>
                 <TextEditor onTextChange={this.onExplainationChange} text={this.state.lessonBuilder.explanationText}  />
             </div>
 

@@ -45,10 +45,10 @@
     "edit_sentences" : "Modifica Frasi",
     "edit_explanation" : "Modifica Spiegazione",
     "make_your_point" : "Fai chiarezza.",
-    "make_your_point_is" : "Dai ai tuoi studenti un approfondimento sull'argomento (o argomenti) trattati in questa lezione",
+    "make_your_point_is" : "Approfondisci l'argomento (o argomenti) trattati in questa lezione",
     "read_explanation" : "Leggi Spiegazione",
     "back" : "Indietro",
-    "need_a_lot_of_tips" : "Hai bisogno di tanti aiutini? :-) Torna alla teoria di questa lezione:"
-
+    "need_a_lot_of_tips" : "Hai bisogno di tanti aiutini? :-) Torna alla teoria di questa lezione:",
+    "use_html_tags" : "Usa le tag html per stilizzare il testo."
 
 }
