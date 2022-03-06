@@ -74,9 +74,9 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
   (More metadata may get added to lessons in the future).
    
    
-  ## The Explanation Part
+  ## The Explanation Part:
    
-   Contains 'text', which is an html string of styled text, it can include external resources such as links to other pages or linked multimedia content.
+   Contains 'text', which is an html string of styled text, it can include external resources such as links to other pages or linked multimedia content. It can  serve both as a theoretical introduction to the lesson for the student, or as a container for more insights related to the practical exercises (propositions) in the lesson.
 
 
   
