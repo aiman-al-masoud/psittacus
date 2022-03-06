@@ -43,11 +43,11 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 <a href="https://youtu.be/estAGLc3uoE">https://youtu.be/estAGLc3uoE</a>
 
 
-## Test Lesson
+## Test Test Lesson
 
 <p>
 <a href="https://drive.google.com/uc?export=download&id=1XjN370GYhlCX7BPPCr6gNDsXfteMDeLN" title="download lesson file" alt="download lesson file">Download</a>
-this lesson-file and try it out on Psittacus (open it with "Take Lesson" on the main-menu of the web-app).
+this test lesson-file and try it out on Psittacus (open it with "Take Lesson" on the main-menu of the web-app). Watch the Demo for more help.
 </p>
 
 
