@@ -49,5 +49,11 @@
     "read_explanation" : "Read Eplanation",
     "back" : "Back",
     "need_a_lot_of_tips" : "Need a lot of tips? :-) Go back to this lesson's theory:",
-    "use_html_tags" : "Use html tags to style your content."
+    "use_html_tags" : "Use html tags to style your content.",
+    "demo" : "Demo",
+    "demo_link" : "https://youtu.be/estAGLc3uoE",
+    "license" : "License",
+    "license_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/LICENSE",
+    "full_terms" : "Full Terms"
+
 }
