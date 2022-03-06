@@ -43,7 +43,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 <a href="https://youtu.be/estAGLc3uoE">https://youtu.be/estAGLc3uoE</a>
 
 
-## Test Test Lesson
+## Take Test Lesson
 
 <p>
 <a href="https://drive.google.com/uc?export=download&id=1XjN370GYhlCX7BPPCr6gNDsXfteMDeLN" title="download lesson file" alt="download lesson file">Download</a>
