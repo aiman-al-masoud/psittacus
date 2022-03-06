@@ -16,7 +16,7 @@ import { playBase64 } from "../model/recorder.js";
 export default class App extends Component {
 
     //pages which may contain unsaved data
-    static sensitive_pages = [Pages.CRAFT_NEW_LESSON, Pages.EDIT_LESSON]
+    static sensitivePages = [Pages.CRAFT_NEW_LESSON, Pages.EDIT_LESSON]
 
 
     constructor(props) {
@@ -58,7 +58,7 @@ export default class App extends Component {
         playBase64(SelectSound)
 
         //alert user if exiting with potentially unsaved data.
-        if (App.sensitive_pages.includes(this.state.pageId)) {
+        if (App.sensitivePages.includes(this.state.pageId)) {
             if (!confirm(L.your_work_may_be_lost)) {
                 return
             }
@@ -100,7 +100,7 @@ export default class App extends Component {
     //alert user if exiting with potentially unsaved data.
     componentDidMount() {
         window.addEventListener('beforeunload', (e) => {
-            if (App.sensitive_pages.includes(this.state.pageId)) {
+            if (App.sensitivePages.includes(this.state.pageId)) {
                 e.returnValue = L.your_work_may_be_lost;
             }
         })
