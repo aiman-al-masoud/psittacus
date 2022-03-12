@@ -1,5 +1,11 @@
+:root{
+    --bg-color : rgba(245, 245, 245, 0.445);
+    --on-focus-color : orange;
+    --normal-item-color : rgb(7, 7, 92);
+}
+
 body{
-    background-color: rgba(245, 245, 245, 0.445);
+    background-color: var(--bg-color);
     font-family: sans-serif;
 }
 
@@ -15,24 +21,24 @@ body h1{
 }
 
 .normal_textbox:focus{
-    outline: 2px orange solid;
+    outline: 2px var(--on-focus-color) solid;
 }
 
 .normal_button{
     border: 1px black dotted;
     margin: 1vh;
     padding: 1vh;
-    background-color: rgb(7, 7, 92);
+    background-color: var(--normal-item-color);
     color: white;
 }
 
-.normal_button:active{
+/* .normal_button:active{
     transform: scale(0.8);
-}
+} */
 
 .normal_button:hover, .normal_button:focus{
-    outline: 2px orange solid;
-    color: orange;
+    outline: 2px var(--on-focus-color) solid;
+    color: var(--on-focus-color);
 }
 
 .text_tip{
@@ -44,16 +50,14 @@ body h1{
 
 select{
     width: 40vw;
-    background-color: rgb(7, 7, 92);
+    background-color: var(--normal-item-color);
     color: white;
 }
 
 select option{
-    background-color: rgb(7, 7, 92);
+    background-color: var(--normal-item-color);
     color: white;   
 }
-
-
 
 .normal_link{
     color: blue;
@@ -62,9 +66,8 @@ select option{
 }
 
 .normal_link:hover{
-    color: orange;
+    color: var(--on-focus-color);
 }
-
 
 .textarea{
   width: 60vw; 
