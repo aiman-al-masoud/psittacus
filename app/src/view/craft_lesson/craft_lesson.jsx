@@ -6,6 +6,9 @@ import L from "../../model/language.js"
 import "../../index.css"
 import TextEditor from "./text_editor.jsx";
 import EditingModes from "./editing_modes";
+import Styles from "../styles";
+
+
 
 export default class CraftLesson extends Component {
 
@@ -133,9 +136,6 @@ export default class CraftLesson extends Component {
 
         </div>)
 
-        let invisible = {display:"none", visibility:"hidden"} 
-        let visible =  {display:"block", visibility:"visible"} 
-
         return (<div>
 
             <button onClick={()=>{ this.setState({editingMode : EditingModes.METADATA}) }} className="normal_button" >{L.edit_metadata}</button>
@@ -144,10 +144,10 @@ export default class CraftLesson extends Component {
             <button onClick={() => { this.lessonBuilder.save() }} className="normal_button" >{L.save_lesson}</button>
 
             
-            <div style={this.state.editingMode==EditingModes.METADATA? visible : invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> </div>
-            <div style={this.state.editingMode==EditingModes.LESSON? visible : invisible }>{mainBody}</div>
+            <div style={this.state.editingMode==EditingModes.METADATA? Styles.visible : Styles.invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> </div>
+            <div style={this.state.editingMode==EditingModes.LESSON? Styles.visible : Styles.invisible }>{mainBody}</div>
             
-            <div style={this.state.editingMode==EditingModes.EXPLAINATION? visible : invisible }>
+            <div style={this.state.editingMode==EditingModes.EXPLAINATION? Styles.visible : Styles.invisible }>
                 <h1>{L.make_your_point}</h1>
                 <div className="text_tip">{L.make_your_point_is}</div>
                 <div className="text_tip">{L.use_html_tags}</div>
