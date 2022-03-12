@@ -139,18 +139,9 @@ export default class CraftLesson extends Component {
             <button  onClick={()=>{ this.setState({editingMode : EditingModes.EXPLAINATION}) }}  className="normal_button" >{L.edit_explanation}</button>
             <button onClick={() => { this.lessonBuilder.save() }} className="normal_button" >{L.save_lesson}</button>
 
-            
             <div style={this.state.editingMode==EditingModes.METADATA? Styles.visible : Styles.invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> </div>
             <div style={this.state.editingMode==EditingModes.LESSON? Styles.visible : Styles.invisible }>{mainBody}</div>
-            
-            <div style={this.state.editingMode==EditingModes.EXPLAINATION? Styles.visible : Styles.invisible }>
-                <h1>{L.make_your_point}</h1>
-                <div className="text_tip">{L.make_your_point_is}</div>
-                <div className="text_tip">{L.use_html_tags}</div>
-                <TextEditor onTextChange={this.onExplainationChange} text={this.state.lessonBuilder.explanationHtmlString}  />
-            </div>
-
-
+            <div style={this.state.editingMode==EditingModes.EXPLAINATION? Styles.visible : Styles.invisible }><TextEditor onTextChange={this.onExplainationChange} text={this.state.lessonBuilder.explanationHtmlString}  /></div>
 
 
         </div>)
