@@ -24,6 +24,7 @@
   },
   "scripts": {
     "dev": "webpack serve",
-    "build": "./scripts/build.sh"
+    "build": "./scripts/build.sh",
+    "dev-build" : "./scripts/dev-build.sh"
   }
 }
