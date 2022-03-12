@@ -1,5 +1,21 @@
 * add mechanism to post lessons to *a* server and retrieve them by metadata.
 
+Server with the following apis:
+
+login
+access an existing account, receive session id
+
+signup
+create a new account on the server
+
+upload-lesson
+requires auth
+
+download-lesson
+doesn't require auth
+
+
+
 * Add New Attributes to Proposition:
 
 alt_sentence_two [ ]
