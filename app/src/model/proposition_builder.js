@@ -1,10 +1,10 @@
 import {Recorder, playBase64} from "./recorder.js"
-export {PropositionBuilder}
+
 
 /**
  * Builds and edits Propositions.
  */
-class PropositionBuilder{
+export default class PropositionBuilder{
 
     constructor(){
         this.wordDict = {} //from target to native

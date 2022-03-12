@@ -1,4 +1,4 @@
-import { PropositionBuilder } from "./proposition_builder.js"
+import  PropositionBuilder  from "./proposition_builder.js"
 import { saveToComp } from "./utils.js"
 
 /**
