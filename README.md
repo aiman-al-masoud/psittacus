@@ -21,7 +21,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 
 * Language lovers in general. 🌍
 * Teachers of any language that need to share quick homeworks/lessons with their students. 📚
-* Speakers of endangered languages that wish to preserve and spread their native tounge. 🌱
+* Speakers of endangered languages that wish to preserve and spread their native tounge. 🌱 📼
 * Conlangers that want the world to learn their constructed language. 🤓
 * And many more...
 
@@ -34,13 +34,22 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 * Support for hover-over-the-word definitions.
 
 
+## Link to Web-App
+
+<a href="https://aiman-al-masoud.github.io/psittacus/psittacus.html">https://aiman-al-masoud.github.io/psittacus/psittacus.html</a>
+
 ## Demo
 
 <a href="https://youtu.be/estAGLc3uoE">https://youtu.be/estAGLc3uoE</a>
 
 
+## Take Test Lesson
 
-<img src="./app/res/favicon.png" width="50" />
+<p>
+<a href="https://drive.google.com/uc?export=download&id=1XjN370GYhlCX7BPPCr6gNDsXfteMDeLN" title="download lesson file" alt="download lesson file">Download</a>
+this test lesson-file and try it out on Psittacus (open it with "Take Lesson" on the main-menu of the web-app). Watch the Demo for more help.
+</p>
+
 
 
 
