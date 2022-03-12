@@ -9,18 +9,14 @@ import EditingModes from "./editing_modes";
 import Styles from "../styles";
 
 
-
 export default class CraftLesson extends Component {
-
 
     constructor(props) {
         super(props)
-
-
         this.inputSentenceOne = React.createRef()
         this.inputSentenceTwo = React.createRef()
-
         this.lessonBuilder = props.lessonBuilder ?? new LessonBuilder()
+        
         this.state = {
             propositionBuilder: this.lessonBuilder.getCurrent(),
             recording: false,
