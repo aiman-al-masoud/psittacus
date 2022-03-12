@@ -2,7 +2,7 @@ import {Recorder, playBase64} from "./recorder.js"
 export {PropositionBuilder}
 
 /**
- * Prepares a proposition's data in json format.
+ * Builds and edits Propositions.
  */
 class PropositionBuilder{
 
@@ -11,8 +11,8 @@ class PropositionBuilder{
         this.reverseDict = {} //from native to target
         this.recorder = new Recorder()
         this.targetToNative = true; //to be translated from target lang to native by default.
-        this.sentenceOne = ""
-        this.sentenceTwo = ""
+        this.sentenceOne = "" //in target lang
+        this.sentenceTwo = "" //in source lang
     }
 
     /**
@@ -23,52 +23,11 @@ class PropositionBuilder{
         pb.sentenceOne = jsonData.sentence_one
         pb.sentenceTwo = jsonData.sentence_two
         pb.wordDict = jsonData.word_dict
+        pb.reverseDict = jsonData.reverse_dict??{}
         pb.recorder.base64 = jsonData.audio_base64
         pb.targetToNative = jsonData.target_to_native??true
-        pb.reverseDict = jsonData.reverse_dict??{}
         return pb
     }
-
-    setSentenceOne(sentence_one){
-        this.sentenceOne = sentence_one
-        return this
-    }
-
-    setSentenceTwo(sentence_two){
-        this.sentenceTwo = sentence_two
-        return this
-    }
-
-    setDefinition(word, definition){
-        this.wordDict[word] = definition
-        return this
-    }
-
-    record(){
-        this.recorder.record()
-        return this
-    }
-
-    stopRecording(){
-        this.recorder.stop()
-        return this
-    }
-
-    isEmpty(){
-        return !(this.sentenceOne && this.sentenceTwo)
-    }
-
-    playAudio = ()=>{
-        playBase64(this.recorder.base64)
-    }
-
-    /**
-     * By default, the user should be asked to translate target to native, this method inverts the order.
-     */
-    invertTranslationDirection(){
-        this.targetToNative = !this.targetToNative;
-    }
-
 
     toJson(){
         return {
@@ -79,6 +38,67 @@ class PropositionBuilder{
             audio_base64 : this.recorder.base64,
             target_to_native  : this.targetToNative,
         }
+    }
+
+    /**
+     * Sentence in the Target Language.
+     * Taget Language: the language this lesson is trying to teach.
+     * @param {string} sentence_one 
+     * @returns 
+     */
+    setSentenceOne(sentence_one){
+        this.sentenceOne = sentence_one
+        return this
+    }
+
+    /**
+     * Sentence in the Source Language.
+     * Source Language: the language that the student already knows.
+     * @param {string} sentence_two 
+     * @returns 
+     */
+    setSentenceTwo(sentence_two){
+        this.sentenceTwo = sentence_two
+        return this
+    }
+
+    /**
+     * Record audio in target language.
+     */
+    record(){
+        this.recorder.record()
+        return this
+    }
+
+    /**
+     * Stop recording audio.
+     */
+    stopRecording(){
+        this.recorder.stop()
+        return this
+    }
+
+    /**
+     * Is the proposition being built still empty?
+     */
+    isEmpty(){
+        return !(this.sentenceOne && this.sentenceTwo)
+    }
+
+    /**
+     * Do a sound test after recording yourself.
+     */
+    playAudio = ()=>{
+        playBase64(this.recorder.base64)
+    }
+
+    /**
+     * By default, user is asked to translate target to native, 
+     * this method inverts the order.
+     */
+    invertTranslationDirection(){
+        this.targetToNative = !this.targetToNative;
+        return this
     }
 
 }
