@@ -89,8 +89,8 @@ export default class CraftLesson extends Component {
     }
 
 
-    onExplainationChange = (newExplaination) => {
-        this.lessonBuilder.setExplanation(newExplaination)
+    onExplainationChange = (newExplainationHtmlString) => {
+        this.lessonBuilder.setExplanation(newExplainationHtmlString)
         this.setState({lessonBuilder : this.lessonBuilder })
     }
 
