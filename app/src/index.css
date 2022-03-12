@@ -32,10 +32,6 @@ body h1{
     color: white;
 }
 
-/* .normal_button:active{
-    transform: scale(0.8);
-} */
-
 .normal_button:hover, .normal_button:focus{
     outline: 2px var(--on-focus-color) solid;
     color: var(--on-focus-color);
