@@ -34,7 +34,7 @@ export default class LessonBuilder {
 
     /**
      * Get the proposition currenlty under audit.
-     * @returns Proposition
+     * @returns PropositionBuilder
      */
     getCurrent() {
         return this.propositions[this.current]
