@@ -160,6 +160,25 @@ Copy and paste the full path of:
 ... to your browser's navigation bar.
 
 
+## Debugging:
+
+* Use:
+
+```
+yarn run dev-build
+```
+
+to generate an un-minified developer build (easier to debug).
+
+And maybe consider doing this in `jsconfig.json`:
+
+```
+"checkJs" : true
+```
+
+(This option is far too annoying to stay on all the time, and doesn't even catch all of the errors for lack of information).
+
+
 </details>
 
 

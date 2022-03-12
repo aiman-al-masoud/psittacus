@@ -6,12 +6,12 @@ import Pages from "./pages.js";
 import { readText } from "../model/utils.js";
 import Lesson from "../model/lesson"
 import LessonBuilder from "../model/lesson_builder.js";
-import HomeIcon from "../../res/home.png"
 import Settings from "./settings/settings.jsx";
 import L from "../model/language.js";
-import "../index.css"
-import SelectSound from "../../res/select.mp3"
 import { playBase64 } from "../model/recorder.js";
+import "../index.css"
+import HomeIcon from "../../res/home.png"
+import SelectSound from "../../res/select.mp3"
 
 export default class App extends Component {
 

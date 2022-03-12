@@ -16,6 +16,7 @@
     "css-loader": "^6.6.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "source-map": "^0.7.3",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.69.1",
@@ -25,6 +26,6 @@
   "scripts": {
     "dev": "webpack serve",
     "build": "./scripts/build.sh",
-    "dev-build" : "./scripts/dev-build.sh"
+    "dev-build": "./scripts/dev-build.sh"
   }
 }
