@@ -1,13 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// const fs = require('fs')
-// console.log(fs.readdirSync("app/res/lang_packs"))
-
-
-
 module.exports = {
-
 
   entry: path.join(__dirname, "app", "src", "index.js"),
   output: {
