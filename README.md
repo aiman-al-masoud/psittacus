@@ -36,7 +36,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 
 ## Link to Web-App
 
-<a href="https://aiman-al-masoud.github.io/psittacus/psittacus.html">https://aiman-al-masoud.github.io/psittacus/psittacus.html</a>
+<a href="https://psittacus.eu.pythonanywhere.com/">https://psittacus.eu.pythonanywhere.com/</a>
 
 ## Demo
 
