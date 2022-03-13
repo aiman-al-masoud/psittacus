@@ -82,7 +82,8 @@ this test lesson-file and try it out on Psittacus (open it with "Take Lesson" on
   {
     "target_language" : "target lang",
     "source_language" : "source lang",
-    "author" : "author-or-authors",  
+    "author" : "author-or-authors",
+    lesson_id : "lesson_subject_and_or_number",  
     "last_modified" : 1644144766547
   }
   ```
