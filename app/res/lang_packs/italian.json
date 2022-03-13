@@ -59,7 +59,9 @@
     "lesson_crafting" : "Creare Lezioni",
     "shortcut_save_lesson" : "Ctrl+S",
     "shortcut_record_audio" : "Ctrl+Spazio",
-    "shortcut_play_audio" : "Shift+Spazio"
+    "shortcut_play_audio" : "Shift+Spazio",
+    "tab_to_move" : "Tab per selezionare l'elemento seguente, Shift+Tab per il precedente."
+
 
 
 }

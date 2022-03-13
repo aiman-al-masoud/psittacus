@@ -30,6 +30,8 @@ export default class Info extends Component {
 
                 <h1>{L.shortcuts}</h1>
 
+                <p>{L.tab_to_move}</p>
+
                 <h2>{L.lesson_crafting}</h2>
                 <ul>
                     <li><span>{L.shortcut_save_lesson}</span>: <span>{L.save_lesson}</span></li>
