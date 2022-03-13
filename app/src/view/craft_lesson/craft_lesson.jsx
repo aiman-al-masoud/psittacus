@@ -113,8 +113,8 @@ export default class CraftLesson extends Component {
             <h1>{L.write_and_pronounce}</h1>
             <div className="text_tip">{L.target_lang_is}</div>
             <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} className="normal_textbox" />
-            <button onClick={this.toggleRecorder} className="normal_button" >{this.state.recording ? L.stop_recording : L.record}</button>
-            <button onClick={this.state.propositionBuilder.playAudio} className="normal_button" >{L.play_audio}</button>
+            <button onClick={this.toggleRecorder} className="normal_button" title={L.shortcut_record_audio} >{this.state.recording ? L.stop_recording : L.record}</button>
+            <button onClick={this.state.propositionBuilder.playAudio} className="normal_button" title={L.shortcut_play_audio}>{L.play_audio}</button>
             <h1>{L.translate_to_source_lang}</h1>
             <div className="text_tip">{L.source_lang_is}</div>
             <input onInput={this.onSentenceTwoInput} type="text" ref={this.inputSentenceTwo} value={this.state.propositionBuilder.sentenceTwo} className="normal_textbox" />
@@ -137,7 +137,7 @@ export default class CraftLesson extends Component {
             <button onClick={()=>{ this.setState({editingMode : EditingModes.METADATA}) }} className="normal_button" >{L.edit_metadata}</button>
             <button onClick={()=>{ this.setState({editingMode : EditingModes.LESSON}) }}   className="normal_button" >{L.edit_sentences}</button>
             <button  onClick={()=>{ this.setState({editingMode : EditingModes.EXPLAINATION}) }}  className="normal_button" >{L.edit_explanation}</button>
-            <button onClick={() => { this.lessonBuilder.save() }} className="normal_button" >{L.save_lesson}</button>
+            <button onClick={() => { this.lessonBuilder.save() }} className="normal_button" title={L.shortcut_save_lesson}>{L.save_lesson}</button>
 
             <div style={this.state.editingMode==EditingModes.LESSON? Styles.visible : Styles.invisible }>{mainBody}</div>
             <div style={this.state.editingMode==EditingModes.METADATA? Styles.visible : Styles.invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> </div>

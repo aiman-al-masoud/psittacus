@@ -15,7 +15,7 @@
     "write_and_pronounce" : "Write and pronounce a sentence in the target language:",
     "target_lang_is" : "The target language is the language that your students wish to learn.",
     "record" : "Record",
-    "play_audio" : "Play",
+    "play_audio" : "Play Audio",
     "translate_to_source_lang" : "Translate it to the source language:",
     "source_lang_is" : "The source language is the language that your students understand.",
     "write_word_dict" : "Give a brief definition of each word from the target language:",
@@ -56,6 +56,9 @@
     "license_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/LICENSE",
     "full_terms" : "Full Terms",
     "shortcuts" : "Shortcuts",
-    "lesson_crafting" : "Lesson Crafting"
+    "lesson_crafting" : "Lesson Crafting",
+    "shortcut_save_lesson" : "Ctrl+S",
+    "shortcut_record_audio" : "Ctrl+Space",
+    "shortcut_play_audio" : "Shift+Space"
 
 }

@@ -22,7 +22,7 @@ export default class Info extends Component {
 
                 <h1>{L.link_to_source_code_title}</h1>
                 <a href={L.link_to_source_code} target="_blank">{L.link_to_source_code}</a>
-               
+
                 <h1>{L.license}</h1>
                 <p>{L.license_notice}</p>
                 <h1>{L.full_terms}</h1>
@@ -32,9 +32,14 @@ export default class Info extends Component {
 
                 <h2>{L.lesson_crafting}</h2>
                 <ul>
-                    <li><span>Ctrl+S</span>: <span>{L.save_lesson}</span></li>
-                    <li><span>Ctrl+Space</span>: <span>{L.record}/{L.stop_recording}</span></li>
-                    <li><span>Shift+Space</span>: <span>{L.play_audio}</span></li>
+                    <li><span>{L.shortcut_save_lesson}</span>: <span>{L.save_lesson}</span></li>
+                    <li><span>{L.shortcut_record_audio}</span>: <span>{L.record}/{L.stop_recording}</span></li>
+                    <li><span>{L.shortcut_play_audio}</span>: <span>{L.play_audio}</span></li>
+                </ul>
+
+                <h2>{L.take_lesson}</h2>
+                <ul>
+                    <li><span>{L.shortcut_play_audio}</span>: <span>{L.play_audio}</span></li>
                 </ul>
 
 

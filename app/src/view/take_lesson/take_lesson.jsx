@@ -57,7 +57,7 @@ export default class TakeLesson extends Component {
                 <br />
                 <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
                 <br />
-                <button onClick={this.state.proposition.play} className="normal_button" style={ (this.state.proposition.targetToNative && (this.state.mode!=Modes.LESSON_OVER)) ? Styles.visible : Styles.invisible } >{L.play_audio}</button>
+                <button onClick={this.state.proposition.play} className="normal_button" style={ (this.state.proposition.targetToNative && (this.state.mode!=Modes.LESSON_OVER)) ? Styles.visible : Styles.invisible }   title={L.shortcut_play_audio}>{L.play_audio}</button>
                 <br />
                 <input ref={this.userInput} type="text" className="normal_textbox" />
                 <br />
