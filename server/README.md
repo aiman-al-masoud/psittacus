@@ -1,0 +1,1 @@
+A test implementation of a server. You will still be able to use whatever server you like, because (client-side) is going to be the priority.
