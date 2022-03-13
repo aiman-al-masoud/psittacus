@@ -28,6 +28,15 @@ export default class Info extends Component {
                 <h1>{L.full_terms}</h1>
                 <a href={L.license_link} target="_blank">{L.license_link}</a>
 
+                <h1>{L.shortcuts}</h1>
+
+                <h2>{L.lesson_crafting}</h2>
+                <ul>
+                    <li><span>Ctrl+S</span>: <span>{L.save_lesson}</span></li>
+                    <li><span>Ctrl+Space</span>: <span>{L.record}/{L.stop_recording}</span></li>
+                    <li><span>Space</span>: <span>{L.play_audio}</span></li>
+                </ul>
+
 
             </div>
 

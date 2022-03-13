@@ -147,5 +147,30 @@ export default class CraftLesson extends Component {
     }
 
 
+    componentDidMount(){
+        window.addEventListener("keydown", (e)=>{
+
+            //save lesson to computer and override default behavior
+            if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+                e.preventDefault();
+                e.ctrlKey? this.lessonBuilder.save() : ""
+            }
+
+            //play recorded sound
+            if(e.code=="Space" && !e.ctrlKey){
+                e.preventDefault();
+                this.state.propositionBuilder.playAudio();                  
+            }
+
+            //record sound
+            if(e.code=="Space" && e.ctrlKey){
+                e.preventDefault();
+                this.toggleRecorder();
+            }
+
+        })
+    }
+
+
 
 }

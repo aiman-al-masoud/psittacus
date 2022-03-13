@@ -9,7 +9,9 @@ body{
     font-family: sans-serif;
 }
 
-body h1{
+
+
+body,h1,h2{
     font-size: medium;
 }
 
