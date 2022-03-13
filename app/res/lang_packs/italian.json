@@ -56,7 +56,10 @@
     "license_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/LICENSE",
     "full_terms" : "Tutti i Termini",
     "shortcuts" : "Scorciatoie",
-    "lesson_crafting" : "Creare Lezioni"
+    "lesson_crafting" : "Creare Lezioni",
+    "shortcut_save_lesson" : "Ctrl+S",
+    "shortcut_record_audio" : "Ctrl+Spazio",
+    "shortcut_play_audio" : "Shift+Spazio"
 
 
 }
