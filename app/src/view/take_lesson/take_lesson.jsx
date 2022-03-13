@@ -90,4 +90,18 @@ export default class TakeLesson extends Component {
     }
 
 
+
+    componentDidMount(){
+        window.addEventListener("keydown", (e)=>{
+
+            //play recorded sound
+            if(e.code=="Space" && e.shiftKey){
+                e.preventDefault();
+                this.lesson.getCurrent().targetToNative ? this.lesson.getCurrent().play() : ""
+            }
+
+        })
+    }
+
+
 }

@@ -34,7 +34,7 @@ export default class Info extends Component {
                 <ul>
                     <li><span>Ctrl+S</span>: <span>{L.save_lesson}</span></li>
                     <li><span>Ctrl+Space</span>: <span>{L.record}/{L.stop_recording}</span></li>
-                    <li><span>Space</span>: <span>{L.play_audio}</span></li>
+                    <li><span>Shift+Space</span>: <span>{L.play_audio}</span></li>
                 </ul>
 
 

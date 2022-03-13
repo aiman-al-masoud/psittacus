@@ -157,7 +157,7 @@ export default class CraftLesson extends Component {
             }
 
             //play recorded sound
-            if(e.code=="Space" && !e.ctrlKey){
+            if(e.code=="Space" && e.shiftKey){
                 e.preventDefault();
                 this.state.propositionBuilder.playAudio();                  
             }
