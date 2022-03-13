@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "checkJs" : false, /* switch to true for (some) extra compile-time type-checking, turn it off after you're done, because it's annoying. */
+        "checkJs" : false,  /* switch to true for (some) extra compile-time type-checking, turn it off after you're done, because it's annoying. */
         "jsx": "react"
     }
 }

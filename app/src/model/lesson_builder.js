@@ -1,5 +1,6 @@
 import  PropositionBuilder  from "./proposition_builder.js"
 import { saveToComp } from "./utils.js"
+const packageJson = require.context("../../..", false, /package.json$/).keys().map(require.context("../../..", false, /package.json$/))[0]
 
 /**
  * Builds, edits and saves lessons.
@@ -26,7 +27,7 @@ export default class LessonBuilder {
 
     toJson() {
         return {
-            metadata: { ...this.metadata, last_modified: new Date().getTime() },
+            metadata: { ...this.metadata, last_modified: new Date().getTime(), psittacus_version : packageJson.version },
             propositions: this.propositions.filter((p) => !p.isEmpty()).map((p) => p.toJson()),
             explanation: { text: this.explanationHtmlString }
         }
