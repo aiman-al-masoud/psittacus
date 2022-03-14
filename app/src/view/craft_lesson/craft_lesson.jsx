@@ -154,7 +154,7 @@ export default class CraftLesson extends Component {
             //save lesson to computer and override default behavior
             if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
                 e.preventDefault();
-                e.ctrlKey? this.lessonBuilder.save() : ""
+                this.lessonBuilder.save() 
             }
 
             //play recorded sound
@@ -163,7 +163,7 @@ export default class CraftLesson extends Component {
                 this.state.propositionBuilder.playAudio();                  
             }
 
-            //record sound
+            //record sound/stop recording
             if(e.code=="Space" && e.ctrlKey){
                 e.preventDefault();
                 this.toggleRecorder();
