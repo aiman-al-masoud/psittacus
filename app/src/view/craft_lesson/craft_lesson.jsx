@@ -17,6 +17,7 @@ export default class CraftLesson extends Component {
         this.inputSentenceTwo = React.createRef()
         this.lessonBuilder = props.lessonBuilder ?? new LessonBuilder()
         
+        //TODO: (Deduplication) lessonBuilder only as a state, remove this.lessonBuilder 
         this.state = {
             propositionBuilder: this.lessonBuilder.getCurrent(),
             recording: false,
@@ -78,7 +79,7 @@ export default class CraftLesson extends Component {
         this.setState({ propositionBuilder: propoBuilder })
     }
 
-    onModifyMedata = (metadataDict) => {
+    onModifyMetadata = (metadataDict) => {
         this.lessonBuilder.metadata = metadataDict
         this.setState({ lessonBuilder: this.lessonBuilder })
     }
@@ -140,7 +141,7 @@ export default class CraftLesson extends Component {
             <button onClick={() => { this.lessonBuilder.save() }} className="normal_button" title={L.shortcut_save_lesson}>{L.save_lesson}</button>
 
             <div style={this.state.editingMode==EditingModes.LESSON? Styles.visible : Styles.invisible }>{mainBody}</div>
-            <div style={this.state.editingMode==EditingModes.METADATA? Styles.visible : Styles.invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMedata} /> </div>
+            <div style={this.state.editingMode==EditingModes.METADATA? Styles.visible : Styles.invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMetadata} /> </div>
             <div style={this.state.editingMode==EditingModes.EXPLAINATION? Styles.visible : Styles.invisible }><TextEditor onTextChange={this.onExplainationChange} text={this.state.lessonBuilder.explanationHtmlString}  /></div>
 
         </div>)
