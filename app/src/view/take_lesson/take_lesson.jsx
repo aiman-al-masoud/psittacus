@@ -31,7 +31,6 @@ export default class TakeLesson extends Component {
         if (this.state.solutionHidden) {
             this.setState({ userAccuracy: this.state.proposition.check(this.userInput.current.value) })
             this.lesson.getCurrent().targetToNative ? "" : this.lesson.getCurrent().play()
-
         } else {
             this.lesson.next()
             this.setState({ proposition: this.lesson.getCurrent() })
@@ -94,7 +93,7 @@ export default class TakeLesson extends Component {
     componentDidMount(){
         window.addEventListener("keydown", (e)=>{
 
-            //play recorded sound
+            //play recording if user allowed to hear it
             if(e.code=="Space" && e.shiftKey){
                 e.preventDefault();
                 this.lesson.getCurrent().targetToNative ? this.lesson.getCurrent().play() : ""
