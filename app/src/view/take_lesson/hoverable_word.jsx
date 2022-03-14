@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Styles from "../styles";
+
+
 
 export default class HoverableWord extends Component {
 
@@ -12,10 +15,11 @@ export default class HoverableWord extends Component {
     }
 
     render() {
+        
         return (
             <span>
                 <span onMouseLeave={this.toggleDefinition}   onMouseEnter={this.toggleDefinition}>{this.props.word} </span>
-                <span style={{visibility : this.state.hidden?"hidden":"visible", display : this.state.hidden?"none":"inline", color : "red" }}>{this.props.definition} </span>
+                <span style={{ ...this.state.hidden? Styles.invisible:Styles.visibleInline, color : "red" }}>{this.props.definition} </span>
             </span>)
     }
 
