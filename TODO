@@ -37,11 +37,16 @@ A recording of each separate word in the target language.
 
 # Spaced Repetition
 
+from: https://github.com/aiman-al-masoud/psittacus/issues/1
+
 https://en.wikipedia.org/wiki/Spaced_repetition
 
 * Use strategy pattern on lessons to implement spaced repetition (Leitner?) alongside other kinds of (spaced-)repetitition?
 
 # Anki
+
+from: https://github.com/aiman-al-masoud/psittacus/issues/1
+
 * look into Anki: https://apps.ankiweb.net/ and its formats
 
 # Refactoring
