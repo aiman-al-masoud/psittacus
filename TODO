@@ -1,4 +1,4 @@
-* add mechanism to post lessons to *a* server and retrieve them by metadata.
+# add mechanism to post lessons to *a* server and retrieve them by metadata.
 
 Server with the following apis:
 
@@ -15,8 +15,7 @@ download-lesson
 doesn't require auth
 
 
-
-* Add New Attributes to Proposition:
+# Add New Attributes to Proposition:
 
 alt_sentence_two [ ]
 ignored_chars []
@@ -34,3 +33,13 @@ provide a default ignore list.
 
 * audio_dict
 A recording of each separate word in the target language.
+
+
+# Spaced Repetition
+Use strategy pattern on lessons to implement spaced repetition?
+
+# Refactoring
+* rename all file names in PascalCase
+
+# Anki
+* look into Anki: https://apps.ankiweb.net/
