@@ -36,10 +36,15 @@ A recording of each separate word in the target language.
 
 
 # Spaced Repetition
-Use strategy pattern on lessons to implement spaced repetition?
 
-# Refactoring
-* rename all file names in PascalCase
+https://en.wikipedia.org/wiki/Spaced_repetition
+
+* Use strategy pattern on lessons to implement spaced repetition (Leitner?) alongside other kinds of (spaced-)repetitition?
 
 # Anki
-* look into Anki: https://apps.ankiweb.net/
+* look into Anki: https://apps.ankiweb.net/ and its formats
+
+# Refactoring
+* rename all files to match PascalCase
+
+
