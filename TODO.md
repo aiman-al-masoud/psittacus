@@ -54,9 +54,8 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 * look into Anki: https://apps.ankiweb.net/ and its formats
 
 # Refactoring
-* rename all files to match PascalCase
 
-* Replace React's "dangerouslySetInnerHTML" with an equivalent no-js solution
+* Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
 
 https://github.com/aiman-al-masoud/psittacus/issues/2
 
