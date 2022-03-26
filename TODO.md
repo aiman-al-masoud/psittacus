@@ -43,6 +43,10 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 
 * Use strategy pattern on lessons to implement spaced repetition (Leitner?) alongside other kinds of (spaced-)repetitition?
 
+https://en.wikipedia.org/wiki/Leitner_system
+
+
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
