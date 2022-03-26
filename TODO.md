@@ -66,11 +66,13 @@ The user will be able to select from the available SpacedRepetition algorithms f
 
 * storing information on past "boxes" for each lesson:
 
+```
 {
 lesson_id0 : {
     boxes: [ [propo_id0, propo_id3], [propo_id2, propo_id5]  ]
 }  
 }
+```
 
 Boxes subdivide Propositions into categories based on the user's proficiency in them. Propositions that the user gets wrong are moved to the first box, and they get shown to the user more often during the next "playback" of the lesson. 
 
