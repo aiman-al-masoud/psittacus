@@ -41,9 +41,23 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-* Use strategy pattern on lessons to implement spaced repetition (Leitner?) alongside other kinds of (spaced-)repetitition?
+* Use the Strategy Pattern on Lesson to implement spaced repetition (Leitner?) alongside other kinds of (spaced-)repetitition?
 
 https://en.wikipedia.org/wiki/Leitner_system
+
+
+## SpacedRepetition "interface" will have:
+
+* next() method, that gets called within Lesson's next() method. 
+
+* getCurrent() ...
+
+* isOver()  ...
+
+* getScore() ...
+
+The user will be able to select from the available SpacedRepetition algorithms from the settings menu. Settings.js will help with persistence.
+
 
 
 

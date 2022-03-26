@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import L from "../../model/Language.js";
-
+import S from "../../model/Settings.js"
 
 export default class Settings extends Component {
 
