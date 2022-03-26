@@ -77,6 +77,8 @@ lesson_id0 : {
 Boxes subdivide Propositions into categories based on the user's proficiency in them. Propositions that the user gets wrong are moved to the first box, and they get shown to the user more often during the next "playback" of the lesson. 
 
 
+Lesson id: a combination of author, target lang, source lang and title.
+Proposition id: just its index within the Lesson's list
 
 
 # Anki

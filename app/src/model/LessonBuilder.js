@@ -10,7 +10,7 @@ export default class LessonBuilder {
     constructor() {
         this.propositions = [new PropositionBuilder()]
         this.current = 0
-        this.metadata = { author: "", source_language: "", target_language: "", lesson_id : "" }
+        this.metadata = { author: "", source_language: "", target_language: "", title : "" }
         this.explanationHtmlString = ""
     }
 
