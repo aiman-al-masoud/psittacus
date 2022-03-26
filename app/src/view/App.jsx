@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import CraftLesson from "./craft_lesson/craft_lesson.jsx";
-import TakeLesson from "./take_lesson/take_lesson.jsx";
-import Info from "./info/info.jsx";
-import Pages from "./pages.js";
-import { readText } from "../model/utils.js";
-import Lesson from "../model/lesson"
-import LessonBuilder from "../model/lesson_builder.js";
-import Settings from "./settings/settings.jsx";
-import L from "../model/language.js";
-import { playBase64 } from "../model/recorder.js";
+import CraftLesson from "./craft_lesson/CraftLesson.jsx";
+import TakeLesson from "./take_lesson/TakeLesson.jsx";
+import Info from "./info/Info.jsx";
+import Pages from "./Pages.js";
+import { readText } from "../model/Utils.js";
+import Lesson from "../model/Lesson"
+import LessonBuilder from "../model/LessonBuilder.js";
+import Settings from "./settings/Settings.jsx";
+import L from "../model/Language.js";
+import { playBase64 } from "../model/Recorder.js";
 import "../index.css"
 import HomeIcon from "../../res/home.png"
 import SelectSound from "../../res/select.mp3"

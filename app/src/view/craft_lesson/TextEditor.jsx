@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../index.css"
-import L from "../../model/language";
+import L from "../../model/Language.js";
 
 
 /**

@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import reactDOM from "react-dom";
-import App from "./view/app.jsx";
+import App from "./view/App.jsx";
 import FaviconImage from "../res/favicon.png"
-import L from "./model/language.js";
+import L from "./model/Language.js";
 
 //set favicon
 let link = document.createElement('link')

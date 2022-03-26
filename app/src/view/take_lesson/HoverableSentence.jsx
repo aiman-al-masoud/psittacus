@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import HoverableWord from "./hoverable_word.jsx";
+import HoverableWord from "./HoverableWord.jsx";
 
 
 export default class HoverableSentence extends Component{

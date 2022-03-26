@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import L from "../../model/language.js";
-import DefinitionsTable from "./definitions_table.jsx";
+import L from "../../model/Language.js";
+import DefinitionsTable from "./DefinitionsTable.jsx";
 
 
 export default class Metadata extends Component{

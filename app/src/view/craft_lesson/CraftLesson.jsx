@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import LessonBuilder from "../../model/lesson_builder";
-import DefinitionsTable from "./definitions_table.jsx";
-import Metadata from "./metadata.jsx";
-import L from "../../model/language.js"
+import LessonBuilder from "../../model/LessonBuilder.js";
+import DefinitionsTable from "./DefinitionsTable.jsx";
+import Metadata from "./Metadata.jsx";
+import L from "../../model/Language.js"
 import "../../index.css"
-import TextEditor from "./text_editor.jsx";
-import EditingModes from "./editing_modes";
-import Styles from "../styles";
+import TextEditor from "./TextEditor.jsx";
+import EditingModes from "./EditingModes.js";
+import Styles from "../Styles";
 
 
 export default class CraftLesson extends Component {

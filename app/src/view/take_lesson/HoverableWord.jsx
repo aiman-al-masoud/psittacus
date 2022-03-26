@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Styles from "../styles";
+import Styles from "../Styles";
 
 
 

@@ -1,4 +1,4 @@
-import Proposition from "./proposition.js"
+import Proposition from "./Proposition.js"
 
 /**
  * A lesson is mainly a list of Propositions.

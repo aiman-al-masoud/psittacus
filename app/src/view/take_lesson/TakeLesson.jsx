@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import HoverableSentence from "./hoverable_sentence.jsx";
+import HoverableSentence from "./HoverableSentence.jsx";
 import "../../index.css"
-import L from "../../model/language.js"
-import Modes from "./modes.js";
-import Styles from "../styles.js";
+import L from "../../model/Language.js"
+import Modes from "./Modes.js";
+import Styles from "../Styles.js";
 
 export default class TakeLesson extends Component {
 

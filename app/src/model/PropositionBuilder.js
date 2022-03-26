@@ -1,4 +1,4 @@
-import {Recorder, playBase64} from "./recorder.js"
+import {Recorder, playBase64} from "./Recorder.js"
 
 
 /**

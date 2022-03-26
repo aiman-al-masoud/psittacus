@@ -1,4 +1,4 @@
-import { playBase64 } from "./recorder.js"
+import { playBase64 } from "./Recorder.js"
 import CorrectSound from "../../res/correct.mp3"
 import WrongSound from "../../res/wrong.mp3"
 

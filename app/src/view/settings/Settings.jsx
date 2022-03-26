@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import L from "../../model/language.js";
+import L from "../../model/Language.js";
 
 
 export default class Settings extends Component {
