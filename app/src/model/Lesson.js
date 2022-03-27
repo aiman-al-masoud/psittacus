@@ -1,4 +1,4 @@
-import Proposition from "./Proposition.js"
+import SchedulerBuilder from "./scheduler/SchedulerBuilder.js"
 
 /**
  * A lesson is mainly a list of Propositions.
@@ -7,10 +7,7 @@ import Proposition from "./Proposition.js"
 export default class Lesson {
 
     constructor(jsonData) {
-        this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
-        this.iterator = this.propositions.values()
-        this.next()
-        this.lesson_over = false
+        this.scheduler = SchedulerBuilder.getScheduler(jsonData)
         this.explanationText = jsonData.explanation.text
     }
 
@@ -19,31 +16,15 @@ export default class Lesson {
      * Decide if the lesson is over or not
      */
     next() {
-
-        this.current = this.iterator.next().value
-
-        //list of 'questions' user failed at
-        this.screwedUpPropositions = this.propositions.filter((p) => { return p.getScore() < Proposition.MIN_PASSING_SCORE })
-
-        //lesson not over yet, if at least one fail
-        if (this.screwedUpPropositions.length > 0) {
-            return
-        }
-
-        //lesson over, if current Proposition undefined, and no screwed up propositions.
-        if (!this.current) {
-            this.lesson_over = true
-        }
-
+        this.scheduler.next()
     }
 
     /**
-     * Get current Proposition, else get first 
-     * screwed up Proposition, else get NULL Proposition.
+     * Get the current Proposition.
      * @returns Proposition
      */
     getCurrent() {
-        return this.current ?? this.screwedUpPropositions[0] ?? Proposition.NULL
+        return this.scheduler.getCurrent()
     }
 
     /**
@@ -51,7 +32,7 @@ export default class Lesson {
      * @returns boolean
      */
     isOver() {
-        return this.lesson_over
+        return this.scheduler.isOver()
     }
 
     /**
@@ -59,7 +40,7 @@ export default class Lesson {
      * @returns number
      */
     getScore() {
-        return parseInt(this.propositions.map((p) => { return p.getScore() }).reduce((a, b) => { return a + b }) / this.propositions.length)
+        return this.scheduler.getScore()
     }
 
     

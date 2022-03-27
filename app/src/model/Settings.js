@@ -14,12 +14,14 @@ export default class Settings{
 
     //Keys:
     static TEST = "TEST"
+    static SCHEDULER = "SCHEDULER"
 
     /**
      * Define a 'safe' value for each key:
      */
     static default = {
-        TEST : "default value for test"
+        TEST : "default value for test",
+        SCHEDULER : ""
     }
 
     static set(key, value){

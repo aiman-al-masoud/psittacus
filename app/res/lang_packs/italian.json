@@ -60,8 +60,9 @@
     "shortcut_save_lesson" : "Ctrl+S",
     "shortcut_record_audio" : "Ctrl+Spazio",
     "shortcut_play_audio" : "Shift+Spazio",
-    "tab_to_move" : "Tab per selezionare l'elemento seguente, Shift+Tab per il precedente."
-
+    "tab_to_move" : "Tab per selezionare l'elemento seguente, Shift+Tab per il precedente.",
+    "choose_scheduler" : "Scegli Pianificatore",
+    "scheduler_is" : "Il Pianificatore decide l'ordine e la frequenza con la quale le Proposizioni vengono mostrate allo studente durante la Lezione."
 
 
 }

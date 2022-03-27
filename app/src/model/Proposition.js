@@ -85,6 +85,10 @@ export default class Proposition {
         return this.targetToNative ? this.reverseDict : this.wordDict
     }
 
+    getHash = ()=>{
+        return (this.sentenceOne+this.sentenceTwo).split("").map((c)=>{return c.charCodeAt(0)}).reduce( (a, b)=>{return a + b} )
+    }
+
 
 }
 

@@ -78,7 +78,7 @@ Boxes subdivide Propositions into categories based on the user's proficiency in 
 
 
 Lesson id: a combination of author, target lang, source lang and title.
-Proposition id: just its index within the Lesson's list
+Proposition id: a hash based on some properties of Proposition.
 
 
 # Anki

@@ -60,6 +60,7 @@
     "shortcut_save_lesson" : "Ctrl+S",
     "shortcut_record_audio" : "Ctrl+Space",
     "shortcut_play_audio" : "Shift+Space",
-    "tab_to_move" : "Tab to switch to the next element, Shift+Tab for the previous."
-
+    "tab_to_move" : "Tab to switch to the next element, Shift+Tab for the previous.",
+    "choose_scheduler" : "Choose Scheduler",
+    "scheduler_is" : "A Scheduler decides the order and the frequency in which Propositions are shown to you in during a Lesson."
 }
