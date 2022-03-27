@@ -41,44 +41,12 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-* Use the Strategy Pattern on Lesson to implement **persistent**  spaced repetition (Leitner) alongside other kinds of (spaced-)repetitition.
-
 https://en.wikipedia.org/wiki/Leitner_system
 
 
-## SpacedRepetition "interface" will have:
+* Implement a better spaced repetition strategy by subclassing Leitner or Scheduler.
 
-* next() method, that gets called within Lesson's next() method. 
-
-* getCurrent() ...
-
-* isOver()  ...
-
-* getScore() ...
-
-* "constructor(lessonJson)"
-
-The user will be able to select from the available SpacedRepetition algorithms from the settings menu. Settings.js will help with persistence.
-
-## Persistence used for:
-
-* remembering what kind of repetition mode the user selected.
-
-* storing information on past "boxes" for each lesson:
-
-```
-{
-lesson_id0 : {
-    boxes: [ [propo_id0, propo_id3], [propo_id2, propo_id5]  ]
-}  
-}
-```
-
-Boxes subdivide Propositions into categories based on the user's proficiency in them. Propositions that the user gets wrong are moved to the first box, and they get shown to the user more often during the next "playback" of the lesson. 
-
-
-Lesson id: a combination of author, target lang, source lang and title.
-Proposition id: a hash based on some properties of Proposition.
+* Clean-up and refactor related code.
 
 
 # Anki
