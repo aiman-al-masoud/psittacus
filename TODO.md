@@ -50,6 +50,7 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Clean-up and refactor related code.
 
+* Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes.
 
 # Anki
 
