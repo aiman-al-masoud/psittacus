@@ -39,12 +39,14 @@ A recording of each separate word in the target language.
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
+
+
+* Implement a better spaced repetition strategy by subclassing Leitner or Scheduler.
+
 https://en.wikipedia.org/wiki/Spaced_repetition
 
 https://en.wikipedia.org/wiki/Leitner_system
 
-
-* Implement a better spaced repetition strategy by subclassing Leitner or Scheduler.
 
 * Clean-up and refactor related code.
 
