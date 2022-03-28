@@ -1,4 +1,4 @@
-# add mechanism to post lessons to *a* server and retrieve them by metadata.
+# Add mechanism to post lessons to *a* server and retrieve them by metadata.
 
 Server with the following apis:
 
@@ -14,6 +14,8 @@ requires auth
 download-lesson
 doesn't require auth
 
+
+* Server address to/from which lessons are posted/downloaded needs to be editable by the user, so as to make the app experience more "native-like". (Server may need to have CORS enabled).
 
 # Add New Attributes to Proposition:
 
