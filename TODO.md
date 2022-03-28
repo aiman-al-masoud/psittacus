@@ -54,6 +54,8 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Add ability to export and store "progress" (data about spaced repetition).
 
+* Add scheduling of repetitions of whole lessons.
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
