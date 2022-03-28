@@ -52,6 +52,8 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes.
 
+* Add ability to export and store "progress" (data about spaced repetition).
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
