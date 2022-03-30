@@ -54,7 +54,7 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes.
 
-* Add ability to export and store "progress" (data about spaced repetition).
+* Add ability to export and store "progress" (data about spaced repetition): need to modify Leitner's way of accessing localStorage.
 
 * Add scheduling of repetitions of whole lessons.
 
