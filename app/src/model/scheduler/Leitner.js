@@ -3,7 +3,7 @@ import Scheduler from "./Scheduler";
 
 /**
  * A Scheduler that remembers what Propositions the student 
- * "screwed up" in, and proposes them first,  
+ * performed poorly in, and proposes them first,  
  * the next time the same Lesson is taken.
  */
 export default class Leitner extends Scheduler{
@@ -22,14 +22,13 @@ export default class Leitner extends Scheduler{
     }
 
     loadBoxes(){
-        console.log("loading boxes...")
+        // console.log("loading boxes...")
         try{
             this.boxes = JSON.parse( localStorage.getItem(this.lessonId) ).boxes 
         }catch{
             this.boxes = this.initBoxes()
         }
-        console.log("loaded these boxes:", this.boxes)
-
+        // console.log("loaded these boxes:", this.boxes)
     }
 
     storeBoxes(){
@@ -53,7 +52,7 @@ export default class Leitner extends Scheduler{
     /**
      * Get a Proposition by its hash.
      * @param {number} propoHash 
-     * @returns 
+     * @returns {Proposition}
      */
     getPropositionByHash(propoHash){
         return this.propositions.filter((p)=>{ return p.getHash()==propoHash })[0]
@@ -65,8 +64,8 @@ export default class Leitner extends Scheduler{
     }
 
     next(){
-        console.log(this.current.getScore())
-        console.log(this.current.getHash())
+        // console.log(this.current.getScore())
+        // console.log(this.current.getHash())
 
         //student screwed up in previous:
         if(this.current.getScore() < Proposition.MIN_PASSING_SCORE){

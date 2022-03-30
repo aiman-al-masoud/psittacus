@@ -2,13 +2,12 @@ import Scheduler from "./Scheduler";
 import Proposition from "../Proposition.js"
 
 /**
- * This Scheduler plays the Propositions in the
+ * A simple memory-less Scheduler that plays the Propositions in the
  * order defined by the Lesson's author.
  * 
- * When it is done with the new Propositions, 
- * it starts displaying the ones that the student 
- * got wrong, and doesn't terminate the Lesson
- * until the student gets them all right.
+ * When the student is done with new Propositions, 
+ * this Scheduler (eventually) starts displaying the ones that the student 
+ * got wrong, and doesn't terminate the Lesson until the student gets them all right.
  */
 export default class DuoStyle extends Scheduler{
 
@@ -18,6 +17,7 @@ export default class DuoStyle extends Scheduler{
         this.next()
     }
 
+  
     next(){
 
         this.current = this.iterator.next().value
