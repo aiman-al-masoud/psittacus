@@ -3,17 +3,19 @@ import Proposition from "../Proposition.js"
 /**
  * Abstract Class. 
  * 
- * Subclasses deceide what Proposition the student should see at any point of a Lesson. 
+ * Subclasses decide what `Proposition` the student should see at any point of a `Lesson`. 
  * 
  * Subclasses must implement:
  * 
- * -> next()
+ * -> `next()`
+ * 
+ * To decide what `Proposition` to point to next, and to set the `isLessonOver` flag.
  * 
  * They may override:
  * 
- * -> isOver()
+ * -> `isOver()` 
  * 
- * But only in order to save the progress of a user in a specific Lesson, and they must return super.isOver().
+ * But only in order to save the progress of a user in a specific `Lesson`, and they must return `super.isOver()`.
  * 
  */
 export default class Scheduler{
