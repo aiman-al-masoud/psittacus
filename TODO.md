@@ -56,22 +56,12 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Add ability to export and store "progress" (data about spaced repetition): need to modify Leitner's way of accessing localStorage.
 
-```
-user_progress (root)
-|
-----> scores
-|
-----> repetition_data 
-        |
-        |
-        ----> f"{SchedulerType}{lesson_id}"  *
-```
 
-* Consider simplifying this thing, instead, by just saving the scores of each Proposition? Then any Spaced Repeptition scheme can make use of the scores in the way it sees fit. This to avoid saving a lot of redundant data.
+* Just save the scores of each Proposition. Then any Spaced Repeptition scheme can make use of the scores in the way it sees fit. This to avoid saving a lot of redundant data. And to make exporting it simpler. And to have a common "stored user progress" interface among different Schedulers.
 
-Modify the Leitner class to test this out.
+Modify the Leitner class to test this out. 
 
-And put some methods in Lesson and Proposition to generate the json-dump.
+And put some methods in Lesson and Proposition to generate the json-dump (the parts pertaining a single lessons).
 
 ```
 
@@ -86,7 +76,8 @@ And put some methods in Lesson and Proposition to generate the json-dump.
             },
 
             "lesson_id_1" : {
-
+                "overall" : 90,
+                "propositions" : {"propo_hash_0": 100, "propo_hash_1": 80}
             }
         }
     }
