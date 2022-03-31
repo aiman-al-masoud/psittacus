@@ -98,6 +98,7 @@ About storage space:
 
 
 
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
@@ -105,6 +106,8 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 * look into Anki: https://apps.ankiweb.net/ and its formats
 
 # Refactoring
+
+* Refactor folders.
 
 * Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
 
