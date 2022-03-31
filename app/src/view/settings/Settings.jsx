@@ -3,7 +3,6 @@ import L from "../../model/Language.js";
 import SchedulerBuilder from "../../model/scheduler/SchedulerBuilder.js";
 import UserProgress from "../../model/scheduler/UserProgress.js";
 import S from "../../model/Settings.js"
-
 import { readText, saveToComp } from "../../model/Utils.js";
 
 export default class Settings extends Component {
@@ -61,11 +60,12 @@ export default class Settings extends Component {
                 {SchedulerBuilder.types.map((opt)=>{return <option title={opt}>{opt}</option>  })}
             </select>           
 
-            <br />
-            <br />
-            <button onClick={this.exportProgress} className="normal_button">Export Progress</button> 
-            <br />
-            <button onClick={this.importProgress} className="normal_button">Import Progress</button> 
+            <h1>{L.manage_data_about_your_progress}</h1>
+            <div className="text_tip">{L.progress_is}</div>             
+            
+            <button onClick={this.exportProgress} className="normal_button">{L.export_progress}</button> 
+            <button onClick={this.importProgress} className="normal_button">{L.import_progress}</button> 
+            <button onClick={UserProgress.eraseProgress} className="normal_button">{L.erase_progress}</button> 
 
 
         </div>)

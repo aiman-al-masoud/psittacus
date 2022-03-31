@@ -62,5 +62,10 @@
     "shortcut_play_audio" : "Shift+Space",
     "tab_to_move" : "Tab to switch to the next element, Shift+Tab for the previous.",
     "choose_scheduler" : "Choose Scheduler",
-    "scheduler_is" : "A Scheduler decides the order and the frequency in which Propositions are shown to you in during a Lesson."
+    "scheduler_is" : "A Scheduler decides the order and the frequency in which Propositions are shown to you in during a Lesson.",
+    "manage_data_about_your_progress" : "Manage data about your progress",
+    "progress_is" : "This data includes your scores on the exercises you take, it is stored locally on your machine, and it helps Psittacus in providing you with a better spaced-repetition experience.",
+    "export_progress" : "Export Progress",
+    "import_progress" : "Import Progress",
+    "erase_progress" : "Erase Progress"
 }
