@@ -40,7 +40,7 @@ export default class Lesson {
      * @returns number
      */
     getScore() {
-        return this.scheduler.getScore()
+        return this.scheduler.overallScore()
     }
 
     

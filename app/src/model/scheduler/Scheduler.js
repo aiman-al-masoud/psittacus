@@ -46,7 +46,7 @@ export default class Scheduler {
      * Return the overall score of the student on these Propositions.
      * @returns {number}
      */
-    getScore() {
+    overallScore() {
         return parseInt(this.propositions.map((p) => { return p.getScore() }).reduce((a, b) => { return a + b }) / this.propositions.length)
     }
 
@@ -75,7 +75,7 @@ export default class Scheduler {
 
         return {
             "last_taken": new Date().getTime(),
-            "overall": this.getScore(),
+            "overall": this.overallScore(),
             "propositions": this.propositions.map((p) => { return [p.getHash(), p.getScore()] })
         }
 
