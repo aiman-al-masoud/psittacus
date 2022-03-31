@@ -1,5 +1,6 @@
 import Proposition from "../Proposition";
 import Scheduler from "./Scheduler";
+import UserProgress from "./UserProgress";
 
 /**
  * A Scheduler that remembers what Propositions the student 
@@ -12,7 +13,7 @@ export default class Leitner extends Scheduler{
         super(lessonJson)
         this.initSequence()     
         this.counter = 0
-        this.current = this.getPropositionByHash(this.allPropositionHashes[0])
+        this.current = this.getPropositionByHash(this.sequence[0])
     }
 
     initSequence(){
@@ -20,7 +21,7 @@ export default class Leitner extends Scheduler{
         try{
 
             let boxes = [[],[]]
-            let propoScores = Leitner.lessonScores()[this.lessonId].propositions
+            let propoScores = UserProgress.lessonScores()[this.lessonId].propositions
 
             propoScores.forEach((p)=>{
                 if (p[1] <= Proposition.MIN_PASSING_SCORE){
@@ -30,10 +31,10 @@ export default class Leitner extends Scheduler{
                 }
             })
 
-            this.allPropositionHashes = boxes[0].concat(boxes[1])
+            this.sequence = boxes[0].concat(boxes[1])
 
         }catch{
-            this.allPropositionHashes =  this.propositions.map((p)=>{return p.getHash()})
+            this.sequence =  this.propositions.map((p)=>{return p.getHash()})
         }
     }
 
@@ -48,14 +49,14 @@ export default class Leitner extends Scheduler{
     }
 
     isOver(){
-        this.isLessonOver? Leitner.saveScore(this.lessonId, this.dumpScores()) : ""
+        this.isLessonOver? UserProgress.saveLessonScore(this.lessonId, this.dumpScores()) : ""
         return super.isOver()
     }
 
     next(){
 
         this.counter++
-        this.current = this.getPropositionByHash(this.allPropositionHashes[this.counter]) 
+        this.current = this.getPropositionByHash(this.sequence[this.counter]) 
         if (!this.current){
             this.current = Proposition.NULL
             this.isLessonOver = true
@@ -63,20 +64,6 @@ export default class Leitner extends Scheduler{
        
     }
 
-
-    static userProgress(){
-        return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores": {} }
-    }
-
-    static lessonScores(){
-        return this.userProgress().lesson_scores
-    }
-
-    static async saveScore(lessonId, data){
-        let p  = this.userProgress()
-        p.lesson_scores[lessonId] = data
-        localStorage.setItem("user_progress", JSON.stringify(p))
-    }
 
 
 }
