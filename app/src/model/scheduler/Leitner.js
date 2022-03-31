@@ -16,6 +16,9 @@ export default class Leitner extends Scheduler{
         this.current = this.getPropositionByHash(this.sequence[0])
     }
 
+    /**
+     * Load back past scores and decide a repeptition strategy (sequence of Propositions)
+     */
     initSequence(){
 
         try{
