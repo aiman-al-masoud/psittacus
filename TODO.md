@@ -54,14 +54,9 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes.
 
-* Add ability to export and store "progress" (data about spaced repetition): need to modify Leitner's way of accessing localStorage.
+* Add ability to export and store "progress" (data about spaced repetition).
 
-
-* Just save the scores of each Proposition. Then any Spaced Repeptition scheme can make use of the scores in the way it sees fit. This to avoid saving a lot of redundant data. And to make exporting it simpler. And to have a common "stored user progress" interface among different Schedulers.
-
-Modify the Leitner class to test this out. 
-
-And put some methods in Lesson and Proposition to generate the json-dump (the parts pertaining a single lessons).
+* Common "stored user progress" interface among different Schedulers.
 
 ```json
 
@@ -87,8 +82,10 @@ And put some methods in Lesson and Proposition to generate the json-dump (the pa
 
 ```
 
+* move static progress-related methods to new class (facilitates exporting/importing progress). 
 
 * Add scheduling (suggestion) for repeating whole lessons.
+
 
 # Anki
 
