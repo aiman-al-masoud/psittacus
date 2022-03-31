@@ -57,8 +57,11 @@ export default class Leitner extends Scheduler{
     }
 
     isOver(){
-        this.isLessonOver? this.storeBoxes() : ""
-        console.log(this.dumpScores()) /////TODO: remove
+        // this.isLessonOver? this.storeBoxes() : ""
+        // console.log(this.dumpScores()) /////TODO: remove
+        this.isLessonOver? Leitner.saveScore(this.lessonId, this.dumpScores()) : ""
+
+        
         return super.isOver()
     }
 
@@ -89,19 +92,19 @@ export default class Leitner extends Scheduler{
 
 
 
-    // static userProgress(){
-    //     return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores":{} }
-    // }
+    static userProgress(){
+        return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores":{} }
+    }
 
-    // static lessonScores(){
-    //     return this.userProgress().lesson_scores
-    // }
+    static lessonScores(){
+        return this.userProgress().lesson_scores
+    }
 
-    // static async saveScore(lessonId, data){
-    //     let p  = this.userProgress()
-    //     p.lesson_scores[lessonId] = data
-    //     localStorage.setItem("user_progress", p)
-    // }
+    static async saveScore(lessonId, data){
+        let p  = this.userProgress()
+        p.lesson_scores[lessonId] = data
+        localStorage.setItem("user_progress", JSON.stringify(p))
+    }
 
     
 
