@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import L from "../../model/Language.js";
 import SchedulerBuilder from "../../model/scheduler/SchedulerBuilder.js";
+import UserProgress from "../../model/scheduler/UserProgress.js";
 import S from "../../model/Settings.js"
+
+import { readText, saveToComp } from "../../model/Utils.js";
 
 export default class Settings extends Component {
 
@@ -27,10 +30,22 @@ export default class Settings extends Component {
         choice = choice.options[choice.selectedIndex].text    
         S.set(key, choice)
         this.setState({currentScheduler : choice})   
-
     }
 
+    importProgress = async ()=>{
+        let d =  await readText()
+        d = JSON.parse(d)
+        UserProgress.importProgress(d)
+    }
+
+    exportProgress = ()=>{
+        saveToComp(JSON.stringify(UserProgress.userProgress()) , "progress.txt" , "text/plain")
+    }
+
+
     render() {
+
+        
 
         return (<div>
 
@@ -44,7 +59,14 @@ export default class Settings extends Component {
 
             <select value={ this.state.currentScheduler   }  onChange = { (event)=>{this.onSet( S.SCHEDULER, event)} } >
                 {SchedulerBuilder.types.map((opt)=>{return <option title={opt}>{opt}</option>  })}
-            </select>            
+            </select>           
+
+            <br />
+            <br />
+            <button onClick={this.exportProgress} className="normal_button">Export Progress</button> 
+            <br />
+            <button onClick={this.importProgress} className="normal_button">Import Progress</button> 
+
 
         </div>)
     }

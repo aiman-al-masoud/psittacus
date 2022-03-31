@@ -67,13 +67,15 @@ https://en.wikipedia.org/wiki/Leitner_system
         "lesson_id_0" : {
             "last_taken" : 164866215242,
             "overall" : 79,
-            "propositions" : [["propo_hash_0", 80], ["propo_hash_1", 78]]
+            "propositions" : [["propo_hash_0", 80], ["propo_hash_1", 78]],
+            "lesson_json" : {...} ?????
         },
 
         "lesson_id_1" : {
             "last_taken" : 164866100000,
             "overall" : 90,
-            "propositions" : [["propo_hash_0", 100], ["propo_hash_1", 80]]
+            "propositions" : [["propo_hash_0", 100], ["propo_hash_1", 80]],
+            "lesson_json" : {...} ?????
         }
 
    }
@@ -82,9 +84,15 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 ```
 
-* move static progress-related methods to new class (facilitates exporting/importing progress). 
 
 * Add scheduling (suggestion) for repeating whole lessons.
+
+Save whole lessonJsons in localStorage (within "lesson_scores") so as to 
+to able to schedule lessons.
+
+About storage space:
+10 proposition-lesson taking up about 40 kB. Say 20 Propo 80 kB. localStorage == 5MB. 5000/80 = 62 lessons.
+
 
 
 # Anki
