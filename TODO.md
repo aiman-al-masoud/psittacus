@@ -63,27 +63,25 @@ Modify the Leitner class to test this out.
 
 And put some methods in Lesson and Proposition to generate the json-dump (the parts pertaining a single lessons).
 
-```
+```json
 
 "user_progress" : {
 
-    "scores":{
-        "lessons":{
+    "lesson_scores":{
 
-            "lesson_id_0" : {
-                "last_taken" : 164866215242,
-                "overall" : 79,
-                "propositions" : {"propo_hash_0": 80, "propo_hash_1": 78}
-            },
+        "lesson_id_0" : {
+            "last_taken" : 164866215242,
+            "overall" : 79,
+            "propositions" : {"propo_hash_0": 80, "propo_hash_1": 78}
+        },
 
-            "lesson_id_1" : {
-                "last_taken" : 164866100000,
-                "overall" : 90,
-                "propositions" : {"propo_hash_0": 100, "propo_hash_1": 80}
-            }
+        "lesson_id_1" : {
+            "last_taken" : 164866100000,
+            "overall" : 90,
+            "propositions" : {"propo_hash_0": 100, "propo_hash_1": 80}
         }
-    }
 
+   }
 
 }
 

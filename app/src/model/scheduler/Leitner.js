@@ -22,13 +22,11 @@ export default class Leitner extends Scheduler{
     }
 
     loadBoxes(){
-        // console.log("loading boxes...")
         try{
             this.boxes = JSON.parse( localStorage.getItem(this.lessonId) ).boxes 
         }catch{
             this.boxes = this.initBoxes()
         }
-        // console.log("loaded these boxes:", this.boxes)
     }
 
     storeBoxes(){
@@ -60,12 +58,11 @@ export default class Leitner extends Scheduler{
 
     isOver(){
         this.isLessonOver? this.storeBoxes() : ""
+        console.log(this.dumpScores()) /////TODO: remove
         return super.isOver()
     }
 
     next(){
-        // console.log(this.current.getScore())
-        // console.log(this.current.getHash())
 
         //student screwed up in previous:
         if(this.current.getScore() < Proposition.MIN_PASSING_SCORE){
@@ -83,6 +80,31 @@ export default class Leitner extends Scheduler{
         }
        
     }
+
+
+
+
+
+
+
+
+
+    // static userProgress(){
+    //     return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores":{} }
+    // }
+
+    // static lessonScores(){
+    //     return this.userProgress().lesson_scores
+    // }
+
+    // static async saveScore(lessonId, data){
+    //     let p  = this.userProgress()
+    //     p.lesson_scores[lessonId] = data
+    //     localStorage.setItem("user_progress", p)
+    // }
+
+    
+
 
   
 

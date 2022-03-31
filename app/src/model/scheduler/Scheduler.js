@@ -18,11 +18,11 @@ import Proposition from "../Proposition.js"
  * But only in order to save the progress of a user in a specific `Lesson`, and they must return `super.isOver()`.
  * 
  */
-export default class Scheduler{
+export default class Scheduler {
 
-    constructor(lessonJson){
+    constructor(lessonJson) {
         this.propositions = lessonJson.propositions.map(p => { return new Proposition(p) })
-        this.lessonId = lessonJson.metadata.author+lessonJson.metadata.target_language+lessonJson.metadata.source_language+lessonJson.metadata.title //TODO: fix
+        this.lessonId = lessonJson.metadata.author + lessonJson.metadata.target_language + lessonJson.metadata.source_language + lessonJson.metadata.title //TODO: fix
         this.isLessonOver = false
     }
 
@@ -30,7 +30,7 @@ export default class Scheduler{
      * Deceides whether or not to proceed to the next Proposition.
      * @returns {void}
      */
-    next(){
+    next() {
         throw new Error("next() not implemented!")
     }
 
@@ -38,7 +38,7 @@ export default class Scheduler{
      * Did the student do enough exercise on these Propositions?
      * @returns {boolean}
      */
-    isOver(){
+    isOver() {
         return this.isLessonOver
     }
 
@@ -46,7 +46,7 @@ export default class Scheduler{
      * Return the overall score of the student on these Propositions.
      * @returns {number}
      */
-    getScore(){
+    getScore() {
         return parseInt(this.propositions.map((p) => { return p.getScore() }).reduce((a, b) => { return a + b }) / this.propositions.length)
     }
 
@@ -55,8 +55,23 @@ export default class Scheduler{
      * @return {Proposition}
      */
     getCurrent() {
-        return this.current 
+        return this.current
     }
+
+    dumpScores() {
+
+        return {
+            "last_taken": new Date().getTime(),
+            "overall": this.getScore(),
+            "propositions": this.propositions.map((p) => {
+                let entry = {}
+                entry[p.getHash()] = p.getScore()
+                return entry
+            })
+        }
+
+    }
+    
 
 }
 
