@@ -92,6 +92,11 @@ About storage space:
 10 proposition-lesson taking up about 40 kB. Say 20 Propo 80 kB. localStorage == 5MB. 5000/80 = 62 lessons.
 
 
+* Let SchedulerBuilder import files from an implmeneted schedulers' directory at build time, to try and reduce moving parts (types array in SchedulerBuilder).
+
+* Maybe rename Scheduler to AbstractScheduler and SchedulerBuilder to Schedulers ?
+
+
 
 # Anki
 
