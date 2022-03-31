@@ -11,7 +11,7 @@ export default class Leitner extends Scheduler{
     constructor(lessonJson){
         super(lessonJson)
         this.loadBoxes() 
-        this.newBoxes = [[], []] //for next time this lesson is taken
+        this.newBoxes = [[], []] //for the next time this lesson is taken
         
         this.counter = 0
         this.highPriorityBox = this.boxes[0]
@@ -22,16 +22,29 @@ export default class Leitner extends Scheduler{
     }
 
     loadBoxes(){
+
+        
         try{
-            this.boxes = JSON.parse( localStorage.getItem(this.lessonId) ).boxes 
+            
+            this.boxes = [[],[]]
+            let propoScores = Leitner.lessonScores()[this.lessonId].propositions
+
+            console.log(propoScores, "proposcores")
+
+            propoScores.forEach((p)=>{
+                if (p[1] <= Proposition.MIN_PASSING_SCORE){
+                    this.boxes[0].push(p[0])
+                }else{
+                    this.boxes[1].push(p[0])
+                }
+            })
+
         }catch{
             this.boxes = this.initBoxes()
         }
     }
 
-    storeBoxes(){
-        localStorage.setItem( this.lessonId, JSON.stringify(  {boxes : this.newBoxes}  ) )
-    }
+
 
     /**
      * First time ever a lesson is played, 
@@ -57,11 +70,7 @@ export default class Leitner extends Scheduler{
     }
 
     isOver(){
-        // this.isLessonOver? this.storeBoxes() : ""
-        // console.log(this.dumpScores()) /////TODO: remove
         this.isLessonOver? Leitner.saveScore(this.lessonId, this.dumpScores()) : ""
-
-        
         return super.isOver()
     }
 
@@ -93,7 +102,7 @@ export default class Leitner extends Scheduler{
 
 
     static userProgress(){
-        return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores":{} }
+        return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores": {} }
     }
 
     static lessonScores(){

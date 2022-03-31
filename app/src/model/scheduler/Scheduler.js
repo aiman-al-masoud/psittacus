@@ -64,14 +64,15 @@ export default class Scheduler {
             "last_taken": new Date().getTime(),
             "overall": this.getScore(),
             "propositions": this.propositions.map((p) => {
-                let entry = {}
-                entry[p.getHash()] = p.getScore()
-                return entry
+                // let entry = {}
+                return [p.getHash(), p.getScore()]
+                // entry[p.getHash()] = p.getScore()
+                // return entry
             })
         }
 
     }
-    
+
 
 }
 
