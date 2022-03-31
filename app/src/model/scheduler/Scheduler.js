@@ -63,12 +63,7 @@ export default class Scheduler {
         return {
             "last_taken": new Date().getTime(),
             "overall": this.getScore(),
-            "propositions": this.propositions.map((p) => {
-                // let entry = {}
-                return [p.getHash(), p.getScore()]
-                // entry[p.getHash()] = p.getScore()
-                // return entry
-            })
+            "propositions": this.propositions.map((p) => { return [p.getHash(), p.getScore()] })
         }
 
     }
