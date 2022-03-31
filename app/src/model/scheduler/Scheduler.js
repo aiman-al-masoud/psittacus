@@ -58,6 +58,19 @@ export default class Scheduler {
         return this.current
     }
 
+    /**
+     * Dumps info relative to the user's performance with this object's Propositions.
+     * 
+     * ```json
+     * {
+     * "last_taken" : unix epoch timestamp,
+     * "overall" : overall score,
+     * "propositions" : [ [propoHash1, score1], [propoHash2, score2]  ]
+     * }
+     * ```
+     * 
+     * @returns 
+     */
     dumpScores() {
 
         return {
