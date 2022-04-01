@@ -113,6 +113,13 @@ or
 
 * pull up initSequence()
 
+initSequence() called in Scheduler's constructor
+initializes prpopositions' array from jsonData
+
+super.initSequence() called in overriden method,
+sorts the propositions' array
+
+
 * extract common part of next() and pull it up
 
 # Anki
