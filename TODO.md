@@ -65,15 +65,13 @@ https://en.wikipedia.org/wiki/Leitner_system
         "lesson_id_0" : {
             "last_taken" : 164866215242,
             "overall" : 79,
-            "propositions" : [["propo_hash_0", 80], ["propo_hash_1", 78]],
-            "lesson_json" : {...} ?????
+            "propositions" : [["propo_hash_0", 80], ["propo_hash_1", 78]]
         },
 
         "lesson_id_1" : {
             "last_taken" : 164866100000,
             "overall" : 90,
-            "propositions" : [["propo_hash_0", 100], ["propo_hash_1", 80]],
-            "lesson_json" : {...} ?????
+            "propositions" : [["propo_hash_0", 100], ["propo_hash_1", 80]]
         }
 
    }
@@ -90,6 +88,21 @@ to able to schedule lessons.
 
 About storage space:
 10 proposition-lesson taking up about 40 kB. Say 20 Propo 80 kB. localStorage == 5MB. 5000/80 = 62 lessons.
+
+```json
+"cached_lessons" : {
+
+}
+```
+
+or 
+
+
+```json
+"cached_propositions" : {
+    
+}
+```
 
 
 * Let SchedulerBuilder import files from an implmeneted schedulers' directory at build time, to try and reduce moving parts (types array in SchedulerBuilder).
