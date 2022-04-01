@@ -3,9 +3,9 @@ import Scheduler from "./Scheduler";
 import UserProgress from "./UserProgress";
 
 /**
- * A Scheduler that remembers what Propositions the student 
- * performed poorly in, and proposes them first,  
- * the next time the same Lesson is taken.
+ * A Scheduler with memory, that plays the Propositions 
+ * sorted ascendingly by the score the user got on each during 
+ * the last lesson.
  */
 export default class Leitner extends Scheduler{
 
@@ -22,28 +22,13 @@ export default class Leitner extends Scheduler{
     initSequence(){
 
         try{
-
-            // let boxes = [[],[]]
             let propoScores = UserProgress.lessonScores()[this.lessonId].propositions
-
-            // propoScores.forEach((p)=>{
-                // if (p[1] <= Proposition.MIN_PASSING_SCORE){
-                    // boxes[0].push(p[0]) //high priority
-                // }else{
-                    // boxes[1].push(p[0]) //low priority
-                // }
-            // })
-
-            // this.sequence = boxes[0].concat(boxes[1])
-
             propoScores = propoScores.sort((p1, p2)=> {return p1[1] - p2[1] } )
             this.sequence = propoScores.map((p)=>{return p[0]})
-
         }catch{
             this.sequence =  this.propositions.map((p)=>{return p.getHash()})
         }
     }
-
 
     /**
      * Get a Proposition by its hash.
@@ -69,7 +54,6 @@ export default class Leitner extends Scheduler{
         }
        
     }
-
 
 
 }
