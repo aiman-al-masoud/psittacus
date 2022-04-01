@@ -39,11 +39,6 @@ export default class Leitner extends Scheduler{
         return this.propositions.filter((p)=>{ return p.getHash()==propoHash })[0]
     }
 
-    isOver(){
-        this.isLessonOver? UserProgress.saveLessonScore(this.lessonId, this.dumpScores()) : ""
-        return super.isOver()
-    }
-
     next(){
 
         this.counter++
@@ -54,6 +49,6 @@ export default class Leitner extends Scheduler{
         }
        
     }
-
+    
 
 }

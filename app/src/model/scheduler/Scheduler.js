@@ -1,4 +1,6 @@
 import Proposition from "../Proposition.js"
+import UserProgress from "./UserProgress";
+
 
 /**
  * Abstract Class. 
@@ -10,12 +12,6 @@ import Proposition from "../Proposition.js"
  * -> `next()`
  * 
  * To decide what `Proposition` to point to next, and to set the `isLessonOver` flag.
- * 
- * They may override:
- * 
- * -> `isOver()` 
- * 
- * But only in order to save the progress of a user in a specific `Lesson`, and they must return `super.isOver()`.
  * 
  */
 export default class Scheduler {
@@ -39,6 +35,7 @@ export default class Scheduler {
      * @returns {boolean}
      */
     isOver() {
+        this.isLessonOver? UserProgress.saveLessonScore(this.lessonId, this.dumpScores()) : ""
         return this.isLessonOver
     }
 
