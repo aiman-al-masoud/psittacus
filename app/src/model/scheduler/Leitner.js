@@ -23,18 +23,21 @@ export default class Leitner extends Scheduler{
 
         try{
 
-            let boxes = [[],[]]
+            // let boxes = [[],[]]
             let propoScores = UserProgress.lessonScores()[this.lessonId].propositions
 
-            propoScores.forEach((p)=>{
-                if (p[1] <= Proposition.MIN_PASSING_SCORE){
-                    boxes[0].push(p[0]) //high priority
-                }else{
-                    boxes[1].push(p[0]) //low priority
-                }
-            })
+            // propoScores.forEach((p)=>{
+                // if (p[1] <= Proposition.MIN_PASSING_SCORE){
+                    // boxes[0].push(p[0]) //high priority
+                // }else{
+                    // boxes[1].push(p[0]) //low priority
+                // }
+            // })
 
-            this.sequence = boxes[0].concat(boxes[1])
+            // this.sequence = boxes[0].concat(boxes[1])
+
+            propoScores = propoScores.sort((p1, p2)=> {return p1[1] - p2[1] } )
+            this.sequence = propoScores.map((p)=>{return p[0]})
 
         }catch{
             this.sequence =  this.propositions.map((p)=>{return p.getHash()})
