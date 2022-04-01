@@ -113,6 +113,8 @@ or
 
 * pull up initSequence()
 
+* extract common part of next() and pull it up
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
