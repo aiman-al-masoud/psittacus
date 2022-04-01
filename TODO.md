@@ -109,7 +109,7 @@ or
 
 * Maybe rename Scheduler to AbstractScheduler and SchedulerBuilder to Schedulers ?
 
-
+* Better names for "DuoStyle" and "Leitner"
 
 
 # Anki
@@ -142,3 +142,5 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Top navbar? Or centered menu?
 
 * Better hover over words tooltip.
+
+* Get rid of "non-unique id" React warning
