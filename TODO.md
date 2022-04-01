@@ -111,6 +111,7 @@ or
 
 * Better names for "DuoStyle" and "Leitner"
 
+* Get rid of "getPropositionByHash", just sort the propositions initially!
 
 # Anki
 
