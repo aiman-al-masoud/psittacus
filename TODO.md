@@ -83,6 +83,8 @@ or
 
 * See if Lesson can generate its own id and pass it to Scheduler's constructor.
 
+* Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
