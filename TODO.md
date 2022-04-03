@@ -86,6 +86,7 @@ LessonScheduler.getSuggestions() : [Lesson]
 
 LessonScheduler.cacheLesson(lesson)
 
+Better structure and names! Scheduler-> PropositionScheduler? (To avoid confusion with proposed LessonScheduler). Since it's really only used by Lesson, how about making it clear from the folder structure?
 
 # Anki
 
