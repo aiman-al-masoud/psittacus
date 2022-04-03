@@ -77,8 +77,6 @@ or
 }
 ```
 
-* Better names for "DuoStyle" and "Leitner"
-
 * extract common part of next() and pull it up
 
 * See if Lesson can generate its own id and pass it to Scheduler's constructor.

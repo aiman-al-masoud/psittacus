@@ -16,7 +16,7 @@ export default class SchedulerBuilder{
         try{
             return new schedulers[Settings.get(Settings.SCHEDULER)](lessonJson)
         }catch{
-            return new schedulers[getTypes()[0]](lessonJson)
+            return new schedulers[this.getTypes()[0]](lessonJson)
         }
         
     }

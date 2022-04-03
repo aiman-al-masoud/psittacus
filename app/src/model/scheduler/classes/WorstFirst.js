@@ -6,9 +6,11 @@ import UserProgress from "../UserProgress";
  * A `Scheduler` with memory, that plays `Propositions`
  * sorted ascendingly by the score the user got on each, last time they took the same `Lesson`.
  * 
- * Thus letting the user see the ones they did badly on first.
+ * Letting the user see the ones they need to revise the most first, thus leveraging the Primacy Effect.
+ * 
+ * https://en.wikipedia.org/wiki/Serial-position_effect
  */
-export default class Leitner extends Scheduler{
+export default class WorstFirst extends Scheduler{
 
     constructor(lessonJson){
         super(lessonJson)
