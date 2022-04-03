@@ -41,16 +41,12 @@ A recording of each separate word in the target language.
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
-
-
-* Implement a better spaced repetition strategy by subclassing Leitner or Scheduler.
+* Implement a better spaced repetition strategy by subclassing Scheduler.
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
 https://en.wikipedia.org/wiki/Leitner_system
 
-
-* Clean-up and refactor related code.
 
 * Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes.
 
@@ -77,11 +73,13 @@ or
 }
 ```
 
-* extract common part of next() and pull it up
 
 * See if Lesson can generate its own id and pass it to Scheduler's constructor.
 
 * Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
+
+* extract common part of next() and pull it up
+
 
 # Anki
 
