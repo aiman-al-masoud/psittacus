@@ -77,8 +77,6 @@ or
 }
 ```
 
-* Maybe rename Scheduler to AbstractScheduler and SchedulerBuilder to Schedulers ?
-
 * Better names for "DuoStyle" and "Leitner"
 
 * extract common part of next() and pull it up
