@@ -119,9 +119,6 @@ initializes prpopositions' array from jsonData
 super.initSequence() called in overriden method,
 sorts the propositions' array
 
-
-* extract common part of next() and pull it up
-
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
