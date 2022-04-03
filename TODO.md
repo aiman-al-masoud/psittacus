@@ -54,33 +54,6 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes.
 
-* Common "stored user progress" interface among different Schedulers:
-
-```json
-
-"user_progress" : {
-
-    "lesson_scores":{
-
-        "lesson_id_0" : {
-            "last_taken" : 164866215242,
-            "overall" : 79,
-            "propositions" : [["propo_hash_0", 80], ["propo_hash_1", 78]]
-        },
-
-        "lesson_id_1" : {
-            "last_taken" : 164866100000,
-            "overall" : 90,
-            "propositions" : [["propo_hash_0", 100], ["propo_hash_1", 80]]
-        }
-
-   }
-
-}
-
-```
-
-
 * Add scheduling (suggestion) for repeating whole lessons.
 
 Save whole lessonJsons in localStorage (within "lesson_scores") so as to 
@@ -103,9 +76,6 @@ or
     
 }
 ```
-
-
-* Let SchedulerBuilder import files from an implmeneted schedulers' directory at build time, to try and reduce moving parts (types array in SchedulerBuilder).
 
 * Maybe rename Scheduler to AbstractScheduler and SchedulerBuilder to Schedulers ?
 
