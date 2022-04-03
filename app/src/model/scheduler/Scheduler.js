@@ -1,11 +1,13 @@
 import Proposition from "../Proposition.js"
 import UserProgress from "./UserProgress";
 
-
 /**
  * Abstract Class. 
  * 
  * Subclasses decide what `Proposition` the student should see at any point of a `Lesson`. 
+ * 
+ * **Place subclasses in `scheduler/classes` directory and
+ * export default, for automatic inclusion in build path.**
  * 
  * ## Subclasses must implement:
  * 
@@ -18,6 +20,7 @@ import UserProgress from "./UserProgress";
  * * `initSequence()`
  * 
  * To sort the `propositions` array in a different order.
+ * 
  */
 export default class Scheduler {
 

@@ -2,7 +2,8 @@
  * A wrapper around localStorage to manage 
  * saved data about lessons taken by the user in the past.
  * 
- * Common Interface for Progress saving among Schdulers:
+ * Common Interface for accessing saved progress among Schdulers:
+ * 
  * 
  * ```json
  * "user_progress" : {
@@ -12,7 +13,7 @@
  *       "lesson_id_0" : {
  *          "last_taken" : 164866215242,
  *           "overall" : 79,
- *          "propositions" : [["propo_hash_0", 80], ["propo_hash_1", 78]]
+ *          "propositions" : [["propo_hash_0", 80] ...]
  *       }
  *   }
  * 
