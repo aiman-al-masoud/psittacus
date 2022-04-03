@@ -81,6 +81,8 @@ or
 
 * extract common part of next() and pull it up
 
+* See if Lesson can generate its own id and pass it to Scheduler's constructor.
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
