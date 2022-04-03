@@ -3,9 +3,10 @@ import Scheduler from "../Scheduler";
 import UserProgress from "../UserProgress";
 
 /**
- * A Scheduler with memory, that plays the Propositions 
- * sorted ascendingly by the score the user got on each during 
- * the last lesson.
+ * A `Scheduler` with memory, that plays `Propositions`
+ * sorted ascendingly by the score the user got on each, last time they took the same `Lesson`.
+ * 
+ * Thus letting the user see the ones they did badly on first.
  */
 export default class Leitner extends Scheduler{
 

@@ -2,24 +2,19 @@ import Proposition from "../Proposition.js"
 import UserProgress from "./UserProgress";
 
 /**
- * Abstract Class. 
+ * **Abstract Class**. 
  * 
  * Subclasses decide what `Proposition` the student should see at any point of a `Lesson`. 
  * 
- * **Place subclasses in `scheduler/classes` directory and
- * export default, for automatic inclusion in build path.**
+ * **Place subclasses in `scheduler/classes` directory and export them as default, for automatic inclusion in build path.**
  * 
  * ## Subclasses must implement:
  * 
- * * `next()`
- * 
- * To decide what `Proposition` to point to next, and to set the `isLessonOver` flag.
+ * * `next()`: to decide what `Proposition` to point to next, and to set the `isLessonOver` flag.
  * 
  * ## Subclasses can override:
  * 
- * * `initSequence()`
- * 
- * To sort the `propositions` array in a different order.
+ * * `initSequence()`: to sort the `propositions` array in a different order than the one specified in the Lesson's json by the author of the Lesson.
  * 
  */
 export default class Scheduler {
