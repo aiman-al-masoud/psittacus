@@ -7,23 +7,40 @@ import UserProgress from "./UserProgress";
  * 
  * Subclasses decide what `Proposition` the student should see at any point of a `Lesson`. 
  * 
- * Subclasses must implement:
+ * ## Subclasses must implement:
  * 
- * -> `next()`
+ * * `next()`
  * 
  * To decide what `Proposition` to point to next, and to set the `isLessonOver` flag.
  * 
+ * ## Subclasses can override:
+ * 
+ * * `initSequence()`
+ * 
+ * To sort the `propositions` array in a different order.
  */
 export default class Scheduler {
 
     constructor(lessonJson) {
-        this.propositions = lessonJson.propositions.map(p => { return new Proposition(p) })
+        this.lessonJson = lessonJson
         this.lessonId = lessonJson.metadata.author + lessonJson.metadata.target_language + lessonJson.metadata.source_language + lessonJson.metadata.title //TODO: fix
+        this.initSequence()
         this.isLessonOver = false
     }
 
     /**
-     * Deceides whether or not to proceed to the next Proposition.
+     * Initialize the `propositions` array.
+     * 
+     * Subclasses that override this should call `super.initSequence()`
+     * first, to initialize the `propositions` array. Then they can sort it.
+     * 
+     */
+    initSequence(){
+        this.propositions = this.lessonJson.propositions.map(p => { return new Proposition(p) })
+    }
+
+    /**
+     * Decides whether or not to proceed to the next Proposition.
      * @returns {void}
      */
     next() {

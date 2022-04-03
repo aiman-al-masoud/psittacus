@@ -16,7 +16,6 @@ export default class DuoStyle extends Scheduler{
         this.iterator = this.propositions.values()
         this.next()
     }
-
   
     next(){
 
