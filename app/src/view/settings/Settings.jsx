@@ -57,7 +57,7 @@ export default class Settings extends Component {
             <div className="text_tip">{L.scheduler_is}</div>             
 
             <select value={ this.state.currentScheduler   }  onChange = { (event)=>{this.onSet( S.SCHEDULER, event)} } >
-                {SchedulerBuilder.types.map((opt)=>{return <option title={opt}>{opt}</option>  })}
+                {SchedulerBuilder.getTypes().map((opt)=>{return <option title={opt}>{opt}</option>  })}
             </select>           
 
             <h1>{L.manage_data_about_your_progress}</h1>

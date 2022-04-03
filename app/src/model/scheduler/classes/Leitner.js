@@ -1,6 +1,6 @@
-import Proposition from "../Proposition";
-import Scheduler from "./Scheduler";
-import UserProgress from "./UserProgress";
+import Proposition from "../../Proposition";
+import Scheduler from "../Scheduler";
+import UserProgress from "../UserProgress";
 
 /**
  * A Scheduler with memory, that plays the Propositions 

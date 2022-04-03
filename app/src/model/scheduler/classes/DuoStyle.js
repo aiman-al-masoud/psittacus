@@ -1,5 +1,5 @@
-import Scheduler from "./Scheduler";
-import Proposition from "../Proposition.js"
+import Scheduler from "../Scheduler";
+import Proposition from "../../Proposition.js"
 
 /**
  * A simple memory-less Scheduler that plays the Propositions in the
