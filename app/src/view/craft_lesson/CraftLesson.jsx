@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LessonBuilder from "../../model/LessonBuilder.js";
 import DefinitionsTable from "./DefinitionsTable.jsx";
 import Metadata from "./Metadata.jsx";
-import L from "../../model/Language.js"
+import L from "../../model/utilities/Language.js"
 import "../../index.css"
 import TextEditor from "./TextEditor.jsx";
 import EditingModes from "./EditingModes.js";

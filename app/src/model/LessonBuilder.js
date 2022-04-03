@@ -1,5 +1,5 @@
 import  PropositionBuilder  from "./PropositionBuilder.js"
-import { saveToComp } from "./Utils.js"
+import { saveToComp } from "./utilities/Utils.js"
 const packageJson = require.context("../../..", false, /package.json$/).keys().map(require.context("../../..", false, /package.json$/))[0]
 
 /**

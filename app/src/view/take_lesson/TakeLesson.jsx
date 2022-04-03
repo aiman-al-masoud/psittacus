@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import HoverableSentence from "./HoverableSentence.jsx";
 import "../../index.css"
-import L from "../../model/Language.js"
+import L from "../../model/utilities/Language.js"
 import Modes from "./Modes.js";
 import Styles from "../Styles.js";
 

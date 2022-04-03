@@ -1,5 +1,5 @@
-const langNames = require.context("../../res/lang_packs", false, /.json$/).keys().map((key)=>{return key.replace("./","").replace(".json", "")  })
-const langPacks = require.context("../../res/lang_packs", false, /.json$/).keys().map(require.context("../../res/lang_packs", false, /.json$/))
+const langNames = require.context("../../../res/lang_packs", false, /.json$/).keys().map((key)=>{return key.replace("./","").replace(".json", "")  })
+const langPacks = require.context("../../../res/lang_packs", false, /.json$/).keys().map(require.context("../../../res/lang_packs", false, /.json$/))
 var langs = {}
 langNames.forEach( (obj, i)=>{langs[obj] = langPacks[i]})
 

@@ -3,12 +3,12 @@ import CraftLesson from "./craft_lesson/CraftLesson.jsx";
 import TakeLesson from "./take_lesson/TakeLesson.jsx";
 import Info from "./info/Info.jsx";
 import Pages from "./Pages.js";
-import { readText } from "../model/Utils.js";
+import { readText } from "../model/utilities/Utils.js";
 import Lesson from "../model/Lesson"
 import LessonBuilder from "../model/LessonBuilder.js";
 import Settings from "./settings/Settings.jsx";
-import L from "../model/Language.js";
-import { playBase64 } from "../model/Recorder.js";
+import L from "../model/utilities/Language.js";
+import { playBase64 } from "../model/utilities/Recorder.js";
 import "../index.css"
 import HomeIcon from "../../res/home.png"
 import SelectSound from "../../res/select.mp3"

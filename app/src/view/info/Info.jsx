@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import L from "../../model/Language.js";
+import L from "../../model/utilities/Language.js";
 
 
 

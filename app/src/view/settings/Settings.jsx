@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import L from "../../model/Language.js";
+import L from "../../model/utilities/Language.js";
 import SchedulerBuilder from "../../model/scheduler/SchedulerBuilder.js";
 import UserProgress from "../../model/scheduler/UserProgress.js";
-import S from "../../model/Settings.js"
-import { readText, saveToComp } from "../../model/Utils.js";
+import S from "../../model/utilities/Settings.js"
+import { readText, saveToComp } from "../../model/utilities/Utils.js";
 
 export default class Settings extends Component {
 
