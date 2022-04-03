@@ -50,13 +50,21 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes.
 
-* Add scheduling (suggestion) for repeating whole lessons.
+* See if Lesson can generate its own id and pass it to Scheduler's constructor.
 
-Save whole lessonJsons in localStorage (within "lesson_scores") so as to 
-to able to schedule lessons.
+* Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
+
+* extract common part of next() and pull it up
+
+## Add scheduling (suggestion) for repeating whole lessons.
+
+Save whole lessonJsons in localStorage so as to be able to retrieve them without asking the user to "upload" them again from filesystem.
 
 About storage space:
-10 proposition-lesson taking up about 40 kB. Say 20 Propo 80 kB. localStorage == 5MB. 5000/80 = 62 lessons.
+A 10 proposition-lesson takes up to 40 kB. Say a 20 propo-lesson takes up 80 kB. localStorage is 5MB. 5000/80 = 62 lessons.
+
+
+Put chached lessons here:
 
 ```json
 "cached_lessons" : {
@@ -64,21 +72,19 @@ About storage space:
 }
 ```
 
-or 
+Or maybe just add cached lessons in the user_progress data structure, since it's already organized Lesson-wise? (Easier solution for fetching and exporting/importing the data).
 
+"LessonScheduler" will have to sift through the scores data, from UserProgress, determining what lesson the student needs review the most at any time, and retrieve the lesson's json data from the cached lessons.
 
-```json
-"cached_propositions" : {
-    
-}
-```
+Different LessonSchedulers for extendibility. Each (possibly) suggesting differently based on the same data from UserProgress (which includes per-lesson scores, per-proposition scores, and time the lesson was last taken).
 
+Review Lessons option in the GUI, that takes the user to a menu where they see the review suggestions, and can launch TakeLesson on any of the suggestions.
 
-* See if Lesson can generate its own id and pass it to Scheduler's constructor.
+LessonScheduler will also have to delete cached lessonJsons (to save space on localStorage), for example (if low on space) deleting the lesson that the user performed the best on, when it needs to save one in which the user performed badly for later. 
 
-* Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
+LessonScheduler.getSuggestions() : [Lesson]
 
-* extract common part of next() and pull it up
+LessonScheduler.cacheLesson(lesson)
 
 
 # Anki
