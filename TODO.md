@@ -90,6 +90,9 @@ Better structure and names! Scheduler-> PropositionScheduler? (To avoid confusio
 
 Actually, study and try using a wrapper around IndexedDB like Dexie for lesson-caching.
 
+
+* Maybe look into replacing localStorage with IndexedDB also for user_scores?  
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
