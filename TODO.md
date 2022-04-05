@@ -95,6 +95,18 @@ CachedLessons.getById(lessonId) : Lesson
 * Store ALLL scores? Not just last time you took a lesson?
 
 
+//get cached lessons by id
+CachedLessons.getById(lessonId) : Lesson
+
+//gets currently set scheduler
+lessonScheduler = LessonSchedulerBuilder.get() 
+
+//gets list of suggestions for revision 
+suggestions = lessonScheduler.getSuggestions() 
+
+
+
+
 
 # Anki
 
