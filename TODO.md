@@ -60,18 +60,6 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 Save whole lessonJsons in localStorage so as to be able to retrieve them without asking the user to "upload" them again from filesystem.
 
-About storage space:
-A 10 proposition-lesson takes up to 40 kB. Say a 20 propo-lesson takes up 80 kB. localStorage is 5MB. 5000/80 = 62 lessons.
-
-
-Put chached lessons here:
-
-```json
-"cached_lessons" : {
-
-}
-```
-
 Or maybe just add cached lessons in the user_progress data structure, since it's already organized Lesson-wise? (Easier solution for fetching and exporting/importing the data).
 
 "LessonScheduler" will have to sift through the scores data, from UserProgress, determining what lesson the student needs review the most at any time, and retrieve the lesson's json data from the cached lessons.
@@ -91,7 +79,22 @@ Better structure and names! Scheduler-> PropositionScheduler? (To avoid confusio
 Actually, study and try using a wrapper around IndexedDB like Dexie for lesson-caching.
 
 
-* Maybe look into replacing localStorage with IndexedDB also for user_scores?  
+* Look into replacing localStorage with IndexedDB also for user_scores
+
+table for lessons, with index = lessonId, each lesson record will contain ( the cached lesson maybe?) as well as all of the info related to scores.
+
+ * UserProgress.scoresForLesson(lessonId) to absract away Dexie.
+
+
+Maybe make CachedLessons class and keep cached lessons stored separately from scores?
+
+CachedLessons.getById(lessonId) : Lesson
+
+
+
+* Store ALLL scores? Not just last time you took a lesson?
+
+
 
 # Anki
 
@@ -101,7 +104,7 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 # Refactoring
 
-* Refactor folders.
+* Refactor folders!!!!!!!!!!!! Maybe make a folder just for Lesson and all of its dependencies, for the prospect of having a Lesson scheduler that will depend on Lesson. 
 
 * Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
 
