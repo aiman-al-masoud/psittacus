@@ -105,7 +105,7 @@ lessonScheduler = LessonSchedulerBuilder.get()
 suggestions = lessonScheduler.getSuggestions() 
 
 
-
+* Store code for new Schedulers dynamically w/ Dexie
 
 
 # Anki
