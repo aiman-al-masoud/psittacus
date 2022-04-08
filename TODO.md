@@ -56,56 +56,52 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * extract common part of next() and pull it up
 
+* Store custom js code for new Schedulers dynamically w/ Dexie
+
+
 ## Add scheduling (suggestion) for repeating whole lessons.
 
-Save whole lessonJsons in localStorage so as to be able to retrieve them without asking the user to "upload" them again from filesystem.
+* Scheduler-> PropositionScheduler To avoid confusion with proposed LessonScheduler). 
 
-Or maybe just add cached lessons in the user_progress data structure, since it's already organized Lesson-wise? (Easier solution for fetching and exporting/importing the data).
+* PropositionScheduler IS AN INTERNAL COMPONENT OF LESSON. Put PropositionScheduler in a new folder with all of the stuff used internally by Lesson (Propositions included). 
 
-"LessonScheduler" will have to sift through the scores data, from UserProgress, determining what lesson the student needs review the most at any time, and retrieve the lesson's json data from the cached lessons.
+* UserProgress out of the Lesson folder.
 
-Different LessonSchedulers for extendibility. Each (possibly) suggesting differently based on the same data from UserProgress (which includes per-lesson scores, per-proposition scores, and time the lesson was last taken).
-
-Review Lessons option in the GUI, that takes the user to a menu where they see the review suggestions, and can launch TakeLesson on any of the suggestions.
-
-LessonScheduler will also have to delete cached lessonJsons (to save space on localStorage), for example (if low on space) deleting the lesson that the user performed the best on, when it needs to save one in which the user performed badly for later. 
-
-LessonScheduler.getSuggestions() : [Lesson]
-
-LessonScheduler.cacheLesson(lesson)
-
-Better structure and names! Scheduler-> PropositionScheduler? (To avoid confusion with proposed LessonScheduler). Since it's really only used by Lesson, how about making it clear from the folder structure?
-
-Actually, study and try using a wrapper around IndexedDB like Dexie for lesson-caching.
-
-
-* Look into replacing localStorage with IndexedDB also for user_scores
-
-table for lessons, with index = lessonId, each lesson record will contain ( the cached lesson maybe?) as well as all of the info related to scores.
-
- * UserProgress.scoresForLesson(lessonId) to absract away Dexie.
-
-
-Maybe make CachedLessons class and keep cached lessons stored separately from scores?
-
-CachedLessons.getById(lessonId) : Lesson
-
-
-
-* Store ALLL scores? Not just last time you took a lesson?
-
-
-//get cached lessons by id
-CachedLessons.getById(lessonId) : Lesson
+* Review Lessons option in the GUI, that takes the user to a menu where they see the review suggestions, and can launch TakeLesson on any of the suggestions.
 
 //gets currently set scheduler
-lessonScheduler = LessonSchedulerBuilder.get() 
+lessonScheduler = UserProgress.getLessonScheduler() 
 
 //gets list of suggestions for revision 
-suggestions = lessonScheduler.getSuggestions() 
+lessons = lessonScheduler.getSuggestions() 
+
+propositionScheduler = UserProgress.getPropositionScheduler() 
+
+//to absract away Dexie.
+UserProgress.scoresForLesson(lessonId) :  LessonScores
+
+//get cached lessons by id
+UserProgress.getCachedLessonById(lessonId) : Lesson
+
+//caches a lesson
+UserProgress.cacheLesson(lesson)
+
+LessonScores:
+-> lastTaken()
+-> propositionScores()
+-> overall()
+-> history()
 
 
-* Store code for new Schedulers dynamically w/ Dexie
+//"TABLES", handled by Dexie:
+
+-> LESSON_SCORES
+primaryKey : lessonId
+value: LessonScores
+
+-> CACHED_LESSONS
+primaryKey : lessonId
+value: Lesson Json
 
 
 # Anki
