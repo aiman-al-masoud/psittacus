@@ -67,6 +67,6 @@
     "progress_is" : "Questi dati includono i punteggi sugli esercizi che svolgi, sono immagazzinati localmente sulla tua macchina, e aiutano Psittacus a garantirti un'esperienza di Ripetizione Spaziata migliore.",
     "export_progress" : "Esporta Progresso",
     "import_progress" : "Importa Progresso",
-    "erase_progress" : "Elimina Progresso"
-
+    "erase_progress" : "Elimina Progresso",
+    "make_sure_title_is_unique" : "    Fai in modo che ciscuna tua lezione abbia un titolo unico, dato che sarà utilizzato per identificare la lezione dal sistema di caching dei punteggi."
 }
