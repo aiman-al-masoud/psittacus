@@ -69,10 +69,10 @@ lessons = lessonScheduler.getSuggestions()
 propositionScheduler = UserProgress.getPropositionScheduler() 
 
 //get cached lessons by id
-UserProgress.getCachedLessonById(lessonId) : Lesson
+Lesson.getCachedLessonById(lessonId) : Lesson
 
-//caches a lesson
-UserProgress.cacheLesson(lesson)
+//caches a lesson (maybe called internally by Lesson in isOver)
+lesson.cacheLesson()
 
 LessonScores:
 -> lastTaken()
