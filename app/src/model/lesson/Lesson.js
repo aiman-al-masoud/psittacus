@@ -9,6 +9,7 @@ import UserProgress from "../utilities/UserProgress.js"
 export default class Lesson {
 
     constructor(jsonData) {
+        this.jsonData = jsonData
         this.metadata = jsonData.metadata
         this.explanationText = jsonData.explanation.text
 
