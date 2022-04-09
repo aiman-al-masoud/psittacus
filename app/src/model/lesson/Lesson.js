@@ -1,4 +1,4 @@
-import SchedulerBuilder from "./scheduler/SchedulerBuilder.js"
+import PropositionSchedulerBuilder from "./proposition_scheduler/PropositionSchedulerBuilder.js"
 
 /**
  * A lesson is mainly a list of Propositions.
@@ -7,7 +7,7 @@ import SchedulerBuilder from "./scheduler/SchedulerBuilder.js"
 export default class Lesson {
 
     constructor(jsonData) {
-        this.scheduler = SchedulerBuilder.getScheduler(jsonData)
+        this.scheduler = PropositionSchedulerBuilder.getScheduler(jsonData)
         this.explanationText = jsonData.explanation.text
     }
 

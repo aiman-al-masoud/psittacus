@@ -1,5 +1,5 @@
-import Proposition from "../Proposition.js"
-import UserProgress from "./UserProgress";
+import Proposition from "../proposition/Proposition"
+import UserProgress from "../../utilities/UserProgress"
 
 /**
  * **Abstract Class**. 
@@ -17,7 +17,7 @@ import UserProgress from "./UserProgress";
  * * `initSequence()`: to sort the `propositions` array in a different order than the one specified in the Lesson's json by the author of the Lesson.
  * 
  */
-export default class Scheduler {
+export default class PropositionScheduler {
 
     constructor(lessonJson) {
         this.lessonJson = lessonJson

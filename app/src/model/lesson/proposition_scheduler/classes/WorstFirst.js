@@ -1,6 +1,6 @@
-import Proposition from "../../Proposition";
-import Scheduler from "../Scheduler";
-import UserProgress from "../UserProgress";
+import Proposition from "../../proposition/Proposition"
+import PropositionScheduler from "../PropositionScheduler"
+import UserProgress from "../../../utilities/UserProgress"
 
 /**
  * A `Scheduler` with memory, that plays `Propositions`
@@ -10,7 +10,7 @@ import UserProgress from "../UserProgress";
  * 
  * https://en.wikipedia.org/wiki/Serial-position_effect
  */
-export default class WorstFirst extends Scheduler{
+export default class WorstFirst extends PropositionScheduler{
 
     constructor(lessonJson){
         super(lessonJson)

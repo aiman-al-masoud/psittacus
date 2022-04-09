@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import L from "../../model/utilities/Language.js";
-import SchedulerBuilder from "../../model/scheduler/SchedulerBuilder.js";
-import UserProgress from "../../model/scheduler/UserProgress.js";
+import PropositionSchedulerBuilder from "../../model/lesson/proposition_scheduler/PropositionSchedulerBuilder.js";
+import UserProgress from "../../model/utilities/UserProgress.js";
 import S from "../../model/utilities/Settings.js"
 import { readText, saveToComp } from "../../model/utilities/Utils.js";
 
@@ -57,7 +57,7 @@ export default class Settings extends Component {
             <div className="text_tip">{L.scheduler_is}</div>             
 
             <select value={ this.state.currentScheduler   }  onChange = { (event)=>{this.onSet( S.SCHEDULER, event)} } >
-                {SchedulerBuilder.getTypes().map((opt)=>{return <option title={opt}>{opt}</option>  })}
+                {PropositionSchedulerBuilder.getTypes().map((opt)=>{return <option title={opt}>{opt}</option>  })}
             </select>           
 
             <h1>{L.manage_data_about_your_progress}</h1>

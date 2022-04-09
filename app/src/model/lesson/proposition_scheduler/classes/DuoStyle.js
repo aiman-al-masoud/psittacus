@@ -1,5 +1,5 @@
-import Scheduler from "../Scheduler";
-import Proposition from "../../Proposition.js"
+import PropositionScheduler from "../PropositionScheduler"
+import Proposition from "../../proposition/Proposition"
 
 /**
  * A memory-less Scheduler that plays the Propositions in the
@@ -9,7 +9,7 @@ import Proposition from "../../Proposition.js"
  * this Scheduler (eventually) starts displaying the ones that the student 
  * got wrong, and doesn't terminate the Lesson until the student gets them all right.
  */
-export default class DuoStyle extends Scheduler{
+export default class DuoStyle extends PropositionScheduler{
 
     constructor(lessonJson){
         super(lessonJson)

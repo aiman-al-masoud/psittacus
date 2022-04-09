@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LessonBuilder from "../../model/LessonBuilder.js";
+import LessonBuilder from "../../model/lesson/LessonBuilder.js";
 import DefinitionsTable from "./DefinitionsTable.jsx";
 import Metadata from "./Metadata.jsx";
 import L from "../../model/utilities/Language.js"

@@ -4,8 +4,8 @@ import TakeLesson from "./take_lesson/TakeLesson.jsx";
 import Info from "./info/Info.jsx";
 import Pages from "./Pages.js";
 import { readText } from "../model/utilities/Utils.js";
-import Lesson from "../model/Lesson"
-import LessonBuilder from "../model/LessonBuilder.js";
+import Lesson from "../model/lesson/Lesson.js";
+import LessonBuilder from "../model/lesson/LessonBuilder.js";
 import Settings from "./settings/Settings.jsx";
 import L from "../model/utilities/Language.js";
 import { playBase64 } from "../model/utilities/Recorder.js";
