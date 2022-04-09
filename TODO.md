@@ -120,3 +120,5 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Top navbar? Or centered menu?
 
 * Better hover over words tooltip.
+
+* Fix other React warnings.
