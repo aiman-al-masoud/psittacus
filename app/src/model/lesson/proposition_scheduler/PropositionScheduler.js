@@ -6,7 +6,7 @@ import UserProgress from "../../utilities/UserProgress"
  * 
  * Subclasses decide what `Proposition` the student should see at any point of a `Lesson`. 
  * 
- * **Place subclasses in `scheduler/classes` directory and export them as default, for automatic inclusion in build path.**
+ * **Place subclasses in the `./classes` directory and export them as default, for automatic inclusion in build path.**
  * 
  * ## Subclasses must implement:
  * 
