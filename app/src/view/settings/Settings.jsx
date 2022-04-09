@@ -50,14 +50,14 @@ export default class Settings extends Component {
 
             <h1>{L.choose_lang}</h1>
             <select value={this.state.currentLang}  onChange={this.onChooseLang} >
-                {L.available().map((opt)=>{return <option title={opt}>{opt}</option>  })}
+                {L.available().map((opt, index)=>{return <option title={opt} key={index}>{opt}</option>  })}
             </select>
 
             <h1>{L.choose_scheduler}</h1>
             <div className="text_tip">{L.scheduler_is}</div>             
 
             <select value={ this.state.currentScheduler   }  onChange = { (event)=>{this.onSet( S.SCHEDULER, event)} } >
-                {PropositionSchedulerBuilder.getTypes().map((opt)=>{return <option title={opt}>{opt}</option>  })}
+                {PropositionSchedulerBuilder.getTypes().map((opt, index)=>{return <option title={opt} key={index}>{opt}</option>  })}
             </select>           
 
             <h1>{L.manage_data_about_your_progress}</h1>
