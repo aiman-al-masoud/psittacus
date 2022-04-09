@@ -27,8 +27,8 @@ export default class UserProgress{
         return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores": {} }
     }
 
-    static lessonScores(){
-        return this.userProgress().lesson_scores 
+    static scoresForLesson(lessonId){
+        return this.userProgress().lesson_scores[lessonId]
     }
 
     static async saveLessonScore(lessonId, data){

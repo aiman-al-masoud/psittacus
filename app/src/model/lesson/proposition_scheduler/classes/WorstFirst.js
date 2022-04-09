@@ -25,7 +25,7 @@ export default class WorstFirst extends PropositionScheduler{
         super.initSequence()
 
         try{
-            let propoScores = UserProgress.lessonScores()[this.lessonId].propositions
+            let propoScores = UserProgress.scoresForLesson(this.lessonId).propositions
             propoScores = propoScores.sort((p1, p2)=> {return p1[1] - p2[1] } ) //sort by score (index=1)            
             let hashes = propoScores.map((p)=>{return p[0]}) //get hashes (index=0)
             this.propositions = this.propositions.sort((p1, p2)=>{ return hashes.indexOf(p1.getHash()) - hashes.indexOf(p2.getHash())    }  )
