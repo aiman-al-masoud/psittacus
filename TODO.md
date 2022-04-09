@@ -71,9 +71,6 @@ lessons = lessonScheduler.getSuggestions()
 
 propositionScheduler = UserProgress.getPropositionScheduler() 
 
-//to absract away Dexie.
-UserProgress.scoresForLesson(lessonId) :  LessonScores
-
 //get cached lessons by id
 UserProgress.getCachedLessonById(lessonId) : Lesson
 
