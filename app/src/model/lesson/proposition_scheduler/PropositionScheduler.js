@@ -1,5 +1,4 @@
 import Proposition from "../proposition/Proposition"
-// import UserProgress from "../../utilities/UserProgress"
 
 /**
  * **Abstract Class**. 
