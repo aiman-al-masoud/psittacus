@@ -19,9 +19,9 @@ import UserProgress from "../../utilities/UserProgress"
  */
 export default class PropositionScheduler {
 
-    constructor(lessonJson) {
-        this.lessonJson = lessonJson
-        this.lessonId = lessonJson.metadata.author + lessonJson.metadata.target_language + lessonJson.metadata.source_language + lessonJson.metadata.title //TODO: fix
+    constructor(lessonId, propositions) {
+        this.lessonId = lessonId
+        this.propositions  = propositions
         this.initSequence()
         this.isLessonOver = false
     }
@@ -34,7 +34,7 @@ export default class PropositionScheduler {
      * 
      */
     initSequence(){
-        this.propositions = this.lessonJson.propositions.map(p => { return new Proposition(p) })
+
     }
 
     /**

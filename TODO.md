@@ -58,6 +58,8 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Store custom js code for new Schedulers dynamically w/ Dexie
 
+* Pull pull propositions and a bunch of score related methods to Lesson
+https://stackoverflow.com/questions/13104494/does-javascript-pass-by-reference
 
 ## Add scheduling (suggestion) for repeating whole lessons.
 

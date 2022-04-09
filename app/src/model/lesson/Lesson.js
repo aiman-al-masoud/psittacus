@@ -1,4 +1,5 @@
 import PropositionSchedulerBuilder from "./proposition_scheduler/PropositionSchedulerBuilder.js"
+import Proposition from "./proposition/Proposition.js"
 
 /**
  * A lesson is mainly a list of Propositions.
@@ -7,8 +8,12 @@ import PropositionSchedulerBuilder from "./proposition_scheduler/PropositionSche
 export default class Lesson {
 
     constructor(jsonData) {
-        this.scheduler = PropositionSchedulerBuilder.getScheduler(jsonData)
+        this.metadata = jsonData.metadata
         this.explanationText = jsonData.explanation.text
+
+        let id = this.getId()
+        let propositions = jsonData.propositions.map(p => { return new Proposition(p) })
+        this.scheduler = PropositionSchedulerBuilder.getScheduler(id, propositions)
     }
 
     /**
@@ -41,6 +46,16 @@ export default class Lesson {
      */
     getScore() {
         return this.scheduler.overallScore()
+    }
+
+
+    //TODO: better looking id
+    /**
+     * Nominally identifies a Lesson.
+     * @returns {string}
+     */
+    getId(){
+        return this.metadata.author + this.metadata.target_language + this.metadata.source_language + this.metadata.title 
     }
 
     

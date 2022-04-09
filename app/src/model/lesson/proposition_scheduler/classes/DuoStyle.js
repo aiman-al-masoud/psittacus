@@ -11,8 +11,8 @@ import Proposition from "../../proposition/Proposition"
  */
 export default class DuoStyle extends PropositionScheduler{
 
-    constructor(lessonJson){
-        super(lessonJson)
+    constructor(lessonId, propositions){
+        super(lessonId, propositions)
         this.iterator = this.propositions.values()
         this.next()
     }

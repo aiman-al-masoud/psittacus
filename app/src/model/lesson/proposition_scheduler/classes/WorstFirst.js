@@ -12,8 +12,8 @@ import UserProgress from "../../../utilities/UserProgress"
  */
 export default class WorstFirst extends PropositionScheduler{
 
-    constructor(lessonJson){
-        super(lessonJson)
+    constructor(lessonId, propositions){
+        super(lessonId, propositions)
         this.counter = 0
         this.current = this.propositions[this.counter]
     }
