@@ -1,5 +1,5 @@
 import Proposition from "../proposition/Proposition"
-import UserProgress from "../../utilities/UserProgress"
+// import UserProgress from "../../utilities/UserProgress"
 
 /**
  * **Abstract Class**. 
@@ -50,16 +50,7 @@ export default class PropositionScheduler {
      * @returns {boolean}
      */
     isOver() {
-        this.isLessonOver? UserProgress.saveLessonScore(this.lessonId, this.dumpScores()) : ""
         return this.isLessonOver
-    }
-
-    /**
-     * Return the overall score of the student on these Propositions.
-     * @returns {number}
-     */
-    overallScore() {
-        return parseInt(this.propositions.map((p) => { return p.getScore() }).reduce((a, b) => { return a + b }) / this.propositions.length)
     }
 
     /**
@@ -70,29 +61,7 @@ export default class PropositionScheduler {
         return this.current
     }
 
-    /**
-     * Dumps info relative to the user's performance with this object's Propositions.
-     * 
-     * ```json
-     * {
-     * "last_taken" : unix epoch timestamp,
-     * "overall" : overall score,
-     * "propositions" : [ [propoHash1, score1], [propoHash2, score2]  ]
-     * }
-     * ```
-     * 
-     * @returns 
-     */
-    dumpScores() {
-
-        return {
-            "last_taken": new Date().getTime(),
-            "overall": this.overallScore(),
-            "propositions": this.propositions.map((p) => { return [p.getHash(), p.getScore()] })
-        }
-
-    }
-
+   
 
 }
 

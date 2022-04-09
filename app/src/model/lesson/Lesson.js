@@ -1,5 +1,6 @@
 import PropositionSchedulerBuilder from "./proposition_scheduler/PropositionSchedulerBuilder.js"
 import Proposition from "./proposition/Proposition.js"
+import UserProgress from "../utilities/UserProgress.js"
 
 /**
  * A lesson is mainly a list of Propositions.
@@ -11,9 +12,8 @@ export default class Lesson {
         this.metadata = jsonData.metadata
         this.explanationText = jsonData.explanation.text
 
-        let id = this.getId()
-        let propositions = jsonData.propositions.map(p => { return new Proposition(p) })
-        this.scheduler = PropositionSchedulerBuilder.getScheduler(id, propositions)
+        this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
+        this.scheduler = PropositionSchedulerBuilder.getScheduler(this.getId(), this.propositions)
     }
 
     /**
@@ -37,15 +37,17 @@ export default class Lesson {
      * @returns boolean
      */
     isOver() {
-        return this.scheduler.isOver()
+        let over = this.scheduler.isOver()
+        over? UserProgress.saveLessonScore(this.getId(), this.dumpScores()) : ""
+        return over
     }
 
     /**
      * Get average score.
-     * @returns number
+     * @returns {number}
      */
     getScore() {
-        return this.scheduler.overallScore()
+        return parseInt(this.propositions.map((p) => { return p.getScore() }).reduce((a, b) => { return a + b }) / this.propositions.length)
     }
 
 
@@ -57,6 +59,30 @@ export default class Lesson {
     getId(){
         return this.metadata.author + this.metadata.target_language + this.metadata.source_language + this.metadata.title 
     }
+
+     /**
+     * Dumps info relative to the user's performance with this Lesson.
+     * 
+     * ```json
+     * {
+     * "last_taken" : unix epoch timestamp,
+     * "overall" : overall score,
+     * "propositions" : [ [propoHash1, score1], [propoHash2, score2]  ]
+     * }
+     * ```
+     * 
+     * @returns 
+     */
+      dumpScores() {
+
+        return {
+            "last_taken": new Date().getTime(),
+            "overall": this.getScore(),
+            "propositions": this.propositions.map((p) => { return [p.getHash(), p.getScore()] })
+        }
+
+    }
+
 
     
 }
