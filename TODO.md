@@ -61,12 +61,6 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 ## Add scheduling (suggestion) for repeating whole lessons.
 
-* Scheduler-> PropositionScheduler To avoid confusion with proposed LessonScheduler). 
-
-* PropositionScheduler IS AN INTERNAL COMPONENT OF LESSON. Put PropositionScheduler in a new folder with all of the stuff used internally by Lesson (Propositions included). 
-
-* UserProgress out of the Lesson folder.
-
 * Review Lessons option in the GUI, that takes the user to a menu where they see the review suggestions, and can launch TakeLesson on any of the suggestions.
 
 //gets currently set scheduler
