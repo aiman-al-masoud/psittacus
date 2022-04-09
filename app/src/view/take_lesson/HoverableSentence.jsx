@@ -10,7 +10,7 @@ export default class HoverableSentence extends Component{
 
     render(){
         return (<div>
-            { Object.entries(this.props.wordDict).map((entry)=> {return <HoverableWord word={entry[0]}  definition={entry[1]} />} )}
+            { Object.entries(this.props.wordDict).map((entry, index)=> {return <HoverableWord word={entry[0]}  definition={entry[1]}  key={index} />} )}
         </div>)
     }
 

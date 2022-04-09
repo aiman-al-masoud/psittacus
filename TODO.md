@@ -100,8 +100,6 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 # Refactoring
 
-* Refactor folders!!!!!!!!!!!! Maybe make a folder just for Lesson and all of its dependencies, for the prospect of having a Lesson scheduler that will depend on Lesson. 
-
 * Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
 
 https://github.com/aiman-al-masoud/psittacus/issues/2
@@ -122,5 +120,3 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Top navbar? Or centered menu?
 
 * Better hover over words tooltip.
-
-* Get rid of "non-unique id" React warning
