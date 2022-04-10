@@ -12,7 +12,7 @@ import { playBase64 } from "../model/utilities/Recorder.js";
 import "../index.css"
 import HomeIcon from "../../res/home.png"
 import SelectSound from "../../res/select.mp3"
-import Database from "../model/utilities/Database.js";
+// import Database from "../model/utilities/Database.js";
 
 export default class App extends Component {
 
