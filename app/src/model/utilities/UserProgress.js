@@ -27,6 +27,15 @@ export default class UserProgress{
         return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores": {} }
     }
 
+
+
+    // static lessonsScores(){
+    //     return Object.entries(this.userProgress().lesson_scores)
+    // } 
+
+
+
+
     static scoresForLesson(lessonId){
         return this.userProgress().lesson_scores[lessonId]
     }
