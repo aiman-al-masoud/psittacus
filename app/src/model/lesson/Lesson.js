@@ -41,6 +41,8 @@ export default class Lesson {
     isOver() {
         let over = this.scheduler.isOver()
         over ? UserProgress.saveLessonScore(this.getId(), this.dumpScores()) : ""
+        over ?  this.cacheLesson() : ""
+
         return over
     }
 

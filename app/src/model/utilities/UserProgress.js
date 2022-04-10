@@ -51,4 +51,4 @@ export default class UserProgress{
 
 }
 
-console.log(UserProgress.lessonsScores())
+// console.log(UserProgress.lessonsScores())
