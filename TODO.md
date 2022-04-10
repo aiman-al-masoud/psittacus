@@ -60,6 +60,9 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 * Review Lessons option in the GUI, that takes the user to a menu where they see the review suggestions, and can launch TakeLesson on any of the suggestions.
 
+//gets scores so that LessonScheduler can sort and decide what lesson to schedule next 
+UserProgress.getScores()
+
 //gets currently set scheduler
 lessonScheduler = UserProgress.getLessonScheduler() 
 
@@ -67,12 +70,6 @@ lessonScheduler = UserProgress.getLessonScheduler()
 lessons = lessonScheduler.getSuggestions() 
 
 propositionScheduler = UserProgress.getPropositionScheduler() 
-
-//get cached lessons by id
-Lesson.getCachedLessonById(lessonId) : Lesson
-
-//caches a lesson (maybe called internally by Lesson in isOver)
-lesson.cacheLesson()
 
 LessonScores:
 -> lastTaken()
@@ -90,6 +87,8 @@ value: LessonScores
 -> CACHED_LESSONS
 primaryKey : lessonId
 value: Lesson Json
+
+* maybe call Lesson.cacheLesson internally in Lesson.isOver
 
 * Handle overwriting lessons (same id), Dexie needs delete first.
 
