@@ -1,6 +1,7 @@
 import PropositionSchedulerBuilder from "./proposition_scheduler/PropositionSchedulerBuilder.js"
 import Proposition from "./proposition/Proposition.js"
 import UserProgress from "../utilities/UserProgress.js"
+import Database from "../utilities/Database.js"
 
 /**
  * A lesson is mainly a list of Propositions.
@@ -39,7 +40,7 @@ export default class Lesson {
      */
     isOver() {
         let over = this.scheduler.isOver()
-        over? UserProgress.saveLessonScore(this.getId(), this.dumpScores()) : ""
+        over ? UserProgress.saveLessonScore(this.getId(), this.dumpScores()) : ""
         return over
     }
 
@@ -57,24 +58,24 @@ export default class Lesson {
      * Nominally identifies a Lesson.
      * @returns {string}
      */
-    getId(){
-        return this.metadata.author + this.metadata.target_language + this.metadata.source_language + this.metadata.title 
+    getId() {
+        return this.metadata.author + this.metadata.target_language + this.metadata.source_language + this.metadata.title
     }
 
-     /**
-     * Dumps info relative to the user's performance with this Lesson.
-     * 
-     * ```json
-     * {
-     * "last_taken" : unix epoch timestamp,
-     * "overall" : overall score,
-     * "propositions" : [ [propoHash1, score1], [propoHash2, score2]  ]
-     * }
-     * ```
-     * 
-     * @returns 
-     */
-      dumpScores() {
+    /**
+    * Dumps info relative to the user's performance with this Lesson.
+    * 
+    * ```json
+    * {
+    * "last_taken" : unix epoch timestamp,
+    * "overall" : overall score,
+    * "propositions" : [ [propoHash1, score1], [propoHash2, score2]  ]
+    * }
+    * ```
+    * 
+    * @returns 
+    */
+    dumpScores() {
 
         return {
             "last_taken": new Date().getTime(),
@@ -84,6 +85,22 @@ export default class Lesson {
 
     }
 
+    cacheLesson() {
+        console.log(`Caching lesson with id=${this.getId()}`)
+        
+        Database.get().cachedLessons().add({
+            id: this.getId(),
+            lesson: this.jsonData
+        })
+    }
 
+    static async getCachedLessonById(id){
+        let record = await Database.get().cachedLessons().get(id)
+        return new Lesson(record.lesson)
+    }
     
 }
+
+
+
+

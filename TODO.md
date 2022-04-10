@@ -91,6 +91,8 @@ value: LessonScores
 primaryKey : lessonId
 value: Lesson Json
 
+* Handle overwriting lessons (same id), Dexie needs delete first.
+
 
 # Anki
 

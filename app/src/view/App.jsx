@@ -12,6 +12,7 @@ import { playBase64 } from "../model/utilities/Recorder.js";
 import "../index.css"
 import HomeIcon from "../../res/home.png"
 import SelectSound from "../../res/select.mp3"
+import Database from "../model/utilities/Database.js";
 
 export default class App extends Component {
 
@@ -69,6 +70,12 @@ export default class App extends Component {
                 {
                     let jsonData = await readText().then((res) => { return JSON.parse(res) })
                     let lez = new Lesson(jsonData)
+
+                    // lez.cacheLesson()
+                    // let x =  await Lesson.getCachedLessonById("capraitalianenglishundefined")
+                    // console.log("restored cached lesson:", x)
+                    // console.log(await Database.get().cachedLessons().toArray())
+
                     this.setState({ page: <TakeLesson lesson={lez} /> })
                     break
                 }
