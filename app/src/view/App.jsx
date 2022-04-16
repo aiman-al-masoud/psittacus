@@ -37,7 +37,6 @@ export default class App extends Component {
             <br />
             <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="normal_button" >{ "History"  }</button>
 
-
         </div>)
 
         this.state = {
@@ -74,12 +73,6 @@ export default class App extends Component {
                 {
                     let jsonData = await readText().then((res) => { return JSON.parse(res) })
                     let lez = new Lesson(jsonData)
-
-                    // lez.cacheLesson()
-                    // let x =  await Lesson.getCachedLessonById("capraitalianenglishundefined")
-                    // console.log("restored cached lesson:", x)
-                    // console.log(await Database.get().cachedLessons().toArray())
-
                     this.setState({ page: <TakeLesson lesson={lez} /> })
                     break
                 }
