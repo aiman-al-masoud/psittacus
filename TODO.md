@@ -82,6 +82,7 @@ value: Lesson Json
 
 * Handle overwriting lessons (same id), Dexie needs delete first.
 
+* Add Setting for LessonScheduler 
 
 # Anki
 
