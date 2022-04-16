@@ -12,6 +12,7 @@ import { playBase64 } from "../model/utilities/Recorder.js";
 import "../index.css"
 import HomeIcon from "../../res/home.png"
 import SelectSound from "../../res/select.mp3"
+import History from "./history/History.jsx";
 // import Database from "../model/utilities/Database.js";
 
 export default class App extends Component {
@@ -33,6 +34,9 @@ export default class App extends Component {
             <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="normal_button" >{L.info}</button>
             <br />
             <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="normal_button" >{L.settings}</button>
+            <br />
+            <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="normal_button" >{ "History"  }</button>
+
 
         </div>)
 
@@ -98,6 +102,9 @@ export default class App extends Component {
             case Pages.SETTINGS:
                 this.setState({page : <Settings/>})
                 break
+            case Pages.HISTORY:
+                this.setState({page : <History takeLesson={this.takeLesson}  />  })
+                break
         }
 
         this.setState({ pageId: option })
@@ -111,6 +118,11 @@ export default class App extends Component {
                 e.returnValue = L.your_work_may_be_lost;
             }
         })
+    }
+
+    takeLesson = (lesson)=>{
+        this.setState({ page: <TakeLesson lesson={lesson} /> })
+        this.setState({ pageId: Pages.TAKE_LESSON })
     }
 
 

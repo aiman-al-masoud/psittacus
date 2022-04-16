@@ -8,4 +8,5 @@ export default class Pages{
     static INFO = "INFO"
     static MENU = "MENU"
     static SETTINGS = "SETTINGS"
+    static HISTORY = "HISTORY" 
 }

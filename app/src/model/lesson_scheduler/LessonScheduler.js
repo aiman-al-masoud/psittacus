@@ -19,7 +19,7 @@ export default class LessonScheduler{
      * 
      * @returns {Lesson}
      */
-    next(){
+    async next(){
         throw new Error("LessonScheduler: next() not implemented!")
     }
 
