@@ -16,7 +16,7 @@ export default class History extends Component {
 
     render() {
         return (<div>
-            <button onClick={this.onReviseNext}>{"Revise!"}</button>
+            <button onClick={this.onReviseNext} className="normal_button" >{  L.revise } </button>
         </div>)
     }
 

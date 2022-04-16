@@ -35,7 +35,7 @@ export default class App extends Component {
             <br />
             <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="normal_button" >{L.settings}</button>
             <br />
-            <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="normal_button" >{ "History"  }</button>
+            <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="normal_button" >{ L.history }</button>
 
         </div>)
 

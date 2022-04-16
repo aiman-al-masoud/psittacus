@@ -68,5 +68,7 @@
     "export_progress" : "Esporta Progresso",
     "import_progress" : "Importa Progresso",
     "erase_progress" : "Elimina Progresso",
-    "make_sure_title_is_unique" : "    Fai in modo che ciscuna tua lezione abbia un titolo unico, dato che sarà utilizzato per identificare la lezione dal sistema di caching dei punteggi."
+    "make_sure_title_is_unique" : "    Fai in modo che ciscuna tua lezione abbia un titolo unico, dato che sarà utilizzato per identificare la lezione dal sistema di caching dei punteggi.",
+    "history" : "Cronologia",
+    "revise" : "Revisiona!"
 }
