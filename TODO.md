@@ -58,31 +58,27 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 ## Add scheduling (suggestion) for repeating whole lessons.
 
-* Review/History Lessons option in the GUI, that takes the user to a menu where they see the review suggestions, and can launch TakeLesson on any of the suggestions.
+* Add Setting for LessonScheduler 
 
-//gets list of suggestions for revision  ???
+* Add list of suggestions to GUI History section.
+
+//gets list of suggestions for revision 
 lessons = lessonScheduler.getSuggestions() 
 
-LessonScores:
+* Turn jsons to class: LessonScores ? w/:
 -> lastTaken()
 -> propositionScores()
 -> overall()
 -> history()
 
-
-//"TABLES", handled by Dexie:
+Switch to Dexie for LessonScores?:
 
 -> LESSON_SCORES
 primaryKey : lessonId
 value: LessonScores
 
--> CACHED_LESSONS
-primaryKey : lessonId
-value: Lesson Json
-
 * Handle overwriting lessons (same id), Dexie needs delete first.
 
-* Add Setting for LessonScheduler 
 
 # Anki
 
