@@ -13,13 +13,11 @@ import "../index.css"
 import HomeIcon from "../../res/home.png"
 import SelectSound from "../../res/select.mp3"
 import History from "./history/History.jsx";
-// import Database from "../model/utilities/Database.js";
 
 export default class App extends Component {
 
     //pages which may contain unsaved data
     static sensitivePages = [Pages.CRAFT_NEW_LESSON, Pages.EDIT_LESSON]
-
 
     constructor(props) {
         super(props)
