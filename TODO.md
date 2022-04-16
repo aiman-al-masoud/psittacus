@@ -99,6 +99,8 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 * Add type annotations to comments (where possible).
 
+* See if in App you can use prototype.constructor.name instead of the Pages enum.
+
 # Random Stuff
 
 * Auto-change html language tag when language changes from settings:
