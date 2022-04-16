@@ -58,18 +58,10 @@ https://en.wikipedia.org/wiki/Leitner_system
 
 ## Add scheduling (suggestion) for repeating whole lessons.
 
-* Review Lessons option in the GUI, that takes the user to a menu where they see the review suggestions, and can launch TakeLesson on any of the suggestions.
+* Review/History Lessons option in the GUI, that takes the user to a menu where they see the review suggestions, and can launch TakeLesson on any of the suggestions.
 
-//gets scores so that LessonScheduler can sort and decide what lesson to schedule next 
-UserProgress.getScores()
-
-//gets currently set scheduler
-lessonScheduler = UserProgress.getLessonScheduler() 
-
-//gets list of suggestions for revision 
+//gets list of suggestions for revision  ???
 lessons = lessonScheduler.getSuggestions() 
-
-propositionScheduler = UserProgress.getPropositionScheduler() 
 
 LessonScores:
 -> lastTaken()
@@ -87,8 +79,6 @@ value: LessonScores
 -> CACHED_LESSONS
 primaryKey : lessonId
 value: Lesson Json
-
-* maybe call Lesson.cacheLesson internally in Lesson.isOver
 
 * Handle overwriting lessons (same id), Dexie needs delete first.
 

@@ -23,8 +23,6 @@ export default class LessonSchedulerBuilder{
 
 }
 
-let x = LessonSchedulerBuilder.getScheduler()
-console.log(x)
-// (async ()=> { x.next() })()
-
-x.next().then(l=>{console.log(l) })
+// let x = LessonSchedulerBuilder.getScheduler()
+// console.log(x)
+// x.next().then(l=>{console.log(l) })
