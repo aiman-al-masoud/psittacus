@@ -44,6 +44,11 @@ export default class WorstFirst extends PropositionScheduler{
         }
        
     }
+
+    static getType(){
+        return "Worst First"
+    }
+
     
 
 }

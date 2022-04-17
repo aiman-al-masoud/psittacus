@@ -14,4 +14,8 @@ export default class WorstLessonFirst extends LessonScheduler{
         return await Lesson.getCachedLessonById(x.id)
     }
 
+    static getType(){
+        return "Worst First"
+    }
+
 }

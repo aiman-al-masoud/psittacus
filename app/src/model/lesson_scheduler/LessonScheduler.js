@@ -23,5 +23,9 @@ export default class LessonScheduler{
         throw new Error("LessonScheduler: next() not implemented!")
     }
 
+    static getType(){
+        throw new Error("LessonScheduler: is an abstract class!")
+    }
+
 
 }

@@ -41,7 +41,7 @@ export default class PropositionScheduler {
      * @returns {void}
      */
     next() {
-        throw new Error("next() not implemented!")
+        throw new Error("PropositionScheduler: next() not implemented!")
     }
 
     /**
@@ -58,6 +58,10 @@ export default class PropositionScheduler {
      */
     getCurrent() {
         return this.current
+    }
+
+    static getType(){
+        throw new Error("PropositionScheduler: is an abstract class!")
     }
 
    

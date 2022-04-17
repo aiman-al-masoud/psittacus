@@ -38,4 +38,9 @@ export default class DuoStyle extends PropositionScheduler{
 
     }
 
+    static getType(){
+        return "Duo Style"
+    }
+
+
 }

@@ -1,7 +1,7 @@
 import Settings from "../../utilities/Settings"
 
 let schedulers = require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/))
-schedulers = schedulers.map(s=> {return [s.default.prototype.constructor.name,  s.default]  })
+schedulers = schedulers.map(s=> {return [s.default.getType(),  s.default]  })
 schedulers = Object.fromEntries(schedulers)
 
 /**

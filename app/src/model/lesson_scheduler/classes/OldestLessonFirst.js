@@ -15,4 +15,8 @@ export default class OldestLessonFirst extends LessonScheduler{
         return await Lesson.getCachedLessonById(x.id)
     }
 
+    static getType(){
+        return "Oldest First"
+    }
+
 }
