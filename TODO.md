@@ -41,8 +41,6 @@ A recording of each separate word in the target language.
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
-* Implement a better spaced repetition strategy by subclassing Scheduler.
-
 https://en.wikipedia.org/wiki/Spaced_repetition
 
 https://en.wikipedia.org/wiki/Leitner_system
@@ -57,8 +55,6 @@ https://en.wikipedia.org/wiki/Leitner_system
 * Store custom js code for new Schedulers dynamically w/ Dexie
 
 ## Add scheduling (suggestion) for repeating whole lessons.
-
-* Add Setting for LessonScheduler 
 
 * Add list of suggestions to GUI History section.
 
