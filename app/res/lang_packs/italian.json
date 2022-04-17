@@ -61,14 +61,16 @@
     "shortcut_record_audio" : "Ctrl+Spazio",
     "shortcut_play_audio" : "Shift+Spazio",
     "tab_to_move" : "Tab per selezionare l'elemento seguente, Shift+Tab per il precedente.",
-    "choose_scheduler" : "Scegli Pianificatore",
-    "scheduler_is" : "Il Pianificatore decide l'ordine e la frequenza con la quale le Proposizioni vengono mostrate allo studente durante la Lezione.",
+    "choose_proposition_scheduler" : "Scegli Pianificatore di Proposizioni",
+    "proposition_scheduler_is" : "Il Pianificatore di Proposizioni decide l'ordine e la frequenza con la quale le Proposizioni ti vengono mostrate durante qualsiasi Lezione.",
     "manage_data_about_your_progress" : "Gestisci dati relativi al tuo progresso",
-    "progress_is" : "Questi dati includono i punteggi sugli esercizi che svolgi, sono immagazzinati localmente sulla tua macchina, e aiutano Psittacus a garantirti un'esperienza di Ripetizione Spaziata migliore.",
+    "progress_is" : "Questi dati includono i punteggi sugli esercizi che svolgi, sono immagazzinati solo localmente sulla tua macchina, e aiutano Psittacus a garantirti un'esperienza di Ripetizione Spaziata migliore.",
     "export_progress" : "Esporta Progresso",
     "import_progress" : "Importa Progresso",
     "erase_progress" : "Elimina Progresso",
     "make_sure_title_is_unique" : "    Fai in modo che ciscuna tua lezione abbia un titolo unico, dato che sarà utilizzato per identificare la lezione dal sistema di caching dei punteggi.",
     "history" : "Cronologia",
-    "revise" : "Revisiona!"
+    "revise" : "Revisiona!",
+    "choose_lesson_scheduler" : "Scegli Pianificatore di Lezioni",
+    "lesson_scheduler_is" : "Il Pianificatore di Lezioni ti suggerisce quale Lezione riguardare in un dato momento."
 }

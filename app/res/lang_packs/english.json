@@ -61,14 +61,16 @@
     "shortcut_record_audio" : "Ctrl+Space",
     "shortcut_play_audio" : "Shift+Space",
     "tab_to_move" : "Tab to switch to the next element, Shift+Tab for the previous.",
-    "choose_scheduler" : "Choose Scheduler",
-    "scheduler_is" : "A Scheduler decides the order and the frequency in which Propositions are shown to you in during a Lesson.",
+    "choose_proposition_scheduler" : "Choose Proposition Scheduler",
+    "proposition_scheduler_is" : "The Proposition Scheduler decides the order and the frequency in which Propositions are shown to you in during a Lesson.",
     "manage_data_about_your_progress" : "Manage data about your progress",
-    "progress_is" : "This data includes your scores on the exercises you take, it is stored locally on your machine, and it helps Psittacus in providing you with a better spaced-repetition experience.",
+    "progress_is" : "This data includes your scores on the exercises you take, it is only stored locally on your machine, and it helps Psittacus in providing you with a better spaced-repetition experience.",
     "export_progress" : "Export Progress",
     "import_progress" : "Import Progress",
     "erase_progress" : "Erase Progress",
     "make_sure_title_is_unique" : "Make sure that you choose a unique title for each of your lessons, as it will be used to identify them by the score-caching system.",
     "history" : "History",
-    "revise" : "Revise!"
+    "revise" : "Revise!",
+    "choose_lesson_scheduler" : "Choose Lesson Scheduler",
+    "lesson_scheduler_is" : "The Lesson Scheduler suggests you what Lesson you should revise at any time."
 }

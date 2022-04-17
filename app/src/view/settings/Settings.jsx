@@ -4,6 +4,7 @@ import PropositionSchedulerBuilder from "../../model/lesson/proposition_schedule
 import UserProgress from "../../model/utilities/UserProgress.js";
 import S from "../../model/utilities/Settings.js"
 import { readText, saveToComp } from "../../model/utilities/Utils.js";
+import LessonSchedulerBuilder from "../../model/lesson_scheduler/LessonSchedulerBuilder.js";
 
 export default class Settings extends Component {
 
@@ -12,7 +13,8 @@ export default class Settings extends Component {
 
         this.state = {
             currentLang : L.current(),
-            currentScheduler : S.get(S.SCHEDULER)
+            currentScheduler : S.get(S.PROPOSITION_SCHEDULER),
+            currentLessonScheduler : S.get(S.LESSON_SCHEDULER)
         }
     }
 
@@ -53,12 +55,23 @@ export default class Settings extends Component {
                 {L.available().map((opt, index)=>{return <option title={opt} key={index}>{opt}</option>  })}
             </select>
 
-            <h1>{L.choose_scheduler}</h1>
-            <div className="text_tip">{L.scheduler_is}</div>             
+            <h1>{L.choose_proposition_scheduler}</h1>
+            <div className="text_tip">{L.proposition_scheduler_is}</div>             
 
-            <select value={ this.state.currentScheduler   }  onChange = { (event)=>{this.onSet( S.SCHEDULER, event)} } >
+            <select value={ this.state.currentScheduler   }  onChange = { (event)=>{this.onSet( S.PROPOSITION_SCHEDULER, event)} } >
                 {PropositionSchedulerBuilder.getTypes().map((opt, index)=>{return <option title={opt} key={index}>{opt}</option>  })}
-            </select>           
+            </select>      
+
+            <br />
+
+            <h1>{ L.choose_lesson_scheduler }</h1>
+            <div className="text_tip">{ L.lesson_scheduler_is }</div>        
+
+            <select value={ this.state.currentLessonScheduler   }  onChange = { (event)=>{this.onSet( S.LESSON_SCHEDULER, event)} } >
+                {LessonSchedulerBuilder.getTypes().map((opt, index)=>{return <option title={opt} key={index}>{opt}</option>  })}
+            </select>      
+
+
 
             <h1>{L.manage_data_about_your_progress}</h1>
             <div className="text_tip">{L.progress_is}</div>             

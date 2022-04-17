@@ -14,7 +14,9 @@ export default class Settings{
 
     //Keys:
     static TEST = "TEST"
-    static SCHEDULER = "SCHEDULER"
+    static PROPOSITION_SCHEDULER = "PROPOSITION_SCHEDULER"
+    static LESSON_SCHEDULER = "LESSON_SCHEDULER"
+
 
     /**
      * Define a 'safe' value for each key:

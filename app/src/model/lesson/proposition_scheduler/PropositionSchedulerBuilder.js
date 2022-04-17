@@ -14,7 +14,7 @@ export default class PropositionSchedulerBuilder{
     static getScheduler(lessonId, propositions){        
     
         try{
-            return new schedulers[Settings.get(Settings.SCHEDULER)](lessonId, propositions)
+            return new schedulers[Settings.get(Settings.PROPOSITION_SCHEDULER)](lessonId, propositions)
         }catch{
             return new schedulers[this.getTypes()[0]](lessonId, propositions)
         }
