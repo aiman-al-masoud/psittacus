@@ -103,6 +103,18 @@ export default class CraftLesson extends Component {
         this.setState({ propositionBuilder: propoBuilder }) 
     }
 
+    onSave = ()=>{
+
+        try{
+            this.lessonBuilder.save()
+        }catch(e){
+            console.log(e)
+            alert("Please complete this lesson's metadata before saving!")
+            this.setState({editingMode : EditingModes.METADATA})
+        }
+
+    }
+
 
     render() {
 
@@ -138,7 +150,7 @@ export default class CraftLesson extends Component {
             <button onClick={()=>{ this.setState({editingMode : EditingModes.METADATA}) }} className="normal_button" >{L.edit_metadata}</button>
             <button onClick={()=>{ this.setState({editingMode : EditingModes.LESSON}) }}   className="normal_button" >{L.edit_sentences}</button>
             <button  onClick={()=>{ this.setState({editingMode : EditingModes.EXPLAINATION}) }}  className="normal_button" >{L.edit_explanation}</button>
-            <button onClick={() => { this.lessonBuilder.save() }} className="normal_button" title={L.shortcut_save_lesson}>{L.save_lesson}</button>
+            <button onClick={() => { this.onSave() }} className="normal_button" title={L.shortcut_save_lesson}>{L.save_lesson}</button>
 
             <div style={this.state.editingMode==EditingModes.LESSON? Styles.visible : Styles.invisible }>{mainBody}</div>
             <div style={this.state.editingMode==EditingModes.METADATA? Styles.visible : Styles.invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMetadata} /> </div>
@@ -154,7 +166,7 @@ export default class CraftLesson extends Component {
             //save lesson to computer and override default behavior
             if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
                 e.preventDefault();
-                this.lessonBuilder.save() 
+                this.onSave()
             }
 
             //play recorded sound

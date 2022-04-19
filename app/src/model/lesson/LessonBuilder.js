@@ -75,9 +75,20 @@ export default class LessonBuilder {
      * Prompt the user to save their work as a lesson json text file.
      */
     save = () => {
+
+        //every metadata value MUST BE NON-FALSY!
+        if(!Object.values(this.metadata).every((val)=> { return !!val }  )){
+            throw new MetadataIncompleteException()
+        }
+        
         saveToComp(JSON.stringify(this.toJson()), "lesson.txt", "text/plain")
     }
 
+
+}
+
+
+class MetadataIncompleteException extends Error{
 
 }
 
