@@ -73,9 +73,6 @@ Switch to Dexie for LessonScores?:
 primaryKey : lessonId
 value: LessonScores
 
-* Handle overwriting lessons (same id), Dexie needs delete first.
-
-
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
