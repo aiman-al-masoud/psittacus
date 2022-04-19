@@ -1,6 +1,7 @@
 {
 
     "app_name" : "Psittacus",
+    "support_email" : "luxlunarislabs@gmail.com",
     "home" : "Home",
     "take_lesson" : "Take Lesson",
     "craft_new_lesson" : "Craft New Lesson",
@@ -72,5 +73,9 @@
     "history" : "History",
     "revise" : "Revise!",
     "choose_lesson_scheduler" : "Choose Lesson Scheduler",
-    "lesson_scheduler_is" : "The Lesson Scheduler suggests you what Lesson you should revise at any time."
+    "lesson_scheduler_is" : "The Lesson Scheduler suggests you what Lesson you should revise at any time.",
+    "please_complete_metadata" : "Please complete this lesson's metadata before saving!",
+    "confirm_send_bug_report" : "Send bug report?",
+    "errors_text" : "error's text",
+    "psittacus_bug_report" : "Psittacus Bug Report"
 }

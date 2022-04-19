@@ -7,6 +7,7 @@ import "../../index.css"
 import TextEditor from "./TextEditor.jsx";
 import EditingModes from "./EditingModes.js";
 import Styles from "../Styles";
+import { sendBugReport } from "../../model/utilities/Utils.js";
 
 
 export default class CraftLesson extends Component {
@@ -110,12 +111,11 @@ export default class CraftLesson extends Component {
         }catch(e){
             switch(e){ //handle exceptions
                 case LessonBuilder.MetadataIncompleteError:
-                    alert("Please complete this lesson's metadata before saving!")
+                    alert(L.please_complete_metadata)
                     this.setState({editingMode : EditingModes.METADATA})
                 break
                 default:
-                    alert("Couldn't save your lesson!")
-                    console.log(e)
+                    sendBugReport(e.toString()+" "+e.stack  )
             }            
         }
 

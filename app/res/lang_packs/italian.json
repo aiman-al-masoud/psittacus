@@ -1,6 +1,7 @@
 {
 
     "app_name" : "Psittacus",
+    "support_email" : "luxlunarislabs@gmail.com",
     "home" : "Home",
     "take_lesson" : "Apri Lezione",
     "craft_new_lesson" : "Crea Nuova Lezione",
@@ -72,5 +73,12 @@
     "history" : "Cronologia",
     "revise" : "Revisiona!",
     "choose_lesson_scheduler" : "Scegli Pianificatore di Lezioni",
-    "lesson_scheduler_is" : "Il Pianificatore di Lezioni ti suggerisce quale Lezione riguardare in un dato momento."
+    "lesson_scheduler_is" : "Il Pianificatore di Lezioni ti suggerisce quale Lezione riguardare in un dato momento.",
+    "please_complete_metadata" : "Completare i metadati di questa lezione prima di salvarla!",
+    "confirm_send_bug_report" : "Invia bug report?",
+    "errors_text" : "testo dell'errore",
+    "psittacus_bug_report" : "Psittacus Bug Report"
+
+
+
 }

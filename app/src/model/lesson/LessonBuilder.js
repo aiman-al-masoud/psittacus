@@ -79,6 +79,8 @@ export default class LessonBuilder {
      */
     save = () => {
 
+        // throw 1 //test sending bug report
+
         //every metadata value MUST BE NON-FALSY!
         if(!Object.values(this.metadata).every((val)=> { return !!val }  )){
             throw LessonBuilder.MetadataIncompleteError

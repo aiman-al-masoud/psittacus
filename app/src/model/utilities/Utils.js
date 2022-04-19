@@ -1,4 +1,5 @@
-export {  saveToComp, readText }
+import L from "./Language";
+export {  saveToComp, readText, sendBugReport }
 
 function saveToComp(content, fileName, contentType) {
     var a = document.createElement("a");
@@ -33,6 +34,12 @@ const readText = ()=> {
     fileInput.click()
 
 })}
+
+
+function sendBugReport(errorText){
+    let y = confirm(L.confirm_send_bug_report)
+    y? window.open(`mailto:${L.support_email}?subject=${L.psittacus_bug_report}&body=${L.errors_text}: ${errorText}\n\n`) : ""
+}
 
 
 
