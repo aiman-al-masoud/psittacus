@@ -6,6 +6,7 @@
 <p>Psittacus iratus linguas docet 🦜</p>
 <p><em>The angry parrot teaches languages 🦜</em></p>
 
+<img src="./app/res/favicon.png" />
 
 
 ## What is it?
