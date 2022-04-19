@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import L from "../../model/utilities/Language.js";
+import { sendBugReport } from "../../model/utilities/Utils.js";
 
 
 
@@ -28,6 +29,14 @@ export default class Info extends Component {
                 <h1>{L.full_terms}</h1>
                 <a href={L.license_link} target="_blank">{L.license_link}</a>
 
+
+                <h1>{L.bug_reports}</h1>
+                <div className="text_tip">{L.bug_report_is}</div>
+                <button onClick={()=>{sendBugReport("")}} className="normal_button">{L.send_bug_report}</button>
+                <h2>{L.file_issue}</h2>
+                <a href="https://github.com/aiman-al-masoud/psittacus/issues" target="_blank">https://github.com/aiman-al-masoud/psittacus/issues</a>
+
+
                 <h1>{L.shortcuts}</h1>
 
                 <p>{L.tab_to_move}</p>
@@ -45,6 +54,7 @@ export default class Info extends Component {
                 </ul>
 
 
+               
             </div>
 
 

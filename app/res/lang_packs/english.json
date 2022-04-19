@@ -77,5 +77,9 @@
     "please_complete_metadata" : "Please complete this lesson's metadata before saving!",
     "confirm_send_bug_report" : "Send bug report?",
     "errors_text" : "error's text",
-    "psittacus_bug_report" : "Psittacus Bug Report"
+    "psittacus_bug_report" : "Psittacus Bug Report",
+    "send_bug_report" : "Send Bug Report",
+    "bug_reports" : "Bug Reports",
+    "bug_report_is" : "If you think something's gone wrong, you can send a bug report via email. Alternatively, you can file an issue on Psittacus's official Github repo.",
+    "file_issue": "File an issue"
 }
