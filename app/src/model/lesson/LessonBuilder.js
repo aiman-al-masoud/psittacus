@@ -7,6 +7,8 @@ const packageJson = require.context("../../../..", false, /package.json$/).keys(
  */
 export default class LessonBuilder {
 
+    static MetadataIncompleteError = "MetadataIncompleteError"
+
     constructor() {
         this.propositions = [new PropositionBuilder()]
         this.current = 0
@@ -35,7 +37,7 @@ export default class LessonBuilder {
 
     /**
      * Get the proposition currenlty under audit.
-     * @returns PropositionBuilder
+     * @returns {PropositionBuilder}
      */
     getCurrent() {
         return this.propositions[this.current]
@@ -73,22 +75,17 @@ export default class LessonBuilder {
    
     /**
      * Prompt the user to save their work as a lesson json text file.
+     * @throws {LessonBuilder.MetadataIncompleteError}
      */
     save = () => {
 
         //every metadata value MUST BE NON-FALSY!
         if(!Object.values(this.metadata).every((val)=> { return !!val }  )){
-            throw new MetadataIncompleteException()
+            throw LessonBuilder.MetadataIncompleteError
         }
         
         saveToComp(JSON.stringify(this.toJson()), "lesson.txt", "text/plain")
     }
-
-
-}
-
-
-class MetadataIncompleteException extends Error{
 
 }
 

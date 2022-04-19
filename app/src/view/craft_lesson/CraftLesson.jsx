@@ -108,9 +108,15 @@ export default class CraftLesson extends Component {
         try{
             this.lessonBuilder.save()
         }catch(e){
-            console.log(e)
-            alert("Please complete this lesson's metadata before saving!")
-            this.setState({editingMode : EditingModes.METADATA})
+            switch(e){ //handle exceptions
+                case LessonBuilder.MetadataIncompleteError:
+                    alert("Please complete this lesson's metadata before saving!")
+                    this.setState({editingMode : EditingModes.METADATA})
+                break
+                default:
+                    alert("Couldn't save your lesson!")
+                    console.log(e)
+            }            
         }
 
     }
