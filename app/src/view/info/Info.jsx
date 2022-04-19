@@ -21,13 +21,13 @@ export default class Info extends Component {
                 <h1>{L.demo}</h1>
                 <a href={L.demo_link} target="_blank">{L.demo_link}</a>
 
-                <h1>{L.link_to_source_code_title}</h1>
-                <a href={L.link_to_source_code} target="_blank">{L.link_to_source_code}</a>
-
+              
                 <h1>{L.license}</h1>
                 <p>{L.license_notice}</p>
-                <h1>{L.full_terms}</h1>
+                <h2>{L.full_terms}</h2>
                 <a href={L.license_link} target="_blank">{L.license_link}</a>
+                <h2>{L.link_to_source_code_title}</h2>
+                <a href={L.link_to_source_code} target="_blank">{L.link_to_source_code}</a>
 
 
                 <h1>{L.bug_reports}</h1>
