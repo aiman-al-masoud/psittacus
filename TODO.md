@@ -46,7 +46,7 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 https://en.wikipedia.org/wiki/Leitner_system
 
 
-* Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes.
+* Fix problem of missing title in lessons that would lead to duplicate ids and inexisting proposition hashes. => mitigated by forcing user to complete metadata and telling them to choose a unique lesson title.
 
 * Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
 
