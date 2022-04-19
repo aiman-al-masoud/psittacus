@@ -69,7 +69,7 @@
     "export_progress" : "Export Progress",
     "import_progress" : "Import Progress",
     "erase_progress" : "Erase Progress",
-    "make_sure_title_is_unique" : "Make sure that you choose a unique title for each of your lessons, as it will be used to identify them by the score-caching system.",
+    "make_sure_title_is_unique" : "Make sure any new lesson you craft has a unique title: as it will be used to identify it",
     "history" : "History",
     "revise" : "Revise!",
     "choose_lesson_scheduler" : "Choose Lesson Scheduler",
