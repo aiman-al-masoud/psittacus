@@ -102,3 +102,5 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Better hover over words tooltip.
 
 * Fix other React warnings.
+
+* Shorter, more concise titles and slightly longer tips.
