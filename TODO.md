@@ -43,32 +43,25 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-https://en.wikipedia.org/wiki/Leitner_system
-
-* Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
-
 * extract common part of next() and pull it up
+
+* better api for extending schedulers
 
 * Store custom js code for new Schedulers dynamically w/ Dexie
 
-## Add scheduling (suggestion) for repeating whole lessons.
+* Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
 
 * Add list of suggestions to GUI History section.
 
 //gets list of suggestions for revision 
 lessons = lessonScheduler.getSuggestions() 
 
-* Turn jsons to class: LessonScores ? w/:
--> lastTaken()
--> propositionScores()
--> overall()
--> history()
+* **Turn jsons to class: LessonScores ? w/:**
 
-Switch to Dexie for LessonScores?:
-
--> LESSON_SCORES
-primaryKey : lessonId
-value: LessonScores
+* lastTaken()
+* propositionScores()
+* overall()
+* history()
 
 # Anki
 
