@@ -43,9 +43,25 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-* extract common part of next() and pull it up
 
-* better api for extending schedulers
+#### Better PropositionScheduler 'extension api', Overrideable methods:
+
+getType() : return identifier for subclass (NO side effects)
+
+isOver(): run test on class attributes (NO side effects)
+
+next(): default just increments counter on this.propositions (side effects)
+
+initSequence(): re-shuffle this.propositions (side effects).
+
+constructor(lessonId, propositions): initialize  specific class attributes  (side effects). Default appends null proposition to sequence so stuff doesn't break and you don't have to deal with it in next().
+
+#### 'Final' methods:
+
+getCurrent(): returns current (NO side effects)
+
+
+* let Lesson provide PropositionScheduler directly with old scores and not lesson id ?
 
 * Store custom js code for new Schedulers dynamically w/ Dexie
 
