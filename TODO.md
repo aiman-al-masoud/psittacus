@@ -61,7 +61,7 @@ constructor(lessonId, propositions): initialize  specific class attributes  (sid
 getCurrent(): returns current (NO side effects)
 
 
-* let Lesson provide PropositionScheduler directly with old scores and not lesson id ?
+----------------------------------------------------
 
 * Store custom js code for new Schedulers dynamically w/ Dexie
 

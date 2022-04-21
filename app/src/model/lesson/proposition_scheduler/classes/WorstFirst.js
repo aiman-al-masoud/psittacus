@@ -1,6 +1,5 @@
 import Proposition from "../../proposition/Proposition"
 import PropositionScheduler from "../PropositionScheduler"
-// import UserProgress from "../../../utilities/UserProgress"
 
 /**
  * A `Scheduler` with memory, that plays `Propositions`

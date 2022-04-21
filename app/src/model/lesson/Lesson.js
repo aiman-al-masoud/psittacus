@@ -14,14 +14,8 @@ export default class Lesson {
         this.metadata = jsonData.metadata
         this.explanationText = jsonData.explanation.text
         this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
-        
-
         this.oldScores = UserProgress.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
-        
         this.scheduler = PropositionSchedulerBuilder.getScheduler(this.oldScores, this.propositions)
-
-        
-        // this.scheduler = PropositionSchedulerBuilder.getScheduler(this.getId(), this.propositions)
     }
 
     /**
@@ -103,17 +97,11 @@ export default class Lesson {
     async cacheLesson() {
         
         await Database.get().cachedLessons().delete(this.getId())
-        // console.log(`Deleted lesson with id=${this.getId()}`)
-        // console.log(await Database.get().cachedLessons().toArray())
 
-        /*await*/ Database.get().cachedLessons().add({
+        Database.get().cachedLessons().add({
             id: this.getId(),
             lesson: this.jsonData
         })
-
-        // console.log(await Database.get().cachedLessons().toArray())
-        // console.log(`Cached lesson with id=${this.getId()}`)
-
     }
 
     /**
