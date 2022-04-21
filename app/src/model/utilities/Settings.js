@@ -17,13 +17,13 @@ export default class Settings{
     static PROPOSITION_SCHEDULER = "PROPOSITION_SCHEDULER"
     static LESSON_SCHEDULER = "LESSON_SCHEDULER"
 
-
     /**
      * Define a 'safe' value for each key:
      */
     static default = {
         TEST : "default value for test",
-        SCHEDULER : ""
+        PROPOSITION_SCHEDULER : "",
+        LESSON_SCHEDULER : ""
     }
 
     static set(key, value){
@@ -47,3 +47,5 @@ export default class Settings{
 
 Settings.init() //call it at least once, somewhere.
 
+console.log("settings init got called!::::::::::")
+console.log(Settings.dict)
