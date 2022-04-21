@@ -13,15 +13,12 @@ export default class WorstFirst extends PropositionScheduler{
 
     constructor(oldScores, propositions){
         super(oldScores, propositions)
-        this.counter = 0
-        this.current = this.propositions[this.counter]
     }
 
     /**
      * Load back past scores and decide a repeptition strategy (sequence of Propositions)
      */
     initSequence(){
-        // super.initSequence()
 
         try{
             let propoScores = this.oldScores.propositions
@@ -33,17 +30,6 @@ export default class WorstFirst extends PropositionScheduler{
         }
     }
 
-    // next(){
-
-    //     this.counter++
-    //     this.current = this.propositions[this.counter]
-    //     // if (!this.current){
-    //     //     // this.current = Proposition.NULL
-    //     //     this.isLessonOver = true
-    //     // }
-       
-    // }
-
     isOver(){
         return !this.current //current is nullish
     }
@@ -51,7 +37,5 @@ export default class WorstFirst extends PropositionScheduler{
     static getType(){
         return "Worst First"
     }
-
-    
 
 }

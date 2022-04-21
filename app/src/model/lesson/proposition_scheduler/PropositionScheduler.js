@@ -27,11 +27,8 @@ export default class PropositionScheduler {
         this.oldScores = oldScores
         this.propositions  = propositions
         this.initSequence()
-        // this.isLessonOver = false
-
         this.counter = 0
         this.current = this.propositions[this.counter]
-
     }
 
     /**
@@ -50,7 +47,6 @@ export default class PropositionScheduler {
      * @returns {void}
      */
     next() {
-        // throw new Error("PropositionScheduler: next() not implemented!")
         this.counter++
         this.current = this.propositions[this.counter]
     }
@@ -60,7 +56,7 @@ export default class PropositionScheduler {
      * @returns {boolean}
      */
     isOver() {
-        // return this.isLessonOver
+
     }
 
     /**
@@ -76,6 +72,5 @@ export default class PropositionScheduler {
     }
 
    
-
 }
 
