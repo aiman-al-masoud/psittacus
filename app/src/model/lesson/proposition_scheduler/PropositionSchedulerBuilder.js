@@ -11,12 +11,12 @@ schedulers = Object.fromEntries(schedulers)
  */
 export default class PropositionSchedulerBuilder{
 
-    static getScheduler(lessonId, propositions){        
+    static getScheduler(oldScores, propositions){        
     
         try{
-            return new schedulers[Settings.get(Settings.PROPOSITION_SCHEDULER)](lessonId, propositions)
+            return new schedulers[Settings.get(Settings.PROPOSITION_SCHEDULER)](oldScores, propositions)
         }catch{
-            return new schedulers[this.getTypes()[0]](lessonId, propositions)
+            return new schedulers[this.getTypes()[0]](oldScores, propositions)
         }
         
     }

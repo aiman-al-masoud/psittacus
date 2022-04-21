@@ -11,8 +11,8 @@ import Proposition from "../../proposition/Proposition"
  */
 export default class DuoStyle extends PropositionScheduler{
 
-    constructor(lessonId, propositions){
-        super(lessonId, propositions)
+    constructor(oldScores, propositions){
+        super(oldScores, propositions)
         this.iterator = this.propositions.values()
         this.next()
     }

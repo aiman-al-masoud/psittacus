@@ -31,6 +31,10 @@ export default class UserProgress{
         return Object.entries(this.userProgress().lesson_scores).map( e => {e[1]["id"] = e[0]; return e[1] } )
     } 
 
+    /**
+     * @param {string} lessonId 
+     * @returns 
+     */
     static scoresForLesson(lessonId){
         return this.userProgress().lesson_scores[lessonId]
     }

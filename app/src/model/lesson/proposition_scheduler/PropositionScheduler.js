@@ -18,8 +18,13 @@ import Proposition from "../proposition/Proposition"
  */
 export default class PropositionScheduler {
 
-    constructor(lessonId, propositions) {
-        this.lessonId = lessonId
+    /**
+     * Takes the list of propostions and the oldScores of a Lesson.
+     * @param {*} oldScores
+     * @param {[Proposition]} propositions 
+     */
+    constructor(oldScores, propositions) {
+        this.oldScores = oldScores
         this.propositions  = propositions
         this.initSequence()
         this.isLessonOver = false

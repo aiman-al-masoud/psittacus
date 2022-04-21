@@ -1,6 +1,6 @@
 import Proposition from "../../proposition/Proposition"
 import PropositionScheduler from "../PropositionScheduler"
-import UserProgress from "../../../utilities/UserProgress"
+// import UserProgress from "../../../utilities/UserProgress"
 
 /**
  * A `Scheduler` with memory, that plays `Propositions`
@@ -12,8 +12,8 @@ import UserProgress from "../../../utilities/UserProgress"
  */
 export default class WorstFirst extends PropositionScheduler{
 
-    constructor(lessonId, propositions){
-        super(lessonId, propositions)
+    constructor(oldScores, propositions){
+        super(oldScores, propositions)
         this.counter = 0
         this.current = this.propositions[this.counter]
     }
@@ -22,10 +22,10 @@ export default class WorstFirst extends PropositionScheduler{
      * Load back past scores and decide a repeptition strategy (sequence of Propositions)
      */
     initSequence(){
-        super.initSequence()
+        // super.initSequence()
 
         try{
-            let propoScores = UserProgress.scoresForLesson(this.lessonId).propositions
+            let propoScores = this.oldScores.propositions
             propoScores = propoScores.sort((p1, p2)=> {return p1[1] - p2[1] } ) //sort by score (index=1)            
             let hashes = propoScores.map((p)=>{return p[0]}) //get hashes (index=0)
             this.propositions = this.propositions.sort((p1, p2)=>{ return hashes.indexOf(p1.getHash()) - hashes.indexOf(p2.getHash())    }  )

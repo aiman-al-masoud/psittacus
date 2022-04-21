@@ -14,7 +14,14 @@ export default class Lesson {
         this.metadata = jsonData.metadata
         this.explanationText = jsonData.explanation.text
         this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
-        this.scheduler = PropositionSchedulerBuilder.getScheduler(this.getId(), this.propositions)
+        
+
+        this.oldScores = UserProgress.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
+        
+        this.scheduler = PropositionSchedulerBuilder.getScheduler(this.oldScores, this.propositions)
+
+        
+        // this.scheduler = PropositionSchedulerBuilder.getScheduler(this.getId(), this.propositions)
     }
 
     /**
