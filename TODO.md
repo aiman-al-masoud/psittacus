@@ -43,10 +43,6 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-* FIX UP HORRIBLE Settings.js!!!! Make it a singleton!!! Better handling of keys!!!!!
-
-* fix incorrect scheduler in settings bug
-
 * I guess there's no point in leaving PropositionScheduler abstract now...
 
 * Store custom js code for new Schedulers dynamically w/ Dexie
@@ -82,6 +78,10 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Add type annotations to comments (where possible).
 
 * See if in App you can use prototype.constructor.name instead of the Pages enum.
+
+* FIX UP HORRIBLE Settings.js!!!! Make it a singleton!!! Better handling of keys!!!!! Improve representation in localStorage!!! "settings": {...}
+
+* Better (dynamic) handling of settings keys in Settings.jsx
 
 # Random Stuff
 
