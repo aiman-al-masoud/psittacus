@@ -1,20 +1,21 @@
 import Proposition from "../proposition/Proposition"
 
 /**
- * **Abstract Class**. 
+ * # Abstract Class
  * 
  * Subclasses decide what `Proposition` the student should see at any point of a `Lesson`. 
  * 
  * **Place subclasses in the `./classes` directory and export them as default, for automatic inclusion in build path.**
  * 
- * ## Subclasses must implement:
+ * # Subclasses implement:
  * 
- * * `next()`: to decide what `Proposition` to point to next, and to set the `isLessonOver` flag.
+ * * `isOver()` : to decide whether the student did enough work :-). 
  * 
- * ## Subclasses can override:
+ * * `initSequence()` : to initially sort the `this.propositions` array.
  * 
- * * `initSequence()`: to sort the `propositions` array in a different order than the one specified in the Lesson's json by the author of the Lesson.
+ * * `next()` : to point to the next proposition, setting `this.current`
  * 
+ * * `getType()` : to provide an identifier for the subclass.
  */
 export default class PropositionScheduler {
 
@@ -32,11 +33,7 @@ export default class PropositionScheduler {
     }
 
     /**
-     * Initialize the `propositions` array.
-     * 
-     * Subclasses that override this should call `super.initSequence()`
-     * first, to initialize the `propositions` array. Then they can sort it.
-     * 
+     * Re-shuffles the `propositions` array.
      */
     initSequence(){
 
@@ -68,7 +65,7 @@ export default class PropositionScheduler {
     }
 
     static getType(){
-        throw new Error("PropositionScheduler: is an abstract class!")
+        throw new Error("PropositionScheduler is abstract!")
     }
 
    

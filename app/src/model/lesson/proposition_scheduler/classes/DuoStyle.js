@@ -2,12 +2,12 @@ import PropositionScheduler from "../PropositionScheduler"
 import Proposition from "../../proposition/Proposition"
 
 /**
- * A memory-less Scheduler that plays the Propositions in the
- * order defined by the Lesson's author.
+ * A memory-less `PropositionScheduler` that plays the `Proposition`s in the
+ * order defined by the `Lesson`'s author.
  * 
- * When the student is done with new Propositions, 
- * this Scheduler (eventually) starts displaying the ones that the student 
- * got wrong, and doesn't terminate the Lesson until the student gets them all right.
+ * When the student is done with new `Proposition`s, 
+ * this scheduler (eventually) starts displaying the ones that the student 
+ * got wrong, and doesn't let him/her go until he/she gets them all right.
  */
 export default class DuoStyle extends PropositionScheduler{
 
