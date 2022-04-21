@@ -56,7 +56,7 @@ initSequence(): re-shuffle this.propositions (side effects).
 
 constructor(oldScores, propositions): initialize  specific class attributes  (side effects). 
 
-#### 'Final' methods:
+##### 'Final' methods:
 
 getCurrent(): returns current (NO side effects). If current is nullish, it returns Proposition.NULL
 
