@@ -14,9 +14,9 @@ export default class Proposition {
     static MIN_PASSING_SCORE = 51
 
     /**
-     * Used to make sure nothing breaks when you run out of real ones.
+     * Used as a placeholder to make sure nothing breaks when you run out of real ones.
      */
-    static NULL = new Proposition({ sentence_one: "ciao", sentence_two: "hello", audio_base64: "data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", word_dict: { "ciao": "hello" }, reverse_dict: { "hello": "ciao" }, target_to_native: true })
+    static NULL = new Proposition({ sentence_one: "placeholder text: if u see it report a bug!", sentence_two: "testo che tiene il posto: se lo vedi segnala il baco!", audio_base64: "data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", word_dict: { "ciao": "hello" }, reverse_dict: { "hello": "ciao" }, target_to_native: true })
 
     constructor(jsonData) {
         this.sentenceOne = jsonData.sentence_one

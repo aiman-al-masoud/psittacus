@@ -33,7 +33,7 @@ export default class DuoStyle extends PropositionScheduler{
         //lesson over, if current Proposition undefined, and no screwed up propositions.
         if (!this.current) {
             this.isLessonOver = true
-            this.current = Proposition.NULL
+            // this.current = Proposition.NULL
         }
 
     }

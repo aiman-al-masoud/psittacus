@@ -62,7 +62,7 @@ export default class PropositionScheduler {
      * @return {Proposition}
      */
     getCurrent() {
-        return this.current
+        return this.current ?? Proposition.NULL
     }
 
     static getType(){
