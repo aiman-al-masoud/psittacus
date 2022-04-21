@@ -37,11 +37,15 @@ export default class WorstFirst extends PropositionScheduler{
 
         this.counter++
         this.current = this.propositions[this.counter]
-        if (!this.current){
-            // this.current = Proposition.NULL
-            this.isLessonOver = true
-        }
+        // if (!this.current){
+        //     // this.current = Proposition.NULL
+        //     this.isLessonOver = true
+        // }
        
+    }
+
+    isOver(){
+        return !this.current //current is nullish
     }
 
     static getType(){

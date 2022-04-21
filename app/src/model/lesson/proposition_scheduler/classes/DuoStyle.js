@@ -25,17 +25,23 @@ export default class DuoStyle extends PropositionScheduler{
         this.screwedUpPropositions = this.propositions.filter((p) => { return p.getScore() < Proposition.MIN_PASSING_SCORE })
 
         //lesson not over yet, if at least one fail
-        if (this.screwedUpPropositions.length > 0) {
-            this.current =  this.current ?? this.screwedUpPropositions[0]
-            return
-        }
+        // if (this.screwedUpPropositions.length > 0) {
+        this.current =  this.current ?? this.screwedUpPropositions[0]
+            // return
+        // }
 
         //lesson over, if current Proposition undefined, and no screwed up propositions.
-        if (!this.current) {
-            this.isLessonOver = true
+        // if (!this.current) {
+            // this.isLessonOver = true
             // this.current = Proposition.NULL
-        }
+        // }
 
+    }
+
+    isOver(){
+        //lesson over, if current Proposition undefined, and no screwed up propositions.
+        return (!this.current) && 
+        ( this.propositions.filter((p) => { return p.getScore() < Proposition.MIN_PASSING_SCORE }).length <= 0)
     }
 
     static getType(){
