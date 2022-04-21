@@ -43,6 +43,9 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
+
+* fix incorrect scheduler in settings bug
+
 * Store custom js code for new Schedulers dynamically w/ Dexie
 
 * Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
