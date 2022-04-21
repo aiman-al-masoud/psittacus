@@ -27,11 +27,17 @@ export default class Settings extends Component {
     }
 
     onSet = (key, event)=>{
+        
         let choice = event.target
         choice = choice.options[choice.selectedIndex].text    
+
+        console.log(key, choice)
+
         S.set(key, choice)
         // console.log(key)
-        this.setState({key : choice})   
+        let newState = {}
+        newState[key] = choice
+        this.setState(newState)   
     }
 
     importProgress = async ()=>{
