@@ -54,7 +54,7 @@ next(): default just increments counter on this.propositions (side effects)
 
 initSequence(): re-shuffle this.propositions (side effects).
 
-constructor(lessonId, propositions): initialize  specific class attributes  (side effects). Default appends null proposition to sequence so stuff doesn't break and you don't have to deal with it in next().
+constructor(oldScores, propositions): initialize  specific class attributes  (side effects). Default appends null proposition to sequence so stuff doesn't break and you don't have to deal with it in next().
 
 #### 'Final' methods:
 
