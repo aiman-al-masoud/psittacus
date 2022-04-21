@@ -50,7 +50,7 @@ getType() : return identifier for subclass (NO side effects)
 
 isOver(): run test on class attributes (NO side effects)
 
-next(): default just increments counter on this.propositions (side effects)
+next(): sets this.current. Default default goes forward a step. May set this.current to nullish value. (side effects)
 
 initSequence(): re-shuffle this.propositions (side effects).
 
