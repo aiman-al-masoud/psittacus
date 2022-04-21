@@ -13,13 +13,14 @@ export default class DuoStyle extends PropositionScheduler{
 
     constructor(oldScores, propositions){
         super(oldScores, propositions)
-        this.iterator = this.propositions.values()
-        this.next()
+        // this.iterator = this.propositions.values()
+        // this.next()
     }
   
     next(){
 
-        this.current = this.iterator.next().value
+        // this.current = this.iterator.next().value
+        super.next()
 
         //list of 'questions' user failed at
         this.screwedUpPropositions = this.propositions.filter((p) => { return p.getScore() < Proposition.MIN_PASSING_SCORE })

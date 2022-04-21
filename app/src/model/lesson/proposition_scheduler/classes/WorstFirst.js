@@ -33,16 +33,16 @@ export default class WorstFirst extends PropositionScheduler{
         }
     }
 
-    next(){
+    // next(){
 
-        this.counter++
-        this.current = this.propositions[this.counter]
-        // if (!this.current){
-        //     // this.current = Proposition.NULL
-        //     this.isLessonOver = true
-        // }
+    //     this.counter++
+    //     this.current = this.propositions[this.counter]
+    //     // if (!this.current){
+    //     //     // this.current = Proposition.NULL
+    //     //     this.isLessonOver = true
+    //     // }
        
-    }
+    // }
 
     isOver(){
         return !this.current //current is nullish
