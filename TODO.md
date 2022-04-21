@@ -83,6 +83,8 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 # Random Stuff
 
+* Fix-up keyboard shorcuts.
+
 * Auto-change html language tag when language changes from settings:
 ```
  document. documentElement. setAttribute("lang", 'your language code');
