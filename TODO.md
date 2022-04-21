@@ -43,38 +43,6 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-
-#### Better PropositionScheduler 'extension api', Overrideable methods:
-
-getType() : return identifier for subclass (NO side effects)
-
-isOver(): run test on class attributes (NO side effects). 
-
-Eg: 
-
-//quit if:
-this.counter==this.propositions.length
-
-or 
-
-//quit if 
-(this.counter==this.propositions.length) && (this.screwedUpPropositions.length)
-
-
-next(): sets this.current. Default default goes forward a step. May set this.current to nullish value. (side effects)
-
-initSequence(): re-shuffle this.propositions (side effects).
-
-constructor(oldScores, propositions): initialize  specific class attributes  (side effects). 
-
-##### 'Final' methods:
-
-getCurrent(): returns current (NO side effects). If current is nullish, it returns Proposition.NULL
-
-prev(): sets current to previous in this.propositions ?????? (side effects)
-
-----------------------------------------------------
-
 * Store custom js code for new Schedulers dynamically w/ Dexie
 
 * Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
