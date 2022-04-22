@@ -43,6 +43,8 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
+* Aggregate propositions from different lessons to create a new custom lesson for the purpose of revision. ("ArlecchinoLessonScheduler").
+
 * I guess there's no point in leaving PropositionScheduler abstract now...
 
 * Store custom js code for new Schedulers dynamically w/ Dexie
