@@ -96,6 +96,11 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
  document. documentElement. setAttribute("lang", 'your language code');
 ```
 
+* Write some automated tests
+- selenium
+- cyprus
+- xdotool
+
 # Graphical Stuff
 
 * Top navbar? Or centered menu?
