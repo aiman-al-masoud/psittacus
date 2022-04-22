@@ -73,6 +73,14 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 * look into Anki: https://apps.ankiweb.net/ and its formats
 
+
+### Unzipping:
+
+https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.html
+
+
+view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
+
 # Refactoring
 
 * Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
