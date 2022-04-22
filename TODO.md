@@ -45,6 +45,8 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 
 * Aggregate propositions from different lessons to create a new custom lesson for the purpose of revision. ("ArlecchinoLessonScheduler").
 
+* Store time taken by user to answer to each question? (May be useful in scheduling)
+
 * I guess there's no point in leaving PropositionScheduler abstract now...
 
 * Store custom js code for new Schedulers dynamically w/ Dexie
