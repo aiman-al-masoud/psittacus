@@ -81,6 +81,7 @@ https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.html
 
 view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
+
 # Refactoring
 
 * Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
