@@ -105,3 +105,5 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Fix other React warnings.
 
 * Shorter, more concise titles and slightly longer tips.
+
+* Email in info 
