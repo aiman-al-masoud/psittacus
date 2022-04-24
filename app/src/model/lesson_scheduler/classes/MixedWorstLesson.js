@@ -4,14 +4,17 @@ import Proposition from "../../lesson/proposition/Proposition";
 import PropositionSchedulerBuilder from "../../lesson/proposition_scheduler/PropositionSchedulerBuilder";
 import LessonScheduler from "../LessonScheduler";
 
-export default class ArlecchinoLessonScheduler extends LessonScheduler {
+/**
+ * Creates a `MixedLesson` from the top `Proposition`s the student performed the worst on.
+ */
+export default class MixedWorstLesson extends LessonScheduler {
 
     constructor() {
         super()
     }
 
     static getType() {
-        return "Arlecchino"
+        return "Mixed Worst"
     }
 
     async next() {
