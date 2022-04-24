@@ -45,7 +45,7 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 
 * better lesson id
 
-* MixedWorseLessonFirst: add same target-language constraint!
+* MixedWorseLesson and GUI: add same target-language constraint!
 
 * Store time taken by user to answer to each question? (May be useful in scheduling)
 
