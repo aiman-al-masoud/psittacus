@@ -39,6 +39,11 @@ export default class UserProgress{
         return this.userProgress().lesson_scores[lessonId]
     }
     
+    /**
+     * 
+     * @param {string} lessonId 
+     * @param {*} data 
+     */
     static async saveLessonScore(lessonId, data){
         let p  = this.userProgress()
         p.lesson_scores[lessonId] = data

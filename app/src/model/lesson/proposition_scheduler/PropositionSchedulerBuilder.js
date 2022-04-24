@@ -13,18 +13,11 @@ export default class PropositionSchedulerBuilder{
 
     static getScheduler(oldScores, propositions){        
 
-        console.log("proposchedbuild: these arrrrr shcedulererrrra:::::\n", schedulers)
     
         try{
-            console.log("setting:", Settings.get(Settings.PROPOSITION_SCHEDULER))
-
-
-
             let constr = schedulers[Settings.get(Settings.PROPOSITION_SCHEDULER)]
-            console.log("proposchedbuid this is constrrririri::::\n", constr)
             return new constr(oldScores, propositions)
         }catch(e){
-            console.log("proposchedbuild: errororooooooor!:::\n", e)
             return new schedulers[this.getTypes()[0]](oldScores, propositions)
         }
         
