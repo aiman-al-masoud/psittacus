@@ -113,9 +113,13 @@ export default class Lesson {
         let record = await Database.get().cachedLessons().get(id)
         return new Lesson(record.lesson)
     }
+
+    static getLessonIdsHistory(){
+        return UserProgress.lessonsScores().map(l=>l.id)
+    }
     
 }
 
 
 
-
+// console.log(Lesson.getLessonIdsHistory())
