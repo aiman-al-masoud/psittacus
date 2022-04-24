@@ -47,10 +47,7 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 
 * Store time taken by user to answer to each question? (May be useful in scheduling)
 
-* Add list of suggestions to GUI History section.
-
-//gets list of suggestions for revision 
-lessons = lessonScheduler.getSuggestions() 
+* Add list of openable taken lessons to GUI History section.
 
 * **Turn jsons to class: LessonScores ? w/:**
 
