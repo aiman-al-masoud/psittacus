@@ -70,6 +70,7 @@ lessons = lessonScheduler.getSuggestions()
 
 * Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
 
+* PropositionScheduler implementation that hides best sentences for some time.
 
 # Anki
 
