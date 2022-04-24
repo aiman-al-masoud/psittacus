@@ -1,3 +1,5 @@
+import Database from "./Database";
+
 /**
  * A wrapper around localStorage to manage 
  * saved data about lessons taken by the user in the past.
@@ -56,6 +58,7 @@ export default class UserProgress{
 
     static async eraseProgress(){
         localStorage.setItem("user_progress", JSON.stringify({ "lesson_scores": {} }))
+        Database.get().cachedLessons().clear()
     }
 
 }
