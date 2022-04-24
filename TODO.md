@@ -65,6 +65,8 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 
 * PropositionScheduler implementation that hides best sentences for some time.
 
+* option to clear lesson cache
+
 # Anki
 
 from: https://github.com/aiman-al-masoud/psittacus/issues/1
