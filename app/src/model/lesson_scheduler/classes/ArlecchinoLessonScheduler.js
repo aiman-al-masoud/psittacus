@@ -37,16 +37,7 @@ export default class ArlecchinoLessonScheduler extends LessonScheduler {
         let ml = new MixedLesson()
         await ml.addLesson("capraitalianenglishprima", [3390])
         await ml.addLesson("capraitalianenglishseconda", [2851 /*,946*/])
-        // ml.finalize()
-
-        // let propo = ml.propositions[0]
-        // console.log(propo)
-        // propo.check("this is ")
-        // console.log(ml.lessons[0].dumpScores())
-
-
-
-        // return await Lesson.getCachedLessonById("capraitalianenglishprima")
+        
         return ml
     }
 

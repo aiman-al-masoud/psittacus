@@ -31,9 +31,6 @@ export default class MixedLesson {
 
     }
 
-    // async finalize(){
-    // }
-
     next(){
         this.scheduler.next()
     }
