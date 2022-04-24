@@ -19,11 +19,14 @@ export default class History extends Component {
     render() {
         return (<div>
 
-            <h1>{"Revise with Lesson Scheduler:"}</h1>
+            <h1>{L.revise_with_lesson_scheduler}</h1>
+            <div className="text_tip">{L.revise_with_lesson_scheduler_is}</div>
 
             <button onClick={this.onReviseNext} className="normal_button" >{L.revise} </button>
 
-            <h1>{"Lessons History:"}</h1>
+            <h1>{L.lessons_history}</h1>
+            <div className="text_tip">{L.history_here}</div>
+
             <div>
                 {Lesson.getLessonIdsHistory().map(id => { return <LessonButton lessonId={id} key={id} takeLesson={this.props.takeLesson} /> })}
             </div>

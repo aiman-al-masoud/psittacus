@@ -81,7 +81,11 @@
     "send_bug_report" : "Invia Bug Report",
     "bug_reports" : "Bug Reports",
     "bug_report_is" : "Se credi che qualcosa sia andato storto, puoi inviare una Bug Report via email. Alternativamente, puoi segnalare un problema sul repository ufficiale di Psittacus su Github.",
-    "file_issue": "Segnalare un Problema"
+    "file_issue": "Segnalare un Problema",
+    "revise_with_lesson_scheduler" : "Revisiona col Pianificatore di Lezioni",
+    "lessons_history" : "Cronologia Lezioni",
+    "revise_with_lesson_scheduler_is" : "Fai scegliere al tuo attuale Pianificatore di Lezioni le Lezioni/parte delle Lezioni da revisionare adesso",
+    "history_here" : "Le lezioni che hai sostenuto nel passato appariranno qui:"
     
 
 }
