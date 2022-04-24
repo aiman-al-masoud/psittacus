@@ -44,7 +44,9 @@ export default class MixedLesson {
 
 
         if(over){
-            console.log("mixed lesson is over")
+            
+            // console.log("mixed lesson is over")
+
             for(let lesson of this.lessons){
                 let oldScores = UserProgress.scoresForLesson(lesson.getId())
                 let newScores = lesson.dumpScores()
@@ -52,10 +54,11 @@ export default class MixedLesson {
                 oldScores.propositions = oldScores.propositions.sort((p1, p2)=>{return p1[0]-p2[0]  }  )
                 newScores.propositions = newScores.propositions.sort((p1, p2)=>{return p1[0]-p2[0]  }  )
 
-                console.log("old")
-                console.log(oldScores)
-                console.log("new")
-                console.log(newScores)
+                // console.log("old")
+                // console.log(oldScores)
+                // console.log("new")
+                // console.log(newScores)
+
 
                 //if a score in undefined in newScores, substitute it 
                 //with the corresponding one in oldScores.
@@ -63,7 +66,7 @@ export default class MixedLesson {
                 newScores.propositions = newScores.propositions.map((p, index)=> { return [p[0], p[1]??oldScores.propositions[index][1]  ] }  )
                 newScores.overall = newScores.propositions.map(p=>p[1]).reduce((s1, s2)=>s1+s2)/newScores.propositions.length
 
-                console.log("modified new", newScores)
+                // console.log("modified new", newScores)
 
                 UserProgress.saveLessonScore(lesson.getId(), newScores)
 
