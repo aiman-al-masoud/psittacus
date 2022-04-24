@@ -82,7 +82,7 @@
     "bug_reports" : "Bug Reports",
     "bug_report_is" : "If you think something's gone wrong, you can send a bug report via email. Alternatively, you can file an issue on Psittacus's official Github repo.",
     "file_issue": "File an issue",
-    "revise_with_lesson_scheduler" : "Revise with Lesson Scheduler",
+    "revise_with_lesson_scheduler" : "Review with Lesson Scheduler",
     "lessons_history" : "Lessons History",
     "revise_with_lesson_scheduler_is" : "Let your current Lesson Scheduler decide what Lesson(s)/part of Lesson(s) you should review right now.",
     "history_here" : "Lessons you've taken in the past will appear here:"
