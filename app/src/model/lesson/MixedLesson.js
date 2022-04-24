@@ -9,13 +9,10 @@ import PropositionSchedulerBuilder from "./proposition_scheduler/PropositionSche
 export default class MixedLesson {
    
     constructor() {
-        
         this.lessons = []
         this.propositions = []
-
         this.explanationText = ""
         // this.metadata = {}
-
     }
 
     /**
@@ -28,7 +25,6 @@ export default class MixedLesson {
         this.lessons.push(lesson)
         this.propositions=  this.propositions.concat( lesson.propositions.filter(p=>{return propositionHashes.includes(p.getHash())})  )
         this.scheduler = PropositionSchedulerBuilder.getScheduler(undefined, this.propositions)
-
     }
 
     next(){
@@ -42,11 +38,8 @@ export default class MixedLesson {
     isOver(){
         let over = this.scheduler.isOver()
 
-
         if(over){
             
-            // console.log("mixed lesson is over")
-
             for(let lesson of this.lessons){
                 let oldScores = UserProgress.scoresForLesson(lesson.getId())
                 let newScores = lesson.dumpScores()
@@ -54,22 +47,12 @@ export default class MixedLesson {
                 oldScores.propositions = oldScores.propositions.sort((p1, p2)=>{return p1[0]-p2[0]  }  )
                 newScores.propositions = newScores.propositions.sort((p1, p2)=>{return p1[0]-p2[0]  }  )
 
-                // console.log("old")
-                // console.log(oldScores)
-                // console.log("new")
-                // console.log(newScores)
-
-
                 //if a score in undefined in newScores, substitute it 
                 //with the corresponding one in oldScores.
-
                 newScores.propositions = newScores.propositions.map((p, index)=> { return [p[0], p[1]??oldScores.propositions[index][1]  ] }  )
                 newScores.overall = newScores.propositions.map(p=>p[1]).reduce((s1, s2)=>s1+s2)/newScores.propositions.length
 
-                // console.log("modified new", newScores)
-
                 UserProgress.saveLessonScore(lesson.getId(), newScores)
-
             }
         }
 
