@@ -43,6 +43,8 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
+* better lesson id
+
 * "ArlecchinoLessonScheduler" -> "MixedWorseLessonFirst" 
 
 * MixedWorseLessonFirst: add same target-language constraint!
