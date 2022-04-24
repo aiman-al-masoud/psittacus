@@ -65,7 +65,7 @@ export default class Lesson {
      * @returns {string}
      */
     getId() {
-        return this.metadata.author + this.metadata.target_language + this.metadata.source_language + this.metadata.title
+        return `author=${this.metadata.author};target_language=${this.metadata.target_language};source_language=${this.metadata.source_language};title=${this.metadata.title};`
     }
 
     /**
