@@ -43,7 +43,6 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-* MixedWorseLesson and GUI: add same target-language constraint!
 
 * Store time taken by user to answer to each question? (May be useful in scheduling)
 
@@ -56,6 +55,11 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 * PropositionScheduler implementation that hides best sentences for some time.
 
 * importing/exporting cached lessons?
+
+* option to delete single lesson in history
+
+* MixedWorseLesson and GUI: add same target-language constraint!!
+
 
 # Anki
 
