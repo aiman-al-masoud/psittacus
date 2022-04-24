@@ -47,14 +47,6 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 
 * Store time taken by user to answer to each question? (May be useful in scheduling)
 
-* **Turn jsons to class: LessonScores ? w/:**
-
-* lastTaken()
-* propositionScores()
-* overall()
-* history()
-
-
 * I guess there's no point in leaving PropositionScheduler abstract now...
 
 * Store custom js code for new Schedulers dynamically w/ Dexie
@@ -81,6 +73,10 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 
 # Refactoring
+
+* **Turn jsons to class: LessonScores ? w/:**
+[ lastTaken() ,propositionScores() ,overall() ,history() ]
+
 
 * Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
 
@@ -123,3 +119,5 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Shorter, more concise titles and slightly longer tips.
 
 * Email in info 
+
+* Better LessonButton(s)
