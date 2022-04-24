@@ -43,7 +43,8 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-* Aggregate propositions from different lessons to create a new custom lesson for the purpose of revision. ("ArlecchinoLessonScheduler").
+* "ArlecchinoLessonScheduler" + "MultiLesson": solve problem of saving scores and updating progress.
+
 
 * Hide some propositions (easy ones)?
 
