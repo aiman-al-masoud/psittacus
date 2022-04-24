@@ -47,5 +47,3 @@ export default class Settings{
 
 Settings.init() //call it at least once, somewhere.
 
-console.log("settings init got called!::::::::::")
-console.log(Settings.dict)
