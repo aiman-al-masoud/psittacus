@@ -27,11 +27,12 @@ export default class MixedLesson {
         let lesson = await Lesson.getCachedLessonById(lessonId)   
         this.lessons.push(lesson)
         this.propositions=  this.propositions.concat( lesson.propositions.filter(p=>{return propositionHashes.includes(p.getHash())})  )
+        this.scheduler = PropositionSchedulerBuilder.getScheduler(undefined, this.propositions)
+
     }
 
-    async finalize(){
-        this.scheduler = PropositionSchedulerBuilder.getScheduler(undefined, this.propositions)
-    }
+    // async finalize(){
+    // }
 
     next(){
         this.scheduler.next()
