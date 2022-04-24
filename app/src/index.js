@@ -5,11 +5,6 @@ import FaviconImage from "../res/favicon.png"
 import L from "./model/utilities/Language.js";
 
 
-
-import LessonSchedulerBuilder from "./model/lesson_scheduler/LessonSchedulerBuilder.js";
-
-
-
 //set favicon
 let link = document.createElement('link')
 link.rel = 'shortcut icon';
@@ -23,6 +18,4 @@ document.head.appendChild(title)
 
 //start the app
 reactDOM.render(<App/>, document.getElementById("root"))
-
-
 
