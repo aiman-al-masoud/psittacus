@@ -96,8 +96,6 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 * Better (dynamic) handling of settings keys in Settings.jsx
 
-* clean up console log mess in proposchedbuilder
-
 # Random Stuff
 
 * Fix-up keyboard shorcuts.
