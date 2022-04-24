@@ -43,18 +43,11 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-* "ArlecchinoLessonScheduler" + "MultiLesson": solve problem of saving scores and updating progress.
+* "ArlecchinoLessonScheduler" -> "MixedWorseLessonFirst" 
 
-
-* Hide some propositions (easy ones)?
+* MixedWorseLessonFirst: add same target-language constraint!
 
 * Store time taken by user to answer to each question? (May be useful in scheduling)
-
-* I guess there's no point in leaving PropositionScheduler abstract now...
-
-* Store custom js code for new Schedulers dynamically w/ Dexie
-
-* Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
 
 * Add list of suggestions to GUI History section.
 
@@ -67,6 +60,14 @@ lessons = lessonScheduler.getSuggestions()
 * propositionScores()
 * overall()
 * history()
+
+
+* I guess there's no point in leaving PropositionScheduler abstract now...
+
+* Store custom js code for new Schedulers dynamically w/ Dexie
+
+* Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
+
 
 # Anki
 
