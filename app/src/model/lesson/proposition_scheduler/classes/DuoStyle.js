@@ -10,10 +10,6 @@ import Proposition from "../../proposition/Proposition"
  * got wrong, and doesn't let him/her go until he/she gets them all right.
  */
 export default class DuoStyle extends PropositionScheduler{
-
-    constructor(oldScores, propositions){
-        super(oldScores, propositions)
-    }
   
     next(){
         super.next()

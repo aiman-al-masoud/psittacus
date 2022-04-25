@@ -7,10 +7,6 @@ import LessonScheduler from "../LessonScheduler";
  */
 export default class MixedWorstLesson extends LessonScheduler {
 
-    constructor() {
-        super()
-    }
-
     static getType() {
         return "Mixed Worst"
     }

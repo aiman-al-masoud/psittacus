@@ -11,10 +11,6 @@ import PropositionScheduler from "../PropositionScheduler"
  */
 export default class WorstFirst extends PropositionScheduler{
 
-    constructor(oldScores, propositions){
-        super(oldScores, propositions)
-    }
-
     /**
      * Load back past scores and decide a repeptition strategy (sequence of Propositions)
      */
