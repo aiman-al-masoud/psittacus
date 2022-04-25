@@ -12,32 +12,34 @@ export default class Settings extends Component {
         super(props)
 
         this.state = {
-            currentLang: L.current(),
+            APP_LANGUAGE: L.current(),
             PROPOSITION_SCHEDULER: S.getInstance().get(S.PROPOSITION_SCHEDULER),
             LESSON_SCHEDULER: S.getInstance().get(S.LESSON_SCHEDULER)
         }
     }
 
-    onChooseLang = (event) => {
-        let choice = event.target
-        choice = choice.options[choice.selectedIndex].text
-        L.set(choice)
-        this.setState({ currentLang: L.current() })
-        window.location.reload() //danger: may lose work!
-    }
+    // onChooseLang = (event) => {
+    //     let choice = event.target
+    //     choice = choice.options[choice.selectedIndex].text
+    //     L.set(choice)
+    //     this.setState({ currentLang: L.current() })
+    //     window.location.reload() //danger: may lose work!
+    // }
 
     onSet = (key, event) => {
 
         let choice = event.target
         choice = choice.options[choice.selectedIndex].text
-
         console.log(key, choice)
-
         S.getInstance().set(key, choice)
-        // console.log(key)
         let newState = {}
         newState[key] = choice
         this.setState(newState)
+
+        if(key==S.APP_LANGUAGE){
+            window.location.reload()
+        }
+
     }
 
     importProgress = async () => {
@@ -50,15 +52,12 @@ export default class Settings extends Component {
         saveToComp(JSON.stringify(UserProgress.userProgress()), "progress.txt", "text/plain")
     }
 
-
     render() {
-
-
 
         return (<div>
 
             <h1>{L.choose_lang}</h1>
-            <select value={this.state.currentLang} onChange={this.onChooseLang} >
+            <select value={this.state.APP_LANGUAGE} onChange={(event) => { this.onSet(S.APP_LANGUAGE, event)  }} >
                 {L.available().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
@@ -72,7 +71,6 @@ export default class Settings extends Component {
             <div className="text_tip"> 
             {PropositionSchedulerBuilder.getCurrentSchedulersDescription()} 
             </div>
-
             <br />
 
             <h1>{L.choose_lesson_scheduler}</h1>
@@ -93,7 +91,6 @@ export default class Settings extends Component {
             <button onClick={this.exportProgress} className="normal_button">{L.export_progress}</button>
             <button onClick={this.importProgress} className="normal_button">{L.import_progress}</button>
             <button onClick={UserProgress.eraseProgress} className="normal_button">{L.erase_progress}</button>
-
 
         </div>)
     }

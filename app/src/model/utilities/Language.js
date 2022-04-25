@@ -47,7 +47,7 @@ export default class Language{
 
 }
 
-// call this once to initialize the lang-pack dictionary:
+// call it each time the app reloads initialize the lang-pack dictionary:
 Language.set( S.getInstance().get( S.APP_LANGUAGE ) ?? "english")
 
 
