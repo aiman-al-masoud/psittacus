@@ -27,4 +27,12 @@ export default class PropositionSchedulerBuilder{
         return Object.keys(schedulers)
     }
 
+    /**
+     * @returns {string}
+     */
+    static getCurrentSchedulersDescription(){
+        let clazz = schedulers[S.getInstance().get(S.PROPOSITION_SCHEDULER)] ?? schedulers[this.getTypes()[0]]
+        return clazz.getDescription()
+    }
+
 }

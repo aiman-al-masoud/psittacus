@@ -16,6 +16,8 @@ import Proposition from "../proposition/Proposition"
  * * `next()` : to point to the next proposition, setting `this.current`
  * 
  * * `getType()` : to provide an identifier for the subclass.
+ * 
+ * * `getDescription()` : to provide a description for the final user.  
  */
 export default class PropositionScheduler {
 
@@ -65,6 +67,10 @@ export default class PropositionScheduler {
     }
 
     static getType(){
+        throw new Error("PropositionScheduler is abstract!")
+    }
+
+    static getDescription(){
         throw new Error("PropositionScheduler is abstract!")
     }
 

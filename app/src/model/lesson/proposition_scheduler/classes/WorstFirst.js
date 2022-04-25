@@ -34,4 +34,8 @@ export default class WorstFirst extends PropositionScheduler{
         return "Worst First"
     }
 
+    static getDescription(){
+        return "Worst first description ..."
+    }
+
 }

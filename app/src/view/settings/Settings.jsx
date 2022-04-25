@@ -12,24 +12,24 @@ export default class Settings extends Component {
         super(props)
 
         this.state = {
-            currentLang : L.current(),
-            PROPOSITION_SCHEDULER : S.getInstance().get(S.PROPOSITION_SCHEDULER),
-            LESSON_SCHEDULER : S.getInstance().get(S.LESSON_SCHEDULER)
+            currentLang: L.current(),
+            PROPOSITION_SCHEDULER: S.getInstance().get(S.PROPOSITION_SCHEDULER),
+            LESSON_SCHEDULER: S.getInstance().get(S.LESSON_SCHEDULER)
         }
     }
 
-    onChooseLang  = (event)=>{
+    onChooseLang = (event) => {
         let choice = event.target
-        choice = choice.options[choice.selectedIndex].text    
+        choice = choice.options[choice.selectedIndex].text
         L.set(choice)
-        this.setState({currentLang : L.current()})   
+        this.setState({ currentLang: L.current() })
         window.location.reload() //danger: may lose work!
     }
 
-    onSet = (key, event)=>{
-        
+    onSet = (key, event) => {
+
         let choice = event.target
-        choice = choice.options[choice.selectedIndex].text    
+        choice = choice.options[choice.selectedIndex].text
 
         console.log(key, choice)
 
@@ -37,54 +37,58 @@ export default class Settings extends Component {
         // console.log(key)
         let newState = {}
         newState[key] = choice
-        this.setState(newState)   
+        this.setState(newState)
     }
 
-    importProgress = async ()=>{
-        let d =  await readText()
+    importProgress = async () => {
+        let d = await readText()
         d = JSON.parse(d)
         UserProgress.importProgress(d)
     }
 
-    exportProgress = ()=>{
-        saveToComp(JSON.stringify(UserProgress.userProgress()) , "progress.txt" , "text/plain")
+    exportProgress = () => {
+        saveToComp(JSON.stringify(UserProgress.userProgress()), "progress.txt", "text/plain")
     }
 
 
     render() {
 
-        
+
 
         return (<div>
 
             <h1>{L.choose_lang}</h1>
-            <select value={this.state.currentLang}  onChange={this.onChooseLang} >
-                {L.available().map((opt, index)=>{return <option title={opt} key={index}>{opt}</option>  })}
+            <select value={this.state.currentLang} onChange={this.onChooseLang} >
+                {L.available().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
             <h1>{L.choose_proposition_scheduler}</h1>
-            <div className="text_tip">{L.proposition_scheduler_is}</div>             
+            <div className="text_tip">{L.proposition_scheduler_is}</div>
 
-            <select value={ this.state.PROPOSITION_SCHEDULER   }  onChange = { (event)=>{this.onSet( S.PROPOSITION_SCHEDULER, event)} } >
-                {PropositionSchedulerBuilder.getTypes().map((opt, index)=>{return <option title={opt} key={index}>{opt}</option>  })}
-            </select>      
+            <select value={this.state.PROPOSITION_SCHEDULER} onChange={(event) => { this.onSet(S.PROPOSITION_SCHEDULER, event) }} >
+                {PropositionSchedulerBuilder.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
+            </select>
+
+            <div className="text_tip"> 
+            {PropositionSchedulerBuilder.getCurrentSchedulersDescription()} 
+            </div>
 
             <br />
 
-            <h1>{ L.choose_lesson_scheduler }</h1>
-            <div className="text_tip">{ L.lesson_scheduler_is }</div>        
+            <h1>{L.choose_lesson_scheduler}</h1>
+            <div className="text_tip">{L.lesson_scheduler_is}</div>
 
-            <select value={ this.state.LESSON_SCHEDULER   }  onChange = { (event)=>{this.onSet( S.LESSON_SCHEDULER, event)} } >
-                {LessonSchedulerBuilder.getTypes().map((opt, index)=>{return <option title={opt} key={index}>{opt}</option>  })}
-            </select>      
+            <select value={this.state.LESSON_SCHEDULER} onChange={(event) => { this.onSet(S.LESSON_SCHEDULER, event) }} >
+                {LessonSchedulerBuilder.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
+            </select>
 
 
             <h1>{L.manage_data_about_your_progress}</h1>
-            <div className="text_tip">{L.progress_is}</div>             
-            
-            <button onClick={this.exportProgress} className="normal_button">{L.export_progress}</button> 
-            <button onClick={this.importProgress} className="normal_button">{L.import_progress}</button> 
-            <button onClick={UserProgress.eraseProgress} className="normal_button">{L.erase_progress}</button> 
+            <div className="text_tip">{L.progress_is}</div>
+
+            <button onClick={this.exportProgress} className="normal_button">{L.export_progress}</button>
+            <button onClick={this.importProgress} className="normal_button">{L.import_progress}</button>
+            <button onClick={UserProgress.eraseProgress} className="normal_button">{L.erase_progress}</button>
 
 
         </div>)
