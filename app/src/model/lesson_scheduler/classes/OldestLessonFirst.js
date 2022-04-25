@@ -19,4 +19,10 @@ export default class OldestLessonFirst extends LessonScheduler{
         return "Oldest First"
     }
 
+
+    static getDescription(){
+        return "Descption for Oldest Lesson ..."
+    }
+
+
 }

@@ -27,5 +27,9 @@ export default class LessonScheduler{
         throw new Error("LessonScheduler: is an abstract class!")
     }
 
+    static getDescription(){
+        throw new Error("LessonScheduler: is an abstract class!")
+    }
+
 
 }

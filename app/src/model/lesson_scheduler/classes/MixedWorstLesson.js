@@ -27,4 +27,8 @@ export default class MixedWorstLesson extends LessonScheduler {
         return ml
     }
 
+    static getDescription(){
+        return "Descption for Mixed Worst ..."
+    }
+
 }

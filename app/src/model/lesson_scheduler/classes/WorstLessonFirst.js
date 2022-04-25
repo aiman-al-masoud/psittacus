@@ -18,4 +18,10 @@ export default class WorstLessonFirst extends LessonScheduler{
         return "Worst First"
     }
 
+
+    static getDescription(){
+        return "Descption for Worst First ..."
+    }
+
+
 }

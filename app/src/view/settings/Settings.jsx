@@ -82,6 +82,10 @@ export default class Settings extends Component {
                 {LessonSchedulerBuilder.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
+            <div className="text_tip"> 
+            {LessonSchedulerBuilder.getCurrentSchedulersDescription()} 
+            </div>
+
 
             <h1>{L.manage_data_about_your_progress}</h1>
             <div className="text_tip">{L.progress_is}</div>
