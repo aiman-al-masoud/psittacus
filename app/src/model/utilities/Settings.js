@@ -14,7 +14,8 @@ export default class Settings{
     //Keys:
     static PROPOSITION_SCHEDULER = "PROPOSITION_SCHEDULER"
     static LESSON_SCHEDULER = "LESSON_SCHEDULER"
-    
+    static APP_LANGUAGE = "APP_LANGUAGE"
+
     //instance
     static instance = null
 
