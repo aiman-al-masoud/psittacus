@@ -81,7 +81,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 * **Turn jsons to class: LessonScores ? w/:**
 [ lastTaken() ,propositionScores() ,overall() ,history() ]
 
-
 * Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
 
 https://github.com/aiman-al-masoud/psittacus/issues/2
@@ -91,8 +90,6 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Add type annotations to comments (where possible).
 
 * See if in App you can use prototype.constructor.name instead of the Pages enum.
-
-* Better (dynamic) handling of settings keys in Settings.jsx
 
 # Random Stuff
 
@@ -104,9 +101,7 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 ```
 
 * Write some automated tests
-- selenium
-- cyprus
-- xdotool
+[selenium, cyprus, xdotool]
 
 # Graphical Stuff
 

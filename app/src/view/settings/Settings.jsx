@@ -17,15 +17,7 @@ export default class Settings extends Component {
             LESSON_SCHEDULER: S.getInstance().get(S.LESSON_SCHEDULER)
         }
     }
-
-    // onChooseLang = (event) => {
-    //     let choice = event.target
-    //     choice = choice.options[choice.selectedIndex].text
-    //     L.set(choice)
-    //     this.setState({ currentLang: L.current() })
-    //     window.location.reload() //danger: may lose work!
-    // }
-
+    
     onSet = (key, event) => {
 
         let choice = event.target
@@ -37,6 +29,7 @@ export default class Settings extends Component {
         this.setState(newState)
 
         if(key==S.APP_LANGUAGE){
+            L.reload() //redundant
             window.location.reload()
         }
 

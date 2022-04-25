@@ -23,8 +23,12 @@ import S from "./Settings"
  */
 export default class Language{
 
-    static set(langName){
-        S.getInstance().set(S.APP_LANGUAGE, langName)
+    /**
+     * Re-initialize the lang-pack dictionary with the 
+     * currently set language from Settings.
+     */
+    static reload(){
+        let langName = S.getInstance().get(S.APP_LANGUAGE) ?? "english"
         Language.currentLang = langName
         Object.entries(langs[langName]).forEach((entry, i)=>{Language[entry[0]] = entry[1]  })
     }
@@ -47,8 +51,8 @@ export default class Language{
 
 }
 
-// call it each time the app reloads initialize the lang-pack dictionary:
-Language.set( S.getInstance().get( S.APP_LANGUAGE ) ?? "english")
+// to be called any time the webpage reloads
+Language.reload()
 
 
 
