@@ -110,6 +110,8 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 # Graphical Stuff
 
+* Write descriptions for the schedulers
+
 * Top navbar? Or centered menu?
 
 * Better hover over words tooltip.
@@ -119,3 +121,4 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Shorter, more concise titles and slightly longer tips.
 
 * Better LessonButton(s)
+
