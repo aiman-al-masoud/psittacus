@@ -15,13 +15,18 @@ export default class Info extends Component {
             <div>
                 <h1>{L.welcome}</h1>
                 <p>{L.to_use_app_offline}</p>
-                <p>{L.win_linux_save_offline}</p>
-                <p>{L.mac_save_offline}</p>
+
+                <ul>
+                    <li>{L.win_linux_save_offline}</li>
+                    <li>{L.mac_save_offline}</li>
+                </ul>
+
+
 
                 <h1>{L.demo}</h1>
                 <a href={L.demo_link} target="_blank">{L.demo_link}</a>
 
-              
+
                 <h1>{L.license}</h1>
                 <p>{L.license_notice}</p>
                 <h2>{L.full_terms}</h2>
@@ -32,8 +37,10 @@ export default class Info extends Component {
 
                 <h1>{L.bug_reports}</h1>
                 <div className="text_tip">{L.bug_report_is}</div>
-                <button onClick={()=>{sendBugReport("")}} className="normal_button">{L.send_bug_report}</button>
+                <br />
+                <a href={`mailto:${L.support_email}?subject=${L.psittacus_bug_report}&body=${"..."}`}>{L.support_email}</a>
                 <h2>{L.file_issue}</h2>
+                <div className="text_tip">{L.issue_is}</div>
                 <a href="https://github.com/aiman-al-masoud/psittacus/issues" target="_blank">https://github.com/aiman-al-masoud/psittacus/issues</a>
 
 
@@ -54,7 +61,7 @@ export default class Info extends Component {
                 </ul>
 
 
-               
+
             </div>
 
 
