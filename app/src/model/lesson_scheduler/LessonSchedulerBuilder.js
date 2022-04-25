@@ -14,7 +14,7 @@ export default class LessonSchedulerBuilder{
     static getScheduler(){        
     
         try{
-            return new schedulers[ S.get(S.LESSON_SCHEDULER)  ]()
+            return new schedulers[ S.getInstance().get(S.LESSON_SCHEDULER)  ]()
         }catch{
             return new schedulers[this.getTypes()[0]]()
         }

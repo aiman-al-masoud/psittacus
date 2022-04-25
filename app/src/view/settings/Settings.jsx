@@ -13,8 +13,8 @@ export default class Settings extends Component {
 
         this.state = {
             currentLang : L.current(),
-            PROPOSITION_SCHEDULER : S.get(S.PROPOSITION_SCHEDULER),
-            LESSON_SCHEDULER : S.get(S.LESSON_SCHEDULER)
+            PROPOSITION_SCHEDULER : S.getInstance().get(S.PROPOSITION_SCHEDULER),
+            LESSON_SCHEDULER : S.getInstance().get(S.LESSON_SCHEDULER)
         }
     }
 
@@ -33,7 +33,7 @@ export default class Settings extends Component {
 
         console.log(key, choice)
 
-        S.set(key, choice)
+        S.getInstance().set(key, choice)
         // console.log(key)
         let newState = {}
         newState[key] = choice

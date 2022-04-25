@@ -1,4 +1,4 @@
-import Settings from "../../utilities/Settings"
+import S from "../../utilities/Settings"
 
 let schedulers = require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/))
 schedulers = schedulers.map(s=> {return [s.default.getType(),  s.default]  })
@@ -15,7 +15,7 @@ export default class PropositionSchedulerBuilder{
 
     
         try{
-            let constr = schedulers[Settings.get(Settings.PROPOSITION_SCHEDULER)]
+            let constr = schedulers[S.getInstance().get(S.PROPOSITION_SCHEDULER)]
             return new constr(oldScores, propositions)
         }catch(e){
             return new schedulers[this.getTypes()[0]](oldScores, propositions)

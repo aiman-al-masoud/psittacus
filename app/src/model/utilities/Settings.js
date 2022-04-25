@@ -4,46 +4,38 @@
  * 
  * Usage:
  * 
- * Settings.set(Settings.TEST, "new value")
- * let val = Settings.get(Settings.TEST)
+ * Settings.getInstance().set(Settings.TEST, "new value")
+ * 
+ * let val = Settings.getInstance().get(Settings.TEST)
  * 
  */
 export default class Settings{
 
-    static dict = {}
-
     //Keys:
-    static TEST = "TEST"
     static PROPOSITION_SCHEDULER = "PROPOSITION_SCHEDULER"
     static LESSON_SCHEDULER = "LESSON_SCHEDULER"
+    
+    //instance
+    static instance = null
 
-    /**
-     * Define a 'safe' value for each key:
-     */
-    static default = {
-        TEST : "default value for test",
-        PROPOSITION_SCHEDULER : "",
-        LESSON_SCHEDULER : ""
+    constructor(){
+        this.settingsDict = JSON.parse( localStorage.getItem("SETTINGS") ?? "{}" )
     }
 
-    static set(key, value){
-        localStorage.setItem(`SETTING_${key}`, value)
-        Settings.dict[key] = value
+    static getInstance(){
+        return Settings.instance = Settings.instance ?? new Settings()
     }
 
-    static get(key){
-        return Settings.dict[key] ?? Settings.default[key]
+    set(key, value){
+        this.settingsDict[key] = value
+        localStorage.setItem("SETTINGS", JSON.stringify(this.settingsDict))
     }
 
-    /**
-     * Load saved values from localStorage (once)
-     */
-    static init(){
-        Object.keys(Settings.default).forEach((key)=>{  Settings.dict[key] = localStorage.getItem(`SETTING_${key}`)   })
+    get(key){
+        return this.settingsDict[key] 
     }
 
 }
 
 
-Settings.init() //call it at least once, somewhere.
 
