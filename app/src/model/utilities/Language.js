@@ -29,10 +29,18 @@ export default class Language{
         Object.entries(langs[langName]).forEach((entry, i)=>{Language[entry[0]] = entry[1]  })
     }
 
+    /**
+     * 
+     * @returns {[string]}
+     */
     static available(){
         return langNames
     }
 
+    /**
+     * 
+     * @returns {string}
+     */
     static current(){
         return Language.currentLang
     }

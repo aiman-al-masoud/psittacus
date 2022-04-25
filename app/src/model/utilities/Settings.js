@@ -2,7 +2,7 @@
  * A wrapper around localStorage, that provides
  * syntactic sugar to set and get global settings params.
  * 
- * Usage:
+ * ### Usage:
  * 
  * Settings.getInstance().set(Settings.TEST, "new value")
  * 
@@ -23,6 +23,10 @@ export default class Settings{
         this.settingsDict = JSON.parse( localStorage.getItem("SETTINGS") ?? "{}" )
     }
 
+    /**
+     * 
+     * @returns {Settings}
+     */
     static getInstance(){
         return Settings.instance = Settings.instance ?? new Settings()
     }
