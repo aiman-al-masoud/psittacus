@@ -92,8 +92,6 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 * See if in App you can use prototype.constructor.name instead of the Pages enum.
 
-* FIX UP HORRIBLE Settings.js!!!! Make it a singleton!!! Better handling of keys!!!!! Improve representation in localStorage!!! "settings": {...}
-
 * Better (dynamic) handling of settings keys in Settings.jsx
 
 # Random Stuff
