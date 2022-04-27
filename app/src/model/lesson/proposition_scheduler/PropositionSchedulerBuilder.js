@@ -58,13 +58,14 @@ export default class PropositionSchedulerBuilder {
         for(let s of manySourceCodes){
             let clazz = await new ClassLoader().fromSourceCode(s.sourceCode)
             console.log(clazz)
+            schedulers[clazz.getType()] = clazz
         }
 
     }
 
 }
 
-
+// PropositionSchedulerBuilder.removeAllCustomSchedulers()
 // PropositionSchedulerBuilder.addCustomScheduler("class Gatto{  constructor(){}; miagola(){console.log('miao!')};  }")
 PropositionSchedulerBuilder.loadCustomSchedulers() 
 
