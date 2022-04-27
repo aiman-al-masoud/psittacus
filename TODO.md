@@ -117,3 +117,4 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 * Better LessonButton(s)
 
+* Global linkable documentation mechanism 
