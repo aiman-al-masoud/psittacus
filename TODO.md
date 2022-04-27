@@ -123,3 +123,7 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
     method that allows to tell Documentation where to 
     jump to.
+
+
+# Dynamic class loading
+* centralize all dynamic class manipulating methods in ClassLoader as much as possible
