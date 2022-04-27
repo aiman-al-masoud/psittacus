@@ -5,6 +5,7 @@ import UserProgress from "../../model/utilities/UserProgress.js";
 import S from "../../model/utilities/Settings.js"
 import { readText, saveToComp } from "../../model/utilities/Utils.js";
 import LessonSchedulerBuilder from "../../model/lesson_scheduler/LessonSchedulerBuilder.js";
+import DeveloperOptions from "./DeveloperOptions.jsx"
 
 export default class Settings extends Component {
 
@@ -84,6 +85,11 @@ export default class Settings extends Component {
             <button onClick={this.exportProgress} className="normal_button">{L.export_progress}</button>
             <button onClick={this.importProgress} className="normal_button">{L.import_progress}</button>
             <button onClick={UserProgress.eraseProgress} className="normal_button">{L.erase_progress}</button>
+
+            <br />
+            <br />
+            <h1>{"Developer Options"}</h1>
+            <DeveloperOptions/>
 
         </div>)
     }

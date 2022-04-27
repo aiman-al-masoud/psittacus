@@ -12,8 +12,9 @@ export default class Database {
 
         this.db = new Dexie("psittacus")
 
-        this.db.version(1).stores({
-            cachedLessons: "id, lesson"
+        this.db.version(2).stores({
+            cachedLessons: "id, lesson",
+            customPropositionSchedulers : "classname, sourceCode"
         })
     }
 
@@ -32,5 +33,14 @@ export default class Database {
         return this.db.cachedLessons
     }
 
+    /**
+     * 
+     * @returns {Table}
+     */
+    customPropositionSchedulers(){
+        return this.db.customPropositionSchedulers
+    }
+
 }
+
 
