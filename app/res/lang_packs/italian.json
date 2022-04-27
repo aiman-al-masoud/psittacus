@@ -86,7 +86,12 @@
     "revise_with_lesson_scheduler" : "Revisiona col Pianificatore di Lezioni",
     "lessons_history" : "Cronologia Lezioni",
     "revise_with_lesson_scheduler_is" : "Fai scegliere al tuo attuale Pianificatore di Lezioni le Lezioni/parte delle Lezioni da revisionare adesso",
-    "history_here" : "Le lezioni che hai sostenuto nel passato appariranno qui:"
-    
+    "history_here" : "Le lezioni che hai sostenuto nel passato appariranno qui:",
+    "until_all_correct_PS" : "Incomincerà a riproporre le eventuali proposizioni che avrai sbagliato, e non ti lascerà andare finché non avrai risposto correttamente a tutto",
+    "worst_first_PS" : "Si ricorda le proposizioni con cui hai avuto maggiore difficoltà la volta scorsa, e le propone prima.",
+    "mixed_worst_lesson_LS" : "Combina in un'unica lezione le proposizioni con cui hai avuto maggiore difficoltà da diverse lezioni che hai già sostenuto.",
+    "oldest_lesson_first_LS" : "Ti ripropone la singola lezione che hai sostenuto da più tempo.",
+    "worst_lesson_first_LS" : "Ti ripropone la singola lezione con cui hai avuto più difficoltà."
+ 
 
 }
