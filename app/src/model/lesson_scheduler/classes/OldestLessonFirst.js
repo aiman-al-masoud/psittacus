@@ -1,5 +1,7 @@
 import Lesson from "../../lesson/Lesson";
 import LessonScheduler from "../LessonScheduler";
+import L from "../../utilities/Language";
+
 
 export default class OldestLessonFirst extends LessonScheduler{
 
@@ -21,7 +23,7 @@ export default class OldestLessonFirst extends LessonScheduler{
 
 
     static getDescription(){
-        return "Descption for Oldest Lesson ..."
+        return L.oldest_lesson_first_LS
     }
 
 

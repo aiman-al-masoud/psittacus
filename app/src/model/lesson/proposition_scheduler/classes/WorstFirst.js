@@ -1,5 +1,7 @@
 import Proposition from "../../proposition/Proposition"
 import PropositionScheduler from "../PropositionScheduler"
+import L from "../../../utilities/Language"
+
 
 /**
  * A `Scheduler` with memory, that plays `Propositions`
@@ -35,7 +37,7 @@ export default class WorstFirst extends PropositionScheduler{
     }
 
     static getDescription(){
-        return "Worst first description ..."
+        return L.worst_first_PS
     }
 
 }

@@ -1,6 +1,8 @@
 import MixedLesson from "../../lesson/MixedLesson";
 import Proposition from "../../lesson/proposition/Proposition";
 import LessonScheduler from "../LessonScheduler";
+import L from "../../utilities/Language";
+
 
 /**
  * Creates a `MixedLesson` from the top `Proposition`s the student performed the worst on.
@@ -28,7 +30,7 @@ export default class MixedWorstLesson extends LessonScheduler {
     }
 
     static getDescription(){
-        return "Descption for Mixed Worst ..."
+        return L.mixed_worst_lesson_LS
     }
 
 }

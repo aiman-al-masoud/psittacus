@@ -1,5 +1,6 @@
 import PropositionScheduler from "../PropositionScheduler"
 import Proposition from "../../proposition/Proposition"
+import L from "../../../utilities/Language"
 
 /**
  * A memory-less `PropositionScheduler` that plays the `Proposition`s in the
@@ -29,7 +30,7 @@ export default class UntilAllCorrect extends PropositionScheduler{
     }
 
     static getDescription(){
-        return "Until All Correct description ..."
+        return L.until_all_correct_PS
     }
 
 

@@ -86,5 +86,12 @@
     "revise_with_lesson_scheduler" : "Review with Lesson Scheduler",
     "lessons_history" : "Lessons History",
     "revise_with_lesson_scheduler_is" : "Let your current Lesson Scheduler decide what Lesson(s)/part of Lesson(s) you should review right now.",
-    "history_here" : "Lessons you've taken in the past will appear here:"
+    "history_here" : "Lessons you've taken in the past will appear here:",
+    "until_all_correct_PS" : "Eventually starts re-playing the propositions that you got wrong, and won't let you go until you get them all right.",
+    "worst_first_PS" : "Remembers the propositions you struggled the most with last time, and plays them first.",
+    "mixed_worst_lesson_LS" : "Combines the propositions you struggled the most with from many different lessons you already took.",
+    "oldest_lesson_first_LS" : "Lets you re-take the single oldest lesson you took.",
+    "worst_lesson_first_LS" : "Lets you re-take the single lesson you struggled the most with."
+
+
 }

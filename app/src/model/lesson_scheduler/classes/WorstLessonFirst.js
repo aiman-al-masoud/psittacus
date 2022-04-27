@@ -1,5 +1,6 @@
 import Lesson from "../../lesson/Lesson";
 import LessonScheduler from "../LessonScheduler";
+import L from "../../utilities/Language";
 
 export default class WorstLessonFirst extends LessonScheduler{
 
@@ -20,7 +21,7 @@ export default class WorstLessonFirst extends LessonScheduler{
 
 
     static getDescription(){
-        return "Descption for Worst First ..."
+        return L.worst_lesson_first_LS
     }
 
 
