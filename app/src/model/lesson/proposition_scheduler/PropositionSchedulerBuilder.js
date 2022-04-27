@@ -1,3 +1,4 @@
+import ClassLoader from "../../utilities/ClassLoader"
 import Database from "../../utilities/Database"
 import S from "../../utilities/Settings"
 
@@ -38,7 +39,7 @@ export default class PropositionSchedulerBuilder {
 
     static addCustomScheduler(sourceCodeString) {
         Database.get().customPropositionSchedulers().add({
-            classname: sourceCodeString.match(/class\s+(.*?){/)[1], 
+            classname: ClassLoader.classnameFromSourceCode(sourceCodeString), 
             sourceCode : sourceCodeString
         })
     }
@@ -54,20 +55,11 @@ export default class PropositionSchedulerBuilder {
     static async loadCustomSchedulers() {
         let manySourceCodes = await Database.get().customPropositionSchedulers().toArray()
 
-        manySourceCodes.forEach((s)=>{
-            console.log(s.classname, s.sourceCode)
+        for(let s of manySourceCodes){
+            let clazz = await new ClassLoader().fromSourceCode(s.sourceCode)
+            console.log(clazz)
+        }
 
-            let script = document.createElement('script');
-            script.innerHTML = s.sourceCode
-
-            document.body.append(script)
-
-            setTimeout(() => {
-                let clazz = eval(s.classname)
-                console.log(s.classname, clazz)
-            }, 2000)
-
-        })
     }
 
 }
