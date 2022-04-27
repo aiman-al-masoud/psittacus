@@ -121,5 +121,7 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
     
     store current lesson and lessonBuilder and previous state in App, tbat go back to whatever the user was doing.
 
-    function that allows to tell Documentation where to 
+    pass goBack() callback to all components (children of App)
+
+    method that allows to tell Documentation where to 
     jump to.
