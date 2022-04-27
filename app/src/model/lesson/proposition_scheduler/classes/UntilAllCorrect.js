@@ -9,7 +9,7 @@ import Proposition from "../../proposition/Proposition"
  * this scheduler (eventually) starts displaying the ones that the student 
  * got wrong, and doesn't let him/her go until he/she gets them all right.
  */
-export default class DuoStyle extends PropositionScheduler{
+export default class UntilAllCorrect extends PropositionScheduler{
   
     next(){
         super.next()
@@ -25,11 +25,11 @@ export default class DuoStyle extends PropositionScheduler{
     }
 
     static getType(){
-        return "Duo Style"
+        return "Until All Correct"
     }
 
     static getDescription(){
-        return "Duo Style description ..."
+        return "Until All Correct description ..."
     }
 
 
