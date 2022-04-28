@@ -38,7 +38,6 @@ export default class PropositionSchedulerBuilder {
 
     static addCustomScheduler(sourceCodeString) {
         ClassLoader.storeCustomCode(PropositionSchedulerBuilder.CATEGORY_CUSTOM_CODE, sourceCodeString)
-        PropositionSchedulerBuilder.reloadCustomSchedulers()
     }
 
     static async reloadCustomSchedulers() {

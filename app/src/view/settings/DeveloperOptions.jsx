@@ -21,7 +21,6 @@ export default class DeveloperOptions extends Component {
     addCustomPropositionScheduler = async () => {
         let sourceCode = await readText()
         PropositionSchedulerBuilder.addCustomScheduler(sourceCode)
-        window.location.reload()
     }
 
     toggle = () => {
@@ -51,6 +50,8 @@ export default class DeveloperOptions extends Component {
                 <div className="text_warning">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
                 <button onClick={ClassLoader.removeAllCustomCode} className="safe_button">Remove All Custom Code</button>
                 <button onClick={this.addCustomPropositionScheduler} className="dangerous_button">Add Custom Proposition Scheduler</button>
+
+                <button onClick={()=>{window.location.reload()}} className="dangerous_button">Reload</button>
             </div>
 
         </div>)
