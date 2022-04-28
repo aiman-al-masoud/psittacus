@@ -1,5 +1,4 @@
 import ClassLoader from "../../utilities/ClassLoader"
-import Database from "../../utilities/Database"
 import S from "../../utilities/Settings"
 
 let schedulers = require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/))
