@@ -15,6 +15,7 @@ export default class Settings{
     static PROPOSITION_SCHEDULER = "PROPOSITION_SCHEDULER"
     static LESSON_SCHEDULER = "LESSON_SCHEDULER"
     static APP_LANGUAGE = "APP_LANGUAGE"
+    static DEV_OPTIONS_ENABLED = "DEV_OPTIONS_ENABLED"
 
     //instance
     static instance = null
@@ -31,6 +32,11 @@ export default class Settings{
         return Settings.instance = Settings.instance ?? new Settings()
     }
 
+    /**
+     * 
+     * @param {string} key 
+     * @param {*} value 
+     */
     set(key, value){
         this.settingsDict[key] = value
         localStorage.setItem("SETTINGS", JSON.stringify(this.settingsDict))
