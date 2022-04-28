@@ -2,6 +2,8 @@
     --bg-color : rgba(245, 245, 245, 0.445);
     --on-focus-color : orange;
     --normal-item-color : rgb(7, 7, 92);
+    --dangerous-item-color : red;
+    --safe-item-color : green;
 }
 
 body{
@@ -29,7 +31,7 @@ h1{
     outline: 2px var(--on-focus-color) solid;
 }
 
-.normal_button{
+.normal_button, .dangerous_button, .safe_button{
     border: 1px black dotted;
     margin: 1vh;
     padding: 1vh;
@@ -37,17 +39,33 @@ h1{
     color: white;
 }
 
-.normal_button:hover, .normal_button:focus{
+.normal_button:hover, .normal_button:focus, .dangerous_button:hover, .dangerous_button:focus, .safe_button:hover, .safe_button:focus{
     outline: 2px var(--on-focus-color) solid;
     color: var(--on-focus-color);
 }
 
-.text_tip{
+.dangerous_button{
+    background-color: var(--dangerous-item-color);
+}
+
+.safe_button{
+    background-color: var(--safe-item-color);
+}
+
+.text_tip, .text_warning{
     font-size: small;
     font-style: italic;
     margin-top: 0;
     margin-bottom: 2vh;
 }
+
+.text_warning{
+    color: var(--dangerous-item-color);
+}
+
+/* .text_warning:hover, .text_warning:focus{
+    text-decoration: underline;
+} */
 
 select{
     width: 40vw;

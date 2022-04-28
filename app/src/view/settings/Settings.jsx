@@ -65,7 +65,6 @@ export default class Settings extends Component {
             <div className="text_tip"> 
             {PropositionSchedulerBuilder.getCurrentSchedulersDescription()} 
             </div>
-            <br />
 
             <h1>{L.choose_lesson_scheduler}</h1>
             <div className="text_tip">{L.lesson_scheduler_is}</div>

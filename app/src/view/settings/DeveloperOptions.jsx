@@ -13,7 +13,8 @@ export default class DeveloperOptions extends Component {
         super(props)
 
         this.state = {
-            DEV_OPTIONS_ENABLED: S.getInstance().get(S.DEV_OPTIONS_ENABLED)
+            DEV_OPTIONS_ENABLED: S.getInstance().get(S.DEV_OPTIONS_ENABLED),
+            mouseOverEnableCheckbox: false
         }
     }
 
@@ -29,21 +30,27 @@ export default class DeveloperOptions extends Component {
         this.setState({ DEV_OPTIONS_ENABLED: s })
     }
 
+
     render() {
+
         return (<div>
 
             <h1>{"Developer Options"}</h1>
-            <div className="text_tip">CAUTION: enabling developer options may expose you to SECURITY RISKS.</div>
 
             <span>Enable:</span>
-            <input onClick={this.toggle} type="checkbox" checked={this.state.DEV_OPTIONS_ENABLED} />
-            <br />
+            <input onClick={this.toggle}
+                onMouseEnter={() => { this.setState({ mouseOverEnableCheckbox: true }) }}
+                onMouseLeave={() => { this.setState({ mouseOverEnableCheckbox: false }) }}
+                type="checkbox" checked={this.state.DEV_OPTIONS_ENABLED} />
+
+            <span className="text_warning" style={this.state.mouseOverEnableCheckbox ? Styles.visibleInline : Styles.invisible}>CAUTION: enabling developer options may expose you to SECURITY RISKS.</span>
+           <br />
 
             <div style={this.state.DEV_OPTIONS_ENABLED ? Styles.visible : Styles.invisible}>
                 <h2>Run custom code</h2>
-                <div className="text_tip">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
-                <button onClick={this.addCustomPropositionScheduler}>Add Custom Proposition Scheduler</button>
-                <button onClick={ClassLoader.removeAllCustomCode}>REMOVE ALL CUSTOM CODE</button>
+                <div className="text_warning">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
+                <button onClick={ClassLoader.removeAllCustomCode} className="safe_button">Remove All Custom Code</button>
+                <button onClick={this.addCustomPropositionScheduler} className="dangerous_button">Add Custom Proposition Scheduler</button>
             </div>
 
         </div>)
