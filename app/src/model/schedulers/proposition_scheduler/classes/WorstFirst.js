@@ -1,4 +1,3 @@
-import Proposition from "../../proposition/Proposition"
 import PropositionScheduler from "../PropositionScheduler"
 import L from "../../../utilities/Language"
 

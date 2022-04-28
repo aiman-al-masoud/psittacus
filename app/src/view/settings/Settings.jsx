@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import L from "../../model/utilities/Language.js";
-import PropositionSchedulerBuilder from "../../model/lesson/proposition_scheduler/PropositionSchedulerBuilder.js";
+import PropositionSchedulerBuilder from "../../model/schedulers/proposition_scheduler/PropositionSchedulerBuilder.js";
 import UserProgress from "../../model/utilities/UserProgress.js";
 import S from "../../model/utilities/Settings.js"
 import { readText, saveToComp } from "../../model/utilities/Utils.js";
-import LessonSchedulerBuilder from "../../model/lesson_scheduler/LessonSchedulerBuilder.js";
+import LessonSchedulerBuilder from "../../model/schedulers/lesson_scheduler/LessonSchedulerBuilder.js";
 import DeveloperOptions from "./DeveloperOptions.jsx"
 
 export default class Settings extends Component {

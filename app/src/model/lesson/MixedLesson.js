@@ -1,6 +1,6 @@
 import UserProgress from "../utilities/UserProgress";
 import Lesson from "./Lesson";
-import PropositionSchedulerBuilder from "./proposition_scheduler/PropositionSchedulerBuilder";
+import PropositionSchedulerBuilder from "../schedulers/proposition_scheduler/PropositionSchedulerBuilder";
 
 /**
  * Helps creating a Lesson that is an admixture of 

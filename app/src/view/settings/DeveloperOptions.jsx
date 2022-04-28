@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropositionSchedulerBuilder from "../../model/lesson/proposition_scheduler/PropositionSchedulerBuilder.js";
+import PropositionSchedulerBuilder from "../../model/schedulers/proposition_scheduler/PropositionSchedulerBuilder.js";
 import L from "../../model/utilities/Language.js";
 import S from "../../model/utilities/Settings.js";
 import { readText } from "../../model/utilities/Utils.js";

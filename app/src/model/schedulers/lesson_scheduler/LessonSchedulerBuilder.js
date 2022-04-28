@@ -1,4 +1,4 @@
-import S from "../utilities/Settings"
+import S from "../../utilities/Settings"
 import LessonScheduler from "./LessonScheduler"
 
 let schedulers = require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/))

@@ -1,7 +1,6 @@
-import Lesson from "../../lesson/Lesson";
+import Lesson from "../../../lesson/Lesson";
 import LessonScheduler from "../LessonScheduler";
-import L from "../../utilities/Language";
-
+import L from "../../../utilities/Language";
 
 export default class OldestLessonFirst extends LessonScheduler{
 

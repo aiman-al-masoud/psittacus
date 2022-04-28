@@ -1,8 +1,7 @@
-import MixedLesson from "../../lesson/MixedLesson";
-import Proposition from "../../lesson/proposition/Proposition";
+import MixedLesson from "../../../lesson/MixedLesson";
+import Proposition from "../../../lesson/proposition/Proposition";
 import LessonScheduler from "../LessonScheduler";
-import L from "../../utilities/Language";
-
+import L from "../../../utilities/Language";
 
 /**
  * Creates a `MixedLesson` from the top `Proposition`s the student performed the worst on.

@@ -1,7 +1,6 @@
 import PropositionScheduler from "../PropositionScheduler"
-import Proposition from "../../proposition/Proposition"
+import Proposition from "../../../lesson/proposition/Proposition"
 import L from "../../../utilities/Language"
-
 /**
  * A memory-less `PropositionScheduler` that plays the `Proposition`s in the
  * order defined by the `Lesson`'s author.

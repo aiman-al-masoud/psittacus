@@ -1,4 +1,4 @@
-import PropositionSchedulerBuilder from "./proposition_scheduler/PropositionSchedulerBuilder.js"
+import PropositionSchedulerBuilder from "../schedulers/proposition_scheduler/PropositionSchedulerBuilder.js"
 import Proposition from "./proposition/Proposition.js"
 import UserProgress from "../utilities/UserProgress.js"
 import Database from "../utilities/Database.js"

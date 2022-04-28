@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Lesson from "../../model/lesson/Lesson.js";
-import LessonSchedulerBuilder from "../../model/lesson_scheduler/LessonSchedulerBuilder.js";
+import LessonSchedulerBuilder from "../../model/schedulers/lesson_scheduler/LessonSchedulerBuilder.js";
 import L from "../../model/utilities/Language.js";
 import LessonButton from "./LessonButton.jsx";
 

@@ -1,5 +1,5 @@
-import Lesson from "../lesson/Lesson";
-import UserProgress from "../utilities/UserProgress";
+import Lesson from "../../lesson/Lesson";
+import UserProgress from "../../utilities/UserProgress";
 
 /**
  * Abstract Class.
