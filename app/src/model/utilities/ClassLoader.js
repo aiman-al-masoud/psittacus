@@ -6,7 +6,7 @@ import S from "./Settings";
  */
 export default class ClassLoader{
 
-    static PermissionDeniedError = "PermissionDeniedError"
+    static PermissionDeniedError = "PermissionDeniedError: running custom code disabled!"
 
     /**
      * Dynamically loads a class from its source code 
