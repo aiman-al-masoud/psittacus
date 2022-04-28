@@ -38,9 +38,10 @@ export default class PropositionSchedulerBuilder {
 
     static addCustomScheduler(sourceCodeString) {
         ClassLoader.storeCustomCode(PropositionSchedulerBuilder.CATEGORY_CUSTOM_CODE, sourceCodeString)
+        PropositionSchedulerBuilder.reloadCustomSchedulers()
     }
 
-    static async loadCustomSchedulers() {
+    static async reloadCustomSchedulers() {
         let manySourceCodes = await ClassLoader.sourceCodesByCategory(PropositionSchedulerBuilder.CATEGORY_CUSTOM_CODE)
 
         for(let s of manySourceCodes){
@@ -51,7 +52,8 @@ export default class PropositionSchedulerBuilder {
 
 }
 
-PropositionSchedulerBuilder.loadCustomSchedulers() 
+// at webpage reload:
+PropositionSchedulerBuilder.reloadCustomSchedulers() 
 
 
 

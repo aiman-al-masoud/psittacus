@@ -21,7 +21,7 @@ export default class DeveloperOptions extends Component {
     addCustomPropositionScheduler = async () => {
         let sourceCode = await readText()
         PropositionSchedulerBuilder.addCustomScheduler(sourceCode)
-        PropositionSchedulerBuilder.loadCustomSchedulers()
+        window.location.reload()
     }
 
     toggle = () => {
