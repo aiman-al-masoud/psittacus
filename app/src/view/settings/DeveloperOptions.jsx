@@ -11,7 +11,7 @@ export default class DeveloperOptions extends Component {
 
     constructor(props) {
         super(props)
-        
+
         this.state = {
             DEV_OPTIONS_ENABLED: S.getInstance().get(S.DEV_OPTIONS_ENABLED)
         }
@@ -32,11 +32,14 @@ export default class DeveloperOptions extends Component {
     render() {
         return (<div>
 
+            <h1>{"Developer Options"}</h1>
+            <div className="text_tip">CAUTION: enabling developer options may expose you to SECURITY RISKS.</div>
+
             <span>Enable:</span>
             <input onClick={this.toggle} type="checkbox" checked={this.state.DEV_OPTIONS_ENABLED} />
             <br />
 
-            <div style={this.state.DEV_OPTIONS_ENABLED? Styles.visible : Styles.invisible}>
+            <div style={this.state.DEV_OPTIONS_ENABLED ? Styles.visible : Styles.invisible}>
                 <h2>Run custom code</h2>
                 <div className="text_tip">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
                 <button onClick={this.addCustomPropositionScheduler}>Add Custom Proposition Scheduler</button>

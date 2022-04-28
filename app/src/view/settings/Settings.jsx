@@ -88,7 +88,6 @@ export default class Settings extends Component {
 
             <br />
             <br />
-            <h1>{"Developer Options"}</h1>
             <DeveloperOptions/>
 
         </div>)
