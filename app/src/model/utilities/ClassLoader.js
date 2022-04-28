@@ -1,5 +1,9 @@
+import Database from "./Database";
 import S from "./Settings";
 
+/**
+ * Provides facilities for loading and storing custom code.
+ */
 export default class ClassLoader{
 
     static PermissionDeniedError = "PermissionDeniedError"
@@ -21,6 +25,33 @@ export default class ClassLoader{
         document.body.append(script)
         let classname = ClassLoader.classnameFromSourceCode(sourceCodeString)
         return eval(classname)
+    }
+
+    /**
+     * 
+     * @param {string} category 
+     * @param {string} sourceCodeString 
+     */
+    static addCustomCode = async (category, sourceCodeString)=>{
+
+        if(!S.getInstance().get(S.DEV_OPTIONS_ENABLED)){
+            throw ClassLoader.PermissionDeniedError
+        }
+        
+        Database.get().customSourceCode().add({
+            classname: ClassLoader.classnameFromSourceCode(sourceCodeString), 
+            category : category,
+            sourceCode : sourceCodeString
+        })
+    }
+
+    /**
+     * Delete all custom code and unload it 
+     * from the window by reloading.
+     */
+    static removeAllCustomCode = async ()=>{
+        await Database.get().customSourceCode().clear()
+        window.location.reload()
     }
 
     /**

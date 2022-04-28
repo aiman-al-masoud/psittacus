@@ -32,7 +32,7 @@ export default class DeveloperOptions extends Component {
         return (<div>
 
             <span>Enable:</span>
-            <input onClick={this.toggle} type="checkbox" />
+            <input onClick={this.toggle} type="checkbox" checked={this.state.DEV_OPTIONS_ENABLED} />
             <br />
 
             <div style={this.state.DEV_OPTIONS_ENABLED? Styles.visible : Styles.invisible}>

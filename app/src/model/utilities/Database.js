@@ -2,19 +2,19 @@ import Dexie from "dexie"
 import { Table } from "dexie"
 
 /**
- * Database ...
+ * JUST keeps track of all of the Dexie tables used 
+ * all over the app.
  */
 export default class Database {
 
     static instance = null
 
     constructor() {
-
         this.db = new Dexie("psittacus")
 
-        this.db.version(2).stores({
+        this.db.version(3).stores({
             cachedLessons: "id, lesson",
-            customPropositionSchedulers : "classname, sourceCode"
+            customSourceCode : "classname, category, sourceCode"
         })
     }
 
@@ -37,8 +37,8 @@ export default class Database {
      * 
      * @returns {Table}
      */
-    customPropositionSchedulers(){
-        return this.db.customPropositionSchedulers
+    customSourceCode(){
+        return this.db.customSourceCode
     }
 
 }

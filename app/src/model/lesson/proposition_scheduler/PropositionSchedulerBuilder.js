@@ -13,12 +13,13 @@ schedulers = Object.fromEntries(schedulers)
  */
 export default class PropositionSchedulerBuilder {
 
+    static CATEGORY = "PropositionScheduler"
+
+
     static getScheduler(oldScores, propositions) {
 
-
         try {
-            let constr = schedulers[S.getInstance().get(S.PROPOSITION_SCHEDULER)]
-            return new constr(oldScores, propositions)
+            return new schedulers[S.getInstance().get(S.PROPOSITION_SCHEDULER)](oldScores, propositions)
         } catch (e) {
             return new schedulers[this.getTypes()[0]](oldScores, propositions)
         }
@@ -38,26 +39,15 @@ export default class PropositionSchedulerBuilder {
     }
 
     static addCustomScheduler(sourceCodeString) {
-        Database.get().customPropositionSchedulers().add({
-            classname: ClassLoader.classnameFromSourceCode(sourceCodeString), 
-            sourceCode : sourceCodeString
-        })
-    }
-
-    static removeCustomScheduler(classname) {
-        Database.get().customPropositionSchedulers().delete(classname)
-    }
-
-    static removeAllCustomSchedulers() {
-        Database.get().customPropositionSchedulers().clear()
+        ClassLoader.addCustomCode(PropositionSchedulerBuilder.CATEGORY, sourceCodeString)
     }
 
     static async loadCustomSchedulers() {
-        let manySourceCodes = await Database.get().customPropositionSchedulers().toArray()
+        let manySourceCodes = await Database.get().customSourceCode().where("category").equals(PropositionSchedulerBuilder.CATEGORY).toArray()
 
         for(let s of manySourceCodes){
             let clazz = await new ClassLoader().fromSourceCode(s.sourceCode)
-            console.log(clazz)
+            // console.log(clazz)
             schedulers[clazz.getType()] = clazz
         }
 
@@ -65,7 +55,6 @@ export default class PropositionSchedulerBuilder {
 
 }
 
-// PropositionSchedulerBuilder.removeAllCustomSchedulers()
 // PropositionSchedulerBuilder.addCustomScheduler("class Gatto{  constructor(){}; miagola(){console.log('miao!')};  }")
 PropositionSchedulerBuilder.loadCustomSchedulers() 
 
