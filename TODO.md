@@ -78,7 +78,7 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Refactoring
 
-* put all schedulers together in a folder and extract common subclass of Builders and rename to Managers
+* extract common subclass of SchedulerBuilders and rename to Managers
 
 
 * **Turn jsons to class: LessonScores ? w/:**
