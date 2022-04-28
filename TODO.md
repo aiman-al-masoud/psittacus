@@ -130,3 +130,8 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * centralize all dynamic class manipulating methods in ClassLoader as much as possible
 
 * Checks on methods and duck-typing-related error handling 
+
+
+# Naming 
+
+* rename Scheduler "Builders" to "Managers"
