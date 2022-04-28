@@ -12,8 +12,7 @@ schedulers = Object.fromEntries(schedulers)
  */
 export default class PropositionSchedulerBuilder {
 
-    static CATEGORY = "PropositionScheduler"
-
+    static CATEGORY_CUSTOM_CODE = "PropositionScheduler"
 
     static getScheduler(oldScores, propositions) {
 
@@ -38,11 +37,11 @@ export default class PropositionSchedulerBuilder {
     }
 
     static addCustomScheduler(sourceCodeString) {
-        ClassLoader.storeCustomCode(PropositionSchedulerBuilder.CATEGORY, sourceCodeString)
+        ClassLoader.storeCustomCode(PropositionSchedulerBuilder.CATEGORY_CUSTOM_CODE, sourceCodeString)
     }
 
     static async loadCustomSchedulers() {
-        let manySourceCodes = await ClassLoader.sourceCodesByCategory(PropositionSchedulerBuilder.CATEGORY)
+        let manySourceCodes = await ClassLoader.sourceCodesByCategory(PropositionSchedulerBuilder.CATEGORY_CUSTOM_CODE)
 
         for(let s of manySourceCodes){
             let clazz = await new ClassLoader().fromSourceCode(s.sourceCode)
