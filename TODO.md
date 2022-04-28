@@ -135,6 +135,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * remove addCustomScheduler() from PropositionSchedulerBuilder ?
 
+* Add downloadable Scheduler templates in app
+
 # Security
 
 * Replace React's "dangerouslySetInnerHTML" with an equivalent (but no-js) solution
