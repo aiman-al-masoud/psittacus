@@ -91,6 +91,8 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 * See if in App you can use prototype.constructor.name instead of the Pages enum.
 
+* put all schedulers together in a folder and extract common subclass of Builders and rename to Managers
+
 # Random Stuff
 
 * Fix-up keyboard shorcuts.
@@ -102,6 +104,8 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 * Write some automated tests
 [selenium, cyprus, xdotool]
+
+
 
 # Graphical Stuff
 
