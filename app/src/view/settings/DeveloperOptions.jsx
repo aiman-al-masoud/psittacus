@@ -36,7 +36,7 @@ export default class DeveloperOptions extends Component {
             <br />
 
             <div style={this.state.DEV_OPTIONS_ENABLED? Styles.visible : Styles.invisible}>
-                <h2>Load custom code</h2>
+                <h2>Run custom code</h2>
                 <div className="text_tip">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
                 <button onClick={this.addCustomPropositionScheduler}>Add Custom Proposition Scheduler</button>
             </div>

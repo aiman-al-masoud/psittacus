@@ -1,5 +1,8 @@
+import S from "./Settings";
 
 export default class ClassLoader{
+
+    static PermissionDeniedError = "PermissionDeniedError"
 
     /**
      * Dynamically loads a class from its source code 
@@ -8,6 +11,10 @@ export default class ClassLoader{
      * @returns {Promise <object> }
      */
     async fromSourceCode(sourceCodeString){
+
+        if(!S.getInstance().get(S.DEV_OPTIONS_ENABLED)){
+            throw ClassLoader.PermissionDeniedError
+        }
 
         let script = document.createElement('script');
         script.innerHTML = sourceCodeString
