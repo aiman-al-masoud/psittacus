@@ -4,6 +4,7 @@ import L from "../../model/utilities/Language.js";
 import S from "../../model/utilities/Settings.js";
 import { readText } from "../../model/utilities/Utils.js";
 import Styles from "../Styles.js";
+import ClassLoader from "../../model/utilities/ClassLoader.js";
 
 
 export default class DeveloperOptions extends Component {
@@ -39,6 +40,9 @@ export default class DeveloperOptions extends Component {
                 <h2>Run custom code</h2>
                 <div className="text_tip">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
                 <button onClick={this.addCustomPropositionScheduler}>Add Custom Proposition Scheduler</button>
+
+
+                <button onClick={()=>{ClassLoader.removeAllCustomCode()}}>REMOVE ALL CUSTOM CODE</button>
             </div>
 
         </div>)
