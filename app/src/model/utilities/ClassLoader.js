@@ -32,7 +32,7 @@ export default class ClassLoader{
      * @param {string} category 
      * @param {string} sourceCodeString 
      */
-    static addCustomCode = async (category, sourceCodeString)=>{
+    static storeCustomCode = async (category, sourceCodeString)=>{
 
         if(!S.getInstance().get(S.DEV_OPTIONS_ENABLED)){
             throw ClassLoader.PermissionDeniedError
