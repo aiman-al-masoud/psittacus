@@ -46,6 +46,7 @@ export default class PropositionSchedulerBuilder {
 
         for(let s of manySourceCodes){
             let clazz = await new ClassLoader().fromSourceCode(s.sourceCode)
+            // clazz.isCustom = true
             schedulers[clazz.getType()] = clazz
         }
     }
