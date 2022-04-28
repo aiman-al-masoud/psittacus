@@ -129,8 +129,6 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 * centralize all dynamic class manipulating methods in ClassLoader as much as possible
 
-* Killer switch for developer options, to utterly prevent any dynamic loading of classes.
-
 * Centralized table for all dynamic classes, with added 
 superclass column to group all "subclasses" of a class
 
