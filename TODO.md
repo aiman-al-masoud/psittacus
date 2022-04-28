@@ -132,6 +132,14 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 * Checks on methods and duck-typing-related error handling 
 
 
+* Add custom class general method in DeveloperOptions
+
+* Explain stuff about reloading
+
+* remove addCustomScheduler() from PropositionSchedulerBuilder ?
+
+* How could you extract common code from PropositionSchedulerBuilder and LessonSchedulerBuilder
+
 # Naming 
 
 * rename Scheduler "Builders" to "Managers"
