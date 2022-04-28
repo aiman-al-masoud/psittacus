@@ -78,16 +78,14 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Refactoring
 
+* put all schedulers together in a folder and extract common subclass of Builders and rename to Managers
+
+
 * **Turn jsons to class: LessonScores ? w/:**
 [ lastTaken() ,propositionScores() ,overall() ,history() ]
 
-
-
 * Add type annotations to comments (where possible).
 
-* See if in App you can use prototype.constructor.name instead of the Pages enum.
-
-* put all schedulers together in a folder and extract common subclass of Builders and rename to Managers
 
 # Random Stuff
 
@@ -131,16 +129,11 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * Checks on methods and duck-typing-related error handling 
 
-
 * Add custom class general method in DeveloperOptions
 
 * Explain stuff about reloading
 
 * remove addCustomScheduler() from PropositionSchedulerBuilder ?
-
-* How could you extract common code from PropositionSchedulerBuilder and LessonSchedulerBuilder
-
-
 
 # Security
 
