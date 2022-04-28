@@ -40,9 +40,7 @@ export default class DeveloperOptions extends Component {
                 <h2>Run custom code</h2>
                 <div className="text_tip">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
                 <button onClick={this.addCustomPropositionScheduler}>Add Custom Proposition Scheduler</button>
-
-
-                <button onClick={()=>{ClassLoader.removeAllCustomCode()}}>REMOVE ALL CUSTOM CODE</button>
+                <button onClick={ClassLoader.removeAllCustomCode}>REMOVE ALL CUSTOM CODE</button>
             </div>
 
         </div>)
