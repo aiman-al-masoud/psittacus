@@ -1,6 +1,7 @@
-import { playBase64 } from "../../utilities/Recorder"
-import CorrectSound from "../../../../res/correct.mp3"
-import WrongSound from "../../../../res/wrong.mp3"
+import { playBase64 } from "../utilities/Recorder"
+import CorrectSound from "../../../res/correct.mp3"
+import WrongSound from "../../../res/wrong.mp3"
+
 
 /**
  * A Proposition is an idea, expressed in two sentences in two different languages.

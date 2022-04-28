@@ -1,5 +1,5 @@
 import PropositionScheduler from "../PropositionScheduler"
-import Proposition from "../../../lesson/proposition/Proposition"
+import Proposition from "../../../proposition/Proposition"
 import L from "../../../utilities/Language"
 /**
  * A memory-less `PropositionScheduler` that plays the `Proposition`s in the

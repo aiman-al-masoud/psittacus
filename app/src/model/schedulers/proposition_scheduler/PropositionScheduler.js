@@ -1,4 +1,4 @@
-import Proposition from "../../lesson/proposition/Proposition"
+import Proposition from "../../proposition/Proposition"
 /**
  * # Abstract Class
  * 

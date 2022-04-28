@@ -1,5 +1,5 @@
 import MixedLesson from "../../../lesson/MixedLesson";
-import Proposition from "../../../lesson/proposition/Proposition";
+import Proposition from "../../../proposition/Proposition";
 import LessonScheduler from "../LessonScheduler";
 import L from "../../../utilities/Language";
 

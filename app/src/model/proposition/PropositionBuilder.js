@@ -1,5 +1,4 @@
-import {Recorder, playBase64} from "../../utilities/Recorder.js"
-
+import { Recorder, playBase64 } from "../utilities/Recorder.js"
 
 /**
  * Builds and edits Propositions.
