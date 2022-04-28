@@ -43,13 +43,12 @@ export default class PropositionSchedulerBuilder {
     }
 
     static async loadCustomSchedulers() {
-        let manySourceCodes = await Database.get().customSourceCode().where("category").equals(PropositionSchedulerBuilder.CATEGORY).toArray()
+        let manySourceCodes = await ClassLoader.sourceCodesByCategory(PropositionSchedulerBuilder.CATEGORY)
 
         for(let s of manySourceCodes){
             let clazz = await new ClassLoader().fromSourceCode(s.sourceCode)
             schedulers[clazz.getType()] = clazz
         }
-
     }
 
 }

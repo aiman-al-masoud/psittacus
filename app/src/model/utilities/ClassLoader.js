@@ -63,5 +63,15 @@ export default class ClassLoader{
         return sourceCodeString.match(/class\s+(.*?){/)[1]
     }
 
+    /**
+     * 
+     * @param {string} category 
+     */
+    static async sourceCodesByCategory(category){
+        return Database.get().customSourceCode().where("category").equals(category).toArray()
+    }
+
+   
+
 
 }
