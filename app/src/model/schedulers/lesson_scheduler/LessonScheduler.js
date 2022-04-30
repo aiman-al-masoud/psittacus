@@ -31,5 +31,9 @@ export default class LessonScheduler{
         throw new Error("LessonScheduler: is an abstract class!")
     }
 
+    static getTemplate(){
+        return "next(){ }\nstatic getType(){}\nstatic getDescription(){}"
+    }
+
 
 }

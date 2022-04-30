@@ -1,4 +1,5 @@
 import Proposition from "../../proposition/Proposition"
+
 /**
  * # Abstract Class
  * 
@@ -71,6 +72,10 @@ export default class PropositionScheduler {
 
     static getDescription(){
         throw new Error("PropositionScheduler is abstract!")
+    }
+
+    static getTemplate(){
+        return "next(){ }\nisOver(){}\nstatic getType(){}\nstatic getDescription(){}"
     }
 
    

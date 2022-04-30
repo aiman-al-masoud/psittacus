@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import PropositionSchedulerFactory from "../../model/schedulers/proposition_scheduler/PropositionSchedulerFactory.js";
 import L from "../../model/utilities/Language.js";
 import S from "../../model/utilities/Settings.js";
-import { readText } from "../../model/utilities/Utils.js";
+import { readText, saveToComp } from "../../model/utilities/Utils.js";
 import Styles from "../Styles.js";
 import ClassLoader from "../../model/utilities/ClassLoader.js";
 import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
+import PropositionScheduler from "../../model/schedulers/proposition_scheduler/PropositionScheduler.js";
+import LessonScheduler from "../../model/schedulers/lesson_scheduler/LessonScheduler.js";
 
 
 export default class DeveloperOptions extends Component {
@@ -43,9 +45,15 @@ export default class DeveloperOptions extends Component {
             <div style={this.state.DEV_OPTIONS_ENABLED ? Styles.visible : Styles.invisible}>
                 <h2>Run custom code</h2>
                 <div className="text_warning">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
+                <br />
                 <button onClick={ClassLoader.removeAllCustomCode} className="safe_button">Remove All Custom Code</button>
+                <br />
                 <button onClick={async ()=>{PropositionSchedulerFactory.addCustomScheduler(await readText())}} className="dangerous_button">Add Custom Proposition Scheduler</button>
+                <button onClick={()=>{  saveToComp( PropositionScheduler.getTemplate(), "my-propo-scheduler.js","text/plain")}}>Template</button>
+                <br />
                 <button onClick={async ()=>{LessonSchedulerFactory.addCustomScheduler(await readText())}} className="dangerous_button">Add Custom Lesson Scheduler</button>
+                <button onClick={()=>{  saveToComp( LessonScheduler.getTemplate(), "my-lesson-scheduler.js","text/plain")}}>Template</button>
+                <br />
                 <button onClick={()=>{window.location.reload()}} className="dangerous_button">Reload</button>
             </div>
 
