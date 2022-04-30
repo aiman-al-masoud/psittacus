@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Lesson from "../../model/lesson/Lesson.js";
-import LessonSchedulerBuilder from "../../model/schedulers/lesson_scheduler/LessonSchedulerBuilder.js";
+import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 import L from "../../model/utilities/Language.js";
 import LessonButton from "./LessonButton.jsx";
 
@@ -8,7 +8,7 @@ export default class History extends Component {
 
     constructor(props) {
         super(props)
-        this.lessonScheduler = LessonSchedulerBuilder.getScheduler()
+        this.lessonScheduler = LessonSchedulerFactory.getScheduler()
     }
 
     onReviseNext = async () => {

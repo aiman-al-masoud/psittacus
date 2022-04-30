@@ -2,7 +2,7 @@ import S from "../../utilities/Settings"
 import LessonScheduler from "./LessonScheduler"
 const schedulers = Object.fromEntries(require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/)).map(s => { return [s.default.getType(), s.default] }))
 
-export default class LessonSchedulerBuilder {
+export default class LessonSchedulerFactory {
 
     /**
      * 

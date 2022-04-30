@@ -1,6 +1,6 @@
 import UserProgress from "../utilities/UserProgress";
 import Lesson from "./Lesson";
-import PropositionSchedulerBuilder from "../schedulers/proposition_scheduler/PropositionSchedulerBuilder";
+import PropositionSchedulerFactory from "../schedulers/proposition_scheduler/PropositionSchedulerFactory";
 
 /**
  * Helps creating a Lesson that is an admixture of 
@@ -24,7 +24,7 @@ export default class MixedLesson {
         let lesson = await Lesson.getCachedLessonById(lessonId)   
         this.lessons.push(lesson)
         this.propositions=  this.propositions.concat( lesson.propositions.filter(p=>{return propositionHashes.includes(p.getHash())})  )
-        this.scheduler = PropositionSchedulerBuilder.getScheduler(undefined, this.propositions)
+        this.scheduler = PropositionSchedulerFactory.getScheduler(undefined, this.propositions)
     }
 
     next(){

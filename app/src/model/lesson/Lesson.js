@@ -1,4 +1,4 @@
-import PropositionSchedulerBuilder from "../schedulers/proposition_scheduler/PropositionSchedulerBuilder.js"
+import PropositionSchedulerFactory from "../schedulers/proposition_scheduler/PropositionSchedulerFactory.js"
 import Proposition from "../proposition/Proposition.js"
 import UserProgress from "../utilities/UserProgress.js"
 import Database from "../utilities/Database.js"
@@ -15,7 +15,7 @@ export default class Lesson {
         this.explanationText = jsonData.explanation.text
         this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
         this.oldScores = UserProgress.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
-        this.scheduler = PropositionSchedulerBuilder.getScheduler(this.oldScores, this.propositions)
+        this.scheduler = PropositionSchedulerFactory.getScheduler(this.oldScores, this.propositions)
     }
 
     /**

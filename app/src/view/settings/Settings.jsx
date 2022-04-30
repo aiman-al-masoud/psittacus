@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import L from "../../model/utilities/Language.js";
-import PropositionSchedulerBuilder from "../../model/schedulers/proposition_scheduler/PropositionSchedulerBuilder.js";
+import PropositionSchedulerFactory from "../../model/schedulers/proposition_scheduler/PropositionSchedulerFactory.js";
 import UserProgress from "../../model/utilities/UserProgress.js";
 import S from "../../model/utilities/Settings.js"
 import { readText, saveToComp } from "../../model/utilities/Utils.js";
-import LessonSchedulerBuilder from "../../model/schedulers/lesson_scheduler/LessonSchedulerBuilder.js";
+import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 import DeveloperOptions from "./DeveloperOptions.jsx"
 
 export default class Settings extends Component {
@@ -59,22 +59,22 @@ export default class Settings extends Component {
             <div className="text_tip">{L.proposition_scheduler_is}</div>
 
             <select value={this.state.PROPOSITION_SCHEDULER} onChange={(event) => { this.onSet(S.PROPOSITION_SCHEDULER, event) }} >
-                {PropositionSchedulerBuilder.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
+                {PropositionSchedulerFactory.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
             <div className="text_tip"> 
-            {PropositionSchedulerBuilder.getCurrentSchedulersDescription()} 
+            {PropositionSchedulerFactory.getCurrentSchedulersDescription()} 
             </div>
 
             <h1>{L.choose_lesson_scheduler}</h1>
             <div className="text_tip">{L.lesson_scheduler_is}</div>
 
             <select value={this.state.LESSON_SCHEDULER} onChange={(event) => { this.onSet(S.LESSON_SCHEDULER, event) }} >
-                {LessonSchedulerBuilder.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
+                {LessonSchedulerFactory.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
             <div className="text_tip"> 
-            {LessonSchedulerBuilder.getCurrentSchedulersDescription()} 
+            {LessonSchedulerFactory.getCurrentSchedulersDescription()} 
             </div>
 
 

@@ -8,7 +8,7 @@ const schedulers = Object.fromEntries(require.context("./classes", false, /.js$/
  * implementations in `./classes` and the currently selected 
  * implementation in `Settings`.
  */
-export default class PropositionSchedulerBuilder {
+export default class PropositionSchedulerFactory {
 
     static CATEGORY_CUSTOM_CODE = "PropositionScheduler"
 
@@ -35,11 +35,11 @@ export default class PropositionSchedulerBuilder {
     }
 
     static addCustomScheduler(sourceCodeString) {
-        ClassLoader.storeCustomCode(PropositionSchedulerBuilder.CATEGORY_CUSTOM_CODE, sourceCodeString)
+        ClassLoader.storeCustomCode(PropositionSchedulerFactory.CATEGORY_CUSTOM_CODE, sourceCodeString)
     }
 
     static async reloadCustomSchedulers() {
-        let manySourceCodes = await ClassLoader.sourceCodesByCategory(PropositionSchedulerBuilder.CATEGORY_CUSTOM_CODE)
+        let manySourceCodes = await ClassLoader.sourceCodesByCategory(PropositionSchedulerFactory.CATEGORY_CUSTOM_CODE)
 
         for(let s of manySourceCodes){
             let clazz = await new ClassLoader().fromSourceCode(s.sourceCode)
@@ -52,4 +52,4 @@ export default class PropositionSchedulerBuilder {
 }
 
 // at webpage reload:
-PropositionSchedulerBuilder.reloadCustomSchedulers() 
+PropositionSchedulerFactory.reloadCustomSchedulers() 
