@@ -1,9 +1,6 @@
 import S from "../../utilities/Settings"
 import LessonScheduler from "./LessonScheduler"
-
-let schedulers = require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/))
-schedulers = schedulers.map(s => { return [s.default.getType(), s.default] })
-schedulers = Object.fromEntries(schedulers)
+const schedulers = Object.fromEntries(require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/)).map(s => { return [s.default.getType(), s.default] }))
 
 export default class LessonSchedulerBuilder {
 
@@ -21,7 +18,7 @@ export default class LessonSchedulerBuilder {
 
     }
 
-    static getTypes() {
+    static getTypes(){
         return Object.keys(schedulers)
     }
 

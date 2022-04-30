@@ -1,9 +1,7 @@
 import ClassLoader from "../../utilities/ClassLoader"
 import S from "../../utilities/Settings"
+const schedulers = Object.fromEntries(require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/)).map(s => { return [s.default.getType(), s.default] }))
 
-let schedulers = require.context("./classes", false, /.js$/).keys().map(require.context("./classes", false, /.js$/))
-schedulers = schedulers.map(s => { return [s.default.getType(), s.default] })
-schedulers = Object.fromEntries(schedulers)
 
 /**
  * Builds different kinds of Schedulers based on the available
@@ -55,7 +53,3 @@ export default class PropositionSchedulerBuilder {
 
 // at webpage reload:
 PropositionSchedulerBuilder.reloadCustomSchedulers() 
-
-
-
-
