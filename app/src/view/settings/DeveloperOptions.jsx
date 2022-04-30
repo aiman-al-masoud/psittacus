@@ -5,6 +5,7 @@ import S from "../../model/utilities/Settings.js";
 import { readText } from "../../model/utilities/Utils.js";
 import Styles from "../Styles.js";
 import ClassLoader from "../../model/utilities/ClassLoader.js";
+import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 
 
 export default class DeveloperOptions extends Component {
@@ -18,17 +19,11 @@ export default class DeveloperOptions extends Component {
         }
     }
 
-    addCustomPropositionScheduler = async () => {
-        let sourceCode = await readText()
-        PropositionSchedulerFactory.addCustomScheduler(sourceCode)
-    }
-
     toggle = () => {
         let s = !S.getInstance().get(S.DEV_OPTIONS_ENABLED)
         S.getInstance().set(S.DEV_OPTIONS_ENABLED, s)
         this.setState({ DEV_OPTIONS_ENABLED: s })
     }
-
 
     render() {
 
@@ -49,8 +44,8 @@ export default class DeveloperOptions extends Component {
                 <h2>Run custom code</h2>
                 <div className="text_warning">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
                 <button onClick={ClassLoader.removeAllCustomCode} className="safe_button">Remove All Custom Code</button>
-                <button onClick={this.addCustomPropositionScheduler} className="dangerous_button">Add Custom Proposition Scheduler</button>
-
+                <button onClick={async ()=>{PropositionSchedulerFactory.addCustomScheduler(await readText())}} className="dangerous_button">Add Custom Proposition Scheduler</button>
+                <button onClick={async ()=>{LessonSchedulerFactory.addCustomScheduler(await readText())}} className="dangerous_button">Add Custom Lesson Scheduler</button>
                 <button onClick={()=>{window.location.reload()}} className="dangerous_button">Reload</button>
             </div>
 
