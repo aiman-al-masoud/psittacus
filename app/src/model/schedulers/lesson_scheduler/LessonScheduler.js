@@ -32,7 +32,7 @@ export default class LessonScheduler{
     }
 
     static getTemplate(){
-        return "next(){ }\nstatic getType(){}\nstatic getDescription(){}"
+        return "class MyLessonScheduler{\n\n next(){ }\n\nstatic getType(){}\n\nstatic getDescription(){} \n\n}"
     }
 
 

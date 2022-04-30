@@ -75,7 +75,7 @@ export default class PropositionScheduler {
     }
 
     static getTemplate(){
-        return "next(){ }\nisOver(){}\nstatic getType(){}\nstatic getDescription(){}"
+        return "class MyPropoScheduler{\n\nconstructor(oldScores, propositions){\n\n}\n\nnext(){\n\n}\n\nisOver(){\n\n}\n\nstatic getType(){\n\n}\n\nstatic getDescription(){\n\n}  \n\n}"
     }
 
    
