@@ -125,6 +125,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Dynamic class loading
 
+* translate developer options lang
+
 * centralize all dynamic class manipulating methods in ClassLoader as much as possible
 
 * Checks on methods and duck-typing-related error handling 
