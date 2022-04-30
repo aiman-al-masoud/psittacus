@@ -46,13 +46,15 @@ export default class DeveloperOptions extends Component {
                 <h2>Run custom code</h2>
                 <div className="text_warning">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
                 <br />
-                <button onClick={ClassLoader.removeAllCustomCode} className="safe_button">Remove All Custom Code</button>
-                <br />
-                <button onClick={async ()=>{PropositionSchedulerFactory.addCustomScheduler(await readText())}} className="dangerous_button">Add Custom Proposition Scheduler</button>
+                <button onClick={async ()=>{PropositionSchedulerFactory.addCustomScheduler(await readText())}} className="normal_button">Add Custom Proposition Scheduler</button>
                 <button onClick={()=>{  saveToComp( PropositionScheduler.getTemplate(), "my-propo-scheduler.js","text/plain")}}>Template</button>
                 <br />
-                <button onClick={async ()=>{LessonSchedulerFactory.addCustomScheduler(await readText())}} className="dangerous_button">Add Custom Lesson Scheduler</button>
+                <button onClick={async ()=>{LessonSchedulerFactory.addCustomScheduler(await readText())}} className="normal_button">Add Custom Lesson Scheduler</button>
                 <button onClick={()=>{  saveToComp( LessonScheduler.getTemplate(), "my-lesson-scheduler.js","text/plain")}}>Template</button>
+                <br />
+                <br />
+                <div className="text_tip">Click 'Reload' after adding custom code, or 'Remove All Custom Code' if you change your mind.</div>
+                <button onClick={ClassLoader.removeAllCustomCode} className="safe_button">Remove All Custom Code</button>
                 <br />
                 <button onClick={()=>{window.location.reload()}} className="dangerous_button">Reload</button>
             </div>
