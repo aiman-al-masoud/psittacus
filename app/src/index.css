@@ -16,10 +16,6 @@ h1{
     text-decoration: underline;
 }
 
-/* body,h1,h2{
-    font-size: medium;
-} */
-
 .normal_textbox{
     width: 40vw;
     border: 1px black dotted;

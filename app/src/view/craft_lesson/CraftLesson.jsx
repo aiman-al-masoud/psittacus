@@ -140,9 +140,11 @@ export default class CraftLesson extends Component {
             <br />
             <h1>{L.write_word_dict}</h1>
             <div className="text_tip">{L.words_will_appear_word_dict}</div>
+            <div className="text_tip">{L.words_will_appear}</div>
             <DefinitionsTable wordDict={this.state.propositionBuilder.wordDict} onTableModified={ this.onWordDictModified }   />
             <h1>{L.write_reverse_dict}</h1>
             <div className="text_tip">{L.words_will_appear_reverse_dict}</div>
+            <div className="text_tip">{L.words_will_appear}</div>
             <DefinitionsTable wordDict={this.state.propositionBuilder.reverseDict} onTableModified={this.onReverseDictModified} />
             <br />
             <h1>{L.choose_translation_direction}</h1>
