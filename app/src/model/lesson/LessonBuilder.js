@@ -8,11 +8,12 @@ const packageJson = require.context("../../../..", false, /package.json$/).keys(
 export default class LessonBuilder {
 
     static MetadataIncompleteError = "MetadataIncompleteError"
+    static MetadataTemplate =  { author: "", source_language: "", target_language: "", title : "" }
 
     constructor() {
         this.propositions = [new PropositionBuilder()]
         this.current = 0
-        this.metadata = { author: "", source_language: "", target_language: "", title : "" }
+        this.metadata = this.MetadataTemplate
         this.explanationHtmlString = ""
     }
 
@@ -22,7 +23,7 @@ export default class LessonBuilder {
     static fromExistingJson(jsonData) {
         let lb = new LessonBuilder()
         lb.propositions = jsonData.propositions.map((p) => { return PropositionBuilder.fromExistingJson(p) })
-        lb.metadata = jsonData.metadata ?? {}
+        lb.metadata = { ...this.MetadataTemplate, ...jsonData.metadata} 
         lb.explanationHtmlString = jsonData.explanation.text
         return lb
     }
@@ -78,8 +79,6 @@ export default class LessonBuilder {
      * @throws {LessonBuilder.MetadataIncompleteError}
      */
     save = () => {
-
-        // throw 1 //test sending bug report
 
         //every metadata value MUST BE NON-FALSY!
         if(!Object.values(this.metadata).every((val)=> { return !!val }  )){

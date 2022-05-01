@@ -172,21 +172,25 @@ export default class CraftLesson extends Component {
         window.addEventListener("keydown", (e)=>{
 
             //save lesson to computer and override default behavior
-            if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            if ( (e.code == "KeyS") && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
                 e.preventDefault();
+                console.log("called save with keybinding")
                 this.onSave()
+                return 
             }
 
             //play recorded sound
             if(e.code=="Space" && e.shiftKey){
                 e.preventDefault();
-                this.state.propositionBuilder.playAudio();                  
+                this.state.propositionBuilder.playAudio(); 
+                return                  
             }
 
             //record sound/stop recording
             if(e.code=="Space" && e.ctrlKey){
                 e.preventDefault();
                 this.toggleRecorder();
+                return 
             }
 
         })
