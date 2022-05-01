@@ -85,7 +85,7 @@ export default class LessonBuilder {
             throw LessonBuilder.MetadataIncompleteError
         }
         
-        saveToComp(JSON.stringify(this.toJson()), "lesson.txt", "text/plain")
+        saveToComp(JSON.stringify(this.toJson()), `${this.metadata.title}.txt`, "text/plain")
     }
 
 }
