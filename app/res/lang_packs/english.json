@@ -92,7 +92,17 @@
     "worst_first_PS" : "Remembers the propositions you struggled the most with last time, and plays them first.",
     "mixed_worst_lesson_LS" : "Combines the propositions you struggled the most with from many different lessons you already took.",
     "oldest_lesson_first_LS" : "Lets you re-take the single oldest lesson you took.",
-    "worst_lesson_first_LS" : "Lets you re-take the single lesson you struggled the most with."
-
+    "worst_lesson_first_LS" : "Lets you re-take the single lesson you struggled the most with.",
+    "developer_options" : "Developer Options",
+    "enable" : "Enable",
+    "caution_enabling_developer_options" : "CAUTION: enabling developer options may expose you to SECURITY RISKS.",
+    "run_custom_code" : "Run custom code",
+    "caution_running_custom_code" : "Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!",
+    "add_custom_proposition_scheduler" : "Add Custom Proposition Scheduler",
+    "add_custom_lesson_scheduler" : "Add Custom Lesson Scheduler",
+    "template" : "Template",
+    "click_reload_or_remove_custom_code" : "Click 'Reload' after adding custom code, or 'Remove All Custom Code' if you change your mind.",
+    "remove_all_custom_code" : "Remove All Custom Code",
+    "dev_options_reload" : "Reload"
 
 }

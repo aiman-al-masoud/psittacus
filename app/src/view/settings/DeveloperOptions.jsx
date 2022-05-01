@@ -31,32 +31,32 @@ export default class DeveloperOptions extends Component {
 
         return (<div>
 
-            <h1>{"Developer Options"}</h1>
+            <h1>{L.developer_options}</h1>
 
-            <span>Enable:</span>
+            <span>{L.enable}:</span>
             <input onClick={this.toggle}
                 onMouseEnter={() => { this.setState({ mouseOverEnableCheckbox: true }) }}
                 onMouseLeave={() => { this.setState({ mouseOverEnableCheckbox: false }) }}
                 type="checkbox" checked={this.state.DEV_OPTIONS_ENABLED} />
 
-            <span className="text_warning" style={this.state.mouseOverEnableCheckbox ? Styles.visibleInline : Styles.invisible}>CAUTION: enabling developer options may expose you to SECURITY RISKS.</span>
+            <span className="text_warning" style={this.state.mouseOverEnableCheckbox ? Styles.visibleInline : Styles.invisible}>{L.caution_enabling_developer_options}</span>
            <br />
 
             <div style={this.state.DEV_OPTIONS_ENABLED ? Styles.visible : Styles.invisible}>
-                <h2>Run custom code</h2>
-                <div className="text_warning">Running code from untrusted sources is DANGEROUS: make sure you know what you're doing!</div>
+                <h2>{L.run_custom_code}</h2>
+                <div className="text_warning">{L.caution_running_custom_code}</div>
                 <br />
-                <button onClick={async ()=>{PropositionSchedulerFactory.addCustomScheduler(await readText())}} className="normal_button">Add Custom Proposition Scheduler</button>
-                <button onClick={()=>{  saveToComp( PropositionScheduler.getTemplate(), "my-propo-scheduler.js","text/plain")}}>Template</button>
+                <button onClick={async ()=>{PropositionSchedulerFactory.addCustomScheduler(await readText())}} className="normal_button">{L.add_custom_proposition_scheduler}</button>
+                <button onClick={()=>{  saveToComp( PropositionScheduler.getTemplate(), "my-propo-scheduler.js","text/plain")}}>{L.template}</button>
                 <br />
-                <button onClick={async ()=>{LessonSchedulerFactory.addCustomScheduler(await readText())}} className="normal_button">Add Custom Lesson Scheduler</button>
-                <button onClick={()=>{  saveToComp( LessonScheduler.getTemplate(), "my-lesson-scheduler.js","text/plain")}}>Template</button>
+                <button onClick={async ()=>{LessonSchedulerFactory.addCustomScheduler(await readText())}} className="normal_button">{L.add_custom_lesson_scheduler}</button>
+                <button onClick={()=>{  saveToComp( LessonScheduler.getTemplate(), "my-lesson-scheduler.js","text/plain")}}>{L.template}</button>
                 <br />
                 <br />
-                <div className="text_tip">Click 'Reload' after adding custom code, or 'Remove All Custom Code' if you change your mind.</div>
-                <button onClick={ClassLoader.removeAllCustomCode} className="safe_button">Remove All Custom Code</button>
+                <div className="text_tip">{L.click_reload_or_remove_custom_code}</div>
+                <button onClick={ClassLoader.removeAllCustomCode} className="safe_button">{L.remove_all_custom_code}</button>
                 <br />
-                <button onClick={()=>{window.location.reload()}} className="dangerous_button">Reload</button>
+                <button onClick={()=>{window.location.reload()}} className="dangerous_button">{L.dev_options_reload}</button>
             </div>
 
         </div>)

@@ -92,7 +92,17 @@
     "worst_first_PS" : "Si ricorda le proposizioni con cui hai avuto maggiore difficoltà la volta scorsa, e le propone prima.",
     "mixed_worst_lesson_LS" : "Combina in un'unica lezione le proposizioni con cui hai avuto maggiore difficoltà da diverse lezioni che hai già sostenuto.",
     "oldest_lesson_first_LS" : "Ti ripropone la singola lezione che hai sostenuto da più tempo.",
-    "worst_lesson_first_LS" : "Ti ripropone la singola lezione con cui hai avuto più difficoltà."
+    "worst_lesson_first_LS" : "Ti ripropone la singola lezione con cui hai avuto più difficoltà.",
+    "developer_options" : "Opzioni Sviluppatore",
+    "enable" : "Abilita",
+    "caution_enabling_developer_options" : "ATTENZIONE: abilitare le opzioni da sviluppatore potrebbe esporti a RISCHI di SICUREZZA!",
+    "run_custom_code" : "Esegui codice personalizzato",
+    "caution_running_custom_code" : "Eseguire codice da fonti poco affidabili è PERICOLOSO: accertati di sapere quello che stai facendo!",
+    "add_custom_proposition_scheduler" : "Aggiungi Pianificatore di Proposizioni Personalizzato",
+    "add_custom_lesson_scheduler" : "Aggiungi Pianificatore di Lezioni Personalizzato",
+    "template" : "Modello",
+    "click_reload_or_remove_custom_code" : "Clicca su 'Ricarica' dopo aver aggiunto codice personalizzato, o 'Rimuovi tutto il codice personalizzato' se hai cambiato idea.",
+    "remove_all_custom_code" : "Rimuovi tutto il codice personalizzato",
+    "dev_options_reload" : "Ricarica"
  
-
 }
