@@ -108,8 +108,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * Fix other React warnings.
 
-* Better LessonButton(s)
-
 * Global linkable documentation mechanism 
     
     store current lesson and lessonBuilder and previous state in App, tbat go back to whatever the user was doing.
