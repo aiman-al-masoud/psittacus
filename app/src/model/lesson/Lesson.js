@@ -16,6 +16,8 @@ export default class Lesson {
         this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
         this.oldScores = UserProgress.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
         this.scheduler = PropositionSchedulerFactory.getScheduler(this.oldScores, this.propositions)
+        // UserProgress.saveLessonScore(this.getId(), this.dumpScores()) 
+        // this.cacheLesson() 
     }
 
     /**
@@ -43,7 +45,7 @@ export default class Lesson {
         //if this lesson is over, save the score
         if(over){
             UserProgress.saveLessonScore(this.getId(), this.dumpScores()) 
-            this.cacheLesson() 
+            this.cacheLesson()
         }
 
         return over
@@ -97,13 +99,14 @@ export default class Lesson {
      * Cache this Lesson, overwriting it in case of conflicting ids.
      */
     async cacheLesson() {
-        
-        await Database.get().cachedLessons().delete(this.getId())
 
+        await Database.get().cachedLessons().delete(this.getId())
+     
         Database.get().cachedLessons().add({
             id: this.getId(),
             lesson: this.jsonData
         })
+
     }
 
     /**

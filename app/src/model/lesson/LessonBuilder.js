@@ -13,7 +13,7 @@ export default class LessonBuilder {
     constructor() {
         this.propositions = [new PropositionBuilder()]
         this.current = 0
-        this.metadata = this.MetadataTemplate
+        this.metadata = LessonBuilder.MetadataTemplate
         this.explanationHtmlString = ""
     }
 
@@ -23,7 +23,7 @@ export default class LessonBuilder {
     static fromExistingJson(jsonData) {
         let lb = new LessonBuilder()
         lb.propositions = jsonData.propositions.map((p) => { return PropositionBuilder.fromExistingJson(p) })
-        lb.metadata = { ...this.MetadataTemplate, ...jsonData.metadata} 
+        lb.metadata = { ...LessonBuilder.MetadataTemplate, ...jsonData.metadata} 
         lb.explanationHtmlString = jsonData.explanation.text
         return lb
     }
