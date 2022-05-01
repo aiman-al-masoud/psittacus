@@ -20,7 +20,6 @@ export default class Lesson {
 
     /**
      * Point to the next proposition.
-     * Decide if the lesson is over or not
      */
     next() {
         this.scheduler.next()
@@ -28,7 +27,7 @@ export default class Lesson {
 
     /**
      * Get the current Proposition.
-     * @returns Proposition
+     * @returns {Proposition}
      */
     getCurrent() {
         return this.scheduler.getCurrent()
@@ -36,7 +35,7 @@ export default class Lesson {
 
     /**
      * Is this lesson over yet?
-     * @returns boolean
+     * @returns {boolean}
      */
     isOver() {
         let over = this.scheduler.isOver()
@@ -51,7 +50,7 @@ export default class Lesson {
     }
 
     /**
-     * Get average score.
+     * Get Lesson's overall score.
      * @returns {number}
      */
     getScore() {
@@ -67,7 +66,7 @@ export default class Lesson {
     }
 
     /**
-     * 
+     * Parses a Lesson id
      * @param {string} lessonId 
      * @returns {{"author":string, "target_language" : string, "source_language": string, "title": string}}
      */
@@ -77,16 +76,12 @@ export default class Lesson {
 
     /**
     * Dumps info relative to the user's performance with this Lesson.
-    * 
-    * ```json
-    * {
-    * "last_taken" : unix epoch timestamp,
-    * "overall" : overall score,
-    * "propositions" : [ [propoHash1, score1], [propoHash2, score2]  ]
-    * }
-    * ```
-    * 
-    * @returns 
+    *
+    * @returns {{
+    * "last_taken" : number,
+    * "overall" :  number,
+    * "propositions" : [ [string, number] ]
+    *  }}
     */
     dumpScores() {
 
