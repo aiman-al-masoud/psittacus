@@ -77,12 +77,9 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Random Stuff
 
-* Fix-up keyboard shorcuts.
+* Alert user when saving broken lessons
 
-* Auto-change html language tag when language changes from settings:
-```
- document. documentElement. setAttribute("lang", 'your language code');
-```
+* Fix-up keyboard shorcuts.
 
 * Write some automated tests
 [selenium, cyprus, xdotool]
@@ -104,16 +101,11 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
     method that allows to tell Documentation where to 
     jump to.
 
-
 # Dynamic class loading
 
 * centralize all dynamic class manipulating methods in ClassLoader as much as possible
 
 * Checks on methods and duck-typing-related error handling 
-
-* Add custom class general method in DeveloperOptions
-
-* remove addCustomScheduler() from PropositionSchedulerBuilder ?
 
 # Security
 
