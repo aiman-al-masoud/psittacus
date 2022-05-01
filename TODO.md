@@ -2,20 +2,22 @@
 
 Server with the following apis:
 
-login
-access an existing account, receive session id
-
-signup
-create a new account on the server
-
-upload-lesson
-requires auth
-
-download-lesson
+* download-lesson
 doesn't require auth
 
+* query-lessons
+doesn't require auth
 
-* Server address to/from which lessons are posted/downloaded needs to be editable by the user, so as to make the app experience more "native-like". (Server may need to have CORS enabled).
+#### FOR LATER:
+
+* login
+access an existing account, receive session id
+
+* signup
+create a new account on the server
+
+* upload-lesson
+requires auth
 
 # Add New Attributes to Proposition:
 
@@ -45,18 +47,11 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 
 * Store time taken by user to answer each question? (May be useful in scheduling)
 
-* I guess there's no point in leaving PropositionScheduler abstract now...
-
-* Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
-
 * PropositionScheduler implementation that hides best sentences for some time.
 
-* importing/exporting cached lessons?
-
-* option to delete single lesson in history
+* importing/exporting/deleting single cached lessons?
 
 * MixedWorseLesson and GUI: add same target-language constraint!!
-
 
 # Anki
 
@@ -64,24 +59,21 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 * look into Anki: https://apps.ankiweb.net/ and its formats
 
-
 ### Unzipping:
 
 https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.html
-
 
 view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 
 # Refactoring
 
-* extract common subclass of SchedulerManager(s) ?
+* extract common superclass of SchedulerManager(s) ?
 
 * **Turn jsons to class: LessonScores ? w/:**
 [ lastTaken() ,propositionScores() ,overall() ,history() ]
 
 * Add type annotations to comments (where possible).
-
 
 # Random Stuff
 
@@ -94,8 +86,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * Write some automated tests
 [selenium, cyprus, xdotool]
-
-
 
 # Graphical Stuff
 
