@@ -109,8 +109,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * Fix other React warnings.
 
-* Shorter, more concise titles and slightly longer tips.
-
 * Better LessonButton(s)
 
 * Global linkable documentation mechanism 
