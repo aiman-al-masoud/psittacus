@@ -67,6 +67,15 @@ export default class Lesson {
     }
 
     /**
+     * 
+     * @param {string} lessonId 
+     * @returns {{"author":string, "target_language" : string, "source_language": string, "title": string}}
+     */
+    static parseId(lessonId){
+        return Object.fromEntries(lessonId.split(";").filter(x=>!!x).map(x=>x.split("=")))   
+    }
+
+    /**
     * Dumps info relative to the user's performance with this Lesson.
     * 
     * ```json
@@ -115,9 +124,7 @@ export default class Lesson {
     static getLessonIdsHistory(){
         return UserProgress.lessonsScores().map(l=>l.id)
     }
+
     
 }
 
-
-
-// console.log(Lesson.getLessonIdsHistory())
