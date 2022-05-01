@@ -133,8 +133,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * Add custom class general method in DeveloperOptions
 
-* Explain stuff about reloading
-
 * remove addCustomScheduler() from PropositionSchedulerBuilder ?
 
 * Add downloadable Scheduler templates in app
