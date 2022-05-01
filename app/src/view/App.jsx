@@ -47,7 +47,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <button onClick={() => { this.onMenuChoose(Pages.MENU) }}> <img src={HomeIcon} alt={L.home} title={L.home} />   </button>
+                <button onClick={() => { this.onMenuChoose(Pages.MENU) }} className="home_button" alt={L.home} title={L.home} > <img src={HomeIcon}/> </button>
 
                 {this.state.page}
             </div>

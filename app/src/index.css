@@ -1,33 +1,35 @@
-:root{
-    --bg-color : rgba(245, 245, 245, 0.445);
-    --on-focus-color : orange;
-    --normal-item-color : rgb(7, 7, 92);
-    --dangerous-item-color : red;
-    --safe-item-color : green;
+:root {
+    --bg-color: rgba(245, 245, 245, 0.445);
+    --on-focus-color: orange;
+    --normal-item-color: rgb(7, 7, 92);
+    --dangerous-item-color: red;
+    --safe-item-color: green;
 }
 
-body{
+body {
     background-color: var(--bg-color);
     font-family: sans-serif;
 }
 
 
-h1{
+h1 {
     text-decoration: underline;
 }
 
-.normal_textbox{
+.normal_textbox {
     width: 40vw;
     border: 1px black dotted;
     margin: 1vh;
     padding: 1vh;
 }
 
-.normal_textbox:focus{
+.normal_textbox:focus {
     outline: 2px var(--on-focus-color) solid;
 }
 
-.normal_button, .dangerous_button, .safe_button{
+.normal_button,
+.dangerous_button,
+.safe_button {
     border: 1px black dotted;
     margin: 1vh;
     padding: 1vh;
@@ -35,27 +37,33 @@ h1{
     color: white;
 }
 
-.normal_button:hover, .normal_button:focus, .dangerous_button:hover, .dangerous_button:focus, .safe_button:hover, .safe_button:focus{
+.normal_button:hover,
+.normal_button:focus,
+.dangerous_button:hover,
+.dangerous_button:focus,
+.safe_button:hover,
+.safe_button:focus {
     outline: 2px var(--on-focus-color) solid;
     color: var(--on-focus-color);
 }
 
-.dangerous_button{
+.dangerous_button {
     background-color: var(--dangerous-item-color);
 }
 
-.safe_button{
+.safe_button {
     background-color: var(--safe-item-color);
 }
 
-.text_tip, .text_warning{
+.text_tip,
+.text_warning {
     font-size: small;
     font-style: italic;
     margin-top: 0;
     margin-bottom: 2vh;
 }
 
-.text_warning{
+.text_warning {
     color: var(--dangerous-item-color);
 }
 
@@ -63,29 +71,35 @@ h1{
     text-decoration: underline;
 } */
 
-select{
+select {
     width: 40vw;
     background-color: var(--normal-item-color);
     color: white;
 }
 
-select option{
+select option {
     background-color: var(--normal-item-color);
-    color: white;   
+    color: white;
 }
 
-.normal_link{
+.normal_link {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.normal_link:hover{
+.normal_link:hover {
     color: var(--on-focus-color);
 }
 
-.textarea{
-  width: 60vw; 
-  height: 80vh;
-  font-size: large;
+.textarea {
+    width: 60vw;
+    height: 80vh;
+    font-size: large;
+}
+
+.home_button {
+    padding: 0;
+    border-radius: 70px;
+    background-color: whitesmoke;
 }
