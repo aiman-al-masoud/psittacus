@@ -43,12 +43,9 @@ from: https://github.com/aiman-al-masoud/psittacus/issues/1
 
 https://en.wikipedia.org/wiki/Spaced_repetition
 
-
 * Store time taken by user to answer each question? (May be useful in scheduling)
 
 * I guess there's no point in leaving PropositionScheduler abstract now...
-
-* Store custom js code for new Schedulers dynamically w/ Dexie
 
 * Scores are modified in the bg even when memory-less Schedulers are used, is this ok?
 
