@@ -108,11 +108,22 @@ select option {
 
 .hovering_tool_tip{
     position: absolute; 
-    top: top;
     border: solid 1px black;
     border-radius: 10px;
-    width :  20vw;
+    width :  30vw;
     padding: 1vw;
-    background :  rgba(0, 0, 255, 0.9);
-    color: white 
+    background :  rgba(7, 7, 92, 0.9);
+    color: white;
+    /* overflow: scroll; */
 }
+
+
+.hovering_tool_tip p {
+    width: 25vw; 
+    overflow: scroll;
+}
+
+.hovering_tool_tip h1{
+    font-size: medium;
+}
+
