@@ -116,3 +116,6 @@ https://github.com/aiman-al-masoud/psittacus/issues/2
 https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa858caeb1fef/app/src/view/take_lesson/take_lesson.jsx#L85
 
 * Add CSP to server to prevent loading custom code, but allow it with locally downloaded page
+
+# Mobile Friendliness (Responsiveness)
+...
