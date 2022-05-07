@@ -9,6 +9,8 @@
 body {
     background-color: var(--bg-color);
     font-family: sans-serif;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 
