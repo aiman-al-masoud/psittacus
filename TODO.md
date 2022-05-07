@@ -88,8 +88,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * Top navbar? Or centered menu?
 
-* Better hover over words tooltip.
-
 * Fix other React warnings.
 
 * Global linkable documentation mechanism 
