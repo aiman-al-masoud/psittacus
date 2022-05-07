@@ -10,7 +10,9 @@ export default class HoverableWord extends Component {
         super(props)
         
         this.state = {
-            hidden : true
+            hidden : true,
+            x : undefined,
+            y : undefined
         }
 
     }
@@ -21,12 +23,13 @@ export default class HoverableWord extends Component {
             <span >
                 <span onMouseLeave={this.toggleDefinition}   onMouseEnter={this.toggleDefinition}   onClick={this.toggleDefinition} style={ {color : this.state.hidden?"black": "orange"  , cursor:"default"  } }   >{this.props.word} </span>
                                 
-                <Tooltip hidden={this.state.hidden}  title={this.props.word}  body={this.props.definition} />
+                <Tooltip hidden={this.state.hidden}  title={this.props.word}  body={this.props.definition}  x={this.state.x}   y={this.state.y} />
 
             </span>)
     }
 
     toggleDefinition = (e) => {
+        this.setState({x : e.clientX, y : e.clientY})
         this.setState({hidden: !this.state.hidden})
     }
 

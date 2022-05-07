@@ -12,7 +12,7 @@ export default class Tooltip extends Component {
 
     render() {
         return (
-            <span className="hovering_tool_tip" style={this.props.hidden ? Styles.invisible : Styles.visible}>
+            <span className="hovering_tool_tip" style={ {left: this.props.x, top:this.props.y , ...(this.props.hidden ? Styles.invisible : Styles.visible)} }>
                 <h1>{this.props.title}</h1>
                 <p>{this.props.body}</p>
             </span>
