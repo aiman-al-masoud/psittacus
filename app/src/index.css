@@ -105,3 +105,14 @@ select option {
     border-radius: 70px;
     background-color: whitesmoke;
 }
+
+.hovering_tool_tip{
+    position: absolute; 
+    top: top;
+    border: solid 1px black;
+    border-radius: 10px;
+    width :  20vw;
+    padding: 1vw;
+    background :  rgba(0, 0, 255, 0.9);
+    color: white 
+}
