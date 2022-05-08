@@ -72,18 +72,26 @@ export default class Proposition {
         return this.score
     }
 
+    sentenceOneEntries(){
+        return this.sentenceOne.split(/\s+/).map(w=> [w, this.wordDict[w]  ]  )
+    }
+
+    sentenceTwoEntries(){
+        return this.sentenceTwo.split(/\s+/).map(w=> [w, this.reverseDict[w]  ]  )
+    }
+
     /**
      * If targetToNative==true, return the data for the target language.
      */
     getQuestionWordDict = () => {
-        return this.targetToNative ? this.wordDict : this.reverseDict
+        return this.targetToNative ? this.sentenceOneEntries() : this.sentenceTwoEntries()
     }
 
     /**
      * If targetToNative==true, return the data for the native language.
      */
     getAnswerWordDict = () => {
-        return this.targetToNative ? this.reverseDict : this.wordDict
+        return this.targetToNative ? this.sentenceTwoEntries() : this.sentenceOneEntries() 
     }
 
     getHash = ()=>{
