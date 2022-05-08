@@ -21,7 +21,7 @@
     "source_lang_is" : "Translate the sentence to the source language, that is: the language that your students understand.",
     "write_word_dict" : "Dictionary",
     "words_will_appear_word_dict" : "Explain each word you used in a manner that your students will understand.",
-    "words_will_appear" : "Words will appear here as you type in the sentence in the target language.",
+    "words_will_appear" : "Words will appear here as you type in the sentence.",
     "write_reverse_dict": "Reverse Dictionary",
     "words_will_appear_reverse_dict" : "Provide a translation of the words from your students language to the language they're learning.",
     "choose_translation_direction" : "Direction",
