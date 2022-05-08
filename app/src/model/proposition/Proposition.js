@@ -72,16 +72,25 @@ export default class Proposition {
         return this.score
     }
 
+    /**
+     * Returns a [word, definition] list with sentenceOne's words.
+     * @returns {  [[string, string]]  }
+     */
     sentenceOneEntries(){
         return this.sentenceOne.split(/\s+/).map(w=> [w, this.wordDict[w]  ]  )
     }
 
+    /**
+     * Returns a [word, definition] list with sentenceTwo's words.
+     * @returns {  [[string, string]]  }
+     */
     sentenceTwoEntries(){
         return this.sentenceTwo.split(/\s+/).map(w=> [w, this.reverseDict[w]  ]  )
     }
 
     /**
      * If targetToNative==true, return the data for the target language.
+     * @returns {  [[string, string]]  }
      */
     getQuestionWordDict = () => {
         return this.targetToNative ? this.sentenceOneEntries() : this.sentenceTwoEntries()
@@ -89,11 +98,16 @@ export default class Proposition {
 
     /**
      * If targetToNative==true, return the data for the native language.
+     * @returns {  [[string, string]]  }
      */
     getAnswerWordDict = () => {
         return this.targetToNative ? this.sentenceTwoEntries() : this.sentenceOneEntries() 
     }
 
+    /**
+     * 
+     * @returns {number}
+     */
     getHash = ()=>{
         return (this.sentenceOne+this.sentenceTwo).split("").map((c)=>{return c.charCodeAt(0)}).reduce( (a, b)=>{return a + b} )
     }

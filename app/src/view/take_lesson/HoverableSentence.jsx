@@ -5,6 +5,7 @@ import HoverableWord from "./HoverableWord.jsx";
 
 export default class HoverableSentence extends Component{
     
+   
     constructor(props){
         super(props)
     }
