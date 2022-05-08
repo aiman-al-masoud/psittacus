@@ -4,6 +4,8 @@ import "../../index.css"
 import L from "../../model/utilities/Language.js"
 import Modes from "./Modes.js";
 import Styles from "../Styles.js";
+import PlayAudioIcon from "../../../res/play-audio.png"
+
 
 export default class TakeLesson extends Component {
 
@@ -55,9 +57,11 @@ export default class TakeLesson extends Component {
                 <div className="text_tip">{L.need_a_tip_hover_words}</div>
                 <br />
 
-                <div>
+                <div style={{width:"50vw"}}>
+                
                 <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
-                <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="normal_button" style={(this.state.proposition.targetToNative && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline: Styles.invisible  } title={L.shortcut_play_audio}>{L.play_audio}</button>
+
+                <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={  (this.state.proposition.targetToNative && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline: Styles.invisible } title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon}  />  </button>
 
                 </div>
                 

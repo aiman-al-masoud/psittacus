@@ -12,3 +12,6 @@ https://www.iconfinder.com/icons/1564508/download/png/48
 
 Favicon: (modified the original)
 https://pixabay.com/illustrations/parrot-bird-perched-drawing-art-6805595/
+
+PlayAudio:
+https://www.iconfinder.com/icons/510856/audio_sound_speaker_volume_icon

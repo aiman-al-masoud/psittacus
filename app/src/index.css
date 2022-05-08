@@ -30,7 +30,9 @@ h1 {
 }
 
 .normal_button,
+.transparent_button,
 .dangerous_button,
+.play_audio_button
 .safe_button {
     border: 1px black dotted;
     margin: 1vh;
@@ -39,15 +41,43 @@ h1 {
     color: white;
 }
 
+.transparent_button,
+.play_audio_button{
+    background: transparent;
+    border: none;
+    border-radius: 100%;
+    padding: 0;
+}
+
+
+
+
+
 .normal_button:hover,
 .normal_button:focus,
 .dangerous_button:hover,
 .dangerous_button:focus,
 .safe_button:hover,
-.safe_button:focus {
+.safe_button:focus,
+.transparent_button:hover, 
+.transparent_button:focus, 
+.play_audio_button:hover,
+.play_audio_button:focus
+{
     outline: 2px var(--on-focus-color) solid;
     color: var(--on-focus-color);
 }
+
+
+.play_audio_button{
+    float: right;
+}
+
+
+
+
+
+
 
 .dangerous_button {
     background-color: var(--dangerous-item-color);
@@ -100,11 +130,11 @@ select option {
     font-size: large;
 }
 
-.home_button {
+/* .home_button {
     padding: 0;
     border-radius: 70px;
     background-color: whitesmoke;
-}
+} */
 
 .hovering_tool_tip{
     position: absolute; 
@@ -125,4 +155,6 @@ select option {
 .hovering_tool_tip h1{
     font-size: medium;
 }
+
+
 
