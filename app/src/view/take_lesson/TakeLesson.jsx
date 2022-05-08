@@ -57,17 +57,14 @@ export default class TakeLesson extends Component {
                 <div className="text_tip">{L.need_a_tip_hover_words}</div>
                 <br />
 
-                <div style={{width:"50vw"}}>
-                
-                <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
+                <div style={{ width: "50vw" }}>
 
-                <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={  (this.state.proposition.targetToNative && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline: Styles.invisible } title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon}  />  </button>
+                    <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
+
+                    <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={(this.state.proposition.targetToNative && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
 
                 </div>
-                
 
-
-                {/* <br /> */}
 
                 <br />
                 <input ref={this.userInput} type="text" className="normal_textbox" />
