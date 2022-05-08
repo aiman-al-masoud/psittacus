@@ -99,6 +99,9 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
     method that allows to tell Documentation where to 
     jump to.
 
+* extract button component 
+* extract read and play sentence component 
+
 # Dynamic class loading
 
 * centralize all dynamic class manipulating methods in ClassLoader as much as possible
