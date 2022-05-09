@@ -104,6 +104,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * PUT playAudio() logic in Proposition, as it has all of the relevant info to determine whether or not a player can hear the audio
 
+* number keys to select word in sentences 
+
 # Dynamic class loading
 
 * centralize all dynamic class manipulating methods in ClassLoader as much as possible
