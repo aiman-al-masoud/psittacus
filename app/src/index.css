@@ -1,7 +1,7 @@
 :root {
     --bg-color: rgba(245, 245, 245, 0.445);
     --on-focus-color: orange;
-    --normal-item-color: rgb(7, 7, 92);
+    --normal-item-color: rgba(7, 7, 92, 0.9);
     --dangerous-item-color: red;
     --safe-item-color: green;
 }
