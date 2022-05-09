@@ -169,7 +169,7 @@ export default class CraftLesson extends Component {
 
 
     componentDidMount(){
-        window.addEventListener("keydown", (e)=>{
+        window.addEventListener("keydown", this.keyListener = (e)=>{
 
             //save lesson to computer and override default behavior
             if ( (e.code == "KeyS") && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
@@ -194,6 +194,10 @@ export default class CraftLesson extends Component {
             }
 
         })
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("keydown", this.keyListener)
     }
 
 
