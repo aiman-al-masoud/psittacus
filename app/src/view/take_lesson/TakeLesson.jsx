@@ -97,10 +97,9 @@ export default class TakeLesson extends Component {
         </div>)
     }
 
-
-
     componentDidMount() {
-        window.addEventListener("keydown", (e) => {
+
+        window.addEventListener("keydown", this.keyListener =  (e) => {
 
             //play recording if user allowed to hear it
             if (e.code == "Space" && e.shiftKey) {
@@ -110,6 +109,12 @@ export default class TakeLesson extends Component {
 
         })
     }
+
+    componentWillUnmount(){
+        window.removeEventListener( "keydown", this.keyListener)
+    }
+
+
 
 
 }
