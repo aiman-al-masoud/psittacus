@@ -78,7 +78,7 @@ export default class TakeLesson extends Component {
                     <h2>{L.your_accuracy}: {this.state.userAccuracy}%</h2>
                 </div>
                 <br />
-                <span className="text_tip">{L.need_a_lot_of_tips} <span className="normal_link" onClick={() => { this.setState({ mode: Modes.EXPLANATION }) }}>{L.read_explanation}</span></span>
+                <span className="text_tip">{L.need_a_lot_of_tips} <button  className="normal_link" onClick={() => { this.setState({ mode: Modes.EXPLANATION }) }}>{L.read_explanation}</button></span>
             </div>
 
 

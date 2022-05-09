@@ -118,6 +118,9 @@ select option {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 .normal_link:hover {
