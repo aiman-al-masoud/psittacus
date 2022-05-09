@@ -79,8 +79,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * Alert user when saving broken lessons
 
-* Fix-up keyboard shorcuts.
-
 * Write some automated tests
 [selenium, cyprus, xdotool]
 
