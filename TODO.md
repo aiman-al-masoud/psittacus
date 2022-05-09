@@ -100,7 +100,9 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
     jump to.
 
 * extract button component 
-* extract read and play sentence component 
+* extract read and play sentence component
+
+* debounce position of hovering tooltip
 
 # Dynamic class loading
 
