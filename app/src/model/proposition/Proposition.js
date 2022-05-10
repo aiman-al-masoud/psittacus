@@ -26,13 +26,21 @@ export default class Proposition {
         this.wordDict = jsonData.word_dict
         this.reverseDict = jsonData.reverse_dict
         this.targetToNative = jsonData.target_to_native ?? true
+
+        this.answerHidden = true // is answer still hidden?
     }
 
     /**
-     * Play the audio of the sentence.
+     * Play the audio of the sentence if the user is allowed to hear it.
      */
     play = () => {
-        playBase64(this.audioBase64)
+
+        if(  (!this.targetToNative) && this.answerHidden ){
+            //user is barred from hearing when: they must still answer to a nativeToTarget question!
+        }else{
+            playBase64(this.audioBase64)
+        }
+        
     }
 
     /**
@@ -93,6 +101,7 @@ export default class Proposition {
      * @returns {  [[string, string]]  }
      */
     getQuestionWordDict = () => {
+        this.answerHidden  = true
         return this.targetToNative ? this.sentenceOneEntries() : this.sentenceTwoEntries()
     }
 
@@ -101,6 +110,7 @@ export default class Proposition {
      * @returns {  [[string, string]]  }
      */
     getAnswerWordDict = () => {
+        this.answerHidden = false
         return this.targetToNative ? this.sentenceTwoEntries() : this.sentenceOneEntries() 
     }
 

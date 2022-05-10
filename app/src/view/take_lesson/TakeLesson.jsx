@@ -23,7 +23,7 @@ export default class TakeLesson extends Component {
             mode: Modes.STANDARD
         }
 
-        this.lesson.getCurrent().targetToNative ? this.lesson.getCurrent().play() : ""
+        this.lesson.getCurrent().play()
 
     }
 
@@ -32,12 +32,12 @@ export default class TakeLesson extends Component {
 
         if (this.state.solutionHidden) {
             this.setState({ userAccuracy: this.state.proposition.check(this.userInput.current.value) })
-            this.lesson.getCurrent().targetToNative ? "" : this.lesson.getCurrent().play()
+            this.lesson.getCurrent().play()
         } else {
             this.lesson.next()
             this.setState({ proposition: this.lesson.getCurrent() })
             this.userInput.current.value = ""
-            this.lesson.getCurrent().targetToNative ? this.lesson.getCurrent().play() : ""
+            this.lesson.getCurrent().play()
         }
 
         this.setState({ solutionHidden: !this.state.solutionHidden })
@@ -60,7 +60,6 @@ export default class TakeLesson extends Component {
                 <div style={{ width: "50vw" }}>
 
                     <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
-
                     <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={(this.state.proposition.targetToNative && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
 
                 </div>
@@ -104,7 +103,7 @@ export default class TakeLesson extends Component {
             //play recording if user allowed to hear it
             if (e.code == "Space" && e.shiftKey) {
                 e.preventDefault();
-                this.lesson.getCurrent().targetToNative ? this.lesson.getCurrent().play() : ""
+                this.lesson.getCurrent().play()
             }
 
         })

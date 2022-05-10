@@ -102,8 +102,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * debounce position of hovering tooltip
 
-* PUT playAudio() logic in Proposition, as it has all of the relevant info to determine whether or not a player can hear the audio
-
 * number keys to select word in sentences 
 
 * confirm box when enabling dev-options?
