@@ -124,3 +124,13 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 # Mobile Friendliness (Responsiveness)
 ...
+
+# Argostranslate running on python server to autogenerate lessons?
+
+https://github.com/argosopentech/argos-translate
+
+offline TTS:
+
+https://www.section.io/engineering-education/text-to-speech-in-javascript/
+
+
