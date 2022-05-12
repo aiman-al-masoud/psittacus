@@ -1,0 +1,6 @@
+{
+    "word_dict"  : "translator_dict",
+    "translator" : "local",
+    "voice_synthesizer" : "local",
+    "voice_rate" :  100
+}
