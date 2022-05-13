@@ -34,7 +34,7 @@ export default class LessonsTable extends Component {
     render() {
         return (<div>
 
-            <table className="table"  style={{width:"70vw"}}>
+            <table className="table"  style={{width:"70vw", height:"3vh"  }}>
                 <tr><th>author</th><th>target language</th><th>source language</th><th>title</th></tr>
             </table>
 

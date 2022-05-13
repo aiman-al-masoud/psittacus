@@ -172,12 +172,14 @@ select option {
 .table td th{
     border: solid black 1px;      
     cursor:default;
+    padding: 0;
+    text-align: left;
 }
 
-.table thead{
+/* .table thead{
     height: 2em;
     padding: 0%;
-}
+} */
 
 
 /* .table tbody { */
