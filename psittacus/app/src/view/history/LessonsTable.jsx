@@ -34,7 +34,9 @@ export default class LessonsTable extends Component {
     render() {
         return (<div>
 
-            <table className="table"  style={{width:"70vw"}}><tr><th>author</th><th>target language</th><th>source language</th><th>title</th></tr></table>
+            <table className="table"  style={{width:"70vw"}}>
+                <tr><th>author</th><th>target language</th><th>source language</th><th>title</th></tr>
+            </table>
 
             <div style={{ overflowY: "scroll", height: "200px", width: "70vw" }}>
 
