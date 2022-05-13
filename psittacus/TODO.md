@@ -84,6 +84,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Graphical Stuff
 
+* table with lesson-attrib fields and search by attribs in history
+
 * Top navbar? Or centered menu?
 
 * Fix other React warnings.
