@@ -26,6 +26,6 @@ export default class LessonRow extends Component {
     }
 
     render(){
-        return <tr tabindex="0" title="click to re-take" style={{background: this.state.highlight? "yellow" : "white"  }}  onMouseEnter={ this.toggleHighlight } onMouseLeave={this.toggleHighlight}   onClick={   this.onTakeLesson  }    ><td>{Lesson.parseId(this.props.lessonId).author}</td><td>{Lesson.parseId(this.props.lessonId).target_language}</td><td>{Lesson.parseId(this.props.lessonId).source_language}</td><td>{Lesson.parseId(this.props.lessonId).title}</td> </tr>
+        return <tr tabindex="0" title="click to open" style={{background: this.state.highlight? "yellow" : "white"  }}  onMouseEnter={ this.toggleHighlight } onMouseLeave={this.toggleHighlight}   onClick={   this.onTakeLesson  }    ><td>{Lesson.parseId(this.props.lessonId).author}</td><td>{Lesson.parseId(this.props.lessonId).target_language}</td><td>{Lesson.parseId(this.props.lessonId).source_language}</td><td>{Lesson.parseId(this.props.lessonId).title}</td> </tr>
     }
 }
