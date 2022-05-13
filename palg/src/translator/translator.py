@@ -14,7 +14,6 @@ class Translator:
             "local" : LocalTranslator
         }
 
-        # return  classes[S.instance().getVal(S.TRANSLATOR)](language_two) # TODO: make uniform
         return  classes[S.instance().getVal(S.TRANSLATOR)](language_one, language_two)
 
 
