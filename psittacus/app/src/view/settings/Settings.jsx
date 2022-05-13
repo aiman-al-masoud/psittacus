@@ -46,6 +46,10 @@ export default class Settings extends Component {
         saveToComp(JSON.stringify(UserProgress.userProgress()), "progress.txt", "text/plain")
     }
 
+    eraseProgress = ()=>{
+        confirm("Are you sure?")? UserProgress.eraseProgress() : undefined
+    }
+
     render() {
 
         return (<div>
@@ -83,7 +87,7 @@ export default class Settings extends Component {
 
             <button onClick={this.exportProgress} className="normal_button">{L.export_progress}</button>
             <button onClick={this.importProgress} className="normal_button">{L.import_progress}</button>
-            <button onClick={UserProgress.eraseProgress} className="normal_button">{L.erase_progress}</button>
+            <button onClick={this.eraseProgress} className="normal_button">{L.erase_progress}</button>
 
             <br />
             <br />
