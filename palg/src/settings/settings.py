@@ -28,7 +28,7 @@ class Settings:
         """
         Get the current instance of the Settings singleton.
         """
-        Settings.aInstance = Settings(Settings.DEFAULT_PATH)
+        Settings.aInstance = Settings.aInstance or Settings(Settings.DEFAULT_PATH)
         return Settings.aInstance
     
     def getVal(self, key:str):
