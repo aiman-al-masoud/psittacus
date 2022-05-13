@@ -160,4 +160,30 @@ select option {
 }
 
 
+.table{
+    border: solid black 1px;      
+    border-collapse : collapse;
+    width: 70vw;
+    overflow-y: scroll;    /* Trigger vertical scroll    */
+    height: 100px;
+    max-height: 100px;
+}
+
+.table td th{
+    border: solid black 1px;      
+    cursor:default;
+}
+
+.table thead{
+    height: 2em;
+    padding: 0%;
+}
+
+
+/* .table tbody { */
+    /* height: 100px;       Just for the demo          */
+    /* overflow-y: scroll;    Trigger vertical scroll    */
+/* } */
+
+
 

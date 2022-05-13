@@ -119,6 +119,7 @@ export default class Lesson {
         return new Lesson(record.lesson)
     }
 
+    //TODO: add search filters
     static getLessonIdsHistory(){
         return UserProgress.lessonsScores().map(l=>l.id)
     }

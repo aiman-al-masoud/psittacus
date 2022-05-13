@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Lesson from "../../model/lesson/Lesson.js";
 import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 import L from "../../model/utilities/Language.js";
-import LessonButton from "./LessonButton.jsx";
+import LessonsTable from "./LessonsTable.jsx"
 
 export default class History extends Component {
 
@@ -27,9 +27,15 @@ export default class History extends Component {
             <h1>{L.lessons_history}</h1>
             <div className="text_tip">{L.history_here}</div>
 
-            <div>
+            {/* <div>
                 {Lesson.getLessonIdsHistory().map(id => { return <LessonButton lessonId={id} key={id} takeLesson={this.props.takeLesson} /> })}
-            </div>
+            </div> */}
+
+            <LessonsTable lessonIds={ Lesson.getLessonIdsHistory() }  takeLesson={this.props.takeLesson} />
+            
+            {/* <LessonsTable lessonIds={ ((li)=>{ for(let i=0;i<5;i++){ li = li.concat(li) }; return li  })(Lesson.getLessonIdsHistory())   }  takeLesson={this.props.takeLesson} /> */}
+
+
 
         </div>)
     }
