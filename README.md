@@ -6,7 +6,7 @@
 <p>Psittacus iratus linguas docet 🦜</p>
 <p><em>The angry parrot teaches languages 🦜</em></p>
 
-<img src="./app/res/favicon.png" />
+<img src="./psittacus/app/res/favicon.png" />
 
 
 ## What is it?
@@ -189,7 +189,10 @@ And maybe consider doing this in `jsconfig.json`:
    
    # Automatic Lesson Generator
    
-   <a href="https://github.com/aiman-al-masoud/psittacus_automatic_lesson_generator">https://github.com/aiman-al-masoud/psittacus_automatic_lesson_generator</a>
+   For more info:
+
+   <a href="./palg/README.md"> `./palg/README.md` </a>
+
 </details>
 
 
