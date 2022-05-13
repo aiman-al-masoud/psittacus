@@ -126,6 +126,8 @@ export default class Lesson {
      * @returns 
      */
     static getLessonIdsHistory(metadataFilter=undefined){
+
+        console.log(metadataFilter)
         
         let ids = UserProgress.lessonsScores().map(l=>l.id)
 
@@ -135,10 +137,10 @@ export default class Lesson {
                 let metadata = Lesson.parseId(id) 
                 // Object.entries(metadataFilter)
                 return (
-                    ((metadataFilter.author ?? metadata.author) == metadata.author)&&
-                    ((metadataFilter.source_language ?? metadata.source_language) == metadata.source_language)&&
-                    ((metadataFilter.target_language ?? metadata.target_language) == metadata.target_language)&&
-                    ((metadataFilter.title ?? metadata.title) == metadata.title)
+                    ((metadataFilter.author || metadata.author) == metadata.author)&&
+                    ((metadataFilter.source_language || metadata.source_language) == metadata.source_language)&&
+                    ((metadataFilter.target_language || metadata.target_language) == metadata.target_language)&&
+                    ((metadataFilter.title || metadata.title) == metadata.title)
                     )
             })
         }

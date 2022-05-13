@@ -27,7 +27,7 @@ export default class History extends Component {
             <h1>{L.lessons_history}</h1>
             <div className="text_tip">{L.history_here}</div>
 
-            <LessonsTable lessonIds={ Lesson.getLessonIdsHistory() }  takeLesson={this.props.takeLesson} />
+            <LessonsTable  takeLesson={this.props.takeLesson} />
             
             {/* <LessonsTable lessonIds={ ((li)=>{ for(let i=0;i<5;i++){ li = li.concat(li) }; return li  })(Lesson.getLessonIdsHistory())   }  takeLesson={this.props.takeLesson} /> */}
 
