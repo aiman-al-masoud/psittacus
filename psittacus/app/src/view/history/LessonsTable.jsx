@@ -18,33 +18,27 @@ export default class LessonsTable extends Component {
     render() {
         return (<div>
 
-            Author
-            <input type="radio" id="author" name="lesson_filter" />
-            Source Language
-            <input type="radio" id="source language" name="lesson_filter" />
-            Target Language
-            <input type="radio" id="target language" name="lesson_filter" />
-            Title
-            <input type="radio" id="title" name="lesson_filter" />
-
-
-            <input type="text" name="" id="" />  <button className="normal_button">Search</button>
-
+            <div style={{overflowY:"scroll", height:"200px"}}>
             <table className="table">
-                {/* <thead> */}
-                    <tr><th>author</th><th>target language</th><th>source language</th><th>title</th></tr>
-                {/* </thead> */}
+                <tr><th>author</th><th>target language</th><th>source language</th><th>title</th></tr>
                 <tbody  >
                     {this.props.lessonIds.map(id => <LessonRow lessonId={id} key={id} takeLesson={this.props.takeLesson} />)}
                 </tbody>
             </table>
+            </div>
 
-            {/* <div style={{ overflowY: "scroll", height: "100px" }}>
-                <table className="table">
-                   
-                </table>
-            </div> */}
+            <h2>Filters</h2>
 
+            Target Language:
+            <input type="text" name="" id="" />
+            Source Language:
+            <input type="text" name="" id="" />
+            <br />
+            Author:
+            <input type="text" name="" id="" />
+            Title:
+            <input type="text" name="" id="" />
+            <br />
 
         </div>)
     }

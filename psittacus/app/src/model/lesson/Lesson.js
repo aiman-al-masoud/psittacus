@@ -120,8 +120,31 @@ export default class Lesson {
     }
 
     //TODO: add search filters
-    static getLessonIdsHistory(){
-        return UserProgress.lessonsScores().map(l=>l.id)
+    /**
+     * 
+     * @param {{author:string, target_language:string, source_language:string, title:string}} metadataFilter 
+     * @returns 
+     */
+    static getLessonIdsHistory(metadataFilter=undefined){
+        
+        let ids = UserProgress.lessonsScores().map(l=>l.id)
+
+        if(metadataFilter){
+
+            return ids.filter(id=>{
+                let metadata = Lesson.parseId(id) 
+                // Object.entries(metadataFilter)
+                return (
+                    ((metadataFilter.author ?? metadata.author) == metadata.author)&&
+                    ((metadataFilter.source_language ?? metadata.source_language) == metadata.source_language)&&
+                    ((metadataFilter.target_language ?? metadata.target_language) == metadata.target_language)&&
+                    ((metadataFilter.title ?? metadata.title) == metadata.title)
+                    )
+            })
+        }
+
+        return ids
+
     }
 
     
