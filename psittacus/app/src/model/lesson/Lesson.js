@@ -12,7 +12,7 @@ export default class Lesson {
     constructor(jsonData) {
         this.jsonData = jsonData
         this.metadata = jsonData.metadata
-        this.explanationText = jsonData.explanation.text
+        this.explanationText = jsonData.explanation.text 
         this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
         this.oldScores = UserProgress.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
         this.scheduler = PropositionSchedulerFactory.getScheduler(this.oldScores, this.propositions)
@@ -119,9 +119,8 @@ export default class Lesson {
         return new Lesson(record.lesson)
     }
 
-    //TODO: add search filters
     /**
-     * 
+     * Retrieve the ids of the lessons in history, with optional filtering on their metadata.
      * @param {{author:string, target_language:string, source_language:string, title:string}} metadataFilter 
      * @returns 
      */
