@@ -68,14 +68,20 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Refactoring
 
+* extract button component 
+* extract read and play sentence component
+
 * extract common superclass of SchedulerManager(s) ?
 
-* **Turn jsons to class: LessonScores ? w/:**
+* **Turn jsons to class: LessonScores ? w/:** 
 [ lastTaken() ,propositionScores() ,overall() ,history() ]
+(or just more type hints)
 
 * Add type annotations to comments (where possible).
 
 # Random Stuff
+
+* translate last part on searching cached lessons
 
 * Alert user when saving broken lessons
 
@@ -83,8 +89,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 [selenium, cyprus, xdotool]
 
 # Graphical Stuff
-
-* table with lesson-attrib fields and search by attribs in history
 
 * Top navbar? Or centered menu?
 
@@ -99,8 +103,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
     method that allows to tell Documentation where to 
     jump to.
 
-* extract button component 
-* extract read and play sentence component
 
 * debounce position of hovering tooltip
 
