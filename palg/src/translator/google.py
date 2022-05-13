@@ -8,7 +8,7 @@ class GoogleTranslator(Translator):
     Requires-Internet connection. Google.
     """
 
-    def __init__(self, dest_lang):
+    def __init__(self, source_lang, dest_lang):
         self.t = gt.Translator()
         self.dest_lang = dest_lang
 
