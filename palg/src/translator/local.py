@@ -12,40 +12,24 @@ class LocalTranslator(Translator):
         to_code = LocalTranslator.lang_to_code[language_two]
 
         # Download and install Argos Translate package
-        available_packages = argostranslate.package.get_available_packages()
-
-
+        # available_packages = argostranslate.package.get_available_packages()
         # print(available_packages)
-
-        available_package = list(filter(lambda x: x.from_code == from_code and x.to_code == to_code, available_packages))[0]
-
+        # available_package = list(filter(lambda x: x.from_code == from_code and x.to_code == to_code, available_packages))[0]
         # print(available_package)
-
         # download_path = available_package.download()
         # print(download_path)
-
         # download_path = "/home/aiman/.local/cache/argos-translate/downloads/translate-it_en.argosmodel"
-        
-        download_path = f"/home/aiman/.local/cache/argos-translate/downloads/translate-{from_code}_{to_code}.argosmodel"
+        # download_path = f"/home/aiman/.local/cache/argos-translate/downloads/translate-{from_code}_{to_code}.argosmodel"
+        # print(download_path)
+        # # print(download_path, "download path")
+        # argostranslate.package.install_from_path(download_path)
+        # print("done installing from file")
 
-        print(download_path)
-
-        # print(download_path, "download path")
-        argostranslate.package.install_from_path(download_path)
-        print("done installing from file")
-
-        # Translate
+        # load models from ~/.local/cache/argos-translate/downloads
         installed_languages = argostranslate.translate.get_installed_languages()
-
-        # print(installed_languages)
-
         from_lang = list(filter(lambda x: x.code == from_code, installed_languages))[0]
         to_lang = list(filter(lambda x: x.code == to_code, installed_languages))[0]
-        
         self.translation = from_lang.get_translation(to_lang)
-
     
     def translate(self, sentences):
         return [(s, self.translation.translate(s)) for s in sentences]
-
-
