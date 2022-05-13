@@ -15,7 +15,8 @@ class Settings:
     TRANSLATOR = "translator"
     VOICE_SYNTHESIZER  = "voice_synthesizer" 
     VOICE_RATE = "voice_rate"
-
+    MIN_SENTENCE_LEN = "min_sentence_len"
+    MAX_SENTENCE_LEN = "max_sentence_len"
 
     def __init__(self, pathname):
         self.pathname = pathname  or Settings.DEFAULT_PATH

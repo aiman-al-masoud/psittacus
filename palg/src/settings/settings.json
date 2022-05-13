@@ -2,5 +2,7 @@
     "word_dict"  : "translator_dict",
     "translator" : "local",
     "voice_synthesizer" : "local",
-    "voice_rate" :  100
+    "voice_rate" :  100,
+    "min_sentence_len" : 10,
+    "max_sentence_len" : 80
 }

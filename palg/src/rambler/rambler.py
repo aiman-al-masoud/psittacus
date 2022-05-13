@@ -1,4 +1,5 @@
 import random as rand
+from settings.settings import Settings as S
 
 class Rambler():
 
@@ -12,9 +13,9 @@ class Rambler():
         self.corpus = self.text.split(".")
 
         # filter out long/short sentences
-        max_char_len = 80
-        min_char_len = 60
-        self.corpus = [ s for s in self.corpus if (len(s) <= max_char_len and len(s) >= min_char_len)    ]
+        max_char_len = S.instance().getVal(S.MAX_SENTENCE_LEN) or 80
+        min_char_len = S.instance().getVal(S.MIN_SENTENCE_LEN) or 60
+        self.corpus = [ s for s in self.corpus if (  min_char_len <= len(s) <= max_char_len )    ]
 
     def sample(self, size):
         return rand.sample(self.corpus, size)
