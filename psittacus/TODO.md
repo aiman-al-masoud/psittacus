@@ -129,10 +129,4 @@ https://github.com/aiman-al-masoud/psittacus/blob/ecb7318803b888beedb1ef8bb3caa8
 
 # Argostranslate running on python server to autogenerate lessons?
 
-https://github.com/argosopentech/argos-translate
-
-offline TTS: (can't use offline, it would make the interface behind lesson production kind of complicated)
-
-https://www.section.io/engineering-education/text-to-speech-in-javascript/
-
 
