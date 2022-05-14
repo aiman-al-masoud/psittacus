@@ -5,12 +5,18 @@ import L from "../../model/utilities/Language.js"
 import Modes from "./Modes.js";
 import Styles from "../Styles.js";
 import PlayAudioIcon from "../../../res/play-audio.png"
+import Lesson from "../../model/lesson/Lesson.js";
 
 
 export default class TakeLesson extends Component {
 
+    /**
+     * 
+     * @param {{lesson:Lesson}} props 
+     */
     constructor(props) {
         super(props)
+        this.props = props
 
         this.lesson = props.lesson
         this.userInput = React.createRef()
@@ -43,10 +49,7 @@ export default class TakeLesson extends Component {
         this.setState({ solutionHidden: !this.state.solutionHidden })
         this.setState({ mode: this.lesson.isOver() ? Modes.LESSON_OVER : this.state.mode })
         this.setState({ overallUserAccuracy: this.lesson.getScore() })
-
     }
-
-
 
     render() {
 
@@ -64,7 +67,6 @@ export default class TakeLesson extends Component {
 
                 </div>
 
-
                 <br />
                 <input ref={this.userInput} type="text" className="normal_textbox" />
                 <br />
@@ -79,7 +81,6 @@ export default class TakeLesson extends Component {
                 <br />
                 <span className="text_tip">{L.need_a_lot_of_tips} <button  className="normal_link" onClick={() => { this.setState({ mode: Modes.EXPLANATION }) }}>{L.read_explanation}</button></span>
             </div>
-
 
             <div style={this.state.mode == Modes.LESSON_OVER ? Styles.visible : Styles.invisible}   >
                 <h1>{L.thank_you_for_taking_lesson}</h1>
