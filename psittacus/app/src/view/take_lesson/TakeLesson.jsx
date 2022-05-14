@@ -6,6 +6,8 @@ import Modes from "./Modes.js";
 import Styles from "../Styles.js";
 import PlayAudioIcon from "../../../res/play-audio.png"
 import Lesson from "../../model/lesson/Lesson.js";
+import DOMPurify from 'dompurify';
+
 
 
 export default class TakeLesson extends Component {
@@ -95,11 +97,9 @@ export default class TakeLesson extends Component {
                 <h2>{L.overall_accuracy} {this.state.overallUserAccuracy}%</h2>
             </div>
 
-
             <div style={this.state.mode == Modes.EXPLANATION ? Styles.visible : Styles.invisible}   >
-                <button onClick={() => { this.setState({ mode: Modes.STANDARD }) }} className="normal_button">{L.back}</button>
-                {/* Doesn't seem to execute javascript in Chromium and Firefox, but someone said it could... (could lead to xss problems) */}
-                <div dangerouslySetInnerHTML={{ __html: this.lesson.explanationText }}></div>
+                <button onClick={() => { this.setState({ mode: Modes.STANDARD }) }} className="normal_button">{L.back}</button>                
+                <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.lesson.explanationText) }}></div>
             </div>
 
         </div>)
