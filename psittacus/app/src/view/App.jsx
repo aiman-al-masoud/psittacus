@@ -22,17 +22,18 @@ export default class App extends Component {
     constructor(props) {
         super(props)
 
-        this.menu = (<div>
+        this.menu = (<div style={{display: "grid",   gridTemplateColumns: "auto auto"    }}>
+            
             <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}  className="normal_button">{L.take_lesson}</button>
-            <br />
+            
             <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="normal_button" >{ L.history }</button>
-            <br />
+            
             <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} className="normal_button" >{L.craft_new_lesson}</button>
-            <br />
+
             <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} className="normal_button" >{L.edit_lesson}</button>
-            <br />
+
             <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="normal_button" >{L.info}</button>
-            <br />
+
             <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="normal_button" >{L.settings}</button>
 
         </div>)
