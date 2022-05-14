@@ -22,9 +22,17 @@ export default class DeveloperOptions extends Component {
     }
 
     toggle = () => {
-        let s = !S.getInstance().get(S.DEV_OPTIONS_ENABLED)
-        S.getInstance().set(S.DEV_OPTIONS_ENABLED, s)
-        this.setState({ DEV_OPTIONS_ENABLED: s })
+        
+        if(!S.getInstance().get(S.DEV_OPTIONS_ENABLED)){ //if not enabled yet
+            if(confirm(L.are_you_sure_enable_dev_options)){
+                S.getInstance().set(S.DEV_OPTIONS_ENABLED, true)
+                this.setState({ DEV_OPTIONS_ENABLED: true })
+            }
+        }else{ // disable dev options (safe mode)
+            S.getInstance().set(S.DEV_OPTIONS_ENABLED, false)
+            this.setState({ DEV_OPTIONS_ENABLED: false }) 
+        }
+
     }
 
     render() {

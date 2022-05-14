@@ -47,7 +47,7 @@ export default class Settings extends Component {
     }
 
     eraseProgress = ()=>{
-        confirm("Are you sure?")? UserProgress.eraseProgress() : undefined
+        confirm(L.are_you_sure_delete_progress)? UserProgress.eraseProgress() : undefined
     }
 
     render() {

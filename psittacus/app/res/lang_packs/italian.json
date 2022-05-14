@@ -108,6 +108,8 @@
     "source_language" : "Lingua Origine",
     "author" : "Autore",
     "title" : "Titolo",
-    "filters" : "Filtri"
+    "filters" : "Filtri",
+    "are_you_sure_delete_progress" : "Sei sicuro di voler cancellare il tuo progresso?",
+    "are_you_sure_enable_dev_options" : "Attiva modalità sviluppatore? Ciò potrebbe esporti a rischi!"
  
 }
