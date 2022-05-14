@@ -103,6 +103,11 @@
     "template" : "Template",
     "click_reload_or_remove_custom_code" : "Click 'Reload' after adding custom code, or 'Remove All Custom Code' if you change your mind.",
     "remove_all_custom_code" : "Remove All Custom Code",
-    "dev_options_reload" : "Reload"
+    "dev_options_reload" : "Reload",
+    "target_language" : "Target Language",
+    "source_language" : "Source Language",
+    "author" : "Author",
+    "title" : "Title",
+    "filters" : "Filters"
 
 }

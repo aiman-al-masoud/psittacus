@@ -35,7 +35,7 @@ export default class LessonsTable extends Component {
         return (<div>
 
             <table className="table"  style={{width:"70vw", height:"3vh"  }}>
-                <tr><th>author</th><th>target language</th><th>source language</th><th>title</th></tr>
+                <tr><th>{L.author}</th><th>{L.target_language}</th><th>{L.source_language}</th><th>{L.title}</th></tr>
             </table>
 
             <div style={{ overflowY: "scroll", height: "200px", width: "70vw" }}>
@@ -47,16 +47,16 @@ export default class LessonsTable extends Component {
                 </table>
             </div>
 
-            <h2>Filters</h2>
+            <h2>{L.filters}</h2>
 
-            Target Language:
+            {L.target_language}: 
             <input type="text" onInput={(e) => { this.onUpdateFilter("target_language", e.target.value) }} />
-            Source Language:
+            {L.source_language}: 
             <input type="text" onInput={(e) => { this.onUpdateFilter("source_language", e.target.value) }} />
             <br />
-            Author:
+            {L.author}: 
             <input type="text" onInput={(e) => { this.onUpdateFilter("author", e.target.value) }} />
-            Title:
+            {L.title}: 
             <input type="text" onInput={(e) => { this.onUpdateFilter("title", e.target.value) }} />
             <br />
 

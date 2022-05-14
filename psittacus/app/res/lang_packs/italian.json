@@ -103,6 +103,11 @@
     "template" : "Modello",
     "click_reload_or_remove_custom_code" : "Clicca su 'Ricarica' dopo aver aggiunto codice personalizzato, o 'Rimuovi tutto il codice personalizzato' se hai cambiato idea.",
     "remove_all_custom_code" : "Rimuovi tutto il codice personalizzato",
-    "dev_options_reload" : "Ricarica"
+    "dev_options_reload" : "Ricarica",
+    "target_language" : "Lingua Obbiettivo",
+    "source_language" : "Lingua Origine",
+    "author" : "Autore",
+    "title" : "Titolo",
+    "filters" : "Filtri"
  
 }
