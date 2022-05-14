@@ -46,7 +46,7 @@ h1 {
     background: transparent;
     border: none;
     border-radius: 100%;
-    padding: 0;
+    padding: 1vw;
 }
 
 
@@ -188,4 +188,8 @@ select option {
 /* } */
 
 
+.center_container{
+    display: flex; 
+    justify-content: center;
+}
 

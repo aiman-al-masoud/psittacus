@@ -14,6 +14,15 @@ import HomeIcon from "../../res/home.png"
 import SelectSound from "../../res/select.mp3"
 import History from "./history/History.jsx";
 
+import TakeLessonIcon from "../../res/take-lesson.png"
+import CreateLessonIcon from "../../res/create-lesson.png"
+import EditLessonIcon from "../../res/edit-lesson.png"
+import SettingsIcon from "../../res/settings.png"
+import InfoIcon from "../../res/info.png"
+import HistoryIcon from "../../res/history.png"
+
+
+
 export default class App extends Component {
 
     //pages which may contain unsaved data
@@ -22,19 +31,42 @@ export default class App extends Component {
     constructor(props) {
         super(props)
 
-        this.menu = (<div style={{display: "grid",   gridTemplateColumns: "auto auto"    }}>
-            
-            <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}  className="normal_button">{L.take_lesson}</button>
-            
-            <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="normal_button" >{ L.history }</button>
-            
-            <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} className="normal_button" >{L.craft_new_lesson}</button>
+        this.menu = (<div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
 
-            <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} className="normal_button" >{L.edit_lesson}</button>
+            <div className="center_container">
+                <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} className="transparent_button" title={L.take_lesson}> <img src={TakeLessonIcon} />  </button>
+            </div>
 
-            <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="normal_button" >{L.info}</button>
+            <div className="center_container">
+                <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="transparent_button" title={L.history} > <img src={HistoryIcon} /> </button>
+            </div>
 
-            <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="normal_button" >{L.settings}</button>
+            <div className="center_container">
+                <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} className="transparent_button" title={L.craft_new_lesson} > <img src={CreateLessonIcon} /> </button>
+
+            </div>
+
+
+
+            <div className="center_container">
+                <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} className="transparent_button" title={L.edit_lesson}> <img src={EditLessonIcon} /> </button>
+
+            </div>
+
+
+
+
+            <div className="center_container">
+                <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="transparent_button" title={L.info}> <img src={InfoIcon} /> </button>
+
+            </div>
+
+
+
+            <div className="center_container">
+                <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="transparent_button" title={L.settings}> <img src={SettingsIcon} /> </button>
+
+            </div>
 
         </div>)
 
@@ -48,7 +80,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <button onClick={() => { this.onMenuChoose(Pages.MENU) }} className="transparent_button" alt={L.home} title={L.home} > <img src={HomeIcon}/> </button>
+                <button onClick={() => { this.onMenuChoose(Pages.MENU) }} className="transparent_button" alt={L.home} title={L.home} > <img src={HomeIcon} /> </button>
 
                 {this.state.page}
             </div>
@@ -92,10 +124,10 @@ export default class App extends Component {
                 this.setState({ page: this.menu })
                 break
             case Pages.SETTINGS:
-                this.setState({page : <Settings/>})
+                this.setState({ page: <Settings /> })
                 break
             case Pages.HISTORY:
-                this.setState({page : <History takeLesson={this.takeLesson}  />  })
+                this.setState({ page: <History takeLesson={this.takeLesson} /> })
                 break
         }
 
@@ -112,7 +144,7 @@ export default class App extends Component {
         })
     }
 
-    takeLesson = (lesson)=>{
+    takeLesson = (lesson) => {
         this.setState({ page: <TakeLesson lesson={lesson} /> })
         this.setState({ pageId: Pages.TAKE_LESSON })
     }
