@@ -97,9 +97,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
     method that allows to tell Documentation where to 
     jump to.
 
-
-* debounce position of hovering tooltip
-
 * number keys to select word in sentences 
 
 # Dynamic class loading

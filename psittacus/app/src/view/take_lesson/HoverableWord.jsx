@@ -29,7 +29,8 @@ export default class HoverableWord extends Component {
     }
 
     toggleDefinition = (e) => {
-        this.setState({x : e.clientX, y : e.clientY})
+        let box =  e.target.getBoundingClientRect()
+        this.setState({x : box.right , y : box.bottom })
         this.setState({hidden: !this.state.hidden})
     }
 
