@@ -34,38 +34,45 @@ export default class App extends Component {
         this.menu = (<div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
 
             <div className="center_container">
-                <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} className="transparent_button" title={L.take_lesson}> <img src={TakeLessonIcon} />  </button>
+                <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} className="transparent_button" title={L.take_lesson}> <img src={TakeLessonIcon} />  </button>
+                    <p>{L.take_lesson}</p>
+                </div>
             </div>
 
             <div className="center_container">
-                <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="transparent_button" title={L.history} > <img src={HistoryIcon} /> </button>
+                <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="transparent_button" title={L.history} > <img src={HistoryIcon} /> </button>
+                    <p>{L.history}</p>
+                </div>
             </div>
 
             <div className="center_container">
-                <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} className="transparent_button" title={L.craft_new_lesson} > <img src={CreateLessonIcon} /> </button>
-
+                <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} className="transparent_button" title={L.craft_new_lesson} > <img src={CreateLessonIcon} /> </button>
+                    <p>{L.craft_new_lesson}</p>
+                </div>
             </div>
 
-
-
             <div className="center_container">
-                <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} className="transparent_button" title={L.edit_lesson}> <img src={EditLessonIcon} /> </button>
-
+                <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} className="transparent_button" title={L.edit_lesson}> <img src={EditLessonIcon} /> </button>
+                    <p>{L.edit_lesson}</p>
+                </div>
             </div>
 
-
-
-
             <div className="center_container">
-                <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="transparent_button" title={L.info}> <img src={InfoIcon} /> </button>
-
+                <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="transparent_button" title={L.info}> <img src={InfoIcon} /> </button>
+                    <p>{L.info}</p>
+                </div>
             </div>
 
-
-
             <div className="center_container">
-                <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="transparent_button" title={L.settings}> <img src={SettingsIcon} /> </button>
-
+                <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="transparent_button" title={L.settings}> <img src={SettingsIcon} /> </button>
+                    <p>{L.settings}</p>
+                </div>
             </div>
 
         </div>)
