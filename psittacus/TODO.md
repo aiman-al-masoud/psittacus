@@ -81,8 +81,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Random Stuff
 
-* translate last part on searching cached lessons
-
 * Alert user when saving broken lessons
 
 * Write some automated tests
