@@ -38,7 +38,7 @@ export default class TakeLesson extends Component {
 
         if (this.state.solutionHidden) {
             this.setState({ userAccuracy: this.state.proposition.check(this.userInput.current.value) })
-            this.lesson.getCurrent().play()
+            this.lesson.getCurrent().targetToNative? "" : this.lesson.getCurrent().play()
         } else {
             this.lesson.next()
             this.setState({ proposition: this.lesson.getCurrent() })
@@ -75,7 +75,15 @@ export default class TakeLesson extends Component {
                 <div style={this.state.solutionHidden ? Styles.invisible : Styles.visible}>
                     <h1>{L.solution}:</h1>
                     <div className="text_tip">{L.need_a_tip_hover_words}</div>
+                    
+                    <div style={{ width: "50vw" }}>
+
                     <HoverableSentence wordDict={this.state.proposition.getAnswerWordDict()} />
+                    <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={( (!this.state.proposition.targetToNative) && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
+
+                    </div>
+
+
                     <h2>{L.your_accuracy}: {this.state.userAccuracy}%</h2>
                 </div>
                 <br />
