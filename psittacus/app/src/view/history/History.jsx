@@ -13,7 +13,12 @@ export default class History extends Component {
 
     onReviseNext = async () => {
         let lesson = await this.lessonScheduler.next()
-        this.props.takeLesson(lesson)
+        console.log(lesson)
+
+        if(lesson){
+            console.log(lesson)
+            this.props.takeLesson(lesson)
+        }
     }
 
     render() {

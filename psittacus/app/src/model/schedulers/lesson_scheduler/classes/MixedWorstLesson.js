@@ -24,6 +24,10 @@ export default class MixedWorstLesson extends LessonScheduler {
             let hashes = s.propositions.filter(p=>{return p[1] < Proposition.MIN_PASSING_SCORE  }).map(p=>p[0])               //sort((p1, p2)=>{return p1[1] - p2[1]  })
             await ml.addLesson(s.id,  hashes)
         }
+
+        if(ml.propositions.length==0){
+            return undefined
+        }
         
         return ml
     }
