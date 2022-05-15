@@ -34,10 +34,10 @@
     "to_use_app_offline" : "To use this app offline, just save it as a .html:",
     "win_linux_save_offline" : "Windows/Linux: Ctrl + S",
     "mac_save_offline" : "Mac: ⌘ + S",
-    "link_to_source_code_title" : "Link to the source-code:",
+    "link_to_source_code_title" : "Source Code",
     "link_to_source_code" : "https://github.com/aiman-al-masoud/psittacus",
     "welcome" : "Welcome to Psittacus!",
-    "license_notice" : "Aiman Al Masoud © Psittacus is free software, licensed under GNU GPLv3.",
+    "license_notice" : "Aiman Al Masoud - © 2022 - Psittacus is free software, licensed under GNU GPLv3.",
     "your_work_may_be_lost" : "Your work may be lost. Ok?",
     "stop_recording" : "Stop Recording",
     "metadata" : "Metadata",
@@ -81,7 +81,7 @@
     "psittacus_bug_report" : "Psittacus Bug Report",
     "send_bug_report" : "Send Bug Report",
     "bug_reports" : "Bug Reports",
-    "bug_report_is" : "If you believe something's gone wrong, you can send us a bug report via email:",
+    "bug_report_is" : "If you find a problem, you can send us a bug report via email:",
     "issue_is" : "Alternatively, you can file it as an issue on Psittacus's official Github repo:",
     "file_issue": "File an issue",
     "revise_with_lesson_scheduler" : "Review",
@@ -112,5 +112,6 @@
     "are_you_sure_delete_progress" : "Are you sure you want to delete your progress?",
     "are_you_sure_enable_dev_options" : "Enable dev-mode? This may expose you to security risks!",
     "download_lessons" : "Download Lessons",
-    "here_you_can_search_for_and_download" : "Here you can search for and download lessons hosted on this server." 
+    "here_you_can_search_for_and_download" : "Here you can search for and download lessons hosted on this server.",
+    "images_sounds" : "Images/Sounds"
 }

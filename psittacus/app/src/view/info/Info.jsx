@@ -33,6 +33,9 @@ export default class Info extends Component {
                 <a href={L.license_link} target="_blank">{L.license_link}</a>
                 <h2>{L.link_to_source_code_title}</h2>
                 <a href={L.link_to_source_code} target="_blank">{L.link_to_source_code}</a>
+                <h2>{L.images_sounds}</h2>
+                <a href="https://github.com/aiman-al-masoud/psittacus/blob/main/psittacus/app/res/attribs.txt" target="_blank">{L.images_sounds}</a>
+
 
 
                 <h1>{L.bug_reports}</h1>

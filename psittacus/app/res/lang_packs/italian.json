@@ -34,10 +34,10 @@
     "to_use_app_offline" : "Per usare quest'app offline, salva la pagina come un .html:",
     "win_linux_save_offline" : "Windows/Linux: Ctrl + S",
     "mac_save_offline" : "Mac: ⌘ + S",
-    "link_to_source_code_title" : "Link al codice sorgente:",
+    "link_to_source_code_title" : "Codice Sorgente",
     "link_to_source_code" : "https://github.com/aiman-al-masoud/psittacus",
     "welcome" : "Benvenuto/a a Psittacus!",
-    "license_notice" : "Aiman Al Masoud © Psittacus è software libero, distribuito sotto licenza GNU GPLv3.",
+    "license_notice" : "Aiman Al Masoud - © 2022 - Psittacus è software libero, distribuito sotto licenza GNU GPLv3.",
     "your_work_may_be_lost" : "Il tuo lavoro potrebbe essere perso. Ok?",
     "stop_recording" : "Ferma Registrazione",
     "metadata" : "Metadati",
@@ -112,6 +112,6 @@
     "are_you_sure_delete_progress" : "Sei sicuro di voler cancellare il tuo progresso?",
     "are_you_sure_enable_dev_options" : "Attiva modalità sviluppatore? Ciò potrebbe esporti a rischi!",
     "download_lessons" : "Scarica Lezioni",
-    "here_you_can_search_for_and_download" : "Qui puoi cercare e scaricare lezioni disponibili su questo server." 
- 
+    "here_you_can_search_for_and_download" : "Qui puoi cercare e scaricare lezioni disponibili su questo server.",
+    "images_sounds" : "Immagini/Suoni"
 }
