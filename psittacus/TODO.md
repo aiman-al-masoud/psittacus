@@ -1,14 +1,4 @@
-# Add mechanism to post lessons to *a* server and retrieve them by metadata.
-
-Server with the following apis:
-
-* download-lesson
-doesn't require auth
-
-* query-lessons
-doesn't require auth
-
-#### FOR LATER:
+# Add these to server?
 
 * login
 access an existing account, receive session id

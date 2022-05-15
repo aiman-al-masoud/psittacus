@@ -196,6 +196,14 @@ And maybe consider doing this in `jsconfig.json`:
 
 </details>
 
+<details>
+   <summary><strong>Credits</strong></summary>
+   
+   # Images/Sounds
+   
+   <a href="./psittacus/app/res/attribs.md"> Images/Sounds </a>
+
+</details>
 
 
 
