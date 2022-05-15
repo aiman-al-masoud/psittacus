@@ -8,7 +8,7 @@ export default class LessonsTable extends Component {
 
     /**
      * 
-     * @param {{ takeLesson:function  }} props 
+     * @param {{ takeLesson:function, fetchLessonIds:function  }} props 
      */
     constructor(props) {
         super(props)
@@ -42,7 +42,7 @@ export default class LessonsTable extends Component {
 
                 <table className="table" style={{ width: "70vw" }}>
                     <tbody>
-                        {Lesson.getLessonIdsHistory(this.state.metadataFilter).map(id => <LessonRow lessonId={id} key={id} takeLesson={this.props.takeLesson} />)}
+                        {this.props.fetchLessonIds(this.state.metadataFilter).map(id => <LessonRow lessonId={id} key={id} takeLesson={this.props.takeLesson} />)}
                     </tbody>
                 </table>
             </div>

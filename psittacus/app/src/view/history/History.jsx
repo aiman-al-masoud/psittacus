@@ -32,7 +32,7 @@ export default class History extends Component {
             <h1>{L.lessons_history}</h1>
             <div className="text_tip">{L.history_here}</div>
 
-            <LessonsTable  takeLesson={this.props.takeLesson} />            
+            <LessonsTable  takeLesson={this.props.takeLesson}  fetchLessonIds={Lesson.getLessonIdsHistory} />            
 
         </div>)
     }
