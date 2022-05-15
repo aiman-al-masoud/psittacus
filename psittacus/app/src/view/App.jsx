@@ -45,8 +45,8 @@ export default class App extends Component {
 
             <div className="center_container">
                 <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} className="transparent_button" title="Download Lessons"> <img src={DownloadIcon} /> </button>
-                    <p>Download Lessons</p>
+                    <button onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} className="transparent_button" title={L.download_lessons}> <img src={DownloadIcon} /> </button>
+                    <p>{L.download_lessons}</p>
                 </div>
             </div>
 

@@ -110,6 +110,8 @@
     "title" : "Titolo",
     "filters" : "Filtri",
     "are_you_sure_delete_progress" : "Sei sicuro di voler cancellare il tuo progresso?",
-    "are_you_sure_enable_dev_options" : "Attiva modalità sviluppatore? Ciò potrebbe esporti a rischi!"
+    "are_you_sure_enable_dev_options" : "Attiva modalità sviluppatore? Ciò potrebbe esporti a rischi!",
+    "download_lessons" : "Scarica Lezioni",
+    "here_you_can_search_for_and_download" : "Qui puoi cercare e scaricare lezioni disponibili su questo server." 
  
 }

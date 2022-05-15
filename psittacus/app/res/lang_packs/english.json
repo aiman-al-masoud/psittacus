@@ -110,5 +110,7 @@
     "title" : "Title",
     "filters" : "Filters",
     "are_you_sure_delete_progress" : "Are you sure you want to delete your progress?",
-    "are_you_sure_enable_dev_options" : "Enable dev-mode? This may expose you to security risks!"
+    "are_you_sure_enable_dev_options" : "Enable dev-mode? This may expose you to security risks!",
+    "download_lessons" : "Download Lessons",
+    "here_you_can_search_for_and_download" : "Here you can search for and download lessons hosted on this server." 
 }

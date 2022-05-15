@@ -22,8 +22,8 @@ export default class Download extends Component{
 
     render(){
         return (<div>
-            <h1>Download</h1>
-            <span className="text_tip">Here you can search for and download lessons hosted on this server.</span>
+            <h1>{L.download_lessons}</h1>
+            <span className="text_tip">{L.here_you_can_search_for_and_download}</span>
             <br />
             <br />
             <LessonsTable takeLesson={this.props.takeLesson} fetchLessonIds={this.state.fetchLessonIds} fetchLessonById={Server.getInstance().downloadLesson} />
