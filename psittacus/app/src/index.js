@@ -4,7 +4,6 @@ import App from "./view/App.jsx";
 import FaviconImage from "../res/favicon.png"
 import L from "./model/utilities/Language.js";
 
-
 //set favicon
 let link = document.createElement('link')
 link.rel = 'shortcut icon';

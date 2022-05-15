@@ -25,7 +25,7 @@ with open(webapp_path, "r") as f:
 
 
 less_dict = index_lessons()
-lesson_indeces = less_dict.keys()
+lesson_indeces = list(less_dict.keys())
 
 
 @app.route('/')                                                                                                 
