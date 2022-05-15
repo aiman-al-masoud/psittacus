@@ -1,7 +1,7 @@
 # favicon.png: 
 (modified copy of the original)
 
-<img src="favicon.png"/>
+<img src="favicon.png" height="200px"/>
 https://pixabay.com/illustrations/parrot-bird-perched-drawing-art-6805595/
 
 

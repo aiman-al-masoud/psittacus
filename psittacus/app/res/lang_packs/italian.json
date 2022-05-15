@@ -113,5 +113,7 @@
     "are_you_sure_enable_dev_options" : "Attiva modalità sviluppatore? Ciò potrebbe esporti a rischi!",
     "download_lessons" : "Scarica Lezioni",
     "here_you_can_search_for_and_download" : "Qui puoi cercare e scaricare lezioni disponibili su questo server.",
-    "images_sounds" : "Immagini/Suoni"
+    "images_sounds" : "Immagini/Suoni",
+    "attribs_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/psittacus/app/res/attribs.md"
+
 }
