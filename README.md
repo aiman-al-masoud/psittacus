@@ -33,6 +33,7 @@ Psittacus aims at democratizing the process of language-learning and teaching, m
 * Lessons can be taken fully offline, once downloaded/sideloaded.
 * Support for audio playback of sentences.
 * Support for hover-over-the-word definitions.
+* Support for spaced repetition strategies and automatic lesson scheduling.
 
 
 ## Link to Web-App
