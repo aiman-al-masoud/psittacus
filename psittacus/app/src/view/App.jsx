@@ -38,6 +38,21 @@ export default class App extends Component {
 
             <div className="center_container">
                 <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="transparent_button" title={L.info}> <img src={InfoIcon} /> </button>
+                    <p>{L.info}</p>
+                </div>
+            </div>
+
+            <div className="center_container">
+                <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} className="transparent_button" title="Download Lessons"> <img src={DownloadIcon} /> </button>
+                    <p>Download Lessons</p>
+                </div>
+            </div>
+
+
+            <div className="center_container">
+                <div>
                     <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} className="transparent_button" title={L.take_lesson}> <img src={TakeLessonIcon} />  </button>
                     <p>{L.take_lesson}</p>
                 </div>
@@ -49,6 +64,11 @@ export default class App extends Component {
                     <p>{L.history}</p>
                 </div>
             </div>
+
+
+            
+
+
 
             <div className="center_container">
                 <div>
@@ -66,25 +86,13 @@ export default class App extends Component {
 
             <div className="center_container">
                 <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="transparent_button" title={L.info}> <img src={InfoIcon} /> </button>
-                    <p>{L.info}</p>
-                </div>
-            </div>
-
-            <div className="center_container">
-                <div>
                     <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="transparent_button" title={L.settings}> <img src={SettingsIcon} /> </button>
                     <p>{L.settings}</p>
                 </div>
             </div>
 
 
-            <div className="center_container">
-                <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} className="transparent_button" title="Download"> <img src={DownloadIcon} /> </button>
-                    <p>Download</p>
-                </div>
-            </div>
+
 
         </div>)
 
@@ -148,7 +156,7 @@ export default class App extends Component {
                 this.setState({ page: <History takeLesson={this.takeLesson} /> })
                 break
             case Pages.DOWNLOAD:
-                this.setState({ page: <Download takeLesson={this.takeLesson}  /> })
+                this.setState({ page: <Download takeLesson={this.takeLesson} /> })
                 break
         }
 
