@@ -158,7 +158,7 @@ yarn run build
 Copy and paste the full path of:
 
 ```
-/dist/index.html
+/psittacus/dist/index.html
 ```
 ... to your browser's navigation bar.
 
