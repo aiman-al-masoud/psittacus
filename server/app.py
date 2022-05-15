@@ -1,4 +1,5 @@
 from flask import Flask, request  
+from flask_csp.csp import csp_header
 import json
 import os
 
@@ -28,8 +29,9 @@ less_dict = index_lessons()
 lesson_indeces = list(less_dict.keys())
 
 
-@app.route('/')                                                                                                 
-def index():                                                                                                    
+@app.route('/')  
+@csp_header({"script-src" : " 'self' 'unsafe-inline' ", 'default-src' : " 'self' 'unsafe-inline' ", 'img-src': " 'self' 'unsafe-inline' * data: blob: android-webview-video-poster:; ", "media-src" : "* data: blob: android-webview-video-poster:;"})
+def index():                                                                                    
     return homepage  
 
 @app.route('/get-lesson-indeces')
