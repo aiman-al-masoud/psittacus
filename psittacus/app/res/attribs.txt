@@ -2,37 +2,53 @@ Correct:
 https://freesound.org/people/StavSounds/sounds/546081/
 
 Wrong:
-https://freesound.org/data/previews/483/483598_6436863-lq.mp3
+https://freesound.org/people/Raclure/sounds/483598/
 
 Select:
 https://freesound.org/s/413310/
 
 Home:
-https://www.iconfinder.com/icons/1564508/download/png/48
+https://www.iconfinder.com/icons/1564508/home_main_room_estate_property_icon
 
-Favicon: (modified the original)
+Favicon: (modified copy of the original)
 https://pixabay.com/illustrations/parrot-bird-perched-drawing-art-6805595/
 
 PlayAudio:
 https://www.iconfinder.com/icons/510856/audio_sound_speaker_volume_icon
 
+author: https://www.iconfinder.com/iconify
+
 TakeLesson:
 https://www.iconfinder.com/icons/185072/read_book_icon
+
+author: https://www.iconfinder.com/webalys
 
 History:
 https://www.iconfinder.com/icons/8111410/history_time_clock_watch_timer_alarm_schedule_icon
 
+author: https://www.iconfinder.com/kavithaharish
+
 EditLesson:
 https://www.iconfinder.com/icons/185042/edit_modify_icon
+
+author: https://www.iconfinder.com/webalys
 
 CreateLesson:
 https://www.iconfinder.com/icons/3209309/architecture_brand_build_compass_create_icon
 
+author: https://www.iconfinder.com/becris
+
 Settings:
 https://www.iconfinder.com/icons/185095/settings_icon
+
+author: https://www.iconfinder.com/webalys
 
 Info:
 https://www.iconfinder.com/icons/172483/info_icon
 
+author: "Visual Pharm"
+
 Download:
 https://www.iconfinder.com/icons/2931171/download_import_save_down_storage_icon
+
+author: https://www.iconfinder.com/stefantaubert
