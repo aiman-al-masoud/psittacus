@@ -114,5 +114,6 @@
     "download_lessons" : "Download Lessons",
     "here_you_can_search_for_and_download" : "Here you can search for and download lessons hosted on this server.",
     "images_sounds" : "Images/Sounds",
-    "attribs_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/psittacus/app/res/attribs.md"
+    "attribs_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/psittacus/app/res/attribs.md",
+    "click to open" : "Click to Open"
 }
