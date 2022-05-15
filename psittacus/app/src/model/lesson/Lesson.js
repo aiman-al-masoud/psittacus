@@ -12,7 +12,7 @@ export default class Lesson {
     constructor(jsonData) {
         this.jsonData = jsonData
         this.metadata = jsonData.metadata
-        this.explanationText = jsonData.explanation.text 
+        this.explanationText = jsonData.explanation.text
         this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
         this.oldScores = UserProgress.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
         this.scheduler = PropositionSchedulerFactory.getScheduler(this.oldScores, this.propositions)
@@ -43,8 +43,8 @@ export default class Lesson {
         let over = this.scheduler.isOver()
 
         //if this lesson is over, save the score
-        if(over){
-            UserProgress.saveLessonScore(this.getId(), this.dumpScores()) 
+        if (over) {
+            UserProgress.saveLessonScore(this.getId(), this.dumpScores())
             this.cacheLesson()
         }
 
@@ -72,8 +72,8 @@ export default class Lesson {
      * @param {string} lessonId 
      * @returns {{"author":string, "target_language" : string, "source_language": string, "title": string}}
      */
-    static parseId(lessonId){
-        return Object.fromEntries(lessonId.split(";").filter(x=>!!x).map(x=>x.split("=")))   
+    static parseId(lessonId) {
+        return Object.fromEntries(lessonId.split(";").filter(x => !!x).map(x => x.split("=")))
     }
 
     /**
@@ -101,7 +101,7 @@ export default class Lesson {
     async cacheLesson() {
 
         await Database.get().cachedLessons().delete(this.getId())
-     
+
         Database.get().cachedLessons().add({
             id: this.getId(),
             lesson: this.jsonData
@@ -114,7 +114,7 @@ export default class Lesson {
      * @param {string} id 
      * @returns {Promise<Lesson>}
      */
-    static async getCachedLessonById(id){
+    static async getCachedLessonById(id) {
         let record = await Database.get().cachedLessons().get(id)
         return new Lesson(record.lesson)
     }
@@ -124,30 +124,36 @@ export default class Lesson {
      * @param {{author:string, target_language:string, source_language:string, title:string}} metadataFilter 
      * @returns 
      */
-    static getLessonIdsHistory(metadataFilter=undefined){
+    static getLessonIdsHistory(metadataFilter = undefined) {
 
-        console.log(metadataFilter)
-        
-        let ids = UserProgress.lessonsScores().map(l=>l.id)
+        let ids = UserProgress.lessonsScores().map(l => l.id)
 
-        if(metadataFilter){
-
-            return ids.filter(id=>{
-                let metadata = Lesson.parseId(id) 
-                // Object.entries(metadataFilter)
-                return (
-                    ((metadataFilter.author || metadata.author) == metadata.author)&&
-                    ((metadataFilter.source_language || metadata.source_language) == metadata.source_language)&&
-                    ((metadataFilter.target_language || metadata.target_language) == metadata.target_language)&&
-                    ((metadataFilter.title || metadata.title) == metadata.title)
-                    )
-            })
+        if (metadataFilter) {
+            return ids.filter(id=>Lesson.isMetadataMatching(id, metadataFilter ) )
         }
 
         return ids
+    }
+
+    /**
+     * Check if the id of a Lesson matches a certain category of Lessons.
+     * @param {string} lessonId 
+     * @param {{author:string, target_language:string, source_language:string, title:string}} metadataFilter 
+     * @returns 
+     */
+    static isMetadataMatching(lessonId, metadataFilter) {
+
+        let metadata = Lesson.parseId(lessonId)
+        // Object.entries(metadataFilter)
+        return (
+            ((metadataFilter.author || metadata.author) == metadata.author) &&
+            ((metadataFilter.source_language || metadata.source_language) == metadata.source_language) &&
+            ((metadataFilter.target_language || metadata.target_language) == metadata.target_language) &&
+            ((metadataFilter.title || metadata.title) == metadata.title)
+        )
 
     }
 
-    
+
 }
 
