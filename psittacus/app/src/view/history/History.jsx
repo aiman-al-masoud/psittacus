@@ -6,6 +6,10 @@ import LessonsTable from "./LessonsTable.jsx"
 
 export default class History extends Component {
 
+    /**
+     * 
+     * @param {{takeLesson:function}} props 
+     */
     constructor(props) {
         super(props)
         this.lessonScheduler = LessonSchedulerFactory.getScheduler()
@@ -32,7 +36,7 @@ export default class History extends Component {
             <h1>{L.lessons_history}</h1>
             <div className="text_tip">{L.history_here}</div>
 
-            <LessonsTable  takeLesson={this.props.takeLesson}  fetchLessonIds={Lesson.getLessonIdsHistory} />            
+            <LessonsTable  takeLesson={this.props.takeLesson}  fetchLessonIds={Lesson.getLessonIdsHistory} fetchLessonById={Lesson.getCachedLessonById} />            
 
         </div>)
     }

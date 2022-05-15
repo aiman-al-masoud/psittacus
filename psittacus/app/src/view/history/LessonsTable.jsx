@@ -8,7 +8,10 @@ export default class LessonsTable extends Component {
 
     /**
      * 
-     * @param {{ takeLesson:function, fetchLessonIds:function  }} props 
+     * @param {{ 
+     * takeLesson:function, 
+     * fetchLessonIds:function, 
+     * fetchLessonById:function  }} props 
      */
     constructor(props) {
         super(props)
@@ -34,6 +37,7 @@ export default class LessonsTable extends Component {
     render() {
         return (<div>
 
+
             <table className="table"  style={{width:"70vw", height:"3vh"  }}>
                 <tr><th>{L.author}</th><th>{L.target_language}</th><th>{L.source_language}</th><th>{L.title}</th></tr>
             </table>
@@ -42,7 +46,8 @@ export default class LessonsTable extends Component {
 
                 <table className="table" style={{ width: "70vw" }}>
                     <tbody>
-                        {this.props.fetchLessonIds(this.state.metadataFilter).map(id => <LessonRow lessonId={id} key={id} takeLesson={this.props.takeLesson} />)}
+                        
+                        {this.props.fetchLessonIds(this.state.metadataFilter).map(id => <LessonRow lessonId={id} key={id} takeLesson={this.props.takeLesson}  fetchLessonById={this.props.fetchLessonById} />)}
                     </tbody>
                 </table>
             </div>

@@ -6,7 +6,7 @@ export default class LessonRow extends Component {
 
     /**
      * 
-     * @param {{lessonId: string, takeLesson : function }} props 
+     * @param {{lessonId: string, takeLesson : function, fetchLessonById:function }} props 
      */
     constructor(props){
         super(props)
@@ -22,10 +22,10 @@ export default class LessonRow extends Component {
     }
 
     onTakeLesson = async ()=>{
-        this.props.takeLesson(await Lesson.getCachedLessonById(this.props.lessonId)) 
+        this.props.takeLesson(await this.props.fetchLessonById(this.props.lessonId)   ) 
     }
 
     render(){
-        return <tr tabindex="0" title="click to open" style={{background: this.state.highlight? "yellow" : "white"  }}  onMouseEnter={ this.toggleHighlight } onMouseLeave={this.toggleHighlight}   onClick={   this.onTakeLesson  }    ><td>{Lesson.parseId(this.props.lessonId).author}</td><td>{Lesson.parseId(this.props.lessonId).target_language}</td><td>{Lesson.parseId(this.props.lessonId).source_language}</td><td>{Lesson.parseId(this.props.lessonId).title}</td> </tr>
+        return <tr tabIndex="0" title="click to open" style={{background: this.state.highlight? "yellow" : "white"  }}  onMouseEnter={ this.toggleHighlight } onMouseLeave={this.toggleHighlight}   onClick={   this.onTakeLesson  }    ><td>{Lesson.parseId(this.props.lessonId).author}</td><td>{Lesson.parseId(this.props.lessonId).target_language}</td><td>{Lesson.parseId(this.props.lessonId).source_language}</td><td>{Lesson.parseId(this.props.lessonId).title}</td> </tr>
     }
 }

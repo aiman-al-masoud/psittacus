@@ -9,4 +9,5 @@ export default class Pages{
     static MENU = "MENU"
     static SETTINGS = "SETTINGS"
     static HISTORY = "HISTORY" 
+    static DOWNLOAD = "DOWNLOAD"
 }

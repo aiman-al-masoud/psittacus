@@ -20,6 +20,9 @@ import EditLessonIcon from "../../res/edit-lesson.png"
 import SettingsIcon from "../../res/settings.png"
 import InfoIcon from "../../res/info.png"
 import HistoryIcon from "../../res/history.png"
+import DownloadIcon from "../../res/download.png"
+
+import Download from "./download/Download.jsx";
 
 
 
@@ -72,6 +75,14 @@ export default class App extends Component {
                 <div>
                     <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="transparent_button" title={L.settings}> <img src={SettingsIcon} /> </button>
                     <p>{L.settings}</p>
+                </div>
+            </div>
+
+
+            <div className="center_container">
+                <div>
+                    <button onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} className="transparent_button" title="Download"> <img src={DownloadIcon} /> </button>
+                    <p>Download</p>
                 </div>
             </div>
 
@@ -136,6 +147,9 @@ export default class App extends Component {
             case Pages.HISTORY:
                 this.setState({ page: <History takeLesson={this.takeLesson} /> })
                 break
+            case Pages.DOWNLOAD:
+                this.setState({ page: <Download takeLesson={this.takeLesson}  /> })
+                break
         }
 
         this.setState({ pageId: option })
@@ -151,6 +165,10 @@ export default class App extends Component {
         })
     }
 
+    /**
+     * 
+     * @param {Lesson} lesson 
+     */
     takeLesson = (lesson) => {
         this.setState({ page: <TakeLesson lesson={lesson} /> })
         this.setState({ pageId: Pages.TAKE_LESSON })
