@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Lesson from "../../model/lesson/Lesson.js";
 import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 import L from "../../model/utilities/Language.js";
-import LessonsTable from "./LessonsTable.jsx"
+import LessonsTable from "../recycled/lessons_table/LessonsTable.jsx"
 
 export default class History extends Component {
 

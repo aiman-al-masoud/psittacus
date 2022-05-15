@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Styles from "../Styles";
-import Tooltip from "./Tooltip.jsx";
+import Tooltip from "../recycled/tooltip/Tooltip.jsx";
 
 
 

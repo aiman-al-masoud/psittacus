@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Lesson from "../../model/lesson/Lesson.js";
 import L from "../../model/utilities/Language.js";
-import LessonsTable from "../history/LessonsTable.jsx"
+import LessonsTable from "../recycled/lessons_table/LessonsTable.jsx"
 import Server from "../../model/utilities/Server.js";
 
 

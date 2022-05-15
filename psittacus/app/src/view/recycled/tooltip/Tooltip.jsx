@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Styles from "../Styles.js";
+import Styles from "../../Styles.js";
 
 /**
  * A hovering tooltip.

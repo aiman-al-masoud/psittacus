@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Lesson from "../../model/lesson/Lesson.js";
-import L from "../../model/utilities/Language.js";
+import Lesson from "../../../model/lesson/Lesson.js";
 
 export default class LessonRow extends Component {
 
