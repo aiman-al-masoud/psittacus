@@ -1,3 +1,19 @@
+# Refactoring
+
+* extract main menu button component 
+
+* extract button component 
+* extract read and play sentence component
+
+* extract common superclass of SchedulerManager(s) ?
+
+* **Turn jsons to class: LessonScores ? w/:** 
+[ lastTaken() ,propositionScores() ,overall() ,history() ]
+(or just more type hints)
+
+* Add type annotations to comments (where possible).
+
+
 # Add these to server?
 
 * login
@@ -56,18 +72,6 @@ https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.html
 view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 
-# Refactoring
-
-* extract button component 
-* extract read and play sentence component
-
-* extract common superclass of SchedulerManager(s) ?
-
-* **Turn jsons to class: LessonScores ? w/:** 
-[ lastTaken() ,propositionScores() ,overall() ,history() ]
-(or just more type hints)
-
-* Add type annotations to comments (where possible).
 
 # Random Stuff
 
