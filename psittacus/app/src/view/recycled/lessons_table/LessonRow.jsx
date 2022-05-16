@@ -11,9 +11,11 @@ import L from "../../../model/utilities/Language.js";
 export default class LessonRow extends Component {
 
     /**
-     * @param {{lessonId: string,  
+     * @param {{
+     * lessonId: string,  
      * takeLesson : (l:Lesson)=>void, 
-     * fetchLessonById: (id:string)=>Promise<Lesson> }} props 
+     * fetchLessonById: (id:string)=>Promise<Lesson> 
+     * }} props 
      */
     constructor(props){
         super(props)
