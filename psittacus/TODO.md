@@ -2,6 +2,8 @@
 
 * extract main menu button component 
 
+* extract Explanation from TakeLesson
+
 * extract button component 
 * extract read and play sentence component
 
