@@ -2,11 +2,18 @@ import React, { Component } from "react";
 import Lesson from "../../../model/lesson/Lesson.js";
 import L from "../../../model/utilities/Language.js";
 
+/**
+ * Represents a single Lesson in a LessonsTable. 
+ * It needs a lessonId string, and two callbacks: fetchLessonById()
+ * to retrieve a Promise<Lesson> somehow, and takeLesson()to
+ * open it once it's ready. 
+ */
 export default class LessonRow extends Component {
 
     /**
-     * 
-     * @param {{lessonId: string, takeLesson : function, fetchLessonById:function }} props 
+     * @param {{lessonId: string,  
+     * takeLesson : (l:Lesson)=>void, 
+     * fetchLessonById: (id:string)=>Promise<Lesson> }} props 
      */
     constructor(props){
         super(props)
