@@ -9,7 +9,7 @@
 
 * extract common superclass of SchedulerManager(s) ?
 
-* **Turn jsons to class: LessonScores ? w/:** 
+* **Turn jsons to class: LessonHistory?? ? w/:** 
 [ lastTaken() ,propositionScores() ,overall() ,history() ]
 (or just more type hints)
 
