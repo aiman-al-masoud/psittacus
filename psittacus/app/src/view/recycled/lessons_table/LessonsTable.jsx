@@ -9,9 +9,10 @@ export default class LessonsTable extends Component {
     /**
      * 
      * @param {{ 
-     * takeLesson:function, 
-     * fetchLessonIds:function, 
-     * fetchLessonById:function  }} props 
+     * takeLesson : (l:Lesson)=>void, 
+     * fetchLessonIds: (metadataFilter)=>[string], 
+     * fetchLessonById: (id:string)=>Promise<Lesson> 
+     *  }} props 
      */
     constructor(props) {
         super(props)
