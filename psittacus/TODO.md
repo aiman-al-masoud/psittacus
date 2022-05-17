@@ -106,3 +106,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 # Argostranslate running on python server to autogenerate lessons?
 
 
+# Perf
+
+* compress favicon (keep both, but only use compressed on webapp)
