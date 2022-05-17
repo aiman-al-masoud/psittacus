@@ -79,6 +79,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Graphical Stuff
 
+* Improve craft lesson wizard: sentence counter to know where you are, icons for buttons etc...
+
 * Fix other React warnings.
 
 * Global linkable documentation mechanism 
