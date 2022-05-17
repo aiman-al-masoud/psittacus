@@ -36,63 +36,13 @@ export default class App extends Component {
 
         this.menu = (<div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
 
-            <div className="center_container">
-                <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.INFO) }} className="transparent_button" title={L.info}> <img src={InfoIcon} /> </button>
-                    <p>{L.info}</p>
-                </div>
-            </div>
-
-            <div className="center_container">
-                <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} className="transparent_button" title={L.download_lessons}> <img src={DownloadIcon} /> </button>
-                    <p>{L.download_lessons}</p>
-                </div>
-            </div>
-
-
-            <div className="center_container">
-                <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} className="transparent_button" title={L.take_lesson}> <img src={TakeLessonIcon} />  </button>
-                    <p>{L.take_lesson}</p>
-                </div>
-            </div>
-
-            <div className="center_container">
-                <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.HISTORY) }} className="transparent_button" title={L.history} > <img src={HistoryIcon} /> </button>
-                    <p>{L.history}</p>
-                </div>
-            </div>
-
-
-            
-
-
-
-            <div className="center_container">
-                <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} className="transparent_button" title={L.craft_new_lesson} > <img src={CreateLessonIcon} /> </button>
-                    <p>{L.craft_new_lesson}</p>
-                </div>
-            </div>
-
-            <div className="center_container">
-                <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} className="transparent_button" title={L.edit_lesson}> <img src={EditLessonIcon} /> </button>
-                    <p>{L.edit_lesson}</p>
-                </div>
-            </div>
-
-            <div className="center_container">
-                <div>
-                    <button onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} className="transparent_button" title={L.settings}> <img src={SettingsIcon} /> </button>
-                    <p>{L.settings}</p>
-                </div>
-            </div>
-
-
-
+            <MenuButton title={L.info} icon={InfoIcon} onClick={() => { this.onMenuChoose(Pages.INFO) }}/>
+            <MenuButton title={L.download_lessons} icon={DownloadIcon} onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }}/>
+            <MenuButton title={L.take_lesson} icon={TakeLessonIcon} onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}/>
+            <MenuButton title={L.history} icon={HistoryIcon} onClick={() => { this.onMenuChoose(Pages.HISTORY) }}/>
+            <MenuButton title={L.craft_new_lesson} icon={CreateLessonIcon} onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }}/>
+            <MenuButton title={L.edit_lesson} icon={EditLessonIcon} onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }}/>
+            <MenuButton title={L.settings} icon={SettingsIcon} onClick={() => { this.onMenuChoose(Pages.SETTINGS) }}/>
 
         </div>)
 
@@ -180,6 +130,30 @@ export default class App extends Component {
     takeLesson = (lesson) => {
         this.setState({ page: <TakeLesson lesson={lesson} /> })
         this.setState({ pageId: Pages.TAKE_LESSON })
+    }
+
+
+}
+
+
+class MenuButton extends Component{
+
+    /**
+     * 
+     * @param {{title:string, onClick:function, icon:string}} props 
+     */
+    constructor(props){
+        super(props)
+        this.props = props
+    }
+
+    render(){
+        return (<div className="center_container">
+                <div>
+                    <button onClick={this.props.onClick } className="transparent_button" title={this.props.title}> <img src={this.props.icon} /> </button>
+                    <p>{this.props.title}</p>
+                </div>
+        </div>)
     }
 
 
