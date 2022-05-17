@@ -8,12 +8,10 @@ import Lesson from "../model/lesson/Lesson.js";
 import LessonBuilder from "../model/lesson/LessonBuilder.js";
 import Settings from "./settings/Settings.jsx";
 import L from "../model/utilities/Language.js";
-import { playBase64 } from "../model/utilities/Recorder.js";
+import Download from "./download/Download.jsx";
 import "../index.css"
 import HomeIcon from "../../res/home.png"
-import SelectSound from "../../res/select.mp3"
 import History from "./history/History.jsx";
-
 import TakeLessonIcon from "../../res/take-lesson.png"
 import CreateLessonIcon from "../../res/create-lesson.png"
 import EditLessonIcon from "../../res/edit-lesson.png"
@@ -21,9 +19,7 @@ import SettingsIcon from "../../res/settings.png"
 import InfoIcon from "../../res/info.png"
 import HistoryIcon from "../../res/history.png"
 import DownloadIcon from "../../res/download.png"
-
-import Download from "./download/Download.jsx";
-
+import MenuButton from "./recycled/menu_button/MenuButton.jsx";
 
 
 export default class App extends Component {
@@ -64,8 +60,6 @@ export default class App extends Component {
     }
 
     onMenuChoose = async (option) => {
-
-        
 
         //alert user if exiting with potentially unsaved data.
         if (App.sensitivePages.includes(this.state.pageId)) {
@@ -130,36 +124,5 @@ export default class App extends Component {
         this.setState({ page: <TakeLesson lesson={lesson} /> })
         this.setState({ pageId: Pages.TAKE_LESSON })
     }
-
-
-}
-
-
-class MenuButton extends Component{
-
-    /**
-     * 
-     * @param {{title:string, onClick:function, icon:string}} props 
-     */
-    constructor(props){
-        super(props)
-        this.props = props
-    }
-
-    onClick = ()=>{
-        //play select button sound
-        playBase64(SelectSound)
-        this.props.onClick()
-    }
-
-    render(){
-        return (<div className="center_container">
-                <div>
-                    <button onClick={this.onClick } className="transparent_button" title={this.props.title}> <img src={this.props.icon} /> </button>
-                    <p>{this.props.title}</p>
-                </div>
-        </div>)
-    }
-
 
 }
