@@ -65,8 +65,7 @@ export default class App extends Component {
 
     onMenuChoose = async (option) => {
 
-        //play select button sound
-        playBase64(SelectSound)
+        
 
         //alert user if exiting with potentially unsaved data.
         if (App.sensitivePages.includes(this.state.pageId)) {
@@ -147,10 +146,16 @@ class MenuButton extends Component{
         this.props = props
     }
 
+    onClick = ()=>{
+        //play select button sound
+        playBase64(SelectSound)
+        this.props.onClick()
+    }
+
     render(){
         return (<div className="center_container">
                 <div>
-                    <button onClick={this.props.onClick } className="transparent_button" title={this.props.title}> <img src={this.props.icon} /> </button>
+                    <button onClick={this.onClick } className="transparent_button" title={this.props.title}> <img src={this.props.icon} /> </button>
                     <p>{this.props.title}</p>
                 </div>
         </div>)
