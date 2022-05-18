@@ -16,6 +16,7 @@ import ExplanationIcon from "../../../res/explanation.png"
 import SentencesIcon from "../../../res/sentences.png"
 
 import MetadataIcon from "../../../res/metadata.png"
+import Modes from "../take_lesson/Modes.js";
 
 
 export default class CraftLesson extends Component {
@@ -173,10 +174,10 @@ export default class CraftLesson extends Component {
         return (<div>
 
 
-            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={ L.edit_metadata } icon={ MetadataIcon }  />            
-            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={ L.edit_sentences } icon={SentencesIcon}  />
-            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={ L.edit_explanation } icon={ExplanationIcon}  />
-            <MenuButton onClick={() => { this.onSave() }} title={ `${L.save_lesson} (${L.shortcut_save_lesson })` } icon={SaveIcon}  />
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={ L.edit_metadata } icon={ MetadataIcon }   highlight={ this.state.editingMode==EditingModes.METADATA } />            
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={ L.edit_sentences } icon={SentencesIcon}    highlight={ this.state.editingMode==EditingModes.LESSON }   />
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={ L.edit_explanation } icon={ExplanationIcon}  highlight={ this.state.editingMode==EditingModes.EXPLAINATION}  />
+            <MenuButton onClick={() => { this.onSave() }} title={ `${L.save_lesson} (${L.shortcut_save_lesson })` } icon={SaveIcon}    />
 
 
             <div style={this.state.editingMode == EditingModes.LESSON ? Styles.visible : Styles.invisible}>{mainBody}</div>

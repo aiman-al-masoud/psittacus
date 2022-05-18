@@ -12,7 +12,9 @@ export default class MenuButton extends Component{
      * @param {{
      * title : string, 
      * onClick : function, 
-     * icon : string
+     * icon : string,
+     * style : *,
+     * highlight : boolean
      * }} props 
      */
     constructor(props){
@@ -27,7 +29,7 @@ export default class MenuButton extends Component{
     }
 
     render(){
-        return  <button onClick={this.onClick } className="transparent_button" title={this.props.title}> <img src={this.props.icon} /> </button>
+        return  <button onClick={this.onClick } className="transparent_button" title={this.props.title} style={this.props.style}  style={   { background :   this.props.highlight? "red" : "transparent"  }   }       > <img src={this.props.icon} /> </button>
     }
 
 }
