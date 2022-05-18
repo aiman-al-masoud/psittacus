@@ -21,6 +21,7 @@ import HistoryIcon from "../../res/history.png"
 import DownloadIcon from "../../res/download.png"
 // import MenuButton from "./recycled/menu_button/MenuButton.jsx";
 import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
+import MenuButton from "./recycled/buttons/MenuButton.jsx";
 
 
 export default class App extends Component {
@@ -53,8 +54,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <button onClick={() => { this.onMenuChoose(Pages.MENU) }} className="transparent_button" alt={L.home} title={L.home} > <img src={HomeIcon} /> </button>
-
+                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }}  icon={HomeIcon}  title={L.home} />
                 {this.state.page}
             </div>
         )
