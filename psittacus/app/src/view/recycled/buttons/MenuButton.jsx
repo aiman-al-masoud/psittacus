@@ -30,7 +30,7 @@ export default class MenuButton extends Component{
     }
 
     render(){
-        return  <button onClick={this.onClick } className="transparent_button" title={this.props.title} style={this.props.style}  style={   { background :   this.props.highlight? "red" : "transparent", transform: this.props.flippedX? "scaleX(-1)" : "scale(1)"   }   }         > <img src={this.props.icon} /> </button>
+        return  <button onClick={this.onClick } className="transparent_button" title={this.props.title}   style={   { ...this.props.style,  background :   this.props.highlight? "red" : "transparent", transform: this.props.flippedX? "scaleX(-1)" : "scale(1)"   }   }         > <img src={this.props.icon} /> </button>
     }
 
 }
