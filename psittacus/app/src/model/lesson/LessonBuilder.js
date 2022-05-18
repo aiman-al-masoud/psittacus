@@ -88,5 +88,24 @@ export default class LessonBuilder {
         saveToComp(JSON.stringify(this.toJson()), `${this.metadata.title}.txt`, "text/plain")
     }
 
+    /**
+     * Amount of p propositions the resulting Lesson will contain.
+     * (May actually be p-1 if last proposition is empty).
+     * @returns {number}
+     */
+    size = ()=>{
+        return this.propositions.length
+    }
+
+    /**
+     * Index (starting from 1) of the current proposition being edited.
+     * @returns {number}
+     */
+    currentIndex = ()=>{
+        return this.current + 1
+    }
+
+
+
 }
 

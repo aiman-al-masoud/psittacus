@@ -128,6 +128,13 @@ export default class CraftLesson extends Component {
 
             <button onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} className="normal_button" > {L.previous_sentence} </button>
             <button onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} className="normal_button" > {L.next_sentence} </button>
+            
+            {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
+            <span>
+                {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}      
+            </span>
+
+
             <br />
             <h1>{L.write_and_pronounce}</h1>
             <div className="text_tip">{L.target_lang_is}</div>
