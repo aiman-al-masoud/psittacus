@@ -78,6 +78,26 @@ https://www.iconfinder.com/icons/2931171/download_import_save_down_storage_icon
 ## Author
 https://www.iconfinder.com/stefantaubert
 
+# save.png 
+
+https://www.iconfinder.com/icons/326688/floppy_save_guardar_icon
+
+# explanation.png
+
+https://www.iconfinder.com/icons/8541740/chalkboard_teacher_icon
+
+
+# sentences.png
+
+https://www.iconfinder.com/icons/103173/new_write_edit_icon
+
+
+
+# metadata.png
+
+https://www.iconfinder.com/icons/3702400/discount_label_price_sale_tag_icon
+
+
 
 # correct.mp3:
 <audio src="correct.mp3">Audio</audio>
@@ -89,4 +109,3 @@ https://freesound.org/people/Raclure/sounds/483598/
 
 # select.mp3:
 https://freesound.org/s/413310/
-

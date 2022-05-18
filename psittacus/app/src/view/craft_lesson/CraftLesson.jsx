@@ -10,6 +10,14 @@ import Styles from "../Styles";
 import { sendBugReport } from "../../model/utilities/Utils.js";
 
 
+import MenuButton from "../recycled/buttons/MenuButton.jsx";
+import SaveIcon from "../../../res/save.png"
+import ExplanationIcon from "../../../res/explanation.png"
+import SentencesIcon from "../../../res/sentences.png"
+
+import MetadataIcon from "../../../res/metadata.png"
+
+
 export default class CraftLesson extends Component {
 
     constructor(props) {
@@ -164,10 +172,22 @@ export default class CraftLesson extends Component {
 
         return (<div>
 
-            <button onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} className="normal_button" >{L.edit_metadata}</button>
-            <button onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} className="normal_button" >{L.edit_sentences}</button>
-            <button onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} className="normal_button" >{L.edit_explanation}</button>
-            <button onClick={() => { this.onSave() }} className="normal_button" title={L.shortcut_save_lesson}>{L.save_lesson}</button>
+            {/* <button onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} className="normal_button" >{L.edit_metadata}</button> */}
+
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={ L.edit_metadata } icon={     MetadataIcon           }  />
+
+
+            
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={ L.edit_sentences } icon={SentencesIcon}  />
+
+    
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={ L.edit_explanation } icon={ExplanationIcon}  />
+
+
+            <MenuButton onClick={() => { this.onSave() }} title={ `${L.save_lesson} (${L.shortcut_save_lesson })` } icon={SaveIcon}  />
+
+
+
 
             <div style={this.state.editingMode == EditingModes.LESSON ? Styles.visible : Styles.invisible}>{mainBody}</div>
             <div style={this.state.editingMode == EditingModes.METADATA ? Styles.visible : Styles.invisible}> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMetadata} /> </div>
