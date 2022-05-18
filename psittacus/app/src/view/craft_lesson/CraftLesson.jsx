@@ -17,7 +17,7 @@ export default class CraftLesson extends Component {
         this.inputSentenceOne = React.createRef()
         this.inputSentenceTwo = React.createRef()
         this.lessonBuilder = props.lessonBuilder ?? new LessonBuilder()
-        
+
         //TODO: (Deduplication) lessonBuilder only as a state, remove this.lessonBuilder 
         this.state = {
             propositionBuilder: this.lessonBuilder.getCurrent(),
@@ -87,36 +87,36 @@ export default class CraftLesson extends Component {
 
     onExplainationChange = (newExplainationHtmlString) => {
         this.lessonBuilder.setExplanation(newExplainationHtmlString)
-        this.setState({lessonBuilder : this.lessonBuilder })
+        this.setState({ lessonBuilder: this.lessonBuilder })
     }
 
-    onWordDictModified = (newDict)=>{
+    onWordDictModified = (newDict) => {
         let updatedDict = this.getUpdatedWordDict(this.state.propositionBuilder.wordDict, newDict)
         let propoBuilder = this.lessonBuilder.getCurrent()
         propoBuilder.wordDict = updatedDict
-        this.setState({ propositionBuilder: propoBuilder }) 
+        this.setState({ propositionBuilder: propoBuilder })
     }
-    
-    onReverseDictModified = (newDict)=>{
+
+    onReverseDictModified = (newDict) => {
         let updatedDict = this.getUpdatedWordDict(this.state.propositionBuilder.reverseDict, newDict)
         let propoBuilder = this.lessonBuilder.getCurrent()
         propoBuilder.reverseDict = updatedDict
-        this.setState({ propositionBuilder: propoBuilder }) 
+        this.setState({ propositionBuilder: propoBuilder })
     }
 
-    onSave = ()=>{
+    onSave = () => {
 
-        try{
+        try {
             this.lessonBuilder.save()
-        }catch(e){
-            switch(e){ //handle exceptions
+        } catch (e) {
+            switch (e) { //handle exceptions
                 case LessonBuilder.MetadataIncompleteError:
                     alert(L.please_complete_metadata)
-                    this.setState({editingMode : EditingModes.METADATA})
-                break
+                    this.setState({ editingMode: EditingModes.METADATA })
+                    break
                 default:
-                    sendBugReport(e.toString()+" "+e.stack  )
-            }            
+                    sendBugReport(e.toString() + " " + e.stack)
+            }
         }
 
     }
@@ -126,13 +126,15 @@ export default class CraftLesson extends Component {
 
         let mainBody = (<div>
 
-            <button onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} className="normal_button" > {L.previous_sentence} </button>
-            <button onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} className="normal_button" > {L.next_sentence} </button>
-            
             {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
             <span>
-                {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}      
+                {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}
             </span>
+
+            <button onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} className="normal_button" > {L.previous_sentence} </button>
+            <button onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} className="normal_button" > {L.next_sentence} </button>
+
+
 
 
             <br />
@@ -148,7 +150,7 @@ export default class CraftLesson extends Component {
             <h1>{L.write_word_dict}</h1>
             <div className="text_tip">{L.words_will_appear_word_dict}</div>
             <div className="text_tip">{L.words_will_appear}</div>
-            <DefinitionsTable wordDict={this.state.propositionBuilder.wordDict} onTableModified={ this.onWordDictModified }   />
+            <DefinitionsTable wordDict={this.state.propositionBuilder.wordDict} onTableModified={this.onWordDictModified} />
             <h1>{L.write_reverse_dict}</h1>
             <div className="text_tip">{L.words_will_appear_reverse_dict}</div>
             <div className="text_tip">{L.words_will_appear}</div>
@@ -162,48 +164,48 @@ export default class CraftLesson extends Component {
 
         return (<div>
 
-            <button onClick={()=>{ this.setState({editingMode : EditingModes.METADATA}) }} className="normal_button" >{L.edit_metadata}</button>
-            <button onClick={()=>{ this.setState({editingMode : EditingModes.LESSON}) }}   className="normal_button" >{L.edit_sentences}</button>
-            <button  onClick={()=>{ this.setState({editingMode : EditingModes.EXPLAINATION}) }}  className="normal_button" >{L.edit_explanation}</button>
+            <button onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} className="normal_button" >{L.edit_metadata}</button>
+            <button onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} className="normal_button" >{L.edit_sentences}</button>
+            <button onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} className="normal_button" >{L.edit_explanation}</button>
             <button onClick={() => { this.onSave() }} className="normal_button" title={L.shortcut_save_lesson}>{L.save_lesson}</button>
 
-            <div style={this.state.editingMode==EditingModes.LESSON? Styles.visible : Styles.invisible }>{mainBody}</div>
-            <div style={this.state.editingMode==EditingModes.METADATA? Styles.visible : Styles.invisible }> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMetadata} /> </div>
-            <div style={this.state.editingMode==EditingModes.EXPLAINATION? Styles.visible : Styles.invisible }><TextEditor onTextChange={this.onExplainationChange} text={this.state.lessonBuilder.explanationHtmlString}  /></div>
+            <div style={this.state.editingMode == EditingModes.LESSON ? Styles.visible : Styles.invisible}>{mainBody}</div>
+            <div style={this.state.editingMode == EditingModes.METADATA ? Styles.visible : Styles.invisible}> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMetadata} /> </div>
+            <div style={this.state.editingMode == EditingModes.EXPLAINATION ? Styles.visible : Styles.invisible}><TextEditor onTextChange={this.onExplainationChange} text={this.state.lessonBuilder.explanationHtmlString} /></div>
 
         </div>)
     }
 
 
-    componentDidMount(){
-        window.addEventListener("keydown", this.keyListener = (e)=>{
+    componentDidMount() {
+        window.addEventListener("keydown", this.keyListener = (e) => {
 
             //save lesson to computer and override default behavior
-            if ( (e.code == "KeyS") && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            if ((e.code == "KeyS") && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
                 e.preventDefault();
                 console.log("called save with keybinding")
                 this.onSave()
-                return 
+                return
             }
 
             //play recorded sound
-            if(e.code=="Space" && e.shiftKey){
+            if (e.code == "Space" && e.shiftKey) {
                 e.preventDefault();
-                this.state.propositionBuilder.playAudio(); 
-                return                  
+                this.state.propositionBuilder.playAudio();
+                return
             }
 
             //record sound/stop recording
-            if(e.code=="Space" && e.ctrlKey){
+            if (e.code == "Space" && e.ctrlKey) {
                 e.preventDefault();
                 this.toggleRecorder();
-                return 
+                return
             }
 
         })
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         window.removeEventListener("keydown", this.keyListener)
     }
 
