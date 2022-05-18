@@ -19,7 +19,8 @@ import SettingsIcon from "../../res/settings.png"
 import InfoIcon from "../../res/info.png"
 import HistoryIcon from "../../res/history.png"
 import DownloadIcon from "../../res/download.png"
-import MenuButton from "./recycled/menu_button/MenuButton.jsx";
+// import MenuButton from "./recycled/menu_button/MenuButton.jsx";
+import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
 
 
 export default class App extends Component {
@@ -32,13 +33,13 @@ export default class App extends Component {
 
         this.menu = (<div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
 
-            <MenuButton title={L.info} icon={InfoIcon} onClick={() => { this.onMenuChoose(Pages.INFO) }}/>
-            <MenuButton title={L.download_lessons} icon={DownloadIcon} onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }}/>
-            <MenuButton title={L.take_lesson} icon={TakeLessonIcon} onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}/>
-            <MenuButton title={L.history} icon={HistoryIcon} onClick={() => { this.onMenuChoose(Pages.HISTORY) }}/>
-            <MenuButton title={L.craft_new_lesson} icon={CreateLessonIcon} onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }}/>
-            <MenuButton title={L.edit_lesson} icon={EditLessonIcon} onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }}/>
-            <MenuButton title={L.settings} icon={SettingsIcon} onClick={() => { this.onMenuChoose(Pages.SETTINGS) }}/>
+            <MainMenuButton title={L.info} icon={InfoIcon} onClick={() => { this.onMenuChoose(Pages.INFO) }}/>
+            <MainMenuButton title={L.download_lessons} icon={DownloadIcon} onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }}/>
+            <MainMenuButton title={L.take_lesson} icon={TakeLessonIcon} onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}/>
+            <MainMenuButton title={L.history} icon={HistoryIcon} onClick={() => { this.onMenuChoose(Pages.HISTORY) }}/>
+            <MainMenuButton title={L.craft_new_lesson} icon={CreateLessonIcon} onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }}/>
+            <MainMenuButton title={L.edit_lesson} icon={EditLessonIcon} onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }}/>
+            <MainMenuButton title={L.settings} icon={SettingsIcon} onClick={() => { this.onMenuChoose(Pages.SETTINGS) }}/>
 
         </div>)
 
