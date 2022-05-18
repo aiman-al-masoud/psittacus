@@ -70,8 +70,6 @@ https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.html
 
 view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
-
-
 # Random Stuff
 
 * Write some automated tests
@@ -98,10 +96,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * Checks on methods and duck-typing-related error handling ?
 
-# Security
-
-* Add CSP to server to prevent loading custom code, but allow it with locally downloaded page
-
 # Mobile Friendliness (Responsiveness)
 ...
 
@@ -109,5 +103,4 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 
 # Perf
-
 * compress favicon (keep both, but only use compressed on webapp)
