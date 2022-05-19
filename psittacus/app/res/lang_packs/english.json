@@ -116,5 +116,6 @@
     "images_sounds" : "Images/Sounds",
     "attribs_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/psittacus/app/res/attribs.md",
     "click_to_open" : "Click to Open",
-    "current_sentence" : "Current Sentence / Total Sentences"
+    "current_sentence" : "Current Sentence / Total Sentences",
+    "target_to_native" : "Target to Native"
 }

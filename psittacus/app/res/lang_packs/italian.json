@@ -116,7 +116,8 @@
     "images_sounds" : "Immagini/Suoni",
     "attribs_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/psittacus/app/res/attribs.md",
     "click_to_open" : "Clicca per Aprire",
-    "current_sentence" : "Frase Attuale / Totale Frasi"
+    "current_sentence" : "Frase Attuale / Totale Frasi",
+    "target_to_native" : "Obbiettivo a Origine"
 
 
 }

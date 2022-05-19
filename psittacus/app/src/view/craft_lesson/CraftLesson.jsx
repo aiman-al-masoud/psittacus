@@ -175,7 +175,7 @@ export default class CraftLesson extends Component {
             <br />
             <h1>{L.choose_translation_direction}</h1>
             <div className="text_tip">{L.translation_direction_is}</div>
-            <input type="checkbox" checked={this.state.propositionBuilder.targetToNative} onClick={this.onToggleTargetToNative} />
+            {L.target_to_native} <input type="checkbox" checked={this.state.propositionBuilder.targetToNative} onClick={this.onToggleTargetToNative} />
 
         </div>)
 
