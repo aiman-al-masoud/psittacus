@@ -80,33 +80,64 @@ https://www.iconfinder.com/stefantaubert
 
 # save.png 
 
+<img src="save.png"/> 
+
 https://www.iconfinder.com/icons/326688/floppy_save_guardar_icon
+
+## Author
+Google
 
 # explanation.png
 
+<img src="explanation.png"/> 
+
+
 https://www.iconfinder.com/icons/8541740/chalkboard_teacher_icon
 
+## Author
+Font Awesome
 
 # sentences.png
 
+<img src="sentences.png"/> 
+
+
 https://www.iconfinder.com/icons/103173/new_write_edit_icon
 
+## Author
+https://www.iconfinder.com/designmodo
 
 
 # metadata.png
 
+<img src="metadata.png"/> 
+
 https://www.iconfinder.com/icons/3702400/discount_label_price_sale_tag_icon
+
+## Author
+https://www.iconfinder.com/Gozira13
 
 # arrow.png
 
+<img src="arrow.png"/> 
+
 https://www.iconfinder.com/icons/4781843/arrows_chevron_direction_left_move_next_right_icon
 
+## Author
+
+https://www.iconfinder.com/sabrstudio
 
 # record-audio.png
+
+<img src="record-audio.png"/> 
 
 (modified copy of the original)
 
 https://www.iconfinder.com/icons/511941/audio_mic_microphone_recording_sing_sound_talk_voice_icon
+
+## Author
+
+https://www.iconfinder.com/iconify
 
 # correct.mp3:
 <audio src="correct.mp3">Audio</audio>
