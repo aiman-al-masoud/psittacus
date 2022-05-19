@@ -104,8 +104,9 @@ https://www.iconfinder.com/icons/4781843/arrows_chevron_direction_left_move_next
 
 # record-audio.png
 
-https://www.iconfinder.com/icons/3643759/mic_microphone_recorder_speak_voice_icon
+(modified copy of the original)
 
+https://www.iconfinder.com/icons/511941/audio_mic_microphone_recording_sing_sound_talk_voice_icon
 
 # correct.mp3:
 <audio src="correct.mp3">Audio</audio>
