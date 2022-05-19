@@ -138,7 +138,7 @@ export default class CraftLesson extends Component {
             <div className="center_container">
                 <MenuButton onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.previous_sentence} icon={ArrowIcon} flippedX={true} />
                 {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
-                <span>
+                <span title={L.current_sentence} style={{cursor:"default"}}>
                     {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}
                 </span>
                 <MenuButton onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.next_sentence} icon={ArrowIcon} />
@@ -170,7 +170,7 @@ export default class CraftLesson extends Component {
         </div>)
 
         return (<div>
-            
+
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={L.edit_metadata} icon={MetadataIcon} highlight={this.state.editingMode == EditingModes.METADATA} />
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={L.edit_sentences} icon={SentencesIcon} highlight={this.state.editingMode == EditingModes.LESSON} />
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={L.edit_explanation} icon={ExplanationIcon} highlight={this.state.editingMode == EditingModes.EXPLAINATION} />
