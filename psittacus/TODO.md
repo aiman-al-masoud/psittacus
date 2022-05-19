@@ -15,6 +15,8 @@
 
 # Graphical Stuff
 
+* vertically center play button and make it a MenuButton in TakeLesson
+
 * Improve craft lesson wizard: better positioning of back and forth arrows and sentence counter, Add keyboard shortcuts for navigation between propositions (back, forth) etc...
 
 * Loading animation while downloading lesson indeces.
