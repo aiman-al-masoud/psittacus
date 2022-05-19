@@ -1,7 +1,6 @@
 # Refactoring
 
 * extract Explanation from TakeLesson
-
 * extract button component 
 * extract read and play sentence component
 * extract common superclass of SchedulerManager(s) ?
@@ -13,16 +12,28 @@
 * Add type annotations to comments (where possible).
 
 
-# Add these to server?
+# Graphical Stuff
 
-* login
-access an existing account, receive session id
+* Improve craft lesson wizard: better positioning of back and forth arrows and sentence counter, Add keyboard shortcuts for navigation between propositions (back, forth) etc...
 
-* signup
-create a new account on the server
+* Loading animation while downloading lesson indeces.
 
-* upload-lesson
-requires auth
+* number keys to select word in sentences 
+
+* Fix other React warnings.
+
+* Global linkable documentation mechanism 
+    
+    store current lesson and lessonBuilder and previous state in App, tbat go back to whatever the user was doing.
+
+    pass goBack() callback to all components (children of App)
+
+    method that allows to tell Documentation where to 
+    jump to.
+
+
+# Mobile Friendliness (Responsiveness)
+...
 
 # Add New Attributes to Proposition:
 
@@ -75,32 +86,4 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 * Write some automated tests
 [selenium, cyprus, xdotool]
 
-# Graphical Stuff
-
-* Improve craft lesson wizard: sentence counter to know where you are, icons for buttons etc... Add keyboard shortcuts for navigation between propositions (back, forth) etc...
-
-* Fix other React warnings.
-
-* Global linkable documentation mechanism 
-    
-    store current lesson and lessonBuilder and previous state in App, tbat go back to whatever the user was doing.
-
-    pass goBack() callback to all components (children of App)
-
-    method that allows to tell Documentation where to 
-    jump to.
-
-* number keys to select word in sentences 
-
-# Dynamic class loading
-
-* Checks on methods and duck-typing-related error handling ?
-
-# Mobile Friendliness (Responsiveness)
-...
-
 # Argostranslate running on python server to autogenerate lessons?
-
-
-# Perf
-* compress favicon (keep both, but only use compressed on webapp)
