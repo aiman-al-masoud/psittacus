@@ -84,6 +84,6 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 # Random Stuff
 
 * Write some automated tests
-[selenium, cyprus, xdotool]
+[selenium, cypress, xdotool]
 
 # Argostranslate running on python server to autogenerate lessons?
