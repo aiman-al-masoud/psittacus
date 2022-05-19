@@ -4,6 +4,7 @@
 * extract button component 
 * extract read and play sentence component
 * extract common superclass of SchedulerManager(s) ?
+* extract "proposition wizard" from CraftLesson?
 
 * **Turn jsons to class: LessonHistory?? ? w/:** 
 [ lastTaken() ,propositionScores() ,overall() ,history() ]
