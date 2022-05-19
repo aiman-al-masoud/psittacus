@@ -86,8 +86,12 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Random Stuff
 
+* List words and defs in a lesson.
+
 * Write some automated tests
 [selenium, cypress, xdotool]
+
+
 
 # PALG on Server?
 
