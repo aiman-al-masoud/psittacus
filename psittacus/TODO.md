@@ -86,7 +86,12 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 * Write some automated tests
 [selenium, cypress, xdotool]
 
-# Argostranslate running on python server to autogenerate lessons?
+# PALG on Server?
+
+* TTS may not work on server
+* w/ Argostranslate NOT Google.
+* js randomly samples uploaded text
+* api on server to generate lesson and send it back as a response
 
 # PR
 
