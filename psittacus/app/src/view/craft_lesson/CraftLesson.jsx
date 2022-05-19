@@ -77,8 +77,12 @@ export default class CraftLesson extends Component {
 
     toggleRecorder = () => {
         if (!this.state.recording) {
-            this.lessonBuilder.getCurrent().record()
-            this.setState({ recording: true })
+            
+            setTimeout(() => {
+                this.lessonBuilder.getCurrent().record()
+                this.setState({ recording: true })
+            }, 500);
+
         } else {
             this.lessonBuilder.getCurrent().stopRecording()
             this.setState({ recording: false })
