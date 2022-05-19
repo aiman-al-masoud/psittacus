@@ -19,7 +19,6 @@ import SettingsIcon from "../../res/settings.png"
 import InfoIcon from "../../res/info.png"
 import HistoryIcon from "../../res/history.png"
 import DownloadIcon from "../../res/download.png"
-// import MenuButton from "./recycled/menu_button/MenuButton.jsx";
 import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 
