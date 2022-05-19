@@ -192,5 +192,11 @@ select option {
     display: flex; 
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
 
+.vertical_center_container{
+    display: flex; 
+    text-align: center;
+    align-items: center;
+}

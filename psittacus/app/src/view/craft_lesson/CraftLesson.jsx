@@ -18,6 +18,10 @@ import MetadataIcon from "../../../res/metadata.png"
 import ArrowIcon from "../../../res/arrow.png"
 
 
+import PlayAudioIcon from "../../../res/play-audio.png"
+import RecordAudioIcon from "../../../res/record-audio.png"
+
+
 export default class CraftLesson extends Component {
 
     constructor(props) {
@@ -138,7 +142,7 @@ export default class CraftLesson extends Component {
             <div className="center_container">
                 <MenuButton onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.previous_sentence} icon={ArrowIcon} flippedX={true} />
                 {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
-                <span title={L.current_sentence} style={{cursor:"default"}}>
+                <span title={L.current_sentence} style={{ cursor: "default" }}>
                     {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}
                 </span>
                 <MenuButton onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.next_sentence} icon={ArrowIcon} />
@@ -147,9 +151,15 @@ export default class CraftLesson extends Component {
             <br />
             <h1>{L.write_and_pronounce}</h1>
             <div className="text_tip">{L.target_lang_is}</div>
-            <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} className="normal_textbox" />
-            <button onClick={this.toggleRecorder} className="normal_button" title={L.shortcut_record_audio} >{this.state.recording ? L.stop_recording : L.record}</button>
-            <button onClick={this.state.propositionBuilder.playAudio} className="normal_button" title={L.shortcut_play_audio}>{L.play_audio}</button>
+
+
+            <div className="vertical_center_container">
+                <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} className="normal_textbox" />
+                <MenuButton onClick={this.toggleRecorder} title={`${L.record} (${L.shortcut_record_audio})`} icon={RecordAudioIcon} highlight={this.state.recording} />
+                <MenuButton onClick={this.state.propositionBuilder.playAudio} title={`${L.play_audio} (${L.shortcut_play_audio})`} icon={PlayAudioIcon} />
+            </div>
+
+
             <h1>{L.translate_to_source_lang}</h1>
             <div className="text_tip">{L.source_lang_is}</div>
             <input onInput={this.onSentenceTwoInput} type="text" ref={this.inputSentenceTwo} value={this.state.propositionBuilder.sentenceTwo} className="normal_textbox" />

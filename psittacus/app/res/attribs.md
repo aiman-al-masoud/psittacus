@@ -102,6 +102,10 @@ https://www.iconfinder.com/icons/3702400/discount_label_price_sale_tag_icon
 https://www.iconfinder.com/icons/4781843/arrows_chevron_direction_left_move_next_right_icon
 
 
+# record-audio.png
+
+https://www.iconfinder.com/icons/3643759/mic_microphone_recorder_speak_voice_icon
+
 
 # correct.mp3:
 <audio src="correct.mp3">Audio</audio>
