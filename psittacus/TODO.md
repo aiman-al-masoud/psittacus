@@ -87,3 +87,7 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 [selenium, cypress, xdotool]
 
 # Argostranslate running on python server to autogenerate lessons?
+
+# PR
+
+* make new demo
