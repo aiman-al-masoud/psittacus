@@ -86,6 +86,10 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Random Stuff
 
+* start downloading lesson indeces ASAP
+
+* move lesson index filtering into Server's method
+
 * auto-save while workiing
 
 * import sentences from semi structured file
