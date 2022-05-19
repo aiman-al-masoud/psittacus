@@ -8,16 +8,14 @@ import TextEditor from "./TextEditor.jsx";
 import EditingModes from "./EditingModes.js";
 import Styles from "../Styles";
 import { sendBugReport } from "../../model/utilities/Utils.js";
-
-
 import MenuButton from "../recycled/buttons/MenuButton.jsx";
+
+// Icons
 import SaveIcon from "../../../res/save.png"
 import ExplanationIcon from "../../../res/explanation.png"
 import SentencesIcon from "../../../res/sentences.png"
-
 import MetadataIcon from "../../../res/metadata.png"
 import ArrowIcon from "../../../res/arrow.png"
-
 
 
 export default class CraftLesson extends Component {
@@ -136,20 +134,15 @@ export default class CraftLesson extends Component {
 
         let mainBody = (<div>
 
-
-
-            <MenuButton onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.previous_sentence} icon={ArrowIcon} flippedX={true} />
-
-            {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
-            <span>
-                {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}
-            </span>
-
-            <MenuButton onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.next_sentence} icon={ArrowIcon} />
-
-
-
-
+            {/* Back and forth between propositions */}
+            <div className="center_container">
+                <MenuButton onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.previous_sentence} icon={ArrowIcon} flippedX={true} />
+                {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
+                <span>
+                    {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}
+                </span>
+                <MenuButton onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.next_sentence} icon={ArrowIcon} />
+            </div>
 
             <br />
             <h1>{L.write_and_pronounce}</h1>
@@ -177,13 +170,11 @@ export default class CraftLesson extends Component {
         </div>)
 
         return (<div>
-
-
+            
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={L.edit_metadata} icon={MetadataIcon} highlight={this.state.editingMode == EditingModes.METADATA} />
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={L.edit_sentences} icon={SentencesIcon} highlight={this.state.editingMode == EditingModes.LESSON} />
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={L.edit_explanation} icon={ExplanationIcon} highlight={this.state.editingMode == EditingModes.EXPLAINATION} />
             <MenuButton onClick={() => { this.onSave() }} title={`${L.save_lesson} (${L.shortcut_save_lesson})`} icon={SaveIcon} />
-
 
             <div style={this.state.editingMode == EditingModes.LESSON ? Styles.visible : Styles.invisible}>{mainBody}</div>
             <div style={this.state.editingMode == EditingModes.METADATA ? Styles.visible : Styles.invisible}> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMetadata} /> </div>
