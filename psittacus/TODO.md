@@ -86,6 +86,10 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Random Stuff
 
+* auto-save while workiing
+
+* import sentences from semi structured file
+
 * List words and defs in a lesson.
 
 * Write some automated tests
