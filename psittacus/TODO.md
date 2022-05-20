@@ -104,6 +104,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * global lists of learned words (lessons in cache) for all languages.
 
+* report problem or alternative/wrong solution on propostion during lesson
+
 * Write some automated tests
 [selenium, cypress, xdotool]
 
