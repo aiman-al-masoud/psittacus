@@ -88,6 +88,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Random Stuff
 
+* listen to audio and write what you hear questions 
+
 * Multiple pages for a lesson's explanation, tbat link a specific explanation from a proposition.
 
 * start downloading lesson indeces ASAP
