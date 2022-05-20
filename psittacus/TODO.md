@@ -86,6 +86,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 # Random Stuff
 
+* Multiple pages for a lesson's explanation, tbat link a specific explanation from a proposition.
+
 * start downloading lesson indeces ASAP
 
 * move lesson index filtering into Server's method
