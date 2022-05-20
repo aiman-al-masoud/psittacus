@@ -152,7 +152,7 @@ select option {
 
 .hovering_tool_tip p {
     width: 25vw; 
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .hovering_tool_tip h1{
