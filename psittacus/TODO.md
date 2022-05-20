@@ -102,6 +102,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * List words and defs in a lesson.
 
+* global lists of learned words (lessons in cache) for all languages.
+
 * Write some automated tests
 [selenium, cypress, xdotool]
 
