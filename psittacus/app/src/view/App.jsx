@@ -59,7 +59,13 @@ export default class App extends Component {
         )
     }
 
-    onMenuChoose = async (option) => {
+    /**
+     * 
+     * @param {string} option  from Pages.js enum
+     * @param {{lesson:Lesson?}} args 
+     * @returns 
+     */
+    onMenuChoose = async (option, args) => {
 
         //alert user if exiting with potentially unsaved data.
         if (App.sensitivePages.includes(this.state.pageId)) {
@@ -71,8 +77,15 @@ export default class App extends Component {
         switch (option) {
             case Pages.TAKE_LESSON:
                 {
-                    let jsonData = await readText().then((res) => { return JSON.parse(res) })
-                    let lez = new Lesson(jsonData)
+                    //if lesson not already supplied, ask used to upload lesson file
+                    let lez;
+                    if(args?.lesson){
+                        lez = args.lesson
+                    }else{
+                        let jsonData = await readText().then((res) => { return JSON.parse(res) })
+                        lez = new Lesson(jsonData)    
+                    }
+
                     this.setState({ page: <TakeLesson lesson={lez} /> })
                     break
                 }
@@ -121,8 +134,7 @@ export default class App extends Component {
      * @param {Lesson} lesson 
      */
     takeLesson = (lesson) => {
-        this.setState({ page: <TakeLesson lesson={lesson} /> })
-        this.setState({ pageId: Pages.TAKE_LESSON })
+        this.onMenuChoose(Pages.TAKE_LESSON, {lesson : lesson })
     }
 
 }
