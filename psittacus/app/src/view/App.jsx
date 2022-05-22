@@ -52,7 +52,7 @@ export default class App extends Component {
 
 
         this.pagesHistoryStack = [ ]
-        this.baseHref = location.href
+        this.baseHref = location.protocol + '//' + location.host + location.pathname
         this.currentHref = this.baseHref
 
     }
@@ -148,15 +148,16 @@ export default class App extends Component {
         })
 
         //detect browser's back button
-
         setInterval(() => {
             
             if(this.currentHref!=location.href){
-                console.log('CHANGE DETECTED')
+                
                 this.currentHref = location.href
+                let  p = this.pagesHistoryStack.pop()
 
-                let  p =this.pagesHistoryStack.pop()
-                this.setState({ pageId: p[0], page : p[1] })
+                if(p){
+                    this.setState({ pageId: p[0], page : p[1] })
+                }
 
             }
 
