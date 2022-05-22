@@ -2,12 +2,12 @@
  * Enum of pages in the whole app.
  */
 export default class Pages{
-    static TAKE_LESSON = "TAKE_LESSON"
-    static CRAFT_NEW_LESSON = "CRAFT_NEW_LESSON"
-    static EDIT_LESSON = "EDIT_LESSON"
-    static INFO = "INFO"
-    static MENU = "MENU"
-    static SETTINGS = "SETTINGS"
-    static HISTORY = "HISTORY" 
-    static DOWNLOAD = "DOWNLOAD"
+    static TAKE_LESSON = "take-lesson"
+    static CRAFT_NEW_LESSON = "craft-new-lesson"
+    static EDIT_LESSON = "edit-lesson"
+    static INFO = "info"
+    static MENU = "menu"
+    static SETTINGS = "settings"
+    static HISTORY = "history" 
+    static DOWNLOAD = "download"
 }

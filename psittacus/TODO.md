@@ -106,11 +106,8 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 
 * report problem or alternative/wrong solution on propostion during lesson
 
-* back and forth by tracking address bar
-
 * Write some automated tests
 [selenium, cypress, xdotool]
-
 
 
 # PALG on Server?
