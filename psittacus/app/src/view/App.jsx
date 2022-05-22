@@ -28,6 +28,8 @@ export default class App extends Component {
     //pages which may contain unsaved data
     static sensitivePages = [Pages.CRAFT_NEW_LESSON, Pages.EDIT_LESSON]
 
+    
+
     constructor(props) {
         super(props)
 
@@ -47,6 +49,12 @@ export default class App extends Component {
             page: this.menu,
             pageId: Pages.MENU
         }
+
+
+        this.pagesHistoryStack = [ ]
+        this.baseHref = location.href
+        this.currentHref = this.baseHref
+
     }
 
     render() {
@@ -118,18 +126,43 @@ export default class App extends Component {
                 break
         }
 
-        // update states
+        // save state before changing
+        this.pagesHistoryStack.push( [this.state.pageId, this.state.page] )
+        
+        // update state
         this.setState({ pageId: option, page : newPage })
+
+        //update location
+        location.href = this.baseHref+"#"+option
+        this.currentHref = location.href
 
     }
 
-    //alert user if exiting with potentially unsaved data.
     componentDidMount() {
+
+        //alert user if exiting with potentially unsaved data.
         window.addEventListener('beforeunload', (e) => {
             if (App.sensitivePages.includes(this.state.pageId)) {
                 e.returnValue = L.your_work_may_be_lost;
             }
         })
+
+        //detect browser's back button
+
+        setInterval(() => {
+            
+            if(this.currentHref!=location.href){
+                console.log('CHANGE DETECTED')
+                this.currentHref = location.href
+
+                let  p =this.pagesHistoryStack.pop()
+                this.setState({ pageId: p[0], page : p[1] })
+
+            }
+
+        }, 100);
+
+
     }
 
     /**
