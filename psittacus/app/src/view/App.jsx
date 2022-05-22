@@ -74,6 +74,8 @@ export default class App extends Component {
             }
         }
 
+        //create new page
+        let newPage;
         switch (option) {
             case Pages.TAKE_LESSON:
                 {
@@ -86,37 +88,46 @@ export default class App extends Component {
                         lez = new Lesson(jsonData)    
                     }
 
-                    this.setState({ page: <TakeLesson lesson={lez} /> })
+                    // this.setState({ page: <TakeLesson lesson={lez} /> })
+                    newPage = <TakeLesson lesson={lez} />
                     break
                 }
             case Pages.CRAFT_NEW_LESSON:
-                this.setState({ page: <CraftLesson /> })
+                // this.setState({ page: <CraftLesson /> })
+                newPage = <CraftLesson />
                 break
             case Pages.EDIT_LESSON:
                 {
                     let jsonData = await readText().then((res) => { return JSON.parse(res) })
                     let lez = LessonBuilder.fromExistingJson(jsonData)
-                    this.setState({ page: <CraftLesson lessonBuilder={lez} /> })
+                    // this.setState({ page: <CraftLesson lessonBuilder={lez} /> })
+                    newPage = <CraftLesson lessonBuilder={lez} />
                     break
                 }
             case Pages.INFO:
-                this.setState({ page: <Info /> })
+                // this.setState({ page: <Info /> })
+                newPage = <Info />
                 break
             case Pages.MENU:
-                this.setState({ page: this.menu })
+                // this.setState({ page: this.menu })
+                newPage = this.menu
                 break
             case Pages.SETTINGS:
                 this.setState({ page: <Settings /> })
+                newPage = <Settings />
                 break
             case Pages.HISTORY:
-                this.setState({ page: <History takeLesson={this.takeLesson} /> })
+                // this.setState({ page: <History takeLesson={this.takeLesson} /> })
+                newPage = <History takeLesson={this.takeLesson} /> 
                 break
             case Pages.DOWNLOAD:
-                this.setState({ page: <Download takeLesson={this.takeLesson} /> })
+                // this.setState({ page: <Download takeLesson={this.takeLesson} /> })
+                newPage = <Download takeLesson={this.takeLesson} />
                 break
         }
 
-        this.setState({ pageId: option })
+        // update states
+        this.setState({ pageId: option, page : newPage })
 
     }
 
