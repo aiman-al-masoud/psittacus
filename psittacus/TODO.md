@@ -1,5 +1,6 @@
 # Refactoring
 
+* WHY is this.answerHidden woking in Proposition if getQuest... getAnsw... get called simultaneously all the time?!
 * extract button component 
 * extract read and play sentence component
 * extract common superclass of SchedulerManager(s) ?
