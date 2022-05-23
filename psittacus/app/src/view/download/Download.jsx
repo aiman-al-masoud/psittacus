@@ -31,11 +31,15 @@ export default class Download extends Component{
     }
 
     componentDidMount(){
-        this.fetchIdsTask  = setInterval(() => {
+
+        let task = () => {
             Server.getInstance().getLessonIndeces().then(ids=>{
                 this.setState(  {fetchLessonIds : ((metadataFilter)=>{return ids.filter(id=>Lesson.isMetadataMatching(id, metadataFilter)  )   })  }  )
             })
-        }, 2000);
+        }
+
+        task()
+        this.fetchIdsTask  = setInterval(task, 2000);
     }
 
     componentWillUnmount(){
