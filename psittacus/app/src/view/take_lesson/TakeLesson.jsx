@@ -7,6 +7,7 @@ import Styles from "../Styles.js";
 import PlayAudioIcon from "../../../res/play-audio.png"
 import Lesson from "../../model/lesson/Lesson.js";
 import Explanation from "./Explanation.jsx";
+import LessonOver from "./LessonOver.jsx";
 
 
 
@@ -94,8 +95,7 @@ export default class TakeLesson extends Component {
             </div>
 
             <div style={this.state.mode == Modes.LESSON_OVER ? Styles.visible : Styles.invisible}   >
-                <h1>{L.thank_you_for_taking_lesson}</h1>
-                <h2>{L.overall_accuracy} {this.state.overallUserAccuracy}%</h2>
+                <LessonOver overallUserAccuracy={this.state.overallUserAccuracy}/>
             </div>
 
             <div style={this.state.mode == Modes.EXPLANATION ? Styles.visible : Styles.invisible}   >
