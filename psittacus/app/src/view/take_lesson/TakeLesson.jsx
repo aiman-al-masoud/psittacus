@@ -53,6 +53,7 @@ export default class TakeLesson extends Component {
         this.setState({ overallUserAccuracy: this.lesson.getScore() })
     }
 
+    //switch-case in here instead?
     render() {
 
         return (<div>
