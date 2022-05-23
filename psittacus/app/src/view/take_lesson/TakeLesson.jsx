@@ -40,7 +40,7 @@ export default class TakeLesson extends Component {
 
         if (this.state.solutionHidden) {
             this.setState({ userAccuracy: this.state.proposition.check(this.userInput.current.value) })
-            this.lesson.getCurrent().targetToNative? "" : this.lesson.getCurrent().play()
+            this.lesson.getCurrent().targetToNative ? "" : this.lesson.getCurrent().play()
         } else {
             this.lesson.next()
             this.setState({ proposition: this.lesson.getCurrent() })
@@ -77,11 +77,11 @@ export default class TakeLesson extends Component {
                 <div style={this.state.solutionHidden ? Styles.invisible : Styles.visible}>
                     <h1>{L.solution}:</h1>
                     <div className="text_tip">{L.need_a_tip_hover_words}</div>
-                    
+
                     <div style={{ width: "50vw" }}>
 
-                    <HoverableSentence wordDict={this.state.proposition.getAnswerWordDict()} />
-                    <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={( (!this.state.proposition.targetToNative) && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
+                        <HoverableSentence wordDict={this.state.proposition.getAnswerWordDict()} />
+                        <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={((!this.state.proposition.targetToNative) && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
 
                     </div>
 
@@ -89,7 +89,7 @@ export default class TakeLesson extends Component {
                     <h2>{L.your_accuracy}: {this.state.userAccuracy}%</h2>
                 </div>
                 <br />
-                <span className="text_tip">{L.need_a_lot_of_tips} <button  className="normal_link" onClick={() => { this.setState({ mode: Modes.EXPLANATION }) }}>{L.read_explanation}</button></span>
+                <span className="text_tip">{L.need_a_lot_of_tips} <button className="normal_link" onClick={() => { this.setState({ mode: Modes.EXPLANATION }) }}>{L.read_explanation}</button></span>
             </div>
 
             <div style={this.state.mode == Modes.LESSON_OVER ? Styles.visible : Styles.invisible}   >
@@ -107,7 +107,7 @@ export default class TakeLesson extends Component {
 
     componentDidMount() {
 
-        window.addEventListener("keydown", this.keyListener =  (e) => {
+        window.addEventListener("keydown", this.keyListener = (e) => {
 
             //play recording if user allowed to hear it
             if (e.code == "Space" && e.shiftKey) {
@@ -118,8 +118,8 @@ export default class TakeLesson extends Component {
         })
     }
 
-    componentWillUnmount(){
-        window.removeEventListener( "keydown", this.keyListener)
+    componentWillUnmount() {
+        window.removeEventListener("keydown", this.keyListener)
     }
 
 
