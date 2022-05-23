@@ -119,3 +119,5 @@ view-source:https://gildas-lormeau.github.io/zip.js/demos/demo-read-file.js
 # PR
 
 * make new demo
+* re-record lesson on articles
+* make at least 3 other lessons. 2 non-grammatical and 1 grammatical.
