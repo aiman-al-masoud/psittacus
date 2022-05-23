@@ -6,7 +6,7 @@ import Modes from "./Modes.js";
 import Styles from "../Styles.js";
 import PlayAudioIcon from "../../../res/play-audio.png"
 import Lesson from "../../model/lesson/Lesson.js";
-import DOMPurify from 'dompurify';
+import Explanation from "./Explanation.jsx";
 
 
 
@@ -98,8 +98,8 @@ export default class TakeLesson extends Component {
             </div>
 
             <div style={this.state.mode == Modes.EXPLANATION ? Styles.visible : Styles.invisible}   >
-                <button onClick={() => { this.setState({ mode: Modes.STANDARD }) }} className="normal_button">{L.back}</button>                
-                <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.lesson.explanationText) }}></div>
+                <button onClick={() => { this.setState({ mode: Modes.STANDARD }) }} className="normal_button">{L.back}</button>
+                <Explanation explanationText={this.lesson.explanationText} />
             </div>
 
         </div>)
