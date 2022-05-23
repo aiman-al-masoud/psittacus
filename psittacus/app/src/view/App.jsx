@@ -140,6 +140,11 @@ export default class App extends Component {
 
     componentDidMount() {
 
+        //"shake off" any (incompatible) query string parameters from other websites
+        if(location.href.includes("?")){
+            location.href = this.baseHref
+        }
+
         //alert user if exiting with potentially unsaved data.
         window.addEventListener('beforeunload', (e) => {
             if (App.sensitivePages.includes(this.state.pageId)) {
