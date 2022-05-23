@@ -58,14 +58,12 @@ export default class TakeLesson extends Component {
 
         this.main = (<div>
             <h1>{L.translate_this_sentence}</h1>
-            <div className="text_tip">{L.need_a_tip_hover_words}</div>
-            <br />
 
             <div style={{ width: "50vw" }}>
-
+                <div className="text_tip">{L.need_a_tip_hover_words}</div>
+                <br />
                 <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
                 <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={(this.state.proposition.targetToNative && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
-
             </div>
 
             <br />
@@ -75,15 +73,12 @@ export default class TakeLesson extends Component {
             <br />
             <div style={this.state.solutionHidden ? Styles.invisible : Styles.visible}>
                 <h1>{L.solution}:</h1>
-                <div className="text_tip">{L.need_a_tip_hover_words}</div>
 
                 <div style={{ width: "50vw" }}>
-
+                    <div className="text_tip">{L.need_a_tip_hover_words}</div>
                     <HoverableSentence wordDict={this.state.proposition.getAnswerWordDict()} />
                     <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={((!this.state.proposition.targetToNative) && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
-
                 </div>
-
 
                 <h2>{L.your_accuracy}: {this.state.userAccuracy}%</h2>
             </div>
@@ -91,13 +86,13 @@ export default class TakeLesson extends Component {
             <span className="text_tip">{L.need_a_lot_of_tips} <button className="normal_link" onClick={() => { this.setState({ mode: Modes.EXPLANATION }) }}>{L.read_explanation}</button></span>
         </div>)
 
-        switch (this.state.mode ) {
+        switch (this.state.mode) {
             case Modes.STANDARD:
                 return this.main;
             case Modes.EXPLANATION:
-                return <Explanation explanationText={this.lesson.explanationText} onBack={ () => { this.setState({ mode: Modes.STANDARD }) } } />
+                return <Explanation explanationText={this.lesson.explanationText} onBack={() => { this.setState({ mode: Modes.STANDARD }) }} />
             case Modes.LESSON_OVER:
-                return <LessonOver overallUserAccuracy={this.state.overallUserAccuracy}/>
+                return <LessonOver overallUserAccuracy={this.state.overallUserAccuracy} />
         }
 
     }
