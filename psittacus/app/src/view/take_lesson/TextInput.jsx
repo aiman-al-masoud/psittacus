@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import Styles from "../Styles";
-import Tooltip from "../recycled/tooltip/Tooltip.jsx";
-
 
 
 export default class TextInput extends Component {
