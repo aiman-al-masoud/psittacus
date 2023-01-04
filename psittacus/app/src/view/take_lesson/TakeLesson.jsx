@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HoverableSentence from "./HoverableSentence.jsx";
+import TextInput from "./TextInput.jsx";
 import "../../index.css"
 import L from "../../model/utilities/Language.js"
 import Modes from "./Modes.js";
@@ -67,7 +68,7 @@ export default class TakeLesson extends Component {
             </div>
 
             <br />
-            <input ref={this.userInput} type="text" className="normal_textbox" />
+            <TextInput userInput={this.userInput} />
             <br />
             <button onClick={this.next} className="normal_button">{this.state.solutionHidden ? L.see_solution : L.next}  </button>
             <br />
