@@ -26,6 +26,8 @@
     "words_will_appear_reverse_dict" : "Fornisci una traduzione delle parole della lingua dei tuoi studenti.",
     "choose_translation_direction" : "Direzione",
     "translation_direction_is" : "Di default, agli studenti verrà richiesto di tradurre dalla lingua obbiettivo alla lingua d'origine. Ma puoi invertirlo de-selezionando questa casella.",
+    "choose_word_buttons" : "Parole sui pulsanti",
+    "word_buttons_is" : "Piuttosto che utilizzare una casella di testo, fornisci agli utenti le parole nei pulsanti per metterle in ordine:",
     "translate_this_sentence" : "Traduci questa frase:",
     "see_solution" : "Vedi Soluzione",
     "solution" : "Soluzione",

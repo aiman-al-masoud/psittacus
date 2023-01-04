@@ -26,6 +26,8 @@
     "words_will_appear_reverse_dict" : "Aporta una traducción de las palabras del idioma que conocen tus estudiantes al idioma que están aprendiendo.",
     "choose_translation_direction" : "Dirección",
     "translation_direction_is" : "Por defecto a las estudiantes se les pedirá traducir del idioma objetivo al idioma fuente, pero puedes invertir el orden desmarcando esta casilla:",
+    "choose_word_buttons" : "Palabras en botones",
+    "word_buttons_is" : "En lugar de utilizar una caja de texto l@s estudiantes podrán usar botones con las palabras y ordenarlas:",
     "translate_this_sentence" : "Traduce esta frase:",
     "see_solution" : "Ver solución",
     "solution" : "Solución",
