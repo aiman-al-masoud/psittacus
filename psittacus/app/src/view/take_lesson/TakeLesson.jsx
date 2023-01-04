@@ -57,6 +57,7 @@ export default class TakeLesson extends Component {
     }
 
     render() {
+        console.log(this.wordDict);
         this.main = (<div>
             <h1>{L.translate_this_sentence}</h1>
 
@@ -68,7 +69,7 @@ export default class TakeLesson extends Component {
             </div>
 
             <br />
-            <InputManager userInput={this.userInput} wordButtons={this.state.proposition.wordButtons} />
+            <InputManager userInput={this.userInput} proposition={this.state.proposition} />
             <br />
             <button onClick={this.next} className="normal_button">{this.state.solutionHidden ? L.see_solution : L.next}  </button>
             <br />
@@ -87,9 +88,6 @@ export default class TakeLesson extends Component {
             <br />
             <span className="text_tip">{L.need_a_lot_of_tips} <button className="normal_link" onClick={() => { this.setState({ mode: Modes.EXPLANATION }) }}>{L.read_explanation}</button></span>
         </div>)
-
-        console.log(typeof(this.main));
-        console.log(this.main);
 
         switch (this.state.mode) {
             case Modes.STANDARD:

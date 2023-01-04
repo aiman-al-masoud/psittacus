@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TextInput from "./TextInput.jsx";
+import ButtonInput from "./ButtonInput.jsx";
 
 export default class InputManager extends Component {
 
@@ -8,11 +9,9 @@ export default class InputManager extends Component {
     }
 
     render() {
-        if (this.props.wordButtons) {
-            console.log('Use word buttons');
-            return <TextInput userInput={this.props.userInput} />
+        if (this.props.proposition.wordButtons) {
+            return <ButtonInput userInput={this.props.userInput} proposition={this.props.proposition} />
         } else {
-            console.log('Dont use word buttons');
             return <TextInput userInput={this.props.userInput} />
         }
     }

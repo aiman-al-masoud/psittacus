@@ -33,12 +33,19 @@ h1 {
 .transparent_button,
 .dangerous_button,
 .play_audio_button
-.safe_button {
+.safe_button 
+.word_button {
     border: 1px black dotted;
     margin: 1vh;
     padding: 1vh;
     background-color: var(--normal-item-color);
     color: white;
+}
+
+.word_button {
+    background-color: white;
+    color: var(--normal-item-color);
+    margin-right: 1em;
 }
 
 .transparent_button,
@@ -50,7 +57,16 @@ h1 {
 }
 
 
+#button_words {
+    width: 40vw;
+}
 
+.button_container {
+    border: 1px black dotted;
+    margin: 1vh;
+    padding: 1vh;
+    min-height: 3vh;
+}
 
 
 .normal_button:hover,
@@ -62,7 +78,9 @@ h1 {
 .transparent_button:hover, 
 .transparent_button:focus, 
 .play_audio_button:hover,
-.play_audio_button:focus
+.play_audio_button:focus,
+.word_button:hover,
+.word_button:focus
 {
     outline: 2px var(--on-focus-color) solid;
     color: var(--on-focus-color);
