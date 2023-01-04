@@ -96,6 +96,12 @@ export default class CraftLesson extends Component {
         this.setState({ propositionBuilder: propoBuilder })
     }
 
+    onToggleWordButtons = () => {
+        let propoBuilder = this.lessonBuilder.getCurrent()
+        propoBuilder.wordButtons = !propoBuilder.wordButtons
+        this.setState({ propositionBuilder: propoBuilder })
+    }
+
     onModifyMetadata = (metadataDict) => {
         this.lessonBuilder.metadata = metadataDict
         this.setState({ lessonBuilder: this.lessonBuilder })
@@ -180,6 +186,10 @@ export default class CraftLesson extends Component {
             <h1>{L.choose_translation_direction}</h1>
             <div className="text_tip">{L.translation_direction_is}</div>
             {L.target_to_native} <input type="checkbox" checked={this.state.propositionBuilder.targetToNative} onClick={this.onToggleTargetToNative} />
+            <br />
+            <h1>{L.choose_word_buttons}</h1>
+            <div className="text_tip">{L.word_buttons_is}</div>
+            {L.choose_word_buttons} <input type="checkbox" checked={this.state.propositionBuilder.wordButtons} onClick={this.onToggleWordButtons} />
 
         </div>)
 

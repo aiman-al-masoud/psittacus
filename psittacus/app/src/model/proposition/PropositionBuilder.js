@@ -25,6 +25,7 @@ export default class PropositionBuilder{
         pb.reverseDict = jsonData.reverse_dict??{}
         pb.recorder.base64 = jsonData.audio_base64
         pb.targetToNative = jsonData.target_to_native??true
+        pb.wordButtons = jsonData.word_buttons??true
         return pb
     }
 
@@ -36,6 +37,7 @@ export default class PropositionBuilder{
             reverse_dict : this.reverseDict,
             audio_base64 : this.recorder.base64,
             target_to_native  : this.targetToNative,
+            word_buttons  : this.wordButtons,
         }
     }
 
