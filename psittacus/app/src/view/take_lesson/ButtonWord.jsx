@@ -8,8 +8,6 @@ export default class ButtonWord extends Component {
     }
 
     onClickButton = (e) => {
-        console.log('select');
-        
         // move button
         const this_button = e.target;
         const parent_elem = this_button.parentElement;
@@ -29,12 +27,10 @@ export default class ButtonWord extends Component {
                 this.selectedWords.splice(idx_word, 1);
             }
         }
-        console.log(this.selectedWords);
+
         // fill phrase input
         const phrase_input = document.querySelector('#phrase_input');
         phrase_input.value = this.selectedWords.join(' ');
-
-        console.log(e);
     };
 
     render() {
