@@ -26,7 +26,8 @@ export default class Proposition {
         this.wordDict = jsonData.word_dict
         this.reverseDict = jsonData.reverse_dict
         this.targetToNative = jsonData.target_to_native ?? true
-        this.wordButtons = jsonData.word_buttons ?? true
+        this.wordButtons = jsonData.word_buttons ?? false
+        this.extraWords = jsonData.extra_words ?? ""
 
         this.answerHidden = true // is answer still hidden?
     }

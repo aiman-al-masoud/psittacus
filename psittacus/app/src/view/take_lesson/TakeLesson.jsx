@@ -57,7 +57,6 @@ export default class TakeLesson extends Component {
     }
 
     render() {
-        console.log(this.wordDict);
         this.main = (<div>
             <h1>{L.translate_this_sentence}</h1>
 

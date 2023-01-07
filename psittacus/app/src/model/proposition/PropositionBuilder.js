@@ -12,6 +12,8 @@ export default class PropositionBuilder{
         this.targetToNative = true; //to be translated from target lang to native by default.
         this.sentenceOne = "" //in target lang
         this.sentenceTwo = "" //in source lang
+        this.wordButtons = false;
+        this.extraWords = "";
     }
 
     /**
@@ -25,7 +27,8 @@ export default class PropositionBuilder{
         pb.reverseDict = jsonData.reverse_dict??{}
         pb.recorder.base64 = jsonData.audio_base64
         pb.targetToNative = jsonData.target_to_native??true
-        pb.wordButtons = jsonData.word_buttons??true
+        pb.wordButtons = jsonData.word_buttons??false
+        pb.extraWords = jsonData.extra_words ?? ""
         return pb
     }
 
@@ -38,6 +41,7 @@ export default class PropositionBuilder{
             audio_base64 : this.recorder.base64,
             target_to_native  : this.targetToNative,
             word_buttons  : this.wordButtons,
+            extra_words : this.extraWords,
         }
     }
 

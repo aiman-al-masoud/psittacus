@@ -28,6 +28,7 @@ export default class CraftLesson extends Component {
         super(props)
         this.inputSentenceOne = React.createRef()
         this.inputSentenceTwo = React.createRef()
+        this.inputExtraWords = React.createRef()
         this.lessonBuilder = props.lessonBuilder ?? new LessonBuilder()
 
         //TODO: (Deduplication) lessonBuilder only as a state, remove this.lessonBuilder 
@@ -126,6 +127,13 @@ export default class CraftLesson extends Component {
         this.setState({ propositionBuilder: propoBuilder })
     }
 
+    onExtraWordsModified = () => {
+        let propoBuilder = this.lessonBuilder.getCurrent()
+        console.log(this.inputExtraWords.value);
+        propoBuilder.extraWords = this.inputExtraWords.current.value
+        this.setState({ propositionBuilder: propoBuilder })
+    }
+
     onSave = () => {
 
         try {
@@ -190,7 +198,10 @@ export default class CraftLesson extends Component {
             <h1>{L.choose_word_buttons}</h1>
             <div className="text_tip">{L.word_buttons_is}</div>
             {L.choose_word_buttons} <input type="checkbox" checked={this.state.propositionBuilder.wordButtons} onClick={this.onToggleWordButtons} />
-
+            <br />
+            <h1>{L.extra_words}</h1>
+            <div className="text_tip">{L.extra_words_are}</div>
+            <input id="extra_words" type="text" onInput={this.onExtraWordsModified} ref={this.inputExtraWords} value={this.state.propositionBuilder.extraWords} className="normal_textbox" disabled={this.state.propositionBuilder.wordButtons ? '' : 'disabled'} />
         </div>)
 
         return (<div>

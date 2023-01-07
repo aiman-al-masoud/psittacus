@@ -28,6 +28,8 @@
     "translation_direction_is" : "Di default, agli studenti verrà richiesto di tradurre dalla lingua obbiettivo alla lingua d'origine. Ma puoi invertirlo de-selezionando questa casella.",
     "choose_word_buttons" : "Parole sui pulsanti",
     "word_buttons_is" : "Piuttosto che utilizzare una casella di testo, fornisci agli utenti le parole nei pulsanti per metterle in ordine:",
+    "extra_words": "Paroli extra",
+    "extra_words_are": "Queste sono parole extra per fuorviare lo studente quando usa i pulsanti delle parole",
     "translate_this_sentence" : "Traduci questa frase:",
     "see_solution" : "Vedi Soluzione",
     "solution" : "Soluzione",

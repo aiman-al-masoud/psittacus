@@ -28,6 +28,8 @@
     "translation_direction_is" : "By default students will be asked to translate from target to source. But you can change that by un-checking this box:",
     "choose_word_buttons" : "Word buttons",
     "word_buttons_is" : "Rather than using a text box, provide the users the words in buttons to put them in order:",
+    "extra_words": "Extra words",
+    "extra_words_are": "These are extra words to mislead the student when using word buttons",
     "translate_this_sentence" : "Translate this sentence:",
     "see_solution" : "See Solution",
     "solution" : "Solution",

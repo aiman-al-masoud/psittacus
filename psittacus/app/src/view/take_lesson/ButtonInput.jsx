@@ -9,8 +9,10 @@ export default class ButtonInput extends Component {
         const useDict = 
             props.proposition.targetToNative ? 
                 props.proposition.reverseDict : props.proposition.wordDict;
+        const words = Object.keys(useDict);
+        const extraWords = props.proposition.extraWords.split(' ');
         
-        this.buttonTexts = this.shuffleArray(Object.keys(useDict));
+        this.buttonTexts = this.shuffleArray(words.concat(extraWords));
     }
 
     shuffleArray(array) {
