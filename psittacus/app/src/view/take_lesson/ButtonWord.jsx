@@ -7,15 +7,13 @@ export default class ButtonWord extends Component {
     }
 
     render() {
-        let id = this.props.id;
         let style = {};
         if(this.props.isHidden){
-            id = id + '_hidden';
             style = {'display': 'none'}
         }
 
         return (
-            <button id={id} className="word_button" style={style}>{this.props.text}</button>
+            <button id={this.props.id} className="word_button" style={style} onClick={this.props.onClick}>{this.props.text}</button>
         )
     }
 
