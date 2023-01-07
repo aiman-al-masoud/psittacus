@@ -26,30 +26,15 @@ export default class ButtonInput extends Component {
         return array;
     }
 
-    onSelectButton(e) {
-        console.log('select');
-        
-        // move button
-        const this_button = e.target;
-        const parent_elem = this_button.parentElement;
-        const new_parent_id = parent_elem.id === 'button_selected' ? 'button_choices' : 'button_selected';
-        const new_parent = document.querySelector('#' + new_parent_id);
-        new_parent.appendChild(parent_elem.removeChild(this_button));
-
-        // add value to phrase input
-
-        console.log(e);
-    }
-
     render() {
         return (
             <div id="button_words" className="button_container">
                 <div id="button_selected" className="button_container">
                 </div>
                 <div id="button_choices" className="button_container">
-                {this.buttonTexts.map((text, idx) => <ButtonWord id={'bword_'+idx} key={idx} text={text} isHidden={false} onClick={this.onSelectButton} />)}
+                {this.buttonTexts.map((text, idx) => <ButtonWord id={'bword_'+idx} key={idx} text={text} onClick={this.onSelectButton} selectedWords={this.selectedWords} />)}
                 </div>
-                <input ref={this.props.userInput} type="hidden" className="normal_textbox" />
+                <input id="phrase_input" ref={this.props.userInput} type="hidden" className="normal_textbox" />
             </div>
         )
     }
