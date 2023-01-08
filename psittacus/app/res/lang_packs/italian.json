@@ -28,7 +28,7 @@
     "translation_direction_is" : "Di default, agli studenti verrà richiesto di tradurre dalla lingua obbiettivo alla lingua d'origine. Ma puoi invertirlo de-selezionando questa casella.",
     "choose_word_buttons" : "Parole sui pulsanti",
     "word_buttons_is" : "Piuttosto che utilizzare una casella di testo, fornisci agli utenti le parole nei pulsanti per metterle in ordine:",
-    "extra_words": "Paroli extra",
+    "extra_words": "Parole extra",
     "extra_words_are": "Queste sono parole extra per fuorviare lo studente quando usa i pulsanti delle parole",
     "your_answer": "La tua risposta",
     "available_words": "Parole disponibili",
@@ -123,7 +123,8 @@
     "attribs_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/psittacus/app/res/attribs.md",
     "click_to_open" : "Clicca per Aprire",
     "current_sentence" : "Frase Attuale / Totale Frasi",
-    "target_to_native" : "Obbiettivo a Origine"
+    "target_to_native" : "Obbiettivo a Origine",
+    "input_type_is" : "Scegli se usare la tastiera o se selezionare le parole proposte dalla lezione."
 
 
 }

@@ -15,10 +15,11 @@ export default class Settings extends Component {
         this.state = {
             APP_LANGUAGE: L.current(),
             PROPOSITION_SCHEDULER: S.getInstance().get(S.PROPOSITION_SCHEDULER),
-            LESSON_SCHEDULER: S.getInstance().get(S.LESSON_SCHEDULER)
+            LESSON_SCHEDULER: S.getInstance().get(S.LESSON_SCHEDULER),
+            INPUT_TYPE: S.getInstance().get(S.INPUT_TYPE)
         }
     }
-    
+
     onSet = (key, event) => {
 
         let choice = event.target
@@ -29,7 +30,7 @@ export default class Settings extends Component {
         newState[key] = choice
         this.setState(newState)
 
-        if(key==S.APP_LANGUAGE){
+        if (key == S.APP_LANGUAGE) {
             L.reload() //redundant
             window.location.reload()
         }
@@ -46,8 +47,8 @@ export default class Settings extends Component {
         saveToComp(JSON.stringify(UserProgress.userProgress()), "progress.txt", "text/plain")
     }
 
-    eraseProgress = ()=>{
-        confirm(L.are_you_sure_delete_progress)? UserProgress.eraseProgress() : undefined
+    eraseProgress = () => {
+        confirm(L.are_you_sure_delete_progress) ? UserProgress.eraseProgress() : undefined
     }
 
     render() {
@@ -55,7 +56,7 @@ export default class Settings extends Component {
         return (<div>
 
             <h1>{L.choose_lang}</h1>
-            <select value={this.state.APP_LANGUAGE} onChange={(event) => { this.onSet(S.APP_LANGUAGE, event)  }} >
+            <select value={this.state.APP_LANGUAGE} onChange={(event) => { this.onSet(S.APP_LANGUAGE, event) }} >
                 {L.available().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
@@ -66,8 +67,8 @@ export default class Settings extends Component {
                 {PropositionSchedulerFactory.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
-            <div className="text_tip"> 
-            {PropositionSchedulerFactory.getCurrentSchedulersDescription()} 
+            <div className="text_tip">
+                {PropositionSchedulerFactory.getCurrentSchedulersDescription()}
             </div>
 
             <h1>{L.choose_lesson_scheduler}</h1>
@@ -77,8 +78,8 @@ export default class Settings extends Component {
                 {LessonSchedulerFactory.getTypes().map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
-            <div className="text_tip"> 
-            {LessonSchedulerFactory.getCurrentSchedulersDescription()} 
+            <div className="text_tip">
+                {LessonSchedulerFactory.getCurrentSchedulersDescription()}
             </div>
 
 
@@ -89,9 +90,18 @@ export default class Settings extends Component {
             <button onClick={this.importProgress} className="normal_button">{L.import_progress}</button>
             <button onClick={this.eraseProgress} className="normal_button">{L.erase_progress}</button>
 
+            <h1>Input Type</h1>
+
+            <div className="text_tip">{L.input_type_is}</div>
+
+            <select value={this.state.INPUT_TYPE} onChange={event => { this.onSet(S.INPUT_TYPE, event) }} >
+                {S.inputTypes.map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
+            </select>
+
+
             <br />
             <br />
-            <DeveloperOptions/>
+            <DeveloperOptions />
 
         </div>)
     }

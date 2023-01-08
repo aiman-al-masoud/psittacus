@@ -123,5 +123,6 @@
     "attribs_link" : "https://github.com/aiman-al-masoud/psittacus/blob/main/psittacus/app/res/attribs.md",
     "click_to_open" : "Click to Open",
     "current_sentence" : "Current Sentence / Total Sentences",
-    "target_to_native" : "Target to Native"
+    "target_to_native" : "Target to Native",
+    "input_type_is" : "Choose whether to type in your solution, or to use word tips provided by the lesson."
 }
