@@ -30,6 +30,8 @@
     "word_buttons_is" : "Rather than using a text box, provide the users the words in buttons to put them in order:",
     "extra_words": "Extra words",
     "extra_words_are": "These are extra words to mislead the student when using word buttons",
+    "your_answer": "Your answer",
+    "available_words": "Available words",
     "translate_this_sentence" : "Translate this sentence:",
     "see_solution" : "See Solution",
     "solution" : "Solution",

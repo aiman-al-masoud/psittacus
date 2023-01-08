@@ -1,3 +1,4 @@
+import L from "../../model/utilities/Language.js"
 import React, { Component } from "react";
 import ButtonWord from "./ButtonWord.jsx";
 
@@ -30,9 +31,11 @@ export default class ButtonInput extends Component {
         return (
             <div id="button_words" className="button_container">
                 <div id="button_selected" className="button_container">
+                    <h4>{L.your_answer}</h4>
                 </div>
                 <div id="button_choices" className="button_container">
-                {this.buttonTexts.map((text, idx) => <ButtonWord id={'bword_'+idx} key={idx} text={text} onClick={this.onSelectButton} selectedWords={this.selectedWords} />)}
+                    <h4>{L.available_words}</h4>
+                    {this.buttonTexts.map((text, idx) => <ButtonWord id={'bword_'+idx} key={idx} text={text} onClick={this.onSelectButton} selectedWords={this.selectedWords} />)}
                 </div>
                 <input id="phrase_input" ref={this.props.userInput} type="hidden" className="normal_textbox" />
             </div>

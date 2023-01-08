@@ -30,6 +30,8 @@
     "word_buttons_is" : "En lugar de utilizar una caja de texto las estudiantes podrán usar botones con las palabras y ordenarlas:",
     "extra_words": "Palabras extra",
     "extra_words_are": "Estas son palabras extra para despistar a la estudiante cuando se usen palabras en botones",
+    "your_answer": "Tu respuesta",
+    "available_words": "Palabras disponibles",
     "translate_this_sentence" : "Traduce esta frase:",
     "see_solution" : "Ver solución",
     "solution" : "Solución",

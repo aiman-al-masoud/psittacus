@@ -62,10 +62,7 @@ h1 {
 }
 
 .button_container {
-    border: 1px black dotted;
-    margin: 1vh;
-    padding: 1vh;
-    min-height: 3vh;
+    min-height: 10vh;
 }
 
 
