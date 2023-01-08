@@ -21,14 +21,15 @@ export default class Settings {
     static ALWAYS_KEYBOARD = 'ALWAYS_KEYBOARD'
     static ALWAYS_BUTTONS = 'ALWAYS_BUTTONS'
     static LESSON_DEFAULT = 'LESSON_DEFAULT'
-    static inputTypes = ['ALWAYS_KEYBOARD', 'ALWAYS_BUTTONS', 'LESSON_DEFAULT']
-
+    static inputTypes = [Settings.ALWAYS_KEYBOARD, Settings.ALWAYS_BUTTONS, Settings.LESSON_DEFAULT]
 
     //instance
     static instance = null
 
     constructor() {
         this.settingsDict = JSON.parse(localStorage.getItem("SETTINGS") ?? "{}")
+        //TODO: better default 
+        !this.settingsDict[Settings.LESSON_DEFAULT] ? this.set(Settings.INPUT_TYPE, Settings.LESSON_DEFAULT) : 0
     }
 
     /**
@@ -54,6 +55,3 @@ export default class Settings {
     }
 
 }
-
-
-
