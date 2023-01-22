@@ -14,7 +14,7 @@ export default class MainMenuButton extends MenuButton{
         return (<div className="center_container">
                 <div>
                     {super.render()}
-                    <p>{this.props.title}</p>
+                    <p className="mainmenu_title">{this.props.title}</p>
                 </div>
         </div>)
     }

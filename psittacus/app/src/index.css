@@ -219,3 +219,7 @@ select option {
     text-align: center;
     align-items: center;
 }
+
+.mainmenu_title {
+    font-weight: bolder;
+}
