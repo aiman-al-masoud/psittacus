@@ -143,9 +143,21 @@ this test lesson-file and try it out on Psittacus (open it with "Take Lesson" on
 
 ## 2. Install the dependencies:
 
+### yarn:
+
 ```
 yarn install 
 ```
+
+### npm:
+
+```
+npm ci
+```
+
+Use **ci** (clean install) instead of `npm i`, to make sure you're building the project with the exact tested dependencies from `package-lock.json`, and not overwriting them.
+
+
 ## 3. Build:
 
 ```
