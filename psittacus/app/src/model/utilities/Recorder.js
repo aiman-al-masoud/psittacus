@@ -12,7 +12,7 @@ export {Recorder, playBase64}
 const recordAudio = () =>
 
     new Promise(async resolve => {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1 } });
         const mediaRecorder = new MediaRecorder(stream);
         const audioChunks = [];
 
