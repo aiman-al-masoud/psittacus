@@ -10,15 +10,7 @@ import Settings from "./settings/Settings.jsx";
 import L from "../model/utilities/Language.js";
 import Download from "./download/Download.jsx";
 import "../index.css"
-import HomeIcon from "../../res/home.png"
 import History from "./history/History.jsx";
-import TakeLessonIcon from "../../res/take-lesson.png"
-import CreateLessonIcon from "../../res/create-lesson.png"
-import EditLessonIcon from "../../res/edit-lesson.png"
-import SettingsIcon from "../../res/settings.png"
-import InfoIcon from "../../res/info.png"
-import HistoryIcon from "../../res/history.png"
-import DownloadIcon from "../../res/download.png"
 import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 

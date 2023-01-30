@@ -10,17 +10,6 @@ import Styles from "../Styles";
 import { sendBugReport } from "../../model/utilities/Utils.js";
 import MenuButton from "../recycled/buttons/MenuButton.jsx";
 
-// Icons
-import SaveIcon from "../../../res/save.png"
-import ExplanationIcon from "../../../res/explanation.png"
-import SentencesIcon from "../../../res/sentences.png"
-import MetadataIcon from "../../../res/metadata.png"
-import ArrowIcon from "../../../res/arrow.png"
-
-
-import PlayAudioIcon from "../../../res/play-audio.png"
-import RecordAudioIcon from "../../../res/record-audio.png"
-
 
 export default class CraftLesson extends Component {
 
