@@ -10,38 +10,29 @@ import Settings from "./settings/Settings.jsx";
 import L from "../model/utilities/Language.js";
 import Download from "./download/Download.jsx";
 import "../index.css"
-import HomeIcon from "../../res/home.png"
 import History from "./history/History.jsx";
-import TakeLessonIcon from "../../res/take-lesson.png"
-import CreateLessonIcon from "../../res/create-lesson.png"
-import EditLessonIcon from "../../res/edit-lesson.png"
-import SettingsIcon from "../../res/settings.png"
-import InfoIcon from "../../res/info.png"
-import HistoryIcon from "../../res/history.png"
-import DownloadIcon from "../../res/download.png"
 import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
-
+import * as Icon from 'react-feather';
 
 export default class App extends Component {
 
     //pages which may contain unsaved data
     static sensitivePages = [Pages.CRAFT_NEW_LESSON, Pages.EDIT_LESSON]
 
-    
-
     constructor(props) {
+
         super(props)
 
         this.menu = (<div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
 
-            <MainMenuButton title={L.info} icon={"info"} onClick={() => { this.onMenuChoose(Pages.INFO) }}/>
-            <MainMenuButton title={L.download_lessons} icon={"download"} onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }}/>
-            <MainMenuButton title={L.take_lesson} icon={"book-open"} onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }}/>
-            <MainMenuButton title={L.history} icon={"rotate-ccw"} onClick={() => { this.onMenuChoose(Pages.HISTORY) }}/>
-            <MainMenuButton title={L.craft_new_lesson} icon={"file-plus"} onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }}/>
-            <MainMenuButton title={L.edit_lesson} icon={"edit"} onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }}/>
-            <MainMenuButton title={L.settings} icon={"settings"} onClick={() => { this.onMenuChoose(Pages.SETTINGS) }}/>
+            <MainMenuButton title={L.info} icon={Icon.Info} onClick={() => { this.onMenuChoose(Pages.INFO) }} />
+            <MainMenuButton title={L.download_lessons} icon={Icon.Download} onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} />
+            <MainMenuButton title={L.take_lesson} icon={Icon.BookOpen} onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} />
+            <MainMenuButton title={L.history} icon={Icon.RotateCcw} onClick={() => { this.onMenuChoose(Pages.HISTORY) }} />
+            <MainMenuButton title={L.craft_new_lesson} icon={Icon.FilePlus} onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} />
+            <MainMenuButton title={L.edit_lesson} icon={Icon.Edit} onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} />
+            <MainMenuButton title={L.settings} icon={Icon.Settings} onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} />
 
         </div>)
 
@@ -51,7 +42,7 @@ export default class App extends Component {
         }
 
 
-        this.pagesHistoryStack = [ ]
+        this.pagesHistoryStack = []
         this.baseHref = location.protocol + '//' + location.host + location.pathname
         this.currentHref = this.baseHref
 
@@ -61,7 +52,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }}  icon={"home"}  title={L.home} />
+                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }} icon={Icon.Home} title={L.home} />
                 {this.state.page}
             </div>
         )
@@ -89,11 +80,11 @@ export default class App extends Component {
                 {
                     //if lesson not already supplied, ask used to upload lesson file
                     let lez;
-                    if(args?.lesson){
+                    if (args?.lesson) {
                         lez = args.lesson
-                    }else{
+                    } else {
                         let jsonData = await readText().then((res) => { return JSON.parse(res) })
-                        lez = new Lesson(jsonData)    
+                        lez = new Lesson(jsonData)
                     }
 
                     newPage = <TakeLesson lesson={lez} />
@@ -119,7 +110,7 @@ export default class App extends Component {
                 newPage = <Settings />
                 break
             case Pages.HISTORY:
-                newPage = <History takeLesson={this.takeLesson} /> 
+                newPage = <History takeLesson={this.takeLesson} />
                 break
             case Pages.DOWNLOAD:
                 newPage = <Download takeLesson={this.takeLesson} />
@@ -127,13 +118,13 @@ export default class App extends Component {
         }
 
         // save state before changing
-        this.pagesHistoryStack.push( [this.state.pageId, this.state.page] )
-        
+        this.pagesHistoryStack.push([this.state.pageId, this.state.page])
+
         // update state
-        this.setState({ pageId: option, page : newPage })
+        this.setState({ pageId: option, page: newPage })
 
         //update location
-        location.href = this.baseHref+"#"+option
+        location.href = this.baseHref + "#" + option
         this.currentHref = location.href
 
     }
@@ -141,7 +132,7 @@ export default class App extends Component {
     componentDidMount() {
 
         //"shake off" any (incompatible) query string parameters from other websites
-        if(location.href.includes("?")){
+        if (location.href.includes("?")) {
             location.href = this.baseHref
         }
 
@@ -154,14 +145,14 @@ export default class App extends Component {
 
         //detect browser's back button
         setInterval(() => {
-            
-            if(this.currentHref!=location.href){
-                
-                this.currentHref = location.href
-                let  p = this.pagesHistoryStack.pop()
 
-                if(p){
-                    this.setState({ pageId: p[0], page : p[1] })
+            if (this.currentHref != location.href) {
+
+                this.currentHref = location.href
+                let p = this.pagesHistoryStack.pop()
+
+                if (p) {
+                    this.setState({ pageId: p[0], page: p[1] })
                 }
 
             }
@@ -176,7 +167,7 @@ export default class App extends Component {
      * @param {Lesson} lesson 
      */
     takeLesson = (lesson) => {
-        this.onMenuChoose(Pages.TAKE_LESSON, {lesson : lesson })
+        this.onMenuChoose(Pages.TAKE_LESSON, { lesson: lesson })
     }
 
 }
