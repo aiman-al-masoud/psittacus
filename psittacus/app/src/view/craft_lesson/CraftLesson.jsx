@@ -9,17 +9,7 @@ import EditingModes from "./EditingModes.js";
 import Styles from "../Styles";
 import { sendBugReport } from "../../model/utilities/Utils.js";
 import MenuButton from "../recycled/buttons/MenuButton.jsx";
-
-// Icons
-import SaveIcon from "../../../res/save.png"
-import ExplanationIcon from "../../../res/explanation.png"
-import SentencesIcon from "../../../res/sentences.png"
-import MetadataIcon from "../../../res/metadata.png"
-import ArrowIcon from "../../../res/arrow.png"
-
-
-import PlayAudioIcon from "../../../res/play-audio.png"
-import RecordAudioIcon from "../../../res/record-audio.png"
+import * as Icon from 'react-feather';
 
 
 export default class CraftLesson extends Component {
@@ -78,7 +68,7 @@ export default class CraftLesson extends Component {
 
     toggleRecorder = () => {
         if (!this.state.recording) {
-            
+
             setTimeout(() => {
                 this.lessonBuilder.getCurrent().record()
                 this.setState({ recording: true })
@@ -158,12 +148,12 @@ export default class CraftLesson extends Component {
 
             {/* Back and forth between propositions */}
             <div className="center_container">
-                <MenuButton onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.previous_sentence} icon={ArrowIcon} flippedX={true} />
+                <MenuButton onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.previous_sentence} icon={Icon.ArrowRight} flippedX={true} />
                 {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
                 <span title={L.current_sentence} style={{ cursor: "default" }}>
                     {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}
                 </span>
-                <MenuButton onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.next_sentence} icon={ArrowIcon} />
+                <MenuButton onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.next_sentence} icon={Icon.ArrowRight} />
             </div>
 
             <br />
@@ -173,8 +163,8 @@ export default class CraftLesson extends Component {
 
             <div className="vertical_center_container">
                 <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} className="normal_textbox" />
-                <MenuButton onClick={this.toggleRecorder} title={`${L.record} (${L.shortcut_record_audio})`} icon={RecordAudioIcon} highlight={this.state.recording} />
-                <MenuButton onClick={this.state.propositionBuilder.playAudio} title={`${L.play_audio} (${L.shortcut_play_audio})`} icon={PlayAudioIcon} />
+                <MenuButton onClick={this.toggleRecorder} title={`${L.record} (${L.shortcut_record_audio})`} icon={Icon.Mic} highlight={this.state.recording} />
+                <MenuButton onClick={this.state.propositionBuilder.playAudio} title={`${L.play_audio} (${L.shortcut_play_audio})`} icon={Icon.Play} />
             </div>
 
 
@@ -206,10 +196,10 @@ export default class CraftLesson extends Component {
 
         return (<div>
 
-            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={L.edit_metadata} icon={MetadataIcon} highlight={this.state.editingMode == EditingModes.METADATA} />
-            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={L.edit_sentences} icon={SentencesIcon} highlight={this.state.editingMode == EditingModes.LESSON} />
-            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={L.edit_explanation} icon={ExplanationIcon} highlight={this.state.editingMode == EditingModes.EXPLAINATION} />
-            <MenuButton onClick={() => { this.onSave() }} title={`${L.save_lesson} (${L.shortcut_save_lesson})`} icon={SaveIcon} />
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={L.edit_metadata} icon={Icon.Tag} highlight={this.state.editingMode == EditingModes.METADATA} />
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={L.edit_sentences} icon={Icon.Edit} highlight={this.state.editingMode == EditingModes.LESSON} />
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={L.edit_explanation} icon={Icon.BookOpen} highlight={this.state.editingMode == EditingModes.EXPLAINATION} />
+            <MenuButton onClick={() => { this.onSave() }} title={`${L.save_lesson} (${L.shortcut_save_lesson})`} icon={Icon.Save} />
 
             <div style={this.state.editingMode == EditingModes.LESSON ? Styles.visible : Styles.invisible}>{mainBody}</div>
             <div style={this.state.editingMode == EditingModes.METADATA ? Styles.visible : Styles.invisible}> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMetadata} /> </div>
@@ -250,7 +240,6 @@ export default class CraftLesson extends Component {
     componentWillUnmount() {
         window.removeEventListener("keydown", this.keyListener)
     }
-
 
 
 }
