@@ -9,6 +9,10 @@ import EditingModes from "./EditingModes.js";
 import Styles from "../Styles";
 import { sendBugReport } from "../../model/utilities/Utils.js";
 import MenuButton from "../recycled/buttons/MenuButton.jsx";
+<<<<<<< HEAD
+=======
+import * as Icon from 'react-feather';
+>>>>>>> 3cd6c2e62d4a14d8786c22d95e669d6b1f464938
 
 
 export default class CraftLesson extends Component {
@@ -67,7 +71,7 @@ export default class CraftLesson extends Component {
 
     toggleRecorder = () => {
         if (!this.state.recording) {
-            
+
             setTimeout(() => {
                 this.lessonBuilder.getCurrent().record()
                 this.setState({ recording: true })
@@ -147,12 +151,20 @@ export default class CraftLesson extends Component {
 
             {/* Back and forth between propositions */}
             <div className="center_container">
+<<<<<<< HEAD
                 <MenuButton onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.previous_sentence} icon={"chevron-left"} flippedX={true} />
+=======
+                <MenuButton onClick={() => { this.lessonBuilder.prev(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.previous_sentence} icon={Icon.ArrowRight} flippedX={true} />
+>>>>>>> 3cd6c2e62d4a14d8786c22d95e669d6b1f464938
                 {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
                 <span title={L.current_sentence} style={{ cursor: "default" }}>
                     {this.lessonBuilder.currentIndex()} / {this.lessonBuilder.size()}
                 </span>
+<<<<<<< HEAD
                 <MenuButton onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.next_sentence} icon={"chevron-right"} />
+=======
+                <MenuButton onClick={() => { this.lessonBuilder.next(); this.setState({ propositionBuilder: this.lessonBuilder.getCurrent() }) }} title={L.next_sentence} icon={Icon.ArrowRight} />
+>>>>>>> 3cd6c2e62d4a14d8786c22d95e669d6b1f464938
             </div>
 
             <br />
@@ -162,8 +174,13 @@ export default class CraftLesson extends Component {
 
             <div className="vertical_center_container">
                 <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.state.propositionBuilder.sentenceOne} className="normal_textbox" />
+<<<<<<< HEAD
                 <MenuButton onClick={this.toggleRecorder} title={`${L.record} (${L.shortcut_record_audio})`} icon={"mic"} highlight={this.state.recording} />
                 <MenuButton onClick={this.state.propositionBuilder.playAudio} title={`${L.play_audio} (${L.shortcut_play_audio})`} icon={"volume-2"} />
+=======
+                <MenuButton onClick={this.toggleRecorder} title={`${L.record} (${L.shortcut_record_audio})`} icon={Icon.Mic} highlight={this.state.recording} />
+                <MenuButton onClick={this.state.propositionBuilder.playAudio} title={`${L.play_audio} (${L.shortcut_play_audio})`} icon={Icon.Play} />
+>>>>>>> 3cd6c2e62d4a14d8786c22d95e669d6b1f464938
             </div>
 
 
@@ -195,10 +212,17 @@ export default class CraftLesson extends Component {
 
         return (<div>
 
+<<<<<<< HEAD
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={L.edit_metadata} icon={"tag"} highlight={this.state.editingMode == EditingModes.METADATA} />
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={L.edit_sentences} icon={"edit"} highlight={this.state.editingMode == EditingModes.LESSON} />
             <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={L.edit_explanation} icon={"file-text"} highlight={this.state.editingMode == EditingModes.EXPLAINATION} />
             <MenuButton onClick={() => { this.onSave() }} title={`${L.save_lesson} (${L.shortcut_save_lesson})`} icon={"save"} />
+=======
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.METADATA }) }} title={L.edit_metadata} icon={Icon.Tag} highlight={this.state.editingMode == EditingModes.METADATA} />
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.LESSON }) }} title={L.edit_sentences} icon={Icon.Edit} highlight={this.state.editingMode == EditingModes.LESSON} />
+            <MenuButton onClick={() => { this.setState({ editingMode: EditingModes.EXPLAINATION }) }} title={L.edit_explanation} icon={Icon.BookOpen} highlight={this.state.editingMode == EditingModes.EXPLAINATION} />
+            <MenuButton onClick={() => { this.onSave() }} title={`${L.save_lesson} (${L.shortcut_save_lesson})`} icon={Icon.Save} />
+>>>>>>> 3cd6c2e62d4a14d8786c22d95e669d6b1f464938
 
             <div style={this.state.editingMode == EditingModes.LESSON ? Styles.visible : Styles.invisible}>{mainBody}</div>
             <div style={this.state.editingMode == EditingModes.METADATA ? Styles.visible : Styles.invisible}> <Metadata metadataDict={this.state.lessonBuilder.metadata} onModifyMetadata={this.onModifyMetadata} /> </div>
@@ -239,7 +263,6 @@ export default class CraftLesson extends Component {
     componentWillUnmount() {
         window.removeEventListener("keydown", this.keyListener)
     }
-
 
 
 }
