@@ -8,6 +8,7 @@ import { spanish } from "../../res/lang_packs/spanish"
 export interface Context {
     L: LangPack
     S: Settings
+    availableLangs: string[]
 }
 
 export interface GetContextArgs extends GetSettingsArgs {
@@ -16,7 +17,7 @@ export interface GetContextArgs extends GetSettingsArgs {
 }
 
 export function getContext(opts: GetContextArgs): Context {
-    return new BaseContext({ S: getSettings({}), langPacks: { english, italian, spanish } })
+    return new BaseContext({ forceUpdate: opts.forceUpdate, S: getSettings({forceUpdate:opts.forceUpdate}), langPacks: { english, italian, spanish } })
 }
 
 class BaseContext implements Context {
@@ -28,7 +29,11 @@ class BaseContext implements Context {
     }
 
     get L() {
-        return this.opts.langPacks[this.S.get('APP_LANGUAGE') + '']
+        return this.opts.langPacks[this.S.get<string>('APP_LANGUAGE')]
+    }
+
+    get availableLangs() {
+        return Object.keys(this.opts.langPacks)
     }
 
 }
