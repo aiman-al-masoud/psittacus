@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import CraftLesson from "./craft_lesson/CraftLesson.jsx";
 import TakeLesson from "./take_lesson/TakeLesson.jsx";
-import Info from "./info/Info.jsx";
+import Info from "./info/Info";
 import Pages from "./Pages.js";
 import { readText } from "../model/utilities/Utils.js";
 import Lesson from "../model/lesson/Lesson.js";
 import LessonBuilder from "../model/lesson/LessonBuilder.js";
 import Settings from "./settings/Settings.jsx";
-import L from "../model/utilities/Language.js";
 import Download from "./download/Download.jsx";
-import "../index.css"
 import History from "./history/History.jsx";
 import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 import * as Icon from 'react-feather';
-import { testFunc } from "./testFunc";
+import { getContext } from "../model/Context"
+import "../index.css"
 
 export default class App extends Component {
 
@@ -25,23 +24,26 @@ export default class App extends Component {
 
         super(props)
 
+        const c = getContext({})
+        this.c = c
+
         this.menu = (<div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
 
-            <MainMenuButton title={L.info} icon={Icon.Info} onClick={() => { this.onMenuChoose(Pages.INFO) }} />
-            <MainMenuButton title={L.download_lessons} icon={Icon.Download} onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} />
-            <MainMenuButton title={L.take_lesson} icon={Icon.BookOpen} onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} />
-            <MainMenuButton title={L.history} icon={Icon.RotateCcw} onClick={() => { this.onMenuChoose(Pages.HISTORY) }} />
-            <MainMenuButton title={L.craft_new_lesson} icon={Icon.FilePlus} onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} />
-            <MainMenuButton title={L.edit_lesson} icon={Icon.Edit} onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} />
-            <MainMenuButton title={L.settings} icon={Icon.Settings} onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} />
+            <MainMenuButton title={c.L.info} icon={Icon.Info} onClick={() => { this.onMenuChoose(Pages.INFO) }} />
+            <MainMenuButton title={c.L.download_lessons} icon={Icon.Download} onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} />
+            <MainMenuButton title={c.L.take_lesson} icon={Icon.BookOpen} onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} />
+            <MainMenuButton title={c.L.history} icon={Icon.RotateCcw} onClick={() => { this.onMenuChoose(Pages.HISTORY) }} />
+            <MainMenuButton title={c.L.craft_new_lesson} icon={Icon.FilePlus} onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} />
+            <MainMenuButton title={c.L.edit_lesson} icon={Icon.Edit} onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} />
+            <MainMenuButton title={c.L.settings} icon={Icon.Settings} onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} />
 
         </div>)
 
         this.state = {
             page: this.menu,
-            pageId: Pages.MENU
+            pageId: Pages.MENU,
+            c: this.c
         }
-
 
         this.pagesHistoryStack = []
         this.baseHref = location.protocol + '//' + location.host + location.pathname
@@ -50,12 +52,10 @@ export default class App extends Component {
     }
 
     render() {
-
-        testFunc()
-
+        
         return (
             <div>
-                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }} icon={Icon.Home} title={L.home} />
+                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }} icon={Icon.Home} title={this.c.L.home} />
                 {this.state.page}
             </div>
         )
@@ -71,7 +71,7 @@ export default class App extends Component {
 
         //alert user if exiting with potentially unsaved data.
         if (App.sensitivePages.includes(this.state.pageId)) {
-            if (!confirm(L.your_work_may_be_lost)) {
+            if (!confirm(this.c.L.your_work_may_be_lost)) {
                 return
             }
         }
@@ -104,7 +104,7 @@ export default class App extends Component {
                     break
                 }
             case Pages.INFO:
-                newPage = <Info />
+                newPage = <Info c={this.state.c} />
                 break
             case Pages.MENU:
                 newPage = this.menu
@@ -142,7 +142,7 @@ export default class App extends Component {
         //alert user if exiting with potentially unsaved data.
         window.addEventListener('beforeunload', (e) => {
             if (App.sensitivePages.includes(this.state.pageId)) {
-                e.returnValue = L.your_work_may_be_lost;
+                e.returnValue = this.c.L.your_work_may_be_lost;
             }
         })
 
