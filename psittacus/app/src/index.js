@@ -1,5 +1,5 @@
-import React, {Component} from "react";
 import reactDOM from "react-dom";
+import React from "react";
 import App from "./view/App.jsx";
 import FaviconImage from "../res/favicon.png"
 import L from "./model/utilities/Language.js";
@@ -16,5 +16,4 @@ title.innerHTML = L.app_name
 document.head.appendChild(title)
 
 //start the app
-reactDOM.render(<App/>, document.getElementById("root"))
-
+reactDOM.render(<App />, document.getElementById("root"))

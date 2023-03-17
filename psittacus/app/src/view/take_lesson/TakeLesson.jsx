@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import HoverableSentence from "./HoverableSentence.jsx";
-import TextInput from "./TextInput.jsx";
 import InputManager from "./InputManager.jsx";
 import "../../index.css"
 import L from "../../model/utilities/Language.js"
 import Modes from "./Modes.js";
 import Styles from "../Styles.js";
-import PlayAudioIcon from "../../../res/play-audio.png"
 import Lesson from "../../model/lesson/Lesson.js";
 import Explanation from "./Explanation.jsx";
 import LessonOver from "./LessonOver.jsx";
-
+import PlayAudioIcon from "../../../res/play-audio.png"
 
 
 export default class TakeLesson extends Component {
@@ -64,7 +62,17 @@ export default class TakeLesson extends Component {
                 <div className="text_tip">{L.need_a_tip_hover_words}</div>
                 <br />
                 <HoverableSentence wordDict={this.state.proposition.getQuestionWordDict()} />
-                <button style={Styles.visibleInline} onClick={this.state.proposition.play} className="play_audio_button" style={(this.state.proposition.targetToNative && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${L.play_audio} (${L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
+
+                <button style={Styles.visibleInline}
+                    onClick={this.state.proposition.play}
+                    className="play_audio_button"
+                    style={(this.state.proposition.targetToNative && (this.state.mode != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible}
+                    title={`${L.play_audio} (${L.shortcut_play_audio})`}>
+                    <img src={PlayAudioIcon} />  </button>
+
+                {/* <MenuButton  onClick={this.state.proposition.play} 
+                             icon={Icon.Play} /> */}
+
             </div>
 
             <br />
@@ -115,8 +123,5 @@ export default class TakeLesson extends Component {
     componentWillUnmount() {
         window.removeEventListener("keydown", this.keyListener)
     }
-
-
-
 
 }

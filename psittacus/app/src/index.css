@@ -42,6 +42,10 @@ h1 {
     color: white;
 }
 
+.icon_button {
+    color: black;
+}
+
 .word_button {
     background-color: white;
     color: var(--normal-item-color);
@@ -214,4 +218,8 @@ select option {
     display: flex; 
     text-align: center;
     align-items: center;
+}
+
+.mainmenu_title {
+    font-weight: bolder;
 }
