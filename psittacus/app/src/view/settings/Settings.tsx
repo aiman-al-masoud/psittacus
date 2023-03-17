@@ -20,10 +20,6 @@ type Props = {
 
 export default class Settings extends Component<Props> {
 
-    constructor(props: Props) {
-        super(props)
-    }
-
     onSet = (key: SettingsKeys, event: any) => {
         let choice = event.target
         choice = choice.options[choice.selectedIndex].text

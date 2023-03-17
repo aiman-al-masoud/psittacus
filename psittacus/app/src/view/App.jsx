@@ -9,11 +9,11 @@ import LessonBuilder from "../model/lesson/LessonBuilder.js";
 import Settings from "./settings/Settings";
 import Download from "./download/Download.jsx";
 import History from "./history/History.jsx";
-import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 import * as Icon from 'react-feather';
 import { getContext } from "../model/Context"
 import "../index.css"
+import MainMenu from "./MainMenu"
 
 export default class App extends Component {
 
@@ -28,31 +28,16 @@ export default class App extends Component {
     constructor(props) {
 
         super(props)
-
         const c = getContext({ forceUpdate: this.myForceUpdate })
         this.c = c
-
         this.currentPage = React.createRef()
-
+        this.menu = <MainMenu c={c} onMenuChoose={this.onMenuChoose} ref={this.currentPage} />
 
         this.state = {
             pageId: Pages.MENU,
-            c: this.c
+            c: this.c,
+            page: this.menu
         }
-
-        this.menu = (<div style={{ display: "grid", gridTemplateColumns: "auto auto" }} ref={this.currentPage} >
-
-            <MainMenuButton title={this.state.c.L.info} icon={Icon.Info} onClick={() => { this.onMenuChoose(Pages.INFO) }} />
-            <MainMenuButton title={this.state.c.L.download_lessons} icon={Icon.Download} onClick={() => { this.onMenuChoose(Pages.DOWNLOAD) }} />
-            <MainMenuButton title={this.state.c.L.take_lesson} icon={Icon.BookOpen} onClick={() => { this.onMenuChoose(Pages.TAKE_LESSON) }} />
-            <MainMenuButton title={this.state.c.L.history} icon={Icon.RotateCcw} onClick={() => { this.onMenuChoose(Pages.HISTORY) }} />
-            <MainMenuButton title={this.state.c.L.craft_new_lesson} icon={Icon.FilePlus} onClick={() => { this.onMenuChoose(Pages.CRAFT_NEW_LESSON) }} />
-            <MainMenuButton title={this.state.c.L.edit_lesson} icon={Icon.Edit} onClick={() => { this.onMenuChoose(Pages.EDIT_LESSON) }} />
-            <MainMenuButton title={this.state.c.L.settings} icon={Icon.Settings} onClick={() => { this.onMenuChoose(Pages.SETTINGS) }} />
-
-        </div>)
-        
-        this.state['page'] = this.menu
 
         this.pagesHistoryStack = []
         this.baseHref = location.protocol + '//' + location.host + location.pathname
