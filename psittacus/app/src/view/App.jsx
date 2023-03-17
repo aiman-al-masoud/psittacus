@@ -14,6 +14,7 @@ import History from "./history/History.jsx";
 import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 import * as Icon from 'react-feather';
+import { testFunc } from "./testFunc";
 
 export default class App extends Component {
 
@@ -49,6 +50,8 @@ export default class App extends Component {
     }
 
     render() {
+
+        testFunc()
 
         return (
             <div>

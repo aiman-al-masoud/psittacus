@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es2015",
+        "lib": [
+            "ES2021.String",
+            "dom"
+        ],
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "sourceMap": true, /* Generates corresponding '.map' file. */
+        "strict": true,
+        "jsx": "react"
+    },
+
+    "include": [
+        "app/**/*",
+    ]
+}

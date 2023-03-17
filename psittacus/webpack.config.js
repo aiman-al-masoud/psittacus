@@ -5,11 +5,12 @@ module.exports = {
 
   entry: path.join(__dirname, "app", "src", "index.js"),
   output: {
-    path:path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist"),
   },
+  devtool: "inline-source-map",
+
   module: {
     rules: [
-
 
       {
         test: /\.(png|jpg|gif|wav|mp3)$/i,
@@ -23,13 +24,11 @@ module.exports = {
         ],
       },
 
-
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
 
-      
       {
         test: /\.?jsx?$/,
         exclude: /node_modules/,
@@ -37,18 +36,29 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins :['@babel/plugin-transform-runtime'] 
+            plugins: ['@babel/plugin-transform-runtime']
           }
         }
-      }
+      },
+
+      //load ts and tsx source files
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
 
     ]
   },
+
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "app","src", "index.html"),
-    }),  
+      template: path.join(__dirname, "app", "src", "index.html"),
+    }),
   ],
 
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  }
 
 }
