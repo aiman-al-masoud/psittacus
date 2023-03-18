@@ -10,8 +10,8 @@ import "../index.css"
 import { getLessonBuilder } from "../model/lesson/LessonBuilder";
 import CraftLesson from "./craft_lesson/CraftLesson";
 import Lesson, { getLesson } from "../model/lesson/Lesson";
+import TakeLesson from "./take_lesson/TakeLesson.tsx";
 
-import TakeLesson from "./take_lesson/TakeLesson.jsx";
 import Pages from "./Pages.js";
 import { readText } from "../model/utilities/Utils.js";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
@@ -84,10 +84,11 @@ export default class App extends Component {
                     } else {
                         let data = await readText().then((res) => { return JSON.parse(res) })
                         lez = getLesson(data)
-                        lez.setScheduler(this.state.c)
                     }
 
-                    newPage = <TakeLesson c={this.state.c} lesson={lez} ref={this.currentPage} />
+                    lez.setScheduler(this.state.c)
+                    this.state.c.setLesson(lez)
+                    newPage = <TakeLesson c={this.state.c} /* lesson={lez} */ ref={this.currentPage} />
                     break
                 }
             case Pages.CRAFT_NEW_LESSON:

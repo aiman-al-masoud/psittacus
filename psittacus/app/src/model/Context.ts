@@ -5,10 +5,15 @@ import { english } from "../../res/lang_packs/english"
 import { italian } from "../../res/lang_packs/italian"
 import { spanish } from "../../res/lang_packs/spanish"
 import { getLessonBuilder, LessonBuilder } from "./lesson/LessonBuilder"
+import { Lesson } from "./lesson/Lesson"
 
 type ContextKey =
     'RECORDING'
     | 'EDITING_MODE'
+    | 'USER_ACCURACY'
+    |'SOLUTION_HIDDEN'
+    |'OVERALL_USER_ACCURACY'
+    | 'PLAY_MODE' //MODE
 
 
 export interface Context {
@@ -21,7 +26,9 @@ export interface Context {
     clearLessonBuilder(): void
     get<T extends string | boolean | number>(key: ContextKey): T
     set(key: ContextKey, value: string | boolean | number): void
-    forceUpdate():void
+    forceUpdate(): void
+    getLesson(): Lesson
+    setLesson(lesson: Lesson): void
 }
 
 export interface GetContextArgs extends GetSettingsArgs {
@@ -41,6 +48,8 @@ export function getContext(opts: GetContextArgs): Context {
 }
 
 class BaseContext implements Context {
+
+    protected lesson?: Lesson
 
     constructor(
         readonly opts: GetContextArgs,
@@ -80,6 +89,20 @@ class BaseContext implements Context {
 
     get<T extends string | number | boolean>(key: ContextKey): T {
         return this.contextDict[key]
+    }
+
+    setLesson(lesson: Lesson): void {
+        this.lesson = lesson
+    }
+
+    getLesson() {
+
+        if (!this.lesson){
+            throw 'No Lesson in Context!'
+        }
+
+        return this.lesson
+
     }
 
 }

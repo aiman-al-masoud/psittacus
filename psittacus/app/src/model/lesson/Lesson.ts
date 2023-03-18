@@ -13,13 +13,14 @@ import { Context } from '../Context'
 export interface Lesson {
     next(): void
     getCurrent(): Proposition
-    isOver(context:Context): boolean
+    isOver(context: Context): boolean
     getScore(): number
     getId(): string
     dumpScores(): LessonProgressData
     cacheLesson(): Promise<void>
     saveScore(context: Context): void
     setScheduler(context: Context): void
+    getExplaination(): string
 }
 
 export function getLesson(data: LessonData): Lesson {
@@ -66,7 +67,7 @@ class BaseLesson implements Lesson {
     /**
      * Is this lesson over yet?
      */
-    isOver(context:Context) {
+    isOver(context: Context) {
         let over = this.scheduler.isOver()
 
         // //if this lesson is over, save the score
@@ -75,7 +76,7 @@ class BaseLesson implements Lesson {
         //     this.cacheLesson()
         // }
 
-        if (over){
+        if (over) {
             this.saveScore(context)
         }
 
@@ -126,6 +127,10 @@ class BaseLesson implements Lesson {
             lesson: this.data
         })
 
+    }
+
+    getExplaination(): string {
+        return this.explanationText
     }
 
 }

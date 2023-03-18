@@ -16,6 +16,7 @@ export interface Proposition {
     getQuestionWordDict(): string[][] //[string, string][]
     getAnswerWordDict(): string[][]//[string, string][]
     getHash(): number
+    readonly targetToNative:boolean
 }
 
 export function getProposition(data: PropositionData): Proposition {

@@ -17,6 +17,7 @@ export default class History extends Component<{ c: Context, takeLesson: (lesson
 
         if (lesson) {
             lesson.setScheduler(this.props.c)
+            this.props.c.setLesson(lesson)
             this.props.takeLesson(lesson)
         }
     }
