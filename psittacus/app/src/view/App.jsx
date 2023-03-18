@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Settings from "./settings/Settings";
 import { getContext } from "../model/Context"
+import History from "./history/History";
 import MainMenu from "./MainMenu"
 import Download from "./download/Download";
 import Info from "./info/Info";
@@ -13,7 +14,6 @@ import Pages from "./Pages.js";
 import { readText } from "../model/utilities/Utils.js";
 import Lesson from "../model/lesson/Lesson.js";
 import LessonBuilder from "../model/lesson/LessonBuilder.js";
-import History from "./history/History.jsx";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 
 
@@ -109,7 +109,7 @@ export default class App extends Component {
                 newPage = <Settings c={this.state.c} ref={this.currentPage} />
                 break
             case Pages.HISTORY:
-                newPage = <History takeLesson={this.takeLesson} ref={this.currentPage} />
+                newPage = <History c={this.state.c} takeLesson={this.takeLesson} ref={this.currentPage} />
                 break
             case Pages.DOWNLOAD:
                 newPage = <Download c={this.state.c} takeLesson={this.takeLesson} ref={this.currentPage} />
