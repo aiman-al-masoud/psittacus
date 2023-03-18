@@ -1,6 +1,6 @@
-import PropositionBuilder from "../proposition/PropositionBuilder.js"
 import { saveToComp } from "../utilities/Utils.js"
 const packageJson = require.context("../../../..", false, /package.json$/).keys().map(require.context("../../../..", false, /package.json$/))[0]
+import { getPropositionBuilder } from '../proposition/PropositionBuilder'
 
 /**
  * Builds, edits and saves lessons.
@@ -8,10 +8,10 @@ const packageJson = require.context("../../../..", false, /package.json$/).keys(
 export default class LessonBuilder {
 
     static MetadataIncompleteError = "MetadataIncompleteError"
-    static MetadataTemplate =  { author: "", source_language: "", target_language: "", title : "" }
+    static MetadataTemplate = { author: "", source_language: "", target_language: "", title: "" }
 
     constructor() {
-        this.propositions = [new PropositionBuilder()]
+        this.propositions = [getPropositionBuilder({})]
         this.current = 0
         this.metadata = LessonBuilder.MetadataTemplate
         this.explanationHtmlString = ""
@@ -22,15 +22,15 @@ export default class LessonBuilder {
      */
     static fromExistingJson(jsonData) {
         let lb = new LessonBuilder()
-        lb.propositions = jsonData.propositions.map((p) => { return PropositionBuilder.fromExistingJson(p) })
-        lb.metadata = { ...LessonBuilder.MetadataTemplate, ...jsonData.metadata} 
+        lb.propositions = jsonData.propositions.map((p) => { return getPropositionBuilder(p) })
+        lb.metadata = { ...LessonBuilder.MetadataTemplate, ...jsonData.metadata }
         lb.explanationHtmlString = jsonData.explanation.text
         return lb
     }
 
     toJson() {
         return {
-            metadata: { ...this.metadata, last_modified: new Date().getTime(), psittacus_version : packageJson.version },
+            metadata: { ...this.metadata, last_modified: new Date().getTime(), psittacus_version: packageJson.version },
             propositions: this.propositions.filter((p) => !p.isEmpty()).map((p) => p.toJson()),
             explanation: { text: this.explanationHtmlString }
         }
@@ -55,7 +55,7 @@ export default class LessonBuilder {
         }
 
         this.current++
-        this.propositions[this.current] = this.propositions[this.current] ?? new PropositionBuilder()
+        this.propositions[this.current] = this.propositions[this.current] ?? getPropositionBuilder({})
     }
 
     /**
@@ -73,7 +73,7 @@ export default class LessonBuilder {
         this.explanationHtmlString = explanationHtmlString
     }
 
-   
+
     /**
      * Prompt the user to save their work as a lesson json text file.
      * @throws {LessonBuilder.MetadataIncompleteError}
@@ -81,10 +81,10 @@ export default class LessonBuilder {
     save = () => {
 
         //every metadata value MUST BE NON-FALSY!
-        if(!Object.values(this.metadata).every((val)=> { return !!val }  )){
+        if (!Object.values(this.metadata).every((val) => { return !!val })) {
             throw LessonBuilder.MetadataIncompleteError
         }
-        
+
         saveToComp(JSON.stringify(this.toJson()), `${this.metadata.title}.txt`, "text/plain")
     }
 
@@ -93,7 +93,7 @@ export default class LessonBuilder {
      * (May actually be p-1 if last proposition is empty).
      * @returns {number}
      */
-    size = ()=>{
+    size = () => {
         return this.propositions.length
     }
 
@@ -101,7 +101,7 @@ export default class LessonBuilder {
      * Index (starting from 1) of the current proposition being edited.
      * @returns {number}
      */
-    currentIndex = ()=>{
+    currentIndex = () => {
         return this.current + 1
     }
 

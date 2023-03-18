@@ -34,12 +34,13 @@ export default class CraftLesson extends Component {
     onSentenceOneInput = () => {
         let userInputString = this.inputSentenceOne.current.value
         let propoBuilder = this.lessonBuilder.getCurrent()
-        propoBuilder.sentenceOne = userInputString
 
-        //update dictionary
+        propoBuilder.setSentenceOne(userInputString)
+
         let newWords = {}
         userInputString.split(/\s+/).forEach((w) => { newWords[w] = "" })
-        propoBuilder.wordDict = this.getUpdatedWordDict(propoBuilder.wordDict, newWords)
+        const updatedDict = this.getUpdatedWordDict(propoBuilder.word_dict, newWords)
+        propoBuilder.setWordDict(updatedDict)
 
         this.setState({ propositionBuilder: propoBuilder })
     }
@@ -47,12 +48,12 @@ export default class CraftLesson extends Component {
     onSentenceTwoInput = () => {
         let userInputString = this.inputSentenceTwo.current.value
         let propoBuilder = this.lessonBuilder.getCurrent()
-        propoBuilder.sentenceTwo = userInputString
+        propoBuilder.setSentenceTwo(userInputString)
 
         //update dictionary
         let newWords = {}
         userInputString.split(/\s+/).forEach((w) => { newWords[w] = "" })
-        propoBuilder.reverseDict = this.getUpdatedWordDict(propoBuilder.reverseDict, newWords)
+        propoBuilder.setReverseDict(this.getUpdatedWordDict(propoBuilder.reverse_dict, newWords))
 
         this.setState({ propositionBuilder: propoBuilder })
     }
@@ -83,13 +84,13 @@ export default class CraftLesson extends Component {
 
     onToggleTargetToNative = () => {
         let propoBuilder = this.lessonBuilder.getCurrent()
-        propoBuilder.targetToNative = !propoBuilder.targetToNative
+        propoBuilder.invertTranslationDirection()
         this.setState({ propositionBuilder: propoBuilder })
     }
 
     onToggleWordButtons = () => {
         let propoBuilder = this.lessonBuilder.getCurrent()
-        propoBuilder.wordButtons = !propoBuilder.wordButtons
+        propoBuilder.invertWordButtons()
         this.setState({ propositionBuilder: propoBuilder })
     }
 
@@ -104,23 +105,22 @@ export default class CraftLesson extends Component {
     }
 
     onWordDictModified = (newDict) => {
-        let updatedDict = this.getUpdatedWordDict(this.state.propositionBuilder.wordDict, newDict)
+        let updatedDict = this.getUpdatedWordDict(this.state.propositionBuilder.word_dict, newDict)
         let propoBuilder = this.lessonBuilder.getCurrent()
-        propoBuilder.wordDict = updatedDict
+        propoBuilder.setWordDict(updatedDict)
         this.setState({ propositionBuilder: propoBuilder })
     }
 
     onReverseDictModified = (newDict) => {
-        let updatedDict = this.getUpdatedWordDict(this.state.propositionBuilder.reverseDict, newDict)
+        let updatedDict = this.getUpdatedWordDict(this.state.propositionBuilder.reverse_dict, newDict)
         let propoBuilder = this.lessonBuilder.getCurrent()
-        propoBuilder.reverseDict = updatedDict
+        propoBuilder.setReverseDict(updatedDict)
         this.setState({ propositionBuilder: propoBuilder })
     }
 
     onExtraWordsModified = () => {
         let propoBuilder = this.lessonBuilder.getCurrent()
-        console.log(this.inputExtraWords.value);
-        propoBuilder.extraWords = this.inputExtraWords.current.value
+        propoBuilder.setExtraWords(this.inputExtraWords.current.value)
         this.setState({ propositionBuilder: propoBuilder })
     }
 
