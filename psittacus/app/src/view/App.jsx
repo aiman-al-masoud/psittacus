@@ -135,13 +135,6 @@ export default class App extends Component {
             location.href = this.baseHref
         }
 
-        //alert user if exiting with potentially unsaved data.
-        window.addEventListener('beforeunload', (e) => {
-            if (App.sensitivePages.includes(this.state.pageId)) {
-                e.returnValue = this.c.L.your_work_may_be_lost;
-            }
-        })
-
         //detect browser's back button
         setInterval(() => {
 
@@ -157,6 +150,13 @@ export default class App extends Component {
             }
 
         }, 100);
+
+        //alert user if exiting with potentially unsaved data.
+        window.addEventListener('beforeunload', (e) => {
+            if (App.sensitivePages.includes(this.state.pageId)) {
+                e.returnValue = this.c.L.your_work_may_be_lost;
+            }
+        })
 
     }
 
