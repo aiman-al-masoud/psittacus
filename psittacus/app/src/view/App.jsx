@@ -1,19 +1,21 @@
 import React, { Component } from "react";
+import Settings from "./settings/Settings";
+import { getContext } from "../model/Context"
+import MainMenu from "./MainMenu"
+import Download from "./download/Download";
+import Info from "./info/Info";
+import * as Icon from 'react-feather';
+import "../index.css"
+
 import CraftLesson from "./craft_lesson/CraftLesson.jsx";
 import TakeLesson from "./take_lesson/TakeLesson.jsx";
-import Info from "./info/Info";
 import Pages from "./Pages.js";
 import { readText } from "../model/utilities/Utils.js";
 import Lesson from "../model/lesson/Lesson.js";
 import LessonBuilder from "../model/lesson/LessonBuilder.js";
-import Settings from "./settings/Settings";
-import Download from "./download/Download.jsx";
 import History from "./history/History.jsx";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
-import * as Icon from 'react-feather';
-import { getContext } from "../model/Context"
-import "../index.css"
-import MainMenu from "./MainMenu"
+
 
 export default class App extends Component {
 
@@ -110,7 +112,7 @@ export default class App extends Component {
                 newPage = <History takeLesson={this.takeLesson} ref={this.currentPage} />
                 break
             case Pages.DOWNLOAD:
-                newPage = <Download takeLesson={this.takeLesson} ref={this.currentPage} />
+                newPage = <Download c={this.state.c} takeLesson={this.takeLesson} ref={this.currentPage} />
                 break
         }
 
