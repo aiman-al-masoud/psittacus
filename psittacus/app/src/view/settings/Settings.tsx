@@ -1,43 +1,35 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
+import { SettingsKeys } from "../../model/Settings.js";
 
 // @ts-ignore
 import PropositionSchedulerFactory from "../../model/schedulers/proposition_scheduler/PropositionSchedulerFactory.js";
 // @ts-ignore
-import UserProgress from "../../model/utilities/UserProgress.js";
+import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 // @ts-ignore
 import { readText, saveToComp } from "../../model/utilities/Utils.js";
 // @ts-ignore
-import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
-// @ts-ignore
 import DeveloperOptions from "./DeveloperOptions.jsx"
-import { SettingsKeys } from "../../model/Settings.js";
 
 
-type Props = {
-    c: Context
-}
-
-export default class Settings extends Component<Props> {
+export default class Settings extends Component<{ c: Context }> {
 
     onSet = (key: SettingsKeys, event: any) => {
-        let choice = event.target
-        choice = choice.options[choice.selectedIndex].text
-        this.props.c.S.set(key, choice)
+        const choice = event.target
+        const val = choice.options[choice.selectedIndex].text
+        this.props.c.S.set(key, val)
     }
 
     importProgress = async () => {
-        let d = await readText()
-        d = JSON.parse(d)
-        UserProgress.importProgress(d)
+        this.props.c.UP.importProgress(JSON.parse(await readText()))
     }
 
     exportProgress = () => {
-        saveToComp(JSON.stringify(UserProgress.userProgress()), "progress.txt", "text/plain")
+        saveToComp(JSON.stringify(this.props.c.UP.userProgress()), 'progress.txt', 'text/plain')
     }
 
     eraseProgress = () => {
-        confirm(this.props.c.L.are_you_sure_delete_progress) ? UserProgress.eraseProgress() : undefined
+        confirm(this.props.c.L.are_you_sure_delete_progress) ? this.props.c.UP.eraseProgress() : undefined
     }
 
     render() {
