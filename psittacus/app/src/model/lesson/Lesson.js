@@ -1,7 +1,8 @@
+import { getProposition, Proposition } from '../proposition/Proposition'
 import PropositionSchedulerFactory from "../schedulers/proposition_scheduler/PropositionSchedulerFactory.js"
-import Proposition from "../proposition/Proposition.js"
 import UserProgress from "../utilities/UserProgress.js"
 import Database from "../utilities/Database.js"
+
 
 /**
  * A lesson contains a list of Propositions.
@@ -13,7 +14,7 @@ export default class Lesson {
         this.jsonData = jsonData
         this.metadata = jsonData.metadata
         this.explanationText = jsonData.explanation.text
-        this.propositions = jsonData.propositions.map(p => { return new Proposition(p) })
+        this.propositions = jsonData.propositions.map(p => { return getProposition(p) })
         this.oldScores = UserProgress.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
         this.scheduler = PropositionSchedulerFactory.getScheduler(this.oldScores, this.propositions)
         // UserProgress.saveLessonScore(this.getId(), this.dumpScores()) 
@@ -129,7 +130,7 @@ export default class Lesson {
         let ids = UserProgress.lessonsScores().map(l => l.id)
 
         if (metadataFilter) {
-            return ids.filter(id=>Lesson.isMetadataMatching(id, metadataFilter ) )
+            return ids.filter(id => Lesson.isMetadataMatching(id, metadataFilter))
         }
 
         return ids

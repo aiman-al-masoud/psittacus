@@ -1,4 +1,4 @@
-import Proposition from "../../proposition/Proposition"
+import Proposition, { NullProposition } from "../../proposition/Proposition"
 
 /**
  * # Abstract Class
@@ -63,7 +63,7 @@ export default class PropositionScheduler {
      * @return {Proposition}
      */
     getCurrent() {
-        return this.current ?? Proposition.NULL
+        return this.current ?? NullProposition
     }
 
     static getType(){
