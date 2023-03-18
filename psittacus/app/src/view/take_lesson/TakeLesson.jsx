@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import { Context } from "../../model/Context";
+import { Lesson } from "../../model/lesson/Lesson";
+
 import HoverableSentence from "./HoverableSentence.jsx";
 import InputManager from "./InputManager.jsx";
 import "../../index.css"
 import L from "../../model/utilities/Language.js"
 import Modes from "./Modes.js";
 import Styles from "../Styles.js";
-import Lesson from "../../model/lesson/Lesson.js";
 import Explanation from "./Explanation.jsx";
 import LessonOver from "./LessonOver.jsx";
 import PlayAudioIcon from "../../../res/play-audio.png"
@@ -15,7 +17,7 @@ export default class TakeLesson extends Component {
 
     /**
      * 
-     * @param {{lesson:Lesson}} props 
+     * @param {{lesson:Lesson, c:Context}} props 
      */
     constructor(props) {
         super(props)
@@ -50,7 +52,7 @@ export default class TakeLesson extends Component {
         }
 
         this.setState({ solutionHidden: !this.state.solutionHidden })
-        this.setState({ mode: this.lesson.isOver() ? Modes.LESSON_OVER : this.state.mode })
+        this.setState({ mode: this.lesson.isOver(this.props.c) ? Modes.LESSON_OVER : this.state.mode })
         this.setState({ overallUserAccuracy: this.lesson.getScore() })
     }
 

@@ -8,7 +8,7 @@ interface UserProgressData {
 const root1 = 'user_progress'
 const root2 = 'lesson_scores'
 
-interface LessonProgressData {
+export interface LessonProgressData {
     lessonId: string
     last_taken: number,
     overall: number,

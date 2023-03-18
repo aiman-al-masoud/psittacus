@@ -1,4 +1,4 @@
-import Lesson from "../lesson/Lesson"
+import Lesson, { getLesson } from "../lesson/Lesson"
 
 export default class Server {
 
@@ -38,7 +38,7 @@ export default class Server {
                 body: JSON.stringify({ "lesson-index" : lessonId })
             })
 
-        return new Lesson(await res.json())
+        return getLesson(await res.json())
     }
 
 }

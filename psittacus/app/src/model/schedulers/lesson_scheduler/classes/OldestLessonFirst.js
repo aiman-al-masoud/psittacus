@@ -1,6 +1,6 @@
-import Lesson from "../../../lesson/Lesson";
 import LessonScheduler from "../LessonScheduler";
 import L from "../../../utilities/Language";
+import { getCachedLessonById } from "../../../lesson/Lesson";
 
 export default class OldestLessonFirst extends LessonScheduler{
 
@@ -13,7 +13,7 @@ export default class OldestLessonFirst extends LessonScheduler{
     async next(){
         this.lessonsScores = this.lessonsScores.sort( (s1, s2) => {return s1.last_taken - s2.last_taken  } )  
         let x = this.lessonsScores[0]
-        return await Lesson.getCachedLessonById(x.id)
+        return await getCachedLessonById(x.id)
     }
 
     static getType(){

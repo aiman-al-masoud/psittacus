@@ -1,5 +1,5 @@
 import MixedLesson from "../../../lesson/MixedLesson";
-import Proposition, { MIN_PASSING_SCORE } from "../../../proposition/Proposition";
+import { MIN_PASSING_SCORE } from "../../../proposition/Proposition";
 import LessonScheduler from "../LessonScheduler";
 import L from "../../../utilities/Language";
 

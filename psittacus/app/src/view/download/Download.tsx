@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
+import { isMetadataMatching } from '../../model/lesson/Lesson'
 
 //@ts-ignore
 import LessonsTable from "../recycled/lessons_table/LessonsTable.jsx"
 //@ts-ignore
 import Server from "../../model/utilities/Server.js";
-//@ts-ignore
-import Lesson from "../../model/lesson/Lesson.js";
 
 type Props = {
     c: Context
@@ -39,7 +38,7 @@ export default class Download extends Component<Props, State>{
                 .getLessonIndeces()
                 .then((ids: string[]) => {
                     this.setState({
-                        fetchLessonIds: (metadataFilter: any) => ids.filter(id => Lesson.isMetadataMatching(id, metadataFilter))
+                        fetchLessonIds: (metadataFilter: any) => ids.filter(id => isMetadataMatching(id, metadataFilter))
                     })
                 })
         }
@@ -51,6 +50,5 @@ export default class Download extends Component<Props, State>{
     componentWillUnmount() {
         clearInterval(this.fetchIdsTask)
     }
-
 
 }
