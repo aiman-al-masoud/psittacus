@@ -27,28 +27,12 @@ export default class TakeLesson extends Component<Props, {}> {
 
     constructor(props: Props) {
         super(props)
-
-
-        // this.lesson = props.lesson
-        // this.userInput = React.createRef()
-
-        // this.state = {
-        //     proposition: this.lesson.getCurrent(),
-        //     userAccuracy: 0,
-        //     solutionHidden: true,
-        //     overallUserAccuracy: 0,
-        //     mode: Modes.STANDARD
-        // }
-
-        // this.lesson.getCurrent().play()
         this.props.c.getLesson().getCurrent().play()
         this.props.c.set('USER_ACCURACY', 0)
         this.props.c.set('SOLUTION_HIDDEN', true)
         this.props.c.set('OVERALL_USER_ACCURACY', 0)
         this.props.c.set('PLAY_MODE', Modes.STANDARD)
-
     }
-
 
     next = () => {
 
@@ -77,15 +61,12 @@ export default class TakeLesson extends Component<Props, {}> {
                 <br />
                 <HoverableSentence wordDict={this.props.c.getLesson().getCurrent().getQuestionWordDict()} />
 
-                <button /* style={Styles.visibleInline} */
+                <button
                     onClick={this.props.c.getLesson().getCurrent().play}
                     className="play_audio_button"
                     style={(this.props.c.getLesson().getCurrent().targetToNative && (this.props.c.get('PLAY_MODE') != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible}
                     title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>
                     <img src={PlayAudioIcon} />  </button>
-
-                {/* <MenuButton  onClick={this.state.proposition.play} 
-                             icon={Icon.Play} /> */}
 
             </div>
 
@@ -101,7 +82,7 @@ export default class TakeLesson extends Component<Props, {}> {
                     <div className="text_tip">{this.props.c.L.need_a_tip_hover_words}</div>
                     <br />
                     <HoverableSentence wordDict={this.props.c.getLesson().getCurrent().getAnswerWordDict()} />
-                    <button /* style={Styles.visibleInline} */ onClick={this.props.c.getLesson().getCurrent().play} className="play_audio_button" style={((!this.props.c.getLesson().getCurrent().targetToNative) && (this.props.c.get('PLAY_MODE') != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
+                    <button onClick={this.props.c.getLesson().getCurrent().play} className="play_audio_button" style={((!this.props.c.getLesson().getCurrent().targetToNative) && (this.props.c.get('PLAY_MODE') != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
                 </div>
 
                 <h2>{this.props.c.L.your_accuracy}: {this.props.c.get('USER_ACCURACY')}%</h2>
@@ -122,7 +103,6 @@ export default class TakeLesson extends Component<Props, {}> {
     }
 
     keyListener = (e: KeyboardEvent) => {
-        //play recording if user allowed to hear it
         if (e.code == "Space" && e.shiftKey) {
             e.preventDefault();
             this.props.c.getLesson().getCurrent().play()
