@@ -7,13 +7,13 @@ import Download from "./download/Download";
 import Info from "./info/Info";
 import * as Icon from 'react-feather';
 import "../index.css"
+import { getLessonBuilder } from "../model/lesson/LessonBuilder";
 
 import CraftLesson from "./craft_lesson/CraftLesson.jsx";
 import TakeLesson from "./take_lesson/TakeLesson.jsx";
 import Pages from "./Pages.js";
 import { readText } from "../model/utilities/Utils.js";
 import Lesson from "../model/lesson/Lesson.js";
-import LessonBuilder from "../model/lesson/LessonBuilder.js";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 
 
@@ -95,7 +95,7 @@ export default class App extends Component {
             case Pages.EDIT_LESSON:
                 {
                     let jsonData = await readText().then((res) => { return JSON.parse(res) })
-                    let lez = LessonBuilder.fromExistingJson(jsonData)
+                    let lez = getLessonBuilder(jsonData)
                     newPage = <CraftLesson lessonBuilder={lez} ref={this.currentPage} />
                     break
                 }

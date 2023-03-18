@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LessonBuilder from "../../model/lesson/LessonBuilder.js";
+import { getLessonBuilder, MetadataIncompleteError } from "../../model/lesson/LessonBuilder";
 import DefinitionsTable from "./DefinitionsTable.jsx";
 import Metadata from "./Metadata.jsx";
 import L from "../../model/utilities/Language.js"
@@ -19,7 +19,7 @@ export default class CraftLesson extends Component {
         this.inputSentenceOne = React.createRef()
         this.inputSentenceTwo = React.createRef()
         this.inputExtraWords = React.createRef()
-        this.lessonBuilder = props.lessonBuilder ?? new LessonBuilder()
+        this.lessonBuilder = props.lessonBuilder ?? getLessonBuilder({})
 
         //TODO: (Deduplication) lessonBuilder only as a state, remove this.lessonBuilder 
         this.state = {
@@ -95,7 +95,7 @@ export default class CraftLesson extends Component {
     }
 
     onModifyMetadata = (metadataDict) => {
-        this.lessonBuilder.metadata = metadataDict
+        this.lessonBuilder.setMetadata(metadataDict)
         this.setState({ lessonBuilder: this.lessonBuilder })
     }
 
@@ -130,7 +130,7 @@ export default class CraftLesson extends Component {
             this.lessonBuilder.save()
         } catch (e) {
             switch (e) { //handle exceptions
-                case LessonBuilder.MetadataIncompleteError:
+                case MetadataIncompleteError:
                     alert(L.please_complete_metadata)
                     this.setState({ editingMode: EditingModes.METADATA })
                     break
