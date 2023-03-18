@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import { SettingsKeys } from "../../model/Settings.js";
+import DeveloperOptions from "./DeveloperOptions";
 
 // @ts-ignore
 import PropositionSchedulerFactory from "../../model/schedulers/proposition_scheduler/PropositionSchedulerFactory.js";
@@ -8,8 +9,7 @@ import PropositionSchedulerFactory from "../../model/schedulers/proposition_sche
 import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 // @ts-ignore
 import { readText, saveToComp } from "../../model/utilities/Utils.js";
-// @ts-ignore
-import DeveloperOptions from "./DeveloperOptions.jsx"
+
 
 
 export default class Settings extends Component<{ c: Context }> {
@@ -82,7 +82,7 @@ export default class Settings extends Component<{ c: Context }> {
 
             <br />
             <br />
-            <DeveloperOptions />
+            <DeveloperOptions c={this.props.c} />
 
         </div>)
     }
