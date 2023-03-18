@@ -8,8 +8,8 @@ import Info from "./info/Info";
 import * as Icon from 'react-feather';
 import "../index.css"
 import { getLessonBuilder } from "../model/lesson/LessonBuilder";
+import CraftLesson from "./craft_lesson/CraftLesson";
 
-import CraftLesson from "./craft_lesson/CraftLesson.jsx";
 import TakeLesson from "./take_lesson/TakeLesson.jsx";
 import Pages from "./Pages.js";
 import { readText } from "../model/utilities/Utils.js";
@@ -90,13 +90,15 @@ export default class App extends Component {
                     break
                 }
             case Pages.CRAFT_NEW_LESSON:
-                newPage = <CraftLesson ref={this.currentPage} />
+                this.state.c.clearLessonBuilder()
+                newPage = <CraftLesson c={this.state.c} ref={this.currentPage} />
                 break
             case Pages.EDIT_LESSON:
                 {
                     let jsonData = await readText().then((res) => { return JSON.parse(res) })
                     let lez = getLessonBuilder(jsonData)
-                    newPage = <CraftLesson lessonBuilder={lez} ref={this.currentPage} />
+                    this.state.c.setLessonBuilder(lez)
+                    newPage = <CraftLesson c={this.state.c} ref={this.currentPage} />
                     break
                 }
             case Pages.INFO:

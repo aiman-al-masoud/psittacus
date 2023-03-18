@@ -2,7 +2,7 @@
 //@ts-ignore
 import { Recorder, playBase64 } from "../utilities/Recorder.js"
 
-type WordDict = { [word: string]: string }
+export type WordDict = { [word: string]: string }
 
 export interface PropositionData {
     sentence_one: string
