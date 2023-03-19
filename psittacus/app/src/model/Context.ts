@@ -1,4 +1,4 @@
-import { getSettings, GetSettingsArgs, Settings } from "./Settings"
+import { getSettings, GetSettingsArgs, Settings, settingsKeys, SettingsKeys } from "./Settings"
 import { getUserProgress, UserProgress } from "./UserProgress"
 import { LangPack } from "../../res/lang_packs/LangPack"
 import { english } from "../../res/lang_packs/english"
@@ -14,13 +14,12 @@ type ContextKey =
     | 'SOLUTION_HIDDEN'
     | 'OVERALL_USER_ACCURACY'
     | 'PLAY_MODE'
-
+    | SettingsKeys
 
 type Page = { page: any, pageId: string }
 
-export interface Context {
+export interface Context extends Settings {
     L: LangPack
-    S: Settings
     availableLangs: string[]
     UP: UserProgress
     getLessonBuilder(): LessonBuilder
@@ -41,13 +40,14 @@ export interface GetContextArgs extends GetSettingsArgs {
     S: Settings
     UP: UserProgress
     lessonBuilder?: LessonBuilder
+    forceUpdate?: () => void
 }
 
 export function getContext(opts: GetContextArgs): Context {
     return new BaseContext({
         UP: getUserProgress(),
         forceUpdate: opts.forceUpdate,
-        S: getSettings({ forceUpdate: opts.forceUpdate }),
+        S: getSettings({}),
         langPacks: { english, italian, spanish }
     })
 }
@@ -59,16 +59,15 @@ class BaseContext implements Context {
 
     constructor(
         readonly opts: GetContextArgs,
-        readonly S = opts.S,
         readonly UP = opts.UP,
+        readonly inputTypes = opts.S.inputTypes,
         protected lessonBuilder: LessonBuilder | undefined = opts.lessonBuilder ?? getLessonBuilder({}),
         protected contextDict = {} as any,
-
     ) {
     }
 
     get L() {
-        return this.opts.langPacks[this.S.get<string>('APP_LANGUAGE')]
+        return this.opts.langPacks[this.opts.S.get<string>('APP_LANGUAGE')]
     }
 
     get availableLangs() {
@@ -89,8 +88,15 @@ class BaseContext implements Context {
     }
 
     set(key: ContextKey, value: string | number | boolean): void {
-        this.contextDict[key] = value
+
+        if (settingsKeys.includes(key as any)) {
+            this.opts.S.set(key as any, value)
+        } else {
+            this.contextDict[key] = value
+        }
+
         this.forceUpdate()
+
     }
 
     get<T extends string | number | boolean>(key: ContextKey): T {
@@ -126,7 +132,6 @@ class BaseContext implements Context {
 
     setForceUpdate(forceUpdate: () => void): void {
         this.opts.forceUpdate = forceUpdate
-        this.S.setForceUpdate(forceUpdate)
     }
 
     forceUpdate = (): void => {
