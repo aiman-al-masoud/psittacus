@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import InputManager from "./InputManager";
 import HoverableSentence from "./HoverableSentence"
+import LessonOver from "./LessonOver";
+import Explanation from "./Explanation";
 import "../../index.css"
 
 //@ts-ignore
 import Styles from "../Styles.js";
-//@ts-ignore
-import Explanation from "./Explanation.jsx";
-//@ts-ignore
-import LessonOver from "./LessonOver.jsx";
 
 
 type Props = { c: Context }
@@ -89,9 +87,9 @@ export default class TakeLesson extends Component<Props, {}> {
             case 'STANDARD':
                 return this.main;
             case 'EXPLANATION':
-                return <Explanation explanationText={this.props.c.get('LESSON').getExplaination()} onBack={() => { this.props.c.set('PLAY_MODE', 'STANDARD') }} />
+                return <Explanation c={this.props.c} explanationText={this.props.c.get('LESSON').getExplaination()} onBack={() => { this.props.c.set('PLAY_MODE', 'STANDARD') }} />
             case 'LESSON_OVER':
-                return <LessonOver overallUserAccuracy={this.props.c.get('OVERALL_USER_ACCURACY')} />
+                return <LessonOver c={this.props.c} overallUserAccuracy={this.props.c.get('OVERALL_USER_ACCURACY')} />
         }
 
     }
