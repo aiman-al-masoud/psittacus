@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Context } from "../../model/Context";
 import { MetadataIncompleteError } from "../../model/lesson/LessonBuilder";
 import { WordDict } from "../../model/proposition/PropositionBuilder";
+import MenuButton from "../recycled/buttons/MenuButton";
 import "../../index.css"
 
 //@ts-ignore
@@ -14,8 +15,6 @@ import TextEditor from "./TextEditor.jsx";
 import Styles from "../Styles";
 //@ts-ignore
 import { sendBugReport } from "../../model/utilities/Utils.js";
-//@ts-ignore
-import MenuButton from "../recycled/buttons/MenuButton.jsx";
 
 
 type Props = { c: Context }

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Context } from "../model/Context";
-
-// @ts-ignore
-import MainMenuButton from "./recycled/buttons/MainMenuButton.jsx";
+import MainMenuButton from "./recycled/buttons/MainMenuButton";
 
 
 export default class MainMenu extends Component<{ c: Context }> {

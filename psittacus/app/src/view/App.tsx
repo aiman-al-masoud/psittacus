@@ -9,9 +9,7 @@ import "../index.css"
 import CraftLesson from "./craft_lesson/CraftLesson";
 import TakeLesson from "./take_lesson/TakeLesson";
 import { Page, sensitivePages } from "./Page";
-
-//@ts-ignore
-import MenuButton from "./recycled/buttons/MenuButton.jsx";
+import MenuButton from "./recycled/buttons/MenuButton";
 
 
 type Props = { c: Context }
