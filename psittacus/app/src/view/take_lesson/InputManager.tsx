@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import { InputType } from "../../model/Settings.js";
+import TextInput from "./TextInput";
+import ButtonInput from "./ButtonInput";
 
-//@ts-ignore
-import TextInput from "./TextInput.jsx";
-//@ts-ignore
-import ButtonInput from "./ButtonInput.jsx";
 
 export default class InputManager extends Component<{ c: Context, userInput: any }> {
 
@@ -16,7 +14,7 @@ export default class InputManager extends Component<{ c: Context, userInput: any
     choose = (inputType: InputType): JSX.Element => {
         switch (inputType) {
             case 'ALWAYS_BUTTONS':
-                return <ButtonInput userInput={this.props.userInput} proposition={this.props.c.get('LESSON').getCurrent()} />
+                return <ButtonInput c={this.props.c} userInput={this.props.userInput} />
             case 'ALWAYS_KEYBOARD':
                 return <TextInput userInput={this.props.userInput} />
             case 'LESSON_DEFAULT':

@@ -1,4 +1,4 @@
-import { PropositionData } from "./PropositionBuilder"
+import { PropositionData, WordDict } from "./PropositionBuilder"
 
 //@ts-ignore
 import { playBase64 } from "../utilities/Recorder"
@@ -18,6 +18,9 @@ export interface Proposition {
     getHash(): number
     readonly targetToNative: boolean
     readonly wordButtons: boolean
+    readonly wordDict: WordDict
+    readonly reverseDict: WordDict
+    readonly extraWords: string
 }
 
 export function getProposition(data: PropositionData): Proposition {

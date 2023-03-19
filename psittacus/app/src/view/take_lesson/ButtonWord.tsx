@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
-export default class ButtonWord extends Component {
-
-    constructor(props) {
-        super(props)
-    }
+export default class ButtonWord extends Component<{ id: string, text: string, onClick: (text: string) => void }> {
 
     render() {
         return (
