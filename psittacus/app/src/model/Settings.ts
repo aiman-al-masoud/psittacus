@@ -23,6 +23,7 @@ export interface Settings {
     get<T extends string | boolean | number>(key: SettingsKeys): T
     set(key: SettingsKeys, val: string | boolean | number): void
     readonly inputTypes: InputType[]
+    setForceUpdate(forceUpdate: () => void): void
 }
 
 class BaseSettings implements Settings {
@@ -43,6 +44,10 @@ class BaseSettings implements Settings {
         this.settingsDict[key] = val
         localStorage.setItem(this.root, JSON.stringify(this.settingsDict))
         this.args.forceUpdate()
+    }
+
+    setForceUpdate(forceUpdate: () => void): void {
+        this.args.forceUpdate = forceUpdate
     }
 
 }

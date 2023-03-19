@@ -33,6 +33,7 @@ export interface Context {
     setLesson(lesson: Lesson): void
     getCurrentPage(): Page
     setCurrentPage(page: Page): void
+    setForceUpdate(forceUpdate: () => void): void
 }
 
 export interface GetContextArgs extends GetSettingsArgs {
@@ -62,7 +63,7 @@ class BaseContext implements Context {
         readonly UP = opts.UP,
         protected lessonBuilder: LessonBuilder | undefined = opts.lessonBuilder ?? getLessonBuilder({}),
         protected contextDict = {} as any,
-        readonly forceUpdate = opts.forceUpdate
+
     ) {
     }
 
@@ -80,7 +81,7 @@ class BaseContext implements Context {
 
     setLessonBuilder(lessonBuilder: LessonBuilder): void {
         this.lessonBuilder = lessonBuilder
-        this.opts.forceUpdate()
+        this.forceUpdate()
     }
 
     clearLessonBuilder(): void {
@@ -89,7 +90,7 @@ class BaseContext implements Context {
 
     set(key: ContextKey, value: string | number | boolean): void {
         this.contextDict[key] = value
-        this.opts.forceUpdate()
+        this.forceUpdate()
     }
 
     get<T extends string | number | boolean>(key: ContextKey): T {
@@ -121,6 +122,15 @@ class BaseContext implements Context {
 
     setCurrentPage(page: Page): void {
         this.currentPage = page
+    }
+
+    setForceUpdate(forceUpdate: () => void): void {
+        this.opts.forceUpdate = forceUpdate
+        this.S.setForceUpdate(forceUpdate)
+    }
+
+    forceUpdate = (): void => {
+        this.opts?.forceUpdate?.()
     }
 
 }

@@ -20,8 +20,8 @@ import { readText } from "../model/utilities/Utils.js";
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 
 
-type Props = {}
-type State = { c: Context }
+type Props = { c: Context }
+type State = {}
 
 export default class App extends Component<Props, State> {
 
@@ -46,13 +46,11 @@ export default class App extends Component<Props, State> {
 
         super(props)
 
-        this.state = {
-            c: getContext({ forceUpdate: this.myForceUpdate } as any),
-        }
+        this.props.c.setForceUpdate(this.myForceUpdate)
 
         this.ref = React.createRef()
-        this.menu = <MainMenu c={this.state.c} onMenuChoose={this.onMenuChoose} ref={this.ref} />
-        this.state.c.setCurrentPage({ page: this.menu, pageId: Pages.MENU })
+        this.menu = <MainMenu c={this.props.c} onMenuChoose={this.onMenuChoose} ref={this.ref} />
+        this.props.c.setCurrentPage({ page: this.menu, pageId: Pages.MENU })
 
         //--
         this.pagesHistoryStack = []
@@ -66,8 +64,8 @@ export default class App extends Component<Props, State> {
 
         return (
             <div>
-                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }} icon={Icon.Home} title={this.state.c.L.home} />
-                {this.state.c.getCurrentPage().page}
+                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }} icon={Icon.Home} title={this.props.c.L.home} />
+                {this.props.c.getCurrentPage().page}
             </div>
         )
     }
@@ -79,8 +77,8 @@ export default class App extends Component<Props, State> {
     onMenuChoose = async (option: string, args?: { lesson: Lesson }) => {
 
         //alert user if exiting with potentially unsaved data.
-        if (App.sensitivePages.includes(this.state.c.getCurrentPage().pageId)) {
-            if (!confirm(this.state.c.L.your_work_may_be_lost)) {
+        if (App.sensitivePages.includes(this.props.c.getCurrentPage().pageId)) {
+            if (!confirm(this.props.c.L.your_work_may_be_lost)) {
                 return
             }
         }
@@ -91,44 +89,44 @@ export default class App extends Component<Props, State> {
             case Pages.TAKE_LESSON:
                 {
                     const lez = args?.lesson ?? getLesson(await readText().then((res: any) => { return JSON.parse(res) })) //if lesson not already there, ask upload file
-                    lez.setScheduler(this.state.c)
-                    this.state.c.setLesson(lez)
-                    newPage = <TakeLesson c={this.state.c} ref={this.ref} />
+                    lez.setScheduler(this.props.c)
+                    this.props.c.setLesson(lez)
+                    newPage = <TakeLesson c={this.props.c} ref={this.ref} />
                     break
                 }
             case Pages.CRAFT_NEW_LESSON:
-                this.state.c.clearLessonBuilder()
-                newPage = <CraftLesson c={this.state.c} ref={this.ref} />
+                this.props.c.clearLessonBuilder()
+                newPage = <CraftLesson c={this.props.c} ref={this.ref} />
                 break
             case Pages.EDIT_LESSON:
                 {
                     let lez = getLessonBuilder(await readText().then((res: any) => { return JSON.parse(res) }))
-                    this.state.c.setLessonBuilder(lez)
-                    newPage = <CraftLesson c={this.state.c} ref={this.ref} />
+                    this.props.c.setLessonBuilder(lez)
+                    newPage = <CraftLesson c={this.props.c} ref={this.ref} />
                     break
                 }
             case Pages.INFO:
-                newPage = <Info c={this.state.c} ref={this.ref} />
+                newPage = <Info c={this.props.c} ref={this.ref} />
                 break
             case Pages.MENU:
                 newPage = this.menu
                 break
             case Pages.SETTINGS:
-                newPage = <Settings c={this.state.c} ref={this.ref} />
+                newPage = <Settings c={this.props.c} ref={this.ref} />
                 break
             case Pages.HISTORY:
-                newPage = <History c={this.state.c} takeLesson={this.takeLesson} ref={this.ref} />
+                newPage = <History c={this.props.c} takeLesson={this.takeLesson} ref={this.ref} />
                 break
             case Pages.DOWNLOAD:
-                newPage = <Download c={this.state.c} takeLesson={this.takeLesson} ref={this.ref} />
+                newPage = <Download c={this.props.c} takeLesson={this.takeLesson} ref={this.ref} />
                 break
         }
 
         // save state before changing
-        this.pagesHistoryStack.push([this.state.c.getCurrentPage().pageId, this.state.c.getCurrentPage().page])
+        this.pagesHistoryStack.push([this.props.c.getCurrentPage().pageId, this.props.c.getCurrentPage().page])
 
         // update state
-        this.state.c.setCurrentPage({ page: newPage, pageId: option })
+        this.props.c.setCurrentPage({ page: newPage, pageId: option })
         this.forceUpdate()
 
         //update location
@@ -153,7 +151,7 @@ export default class App extends Component<Props, State> {
                 let p = this.pagesHistoryStack.pop()
 
                 if (p) {
-                    this.state.c.setCurrentPage({ page: p[1], pageId: p[0] })
+                    this.props.c.setCurrentPage({ page: p[1], pageId: p[0] })
                     this.forceUpdate()
                 }
 
@@ -163,8 +161,8 @@ export default class App extends Component<Props, State> {
 
         //alert user if exiting with potentially unsaved data.
         window.addEventListener('beforeunload', (e) => {
-            if (App.sensitivePages.includes(this.state.c.getCurrentPage().pageId)) {
-                e.returnValue = this.state.c.L.your_work_may_be_lost;
+            if (App.sensitivePages.includes(this.props.c.getCurrentPage().pageId)) {
+                e.returnValue = this.props.c.L.your_work_may_be_lost;
             }
         })
 

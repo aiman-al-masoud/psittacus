@@ -1,19 +1,23 @@
-import reactDOM from "react-dom";
-import React from "react";
-import App from "./view/App";
+import reactDOM from "react-dom"
+import React from "react"
+import App from "./view/App"
+import { getContext } from "./model/Context"
 import FaviconImage from "../res/favicon.png"
-import L from "./model/utilities/Language.js";
 
-//set favicon
+// global context
+const context = getContext({})
+window.context = context // for debugging
+
+// favicon
 let link = document.createElement('link')
-link.rel = 'shortcut icon';
-link.href = FaviconImage;
-document.head.appendChild(link);
+link.rel = 'shortcut icon'
+link.href = FaviconImage
+document.head.appendChild(link)
 
-//set title
+// title
 let title = document.createElement("title")
-title.innerHTML = L.app_name
+title.innerHTML = context.L.app_name
 document.head.appendChild(title)
 
-//start the app
-reactDOM.render(<App />, document.getElementById("root"))
+// start app!
+reactDOM.render(<App c={context} />, document.getElementById("root"))
