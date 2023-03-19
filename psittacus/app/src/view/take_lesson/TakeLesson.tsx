@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import InputManager from "./InputManager";
+import HoverableSentence from "./HoverableSentence"
 import "../../index.css"
 
-//@ts-ignore
-import HoverableSentence from "./HoverableSentence.jsx";
 //@ts-ignore
 import Styles from "../Styles.js";
 //@ts-ignore
