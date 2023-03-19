@@ -1,6 +1,6 @@
 import reactDOM from "react-dom";
 import React from "react";
-import App from "./view/App.jsx";
+import App from "./view/App";
 import FaviconImage from "../res/favicon.png"
 import L from "./model/utilities/Language.js";
 

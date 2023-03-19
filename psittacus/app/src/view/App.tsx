@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Settings from "./settings/Settings";
-import { getContext } from "../model/Context"
+import { Context, getContext } from "../model/Context"
 import History from "./history/History";
 import MainMenu from "./MainMenu"
 import Download from "./download/Download";
@@ -9,41 +9,56 @@ import * as Icon from 'react-feather';
 import "../index.css"
 import { getLessonBuilder } from "../model/lesson/LessonBuilder";
 import CraftLesson from "./craft_lesson/CraftLesson";
-import Lesson, { getLesson } from "../model/lesson/Lesson";
-import TakeLesson from "./take_lesson/TakeLesson.tsx";
+import { getLesson, Lesson } from "../model/lesson/Lesson";
+import TakeLesson from "./take_lesson/TakeLesson";
 
+//@ts-ignore
 import Pages from "./Pages.js";
+//@ts-ignore
 import { readText } from "../model/utilities/Utils.js";
+//@ts-ignore
 import MenuButton from "./recycled/buttons/MenuButton.jsx";
 
 
-export default class App extends Component {
+type Props = {}
+type State = { c: Context }
+
+export default class App extends Component<Props, State> {
+
+    protected menu: any
+    protected ref: any
+
+    //--
+    protected pagesHistoryStack: any[]
+    protected baseHref: string
+    protected currentHref: string
+    //--
 
     //pages which may contain unsaved data
     static sensitivePages = [Pages.CRAFT_NEW_LESSON, Pages.EDIT_LESSON]
 
     myForceUpdate = () => {
-        this.currentPage.current.forceUpdate()
+        this.ref.current.forceUpdate()
         this.forceUpdate()
     }
 
-    constructor(props) {
+    constructor(props: Props) {
 
         super(props)
-        const c = getContext({ forceUpdate: this.myForceUpdate })
-        this.c = c
-        this.currentPage = React.createRef()
-        this.menu = <MainMenu c={c} onMenuChoose={this.onMenuChoose} ref={this.currentPage} />
 
         this.state = {
-            pageId: Pages.MENU,
-            c: this.c,
-            page: this.menu
+            c: getContext({ forceUpdate: this.myForceUpdate } as any),
         }
 
+        this.ref = React.createRef()
+        this.menu = <MainMenu c={this.state.c} onMenuChoose={this.onMenuChoose} ref={this.ref} />
+        this.state.c.setCurrentPage({ page: this.menu, pageId: Pages.MENU })
+
+        //--
         this.pagesHistoryStack = []
         this.baseHref = location.protocol + '//' + location.host + location.pathname
         this.currentHref = this.baseHref
+        //--
 
     }
 
@@ -51,23 +66,21 @@ export default class App extends Component {
 
         return (
             <div>
-                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }} icon={Icon.Home} title={this.c.L.home} />
-                {this.state.page}
+                <MenuButton onClick={() => { this.onMenuChoose(Pages.MENU) }} icon={Icon.Home} title={this.state.c.L.home} />
+                {this.state.c.getCurrentPage().page}
             </div>
         )
     }
 
     /**
      * 
-     * @param {string} option  from Pages.js enum
-     * @param {{lesson:Lesson?}} args 
-     * @returns 
+     * @param {string} option  from `Pages.js` enum
      */
-    onMenuChoose = async (option, args) => {
+    onMenuChoose = async (option: string, args?: { lesson: Lesson }) => {
 
         //alert user if exiting with potentially unsaved data.
-        if (App.sensitivePages.includes(this.state.pageId)) {
-            if (!confirm(this.c.L.your_work_may_be_lost)) {
+        if (App.sensitivePages.includes(this.state.c.getCurrentPage().pageId)) {
+            if (!confirm(this.state.c.L.your_work_may_be_lost)) {
                 return
             }
         }
@@ -77,54 +90,46 @@ export default class App extends Component {
         switch (option) {
             case Pages.TAKE_LESSON:
                 {
-                    //if lesson not already supplied, ask used to upload lesson file
-                    let lez;
-                    if (args?.lesson) {
-                        lez = args.lesson
-                    } else {
-                        let data = await readText().then((res) => { return JSON.parse(res) })
-                        lez = getLesson(data)
-                    }
-
+                    const lez = args?.lesson ?? getLesson(await readText().then((res: any) => { return JSON.parse(res) })) //if lesson not already there, ask upload file
                     lez.setScheduler(this.state.c)
                     this.state.c.setLesson(lez)
-                    newPage = <TakeLesson c={this.state.c} /* lesson={lez} */ ref={this.currentPage} />
+                    newPage = <TakeLesson c={this.state.c} ref={this.ref} />
                     break
                 }
             case Pages.CRAFT_NEW_LESSON:
                 this.state.c.clearLessonBuilder()
-                newPage = <CraftLesson c={this.state.c} ref={this.currentPage} />
+                newPage = <CraftLesson c={this.state.c} ref={this.ref} />
                 break
             case Pages.EDIT_LESSON:
                 {
-                    let jsonData = await readText().then((res) => { return JSON.parse(res) })
-                    let lez = getLessonBuilder(jsonData)
+                    let lez = getLessonBuilder(await readText().then((res: any) => { return JSON.parse(res) }))
                     this.state.c.setLessonBuilder(lez)
-                    newPage = <CraftLesson c={this.state.c} ref={this.currentPage} />
+                    newPage = <CraftLesson c={this.state.c} ref={this.ref} />
                     break
                 }
             case Pages.INFO:
-                newPage = <Info c={this.state.c} ref={this.currentPage} />
+                newPage = <Info c={this.state.c} ref={this.ref} />
                 break
             case Pages.MENU:
                 newPage = this.menu
                 break
             case Pages.SETTINGS:
-                newPage = <Settings c={this.state.c} ref={this.currentPage} />
+                newPage = <Settings c={this.state.c} ref={this.ref} />
                 break
             case Pages.HISTORY:
-                newPage = <History c={this.state.c} takeLesson={this.takeLesson} ref={this.currentPage} />
+                newPage = <History c={this.state.c} takeLesson={this.takeLesson} ref={this.ref} />
                 break
             case Pages.DOWNLOAD:
-                newPage = <Download c={this.state.c} takeLesson={this.takeLesson} ref={this.currentPage} />
+                newPage = <Download c={this.state.c} takeLesson={this.takeLesson} ref={this.ref} />
                 break
         }
 
         // save state before changing
-        this.pagesHistoryStack.push([this.state.pageId, this.state.page])
+        this.pagesHistoryStack.push([this.state.c.getCurrentPage().pageId, this.state.c.getCurrentPage().page])
 
         // update state
-        this.setState({ pageId: option, page: newPage })
+        this.state.c.setCurrentPage({ page: newPage, pageId: option })
+        this.forceUpdate()
 
         //update location
         location.href = this.baseHref + "#" + option
@@ -148,7 +153,8 @@ export default class App extends Component {
                 let p = this.pagesHistoryStack.pop()
 
                 if (p) {
-                    this.setState({ pageId: p[0], page: p[1] })
+                    this.state.c.setCurrentPage({ page: p[1], pageId: p[0] })
+                    this.forceUpdate()
                 }
 
             }
@@ -157,18 +163,14 @@ export default class App extends Component {
 
         //alert user if exiting with potentially unsaved data.
         window.addEventListener('beforeunload', (e) => {
-            if (App.sensitivePages.includes(this.state.pageId)) {
-                e.returnValue = this.c.L.your_work_may_be_lost;
+            if (App.sensitivePages.includes(this.state.c.getCurrentPage().pageId)) {
+                e.returnValue = this.state.c.L.your_work_may_be_lost;
             }
         })
 
     }
 
-    /**
-     * 
-     * @param {Lesson} lesson 
-     */
-    takeLesson = (lesson) => {
+    takeLesson = (lesson: Lesson) => {
         this.onMenuChoose(Pages.TAKE_LESSON, { lesson: lesson })
     }
 

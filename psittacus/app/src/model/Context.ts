@@ -11,10 +11,12 @@ type ContextKey =
     'RECORDING'
     | 'EDITING_MODE'
     | 'USER_ACCURACY'
-    |'SOLUTION_HIDDEN'
-    |'OVERALL_USER_ACCURACY'
-    | 'PLAY_MODE' //MODE
+    | 'SOLUTION_HIDDEN'
+    | 'OVERALL_USER_ACCURACY'
+    | 'PLAY_MODE'
 
+
+type Page = { page: any, pageId: string }
 
 export interface Context {
     L: LangPack
@@ -29,6 +31,8 @@ export interface Context {
     forceUpdate(): void
     getLesson(): Lesson
     setLesson(lesson: Lesson): void
+    getCurrentPage(): Page
+    setCurrentPage(page: Page): void
 }
 
 export interface GetContextArgs extends GetSettingsArgs {
@@ -50,6 +54,7 @@ export function getContext(opts: GetContextArgs): Context {
 class BaseContext implements Context {
 
     protected lesson?: Lesson
+    protected currentPage?: Page
 
     constructor(
         readonly opts: GetContextArgs,
@@ -97,12 +102,25 @@ class BaseContext implements Context {
 
     getLesson() {
 
-        if (!this.lesson){
+        if (!this.lesson) {
             throw 'No Lesson in Context!'
         }
 
         return this.lesson
 
+    }
+
+    getCurrentPage(): Page {
+
+        if (!this.currentPage) {
+            throw 'No currentPage in Context!'
+        }
+
+        return this.currentPage
+    }
+
+    setCurrentPage(page: Page): void {
+        this.currentPage = page
     }
 
 }
