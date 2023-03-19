@@ -8,17 +8,22 @@ import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/Less
 //@ts-ignore
 import LessonsTable from "../recycled/lessons_table/LessonsTable.jsx"
 
-export default class History extends Component<{ c: Context, takeLesson: (lesson: any) => void }> {
+
+export default class History extends Component<{ c: Context }> {
 
     readonly lessonScheduler = LessonSchedulerFactory.getScheduler()
 
+    playLesson = (lesson: Lesson) => {
+        lesson.setScheduler(this.props.c)
+        this.props.c.set('LESSON', lesson)
+        this.props.c.setPage('take-lesson')
+    }
+
     onReviseNext = async () => {
-        let lesson = await this.lessonScheduler.next() as Lesson
+        const lesson = await this.lessonScheduler.next() as Lesson
 
         if (lesson) {
-            lesson.setScheduler(this.props.c)
-            this.props.c.set('LESSON', lesson)
-            this.props.takeLesson(lesson)
+            this.playLesson(lesson)
         }
     }
 
@@ -33,7 +38,10 @@ export default class History extends Component<{ c: Context, takeLesson: (lesson
             <h1>{this.props.c.L.lessons_history}</h1>
             <div className="text_tip">{this.props.c.L.history_here}</div>
 
-            <LessonsTable takeLesson={this.props.takeLesson} fetchLessonIds={(x: Metadata) => getLessonIdsHistory(this.props.c, x)} fetchLessonById={getCachedLessonById} />
+            <LessonsTable
+                takeLesson={this.playLesson}
+                fetchLessonIds={(x: Metadata) => getLessonIdsHistory(this.props.c, x)}
+                fetchLessonById={getCachedLessonById} />
 
         </div>)
     }

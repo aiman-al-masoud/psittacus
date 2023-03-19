@@ -5,9 +5,13 @@ import { english } from "../../res/lang_packs/english"
 import { italian } from "../../res/lang_packs/italian"
 import { spanish } from "../../res/lang_packs/spanish"
 import { getLessonBuilder, LessonBuilder } from "./lesson/LessonBuilder"
-import { Lesson } from "./lesson/Lesson"
+import { getLesson, Lesson } from "./lesson/Lesson"
 import { stringLiterals, ElementType } from "./utilities/stringLiterals"
+import { getUrlTracker, UrlTracker } from "./UrlTracker"
+import { Page } from "../view/Page"
 
+//@ts-ignore
+import { readText } from "../model/utilities/Utils.js";
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
 export const numberContextKeys = stringLiterals('USER_ACCURACY', 'OVERALL_USER_ACCURACY')
@@ -29,9 +33,6 @@ export type Keys =
 export type PlayMode = 'STANDARD' | 'EXPLANATION' | 'LESSON_OVER'
 export type EditMode = 'LESSON' | 'METADATA' | 'EXPLAINATION'
 
-type Page = { page: any, pageId: string }
-
-
 export interface Context extends Settings {
     L: LangPack
     availableLangs: string[]
@@ -49,7 +50,6 @@ export interface Context extends Settings {
     get<T extends PlayModeTransientKeys>(key: T): PlayMode
     get(key: 'LESSON'): Lesson
 
-
     set<T extends BooleanSettingsKeys | BooleanTransientKeys>(key: T, val: boolean): void
     set<T extends StringSettingsKeys>(key: T, val: string): void
     set<T extends InputTypeKeys>(key: T, val: InputType): void
@@ -58,11 +58,12 @@ export interface Context extends Settings {
     set<T extends PlayModeTransientKeys>(key: T, val: PlayMode): void
     set(key: 'LESSON', value: Lesson): void
 
-
     forceUpdate(): void
-    getCurrentPage(): Page
-    setCurrentPage(page: Page): void
+    getPage(): Page
+    setPage(page: Page): void
     setForceUpdate(forceUpdate: () => void): void
+
+    readonly urlTracker: UrlTracker
 }
 
 export interface GetContextArgs extends GetSettingsArgs {
@@ -85,6 +86,8 @@ export function getContext(opts: GetContextArgs): Context {
 class BaseContext implements Context {
 
     protected currentPage?: Page
+
+    readonly urlTracker = getUrlTracker(this)
 
     constructor(
         readonly opts: GetContextArgs,
@@ -138,7 +141,7 @@ class BaseContext implements Context {
 
     }
 
-    getCurrentPage(): Page {
+    getPage(): Page {
 
         if (!this.currentPage) {
             throw 'No currentPage in Context!'
@@ -147,8 +150,26 @@ class BaseContext implements Context {
         return this.currentPage
     }
 
-    setCurrentPage(page: Page): void {
+    async setPage(page: Page): Promise<void> {
+
+        if (page === 'open-lesson') {
+            const lez = getLesson(await readText().then((res: string) => { return JSON.parse(res) })) //if lesson not already there, ask upload file
+            lez.setScheduler(this)
+            this.set('LESSON', lez)
+        }
+
+        if (page === 'edit-lesson') {
+            let lez = getLessonBuilder(await readText().then((res: any) => { return JSON.parse(res) }))
+            this.setLessonBuilder(lez)
+        }
+
+        if (page === 'craft-new-lesson') {
+            this.clearLessonBuilder()
+        }
+
+        this.urlTracker.change(this.currentPage ?? 'menu', page)
         this.currentPage = page
+        this.forceUpdate()
     }
 
     setForceUpdate(forceUpdate: () => void): void {
@@ -158,5 +179,4 @@ class BaseContext implements Context {
     forceUpdate = (): void => {
         this.opts?.forceUpdate?.()
     }
-
 }

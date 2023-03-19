@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
-import { isMetadataMatching } from '../../model/lesson/Lesson'
+import { isMetadataMatching, Lesson } from '../../model/lesson/Lesson'
 
 //@ts-ignore
 import LessonsTable from "../recycled/lessons_table/LessonsTable.jsx"
@@ -9,7 +9,6 @@ import Server from "../../model/utilities/Server.js";
 
 type Props = {
     c: Context
-    takeLesson: (lesson: any) => void
 }
 
 type State = {
@@ -21,13 +20,18 @@ export default class Download extends Component<Props, State>{
     protected fetchIdsTask: any
     state: Readonly<State> = { fetchLessonIds: () => [] }
 
+    playLesson = (lesson: Lesson) => {
+        this.props.c.set('LESSON', lesson)
+        this.props.c.setPage('take-lesson')
+    }
+
     render() {
         return (<div>
             <h1>{this.props.c.L.download_lessons}</h1>
             <span className="text_tip">{this.props.c.L.here_you_can_search_for_and_download}</span>
             <br />
             <br />
-            <LessonsTable takeLesson={this.props.takeLesson} fetchLessonIds={this.state.fetchLessonIds} fetchLessonById={Server.getInstance().downloadLesson} />
+            <LessonsTable takeLesson={this.playLesson} fetchLessonIds={this.state.fetchLessonIds} fetchLessonById={Server.getInstance().downloadLesson} />
         </div>)
     }
 

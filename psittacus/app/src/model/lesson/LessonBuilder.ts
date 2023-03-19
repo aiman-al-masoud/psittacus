@@ -31,8 +31,8 @@ export interface LessonBuilder {
     save(): void
     size(): number
     currentIndex(): number
-    getMetadata():Metadata
-    getExplanation():string
+    getMetadata(): Metadata
+    getExplanation(): string
 }
 
 export function getLessonBuilder(data: Partial<LessonData>): LessonBuilder {
