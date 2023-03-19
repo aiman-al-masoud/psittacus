@@ -16,7 +16,8 @@ export interface Proposition {
     getQuestionWordDict(): string[][] //[string, string][]
     getAnswerWordDict(): string[][]//[string, string][]
     getHash(): number
-    readonly targetToNative:boolean
+    readonly targetToNative: boolean
+    readonly wordButtons: boolean
 }
 
 export function getProposition(data: PropositionData): Proposition {
@@ -47,7 +48,7 @@ class BaseProposition implements Proposition {
         readonly reverseDict = data.reverse_dict,
         readonly targetToNative = data.target_to_native,
         readonly wordButtons = data.word_buttons,
-        readonly extraWords = data.extra_words,
+        readonly extraWords = data.extra_words ?? '',
     ) {
 
     }
@@ -136,7 +137,6 @@ class BaseProposition implements Proposition {
     }
 
 }
-
 
 /**
 * Used as a placeholder to make sure nothing breaks when you run out of real ones.

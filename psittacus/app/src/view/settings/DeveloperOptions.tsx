@@ -22,7 +22,7 @@ export default class DeveloperOptions extends Component<{ c: Context }> {
 
     toggle = () => {
 
-        if (!this.props.c.get<boolean>('DEV_OPTIONS_ENABLED')) { //if not enabled yet
+        if (!this.props.c.get('DEV_OPTIONS_ENABLED')) { //if not enabled yet
             if (confirm(this.props.c.L.are_you_sure_enable_dev_options)) {
                 this.props.c.set('DEV_OPTIONS_ENABLED', true)
             }
@@ -42,7 +42,7 @@ export default class DeveloperOptions extends Component<{ c: Context }> {
             <input onClick={this.toggle}
                 onMouseEnter={() => { this.setState({ mouseOverEnableCheckbox: true }) }}
                 onMouseLeave={() => { this.setState({ mouseOverEnableCheckbox: false }) }}
-                type="checkbox" checked={this.props.c.get<boolean>('DEV_OPTIONS_ENABLED')} />
+                type="checkbox" checked={this.props.c.get('DEV_OPTIONS_ENABLED')} />
 
             {/* <span className="text_warning" style={this.state.mouseOverEnableCheckbox ? Styles.visibleInline : Styles.invisible}>{this.props.c.L.caution_enabling_developer_options}</span> */}
 
@@ -50,7 +50,7 @@ export default class DeveloperOptions extends Component<{ c: Context }> {
 
             <br />
 
-            <div style={this.props.c.get<boolean>('DEV_OPTIONS_ENABLED') ? Styles.visible : Styles.invisible}>
+            <div style={this.props.c.get('DEV_OPTIONS_ENABLED') ? Styles.visible : Styles.invisible}>
                 <h2>{this.props.c.L.run_custom_code}</h2>
                 <div className="text_warning">{this.props.c.L.caution_running_custom_code}</div>
                 <br />

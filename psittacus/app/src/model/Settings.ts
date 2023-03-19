@@ -1,26 +1,12 @@
-import { stringLiterals, ElementType } from "./stringLiterals";
+import { stringLiterals, ElementType } from "./utilities/stringLiterals";
 
 export interface GetSettingsArgs {
 
 }
 
-export interface Settings {
-    get<T extends string | boolean | number>(key: SettingsKeys): T
-    set(key: SettingsKeys, val: string | boolean | number): void
-    readonly inputTypes: InputType[]
-}
-
 export function getSettings(args: GetSettingsArgs): Settings {
     return new BaseSettings(args)
 }
-
-export const settingsKeys = stringLiterals(
-    'PROPOSITION_SCHEDULER',
-    'LESSON_SCHEDULER',
-    'APP_LANGUAGE',
-    'DEV_OPTIONS_ENABLED',
-    'INPUT_TYPE'
-)
 
 const inputTypes1 = stringLiterals(
     'ALWAYS_KEYBOARD',
@@ -28,9 +14,33 @@ const inputTypes1 = stringLiterals(
     'LESSON_DEFAULT'
 )
 
-export type SettingsKeys = ElementType<typeof settingsKeys>
-type InputType = ElementType<typeof inputTypes1>
+export const booleanSettingKeys = stringLiterals('DEV_OPTIONS_ENABLED')
+export const stringSettingKeys = stringLiterals('PROPOSITION_SCHEDULER', 'APP_LANGUAGE', 'LESSON_SCHEDULER')
+export const inputTypeSettingKeys = stringLiterals('INPUT_TYPE')
+export const settingsKeys = booleanSettingKeys.concat(stringSettingKeys as any).concat(inputTypeSettingKeys as any)
 
+export type BooleanSettingsKeys = ElementType<typeof booleanSettingKeys>
+export type StringSettingsKeys = ElementType<typeof stringSettingKeys>
+export type InputTypeKeys = ElementType<typeof inputTypeSettingKeys>
+
+export type SettingsKeys = BooleanSettingsKeys | StringSettingsKeys | InputTypeKeys
+export type InputType = ElementType<typeof inputTypes1>
+
+
+
+export interface Settings {
+
+    get<T extends BooleanSettingsKeys>(key: T): boolean
+    get<T extends StringSettingsKeys>(key: T): string
+    get<T extends InputTypeKeys>(key: T): InputType
+
+    set<T extends BooleanSettingsKeys>(key: T, val: boolean): void
+    set<T extends StringSettingsKeys>(key: T, val: string): void
+    set<T extends InputTypeKeys>(key: T, val: InputType): void
+
+
+    readonly inputTypes: InputType[]
+}
 
 class BaseSettings implements Settings {
 

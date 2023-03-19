@@ -17,7 +17,7 @@ export default class Settings extends Component<{ c: Context }> {
     onSet = (key: SettingsKeys, event: any) => {
         const choice = event.target
         const val = choice.options[choice.selectedIndex].text
-        this.props.c.set(key, val)
+        this.props.c.set(key as any, val as any)
     }
 
     importProgress = async () => {
@@ -37,14 +37,14 @@ export default class Settings extends Component<{ c: Context }> {
         return (<div>
 
             <h1>{this.props.c.L.choose_lang}</h1>
-            <select value={this.props.c.get<string>('APP_LANGUAGE')} onChange={(event) => { this.onSet('APP_LANGUAGE', event) }} >
+            <select value={this.props.c.get('APP_LANGUAGE')} onChange={(event) => { this.onSet('APP_LANGUAGE', event) }} >
                 {this.props.c.availableLangs.map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
             <h1>{this.props.c.L.choose_proposition_scheduler}</h1>
             <div className="text_tip">{this.props.c.L.proposition_scheduler_is}</div>
 
-            <select value={this.props.c.get<string>('PROPOSITION_SCHEDULER')} onChange={(event) => { this.onSet('PROPOSITION_SCHEDULER', event) }} >
+            <select value={this.props.c.get('PROPOSITION_SCHEDULER')} onChange={(event) => { this.onSet('PROPOSITION_SCHEDULER', event) }} >
                 {PropositionSchedulerFactory.getTypes().map((opt: any, index: any) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
@@ -55,14 +55,13 @@ export default class Settings extends Component<{ c: Context }> {
             <h1>{this.props.c.L.choose_lesson_scheduler}</h1>
             <div className="text_tip">{this.props.c.L.lesson_scheduler_is}</div>
 
-            <select value={this.props.c.get<string>('LESSON_SCHEDULER')} onChange={(event) => { this.onSet('LESSON_SCHEDULER', event) }} >
+            <select value={this.props.c.get('LESSON_SCHEDULER')} onChange={(event) => { this.onSet('LESSON_SCHEDULER', event) }} >
                 {LessonSchedulerFactory.getTypes().map((opt: any, index: any) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
             <div className="text_tip">
                 {LessonSchedulerFactory.getCurrentSchedulersDescription()}
             </div>
-
 
             <h1>{this.props.c.L.manage_data_about_your_progress}</h1>
             <div className="text_tip">{this.props.c.L.progress_is}</div>
@@ -75,10 +74,9 @@ export default class Settings extends Component<{ c: Context }> {
 
             <div className="text_tip">{this.props.c.L.input_type_is}</div>
 
-            <select value={this.props.c.get<string>('INPUT_TYPE')} onChange={event => { this.onSet('INPUT_TYPE', event) }} >
+            <select value={this.props.c.get('INPUT_TYPE')} onChange={event => { this.onSet('INPUT_TYPE', event) }} >
                 {this.props.c.inputTypes.map((opt, index) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
-
 
             <br />
             <br />

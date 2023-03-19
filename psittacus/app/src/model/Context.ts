@@ -1,4 +1,4 @@
-import { getSettings, GetSettingsArgs, Settings, settingsKeys, SettingsKeys } from "./Settings"
+import { BooleanSettingsKeys, getSettings, GetSettingsArgs, InputType, InputTypeKeys, Settings, settingsKeys, SettingsKeys, StringSettingsKeys } from "./Settings"
 import { getUserProgress, UserProgress } from "./UserProgress"
 import { LangPack } from "../../res/lang_packs/LangPack"
 import { english } from "../../res/lang_packs/english"
@@ -6,17 +6,30 @@ import { italian } from "../../res/lang_packs/italian"
 import { spanish } from "../../res/lang_packs/spanish"
 import { getLessonBuilder, LessonBuilder } from "./lesson/LessonBuilder"
 import { Lesson } from "./lesson/Lesson"
+import { stringLiterals, ElementType } from "./utilities/stringLiterals"
 
-type ContextKey =
-    'RECORDING'
-    | 'EDITING_MODE'
-    | 'USER_ACCURACY'
-    | 'SOLUTION_HIDDEN'
-    | 'OVERALL_USER_ACCURACY'
-    | 'PLAY_MODE'
+
+export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
+export const numberContextKeys = stringLiterals('USER_ACCURACY', 'OVERALL_USER_ACCURACY')
+export const editingModeContextKeys = stringLiterals('EDITING_MODE')
+export const playModeContextKeys = stringLiterals('PLAY_MODE')
+export const contextKeys = booleanContextKeys.concat(numberContextKeys as any).concat(editingModeContextKeys as any).concat(playModeContextKeys as any)
+
+export type BooleanTransientKeys = ElementType<typeof booleanContextKeys>
+export type NumberTransientKeys = ElementType<typeof numberContextKeys>
+export type EditingModeTransientKeys = ElementType<typeof editingModeContextKeys>
+export type PlayModeTransientKeys = ElementType<typeof playModeContextKeys>
+export type TransientKeys = BooleanTransientKeys | NumberTransientKeys | EditingModeTransientKeys | PlayModeTransientKeys
+
+export type Keys =
+    TransientKeys
     | SettingsKeys
 
+export type PlayMode = 'STANDARD' | 'EXPLANATION' | 'LESSON_OVER'
+export type EditMode = 'LESSON' | 'METADATA' | 'EXPLAINATION'
+
 type Page = { page: any, pageId: string }
+
 
 export interface Context extends Settings {
     L: LangPack
@@ -25,8 +38,24 @@ export interface Context extends Settings {
     getLessonBuilder(): LessonBuilder
     setLessonBuilder(lessonBuilder: LessonBuilder): void
     clearLessonBuilder(): void
-    get<T extends string | boolean | number>(key: ContextKey): T
-    set(key: ContextKey, value: string | boolean | number): void
+
+    get<T extends BooleanSettingsKeys>(key: T): boolean
+    get<T extends StringSettingsKeys>(key: T): string
+    get<T extends InputTypeKeys>(key: T): InputType
+    get<T extends BooleanTransientKeys>(key: T): boolean
+    get<T extends NumberTransientKeys>(key: T): number
+    get<T extends EditingModeTransientKeys>(key: T): EditMode
+    get<T extends PlayModeTransientKeys>(key: T): PlayMode
+
+
+    set<T extends BooleanSettingsKeys | BooleanTransientKeys>(key: T, val: boolean): void
+    set<T extends StringSettingsKeys>(key: T, val: string): void
+    set<T extends InputTypeKeys>(key: T, val: InputType): void
+    set<T extends NumberTransientKeys>(key: T, val: number): void
+    set<T extends EditingModeTransientKeys>(key: T, val: EditMode): void
+    set<T extends PlayModeTransientKeys>(key: T, val: PlayMode): void
+
+
     forceUpdate(): void
     getLesson(): Lesson
     setLesson(lesson: Lesson): void
@@ -67,7 +96,7 @@ class BaseContext implements Context {
     }
 
     get L() {
-        return this.opts.langPacks[this.opts.S.get<string>('APP_LANGUAGE')]
+        return this.opts.langPacks[this.opts.S.get('APP_LANGUAGE')]
     }
 
     get availableLangs() {
@@ -87,10 +116,10 @@ class BaseContext implements Context {
         this.lessonBuilder = undefined
     }
 
-    set(key: ContextKey, value: string | number | boolean): void {
+    set(key: Keys, value: any): void {
 
         if (settingsKeys.includes(key as any)) {
-            this.opts.S.set(key as any, value)
+            this.opts.S.set(key as any, value as any)
         } else {
             this.contextDict[key] = value
         }
@@ -99,8 +128,14 @@ class BaseContext implements Context {
 
     }
 
-    get<T extends string | number | boolean>(key: ContextKey): T {
-        return this.contextDict[key]
+    get(key: any): any {
+
+        if (settingsKeys.includes(key)) {
+            return this.opts.S.get(key)
+        } else {
+            return this.contextDict[key]
+        }
+
     }
 
     setLesson(lesson: Lesson): void {

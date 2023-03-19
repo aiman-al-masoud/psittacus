@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Context } from "../../model/Context";
 import { MetadataIncompleteError } from "../../model/lesson/LessonBuilder";
 import { WordDict } from "../../model/proposition/PropositionBuilder";
-import "../../index.css"
 import * as Icon from 'react-feather';
+import "../../index.css"
 
 //@ts-ignore
 import DefinitionsTable from "./DefinitionsTable.jsx";
@@ -11,8 +11,6 @@ import DefinitionsTable from "./DefinitionsTable.jsx";
 import Metadata from "./Metadata.jsx";
 //@ts-ignore
 import TextEditor from "./TextEditor.jsx";
-//@ts-ignore
-import EditingModes from "./EditingModes.js";
 //@ts-ignore
 import Styles from "../Styles";
 //@ts-ignore
@@ -32,7 +30,7 @@ export default class CraftLesson extends Component<Props> {
     constructor(props: Props) {
         super(props)
         this.props.c.set('RECORDING', false)
-        this.props.c.set('EDITING_MODE', EditingModes.LESSON)
+        this.props.c.set('EDITING_MODE', 'LESSON')
     }
 
     onSentenceOneInput = () => {
@@ -126,7 +124,7 @@ export default class CraftLesson extends Component<Props> {
             switch (e) { //handle exceptions
                 case MetadataIncompleteError:
                     alert(this.props.c.L.please_complete_metadata)
-                    this.props.c.set('EDITING_MODE', EditingModes.METADATA)
+                    this.props.c.set('EDITING_MODE', 'METADATA')
                     break
                 default:
                     sendBugReport(e.toString() + " " + e.stack)
@@ -139,7 +137,6 @@ export default class CraftLesson extends Component<Props> {
 
         let mainBody = (<div>
 
-            {/* Back and forth between propositions */}
             <div className="center_container">
 
                 <MenuButton onClick={() => {
@@ -147,8 +144,6 @@ export default class CraftLesson extends Component<Props> {
                     this.props.c.forceUpdate()
                 }}
                     title={this.props.c.L.previous_sentence} icon={Icon.ArrowRight} flippedX={true} />
-
-                {/* this gets re-rendered (works) because next already triggers a re-render, not because this.lessonBuilder is being explicitly tracked. */}
 
                 <span title={this.props.c.L.current_sentence} style={{ cursor: "default" }}>
                     {this.props.c.getLessonBuilder().currentIndex()} / {this.props.c.getLessonBuilder().size()}
@@ -201,14 +196,14 @@ export default class CraftLesson extends Component<Props> {
 
         return (<div>
 
-            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', EditingModes.METADATA) }} title={this.props.c.L.edit_metadata} icon={Icon.Tag} highlight={this.props.c.get('EDITING_MODE') == EditingModes.METADATA} />
-            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', EditingModes.LESSON) }} title={this.props.c.L.edit_sentences} icon={Icon.Edit} highlight={this.props.c.get('EDITING_MODE') == EditingModes.LESSON} />
-            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', EditingModes.EXPLAINATION) }} title={this.props.c.L.edit_explanation} icon={Icon.BookOpen} highlight={this.props.c.get('EDITING_MODE') == EditingModes.EXPLAINATION} />
+            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', 'METADATA') }} title={this.props.c.L.edit_metadata} icon={Icon.Tag} highlight={this.props.c.get('EDITING_MODE') == 'METADATA'} />
+            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', 'LESSON') }} title={this.props.c.L.edit_sentences} icon={Icon.Edit} highlight={this.props.c.get('EDITING_MODE') == 'LESSON'} />
+            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', 'EXPLAINATION') }} title={this.props.c.L.edit_explanation} icon={Icon.BookOpen} highlight={this.props.c.get('EDITING_MODE') == 'EXPLAINATION'} />
             <MenuButton onClick={() => { this.onSave() }} title={`${this.props.c.L.save_lesson} (${this.props.c.L.shortcut_save_lesson})`} icon={Icon.Save} />
 
-            <div style={this.props.c.get('EDITING_MODE') == EditingModes.LESSON ? Styles.visible : Styles.invisible}>{mainBody}</div>
-            <div style={this.props.c.get('EDITING_MODE') == EditingModes.METADATA ? Styles.visible : Styles.invisible}> <Metadata metadataDict={this.props.c.getLessonBuilder().getMetadata()} onModifyMetadata={this.onModifyMetadata} /> </div>
-            <div style={this.props.c.get('EDITING_MODE') == EditingModes.EXPLAINATION ? Styles.visible : Styles.invisible}><TextEditor onTextChange={this.onExplainationChange} text={this.props.c.getLessonBuilder().getExplanation()} /></div>
+            <div style={this.props.c.get('EDITING_MODE') == 'LESSON' ? Styles.visible : Styles.invisible}>{mainBody}</div>
+            <div style={this.props.c.get('EDITING_MODE') == 'METADATA' ? Styles.visible : Styles.invisible}> <Metadata metadataDict={this.props.c.getLessonBuilder().getMetadata()} onModifyMetadata={this.onModifyMetadata} /> </div>
+            <div style={this.props.c.get('EDITING_MODE') == 'EXPLAINATION' ? Styles.visible : Styles.invisible}><TextEditor onTextChange={this.onExplainationChange} text={this.props.c.getLessonBuilder().getExplanation()} /></div>
 
         </div>)
     }

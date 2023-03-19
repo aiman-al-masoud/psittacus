@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import "../../index.css"
 
+import InputManager from "./InputManager";
+
 //@ts-ignore
 import HoverableSentence from "./HoverableSentence.jsx";
-//@ts-ignore
-import InputManager from "./InputManager.jsx";
-//@ts-ignore
-import Modes from "./Modes.js";
 //@ts-ignore
 import Styles from "../Styles.js";
 //@ts-ignore
@@ -31,7 +29,7 @@ export default class TakeLesson extends Component<Props, {}> {
         this.props.c.set('USER_ACCURACY', 0)
         this.props.c.set('SOLUTION_HIDDEN', true)
         this.props.c.set('OVERALL_USER_ACCURACY', 0)
-        this.props.c.set('PLAY_MODE', Modes.STANDARD)
+        this.props.c.set('PLAY_MODE', 'STANDARD')
     }
 
     next = () => {
@@ -47,7 +45,7 @@ export default class TakeLesson extends Component<Props, {}> {
         }
 
         this.props.c.set('SOLUTION_HIDDEN', !this.props.c.get('SOLUTION_HIDDEN'))
-        this.props.c.set('PLAY_MODE', this.props.c.getLesson().isOver(this.props.c) ? Modes.LESSON_OVER : this.props.c.get('PLAY_MODE'))
+        this.props.c.set('PLAY_MODE', this.props.c.getLesson().isOver(this.props.c) ? 'LESSON_OVER' : this.props.c.get('PLAY_MODE'))
         this.props.c.set('OVERALL_USER_ACCURACY', this.props.c.getLesson().getScore())
 
     }
@@ -64,14 +62,14 @@ export default class TakeLesson extends Component<Props, {}> {
                 <button
                     onClick={this.props.c.getLesson().getCurrent().play}
                     className="play_audio_button"
-                    style={(this.props.c.getLesson().getCurrent().targetToNative && (this.props.c.get('PLAY_MODE') != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible}
+                    style={(this.props.c.getLesson().getCurrent().targetToNative && (this.props.c.get('PLAY_MODE') != 'LESSON_OVER')) ? Styles.visibleInline : Styles.invisible}
                     title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>
                     <img src={PlayAudioIcon} />  </button>
 
             </div>
 
             <br />
-            <InputManager userInput={this.userInput} proposition={this.props.c.getLesson().getCurrent()} />
+            <InputManager c={this.props.c} userInput={this.userInput} />
             <br />
             <button onClick={this.next} className="normal_button">{this.props.c.get('SOLUTION_HIDDEN') ? this.props.c.L.see_solution : this.props.c.L.next}  </button>
             <br />
@@ -82,21 +80,21 @@ export default class TakeLesson extends Component<Props, {}> {
                     <div className="text_tip">{this.props.c.L.need_a_tip_hover_words}</div>
                     <br />
                     <HoverableSentence wordDict={this.props.c.getLesson().getCurrent().getAnswerWordDict()} />
-                    <button onClick={this.props.c.getLesson().getCurrent().play} className="play_audio_button" style={((!this.props.c.getLesson().getCurrent().targetToNative) && (this.props.c.get('PLAY_MODE') != Modes.LESSON_OVER)) ? Styles.visibleInline : Styles.invisible} title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
+                    <button onClick={this.props.c.getLesson().getCurrent().play} className="play_audio_button" style={((!this.props.c.getLesson().getCurrent().targetToNative) && (this.props.c.get('PLAY_MODE') != 'LESSON_OVER')) ? Styles.visibleInline : Styles.invisible} title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
                 </div>
 
                 <h2>{this.props.c.L.your_accuracy}: {this.props.c.get('USER_ACCURACY')}%</h2>
             </div>
             <br />
-            <span className="text_tip">{this.props.c.L.need_a_lot_of_tips} <button className="normal_link" onClick={() => { this.props.c.set('PLAY_MODE', Modes.EXPLANATION) }}>{this.props.c.L.read_explanation}</button></span>
+            <span className="text_tip">{this.props.c.L.need_a_lot_of_tips} <button className="normal_link" onClick={() => { this.props.c.set('PLAY_MODE', 'EXPLANATION') }}>{this.props.c.L.read_explanation}</button></span>
         </div>)
 
         switch (this.props.c.get('PLAY_MODE')) {
-            case Modes.STANDARD:
+            case 'STANDARD':
                 return this.main;
-            case Modes.EXPLANATION:
-                return <Explanation explanationText={this.props.c.getLesson().getExplaination()} onBack={() => { this.props.c.set('PLAY_MODE', Modes.STANDARD) }} />
-            case Modes.LESSON_OVER:
+            case 'EXPLANATION':
+                return <Explanation explanationText={this.props.c.getLesson().getExplaination()} onBack={() => { this.props.c.set('PLAY_MODE', 'STANDARD') }} />
+            case 'LESSON_OVER':
                 return <LessonOver overallUserAccuracy={this.props.c.get('OVERALL_USER_ACCURACY')} />
         }
 
