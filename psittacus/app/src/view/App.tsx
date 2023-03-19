@@ -5,7 +5,6 @@ import History from "./history/History";
 import MainMenu from "./MainMenu"
 import Download from "./download/Download";
 import Info from "./info/Info";
-import * as Icon from 'react-feather';
 import "../index.css"
 import CraftLesson from "./craft_lesson/CraftLesson";
 import TakeLesson from "./take_lesson/TakeLesson";
@@ -39,7 +38,7 @@ export default class App extends Component<Props, {}> {
 
         return (
             <div>
-                <MenuButton onClick={() => this.props.c.setPage('menu')} icon={Icon.Home} title={this.props.c.L.home} />
+                <MenuButton onClick={() => this.props.c.setPage('menu')} icon={this.props.c.icons.Home} title={this.props.c.L.home} />
                 {this.getPage(this.props.c.getPage())}
             </div>
         )

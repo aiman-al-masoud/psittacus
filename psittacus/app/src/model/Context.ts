@@ -12,6 +12,7 @@ import { Page } from "../view/Page"
 
 //@ts-ignore
 import { readText } from "../model/utilities/Utils.js";
+import { getIcons, Icons } from "./Icons"
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
 export const numberContextKeys = stringLiterals('USER_ACCURACY', 'OVERALL_USER_ACCURACY')
@@ -63,6 +64,7 @@ export interface Context extends Settings {
     setPage(page: Page): void
     setForceUpdate(forceUpdate: () => void): void
 
+    readonly icons: Icons
     readonly urlTracker: UrlTracker
 }
 
@@ -88,6 +90,7 @@ class BaseContext implements Context {
     protected currentPage?: Page
 
     readonly urlTracker = getUrlTracker(this)
+    readonly icons = getIcons()
 
     constructor(
         readonly opts: GetContextArgs,
