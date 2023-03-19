@@ -1,3 +1,4 @@
+import { defaultSettings } from "./defaultSettings";
 import { stringLiterals, ElementType } from "./utilities/stringLiterals";
 
 export interface GetSettingsArgs {
@@ -44,12 +45,16 @@ export interface Settings {
 
 class BaseSettings implements Settings {
 
+    protected readonly settingsDict: { [x: string]: any }
+
     constructor(
         readonly args: GetSettingsArgs,
         readonly root = 'SETTINGS',
         readonly inputTypes = inputTypes1,
-        protected readonly settingsDict = JSON.parse(localStorage.getItem(root) ?? '{"INPUT_TYPE" :  "LESSON_DEFAULT"}')//TODO!
     ) {
+        const old = JSON.parse(localStorage.getItem(root) ?? '{}')
+        this.settingsDict = { ...defaultSettings, ...old }
+        this.write()
     }
 
     get<T>(key: SettingsKeys): T {
@@ -58,6 +63,10 @@ class BaseSettings implements Settings {
 
     set(key: SettingsKeys, val: string | number | boolean): void {
         this.settingsDict[key] = val
+        this.write()
+    }
+
+    write(): void {
         localStorage.setItem(this.root, JSON.stringify(this.settingsDict))
     }
 }
