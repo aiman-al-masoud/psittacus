@@ -1,7 +1,6 @@
 import { getPropositionBuilder, PropositionBuilder, PropositionData } from '../proposition/PropositionBuilder'
+import { saveToComp } from "../utilities/Utils"
 
-//@ts-ignore
-import { saveToComp } from "../utilities/Utils.js"
 //@ts-ignore
 const packageJson = require.context("../../../..", false, /package.json$/).keys().map(require.context("../../../..", false, /package.json$/))[0]
 

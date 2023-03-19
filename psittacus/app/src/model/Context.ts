@@ -9,10 +9,9 @@ import { getLesson, Lesson } from "./lesson/Lesson"
 import { stringLiterals, ElementType } from "./utilities/stringLiterals"
 import { getUrlTracker, UrlTracker } from "./UrlTracker"
 import { Page } from "../view/Page"
-
-//@ts-ignore
-import { readText } from "../model/utilities/Utils.js";
 import { getIcons, Icons } from "./Icons"
+import { readText } from "./utilities/Utils";
+
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
 export const numberContextKeys = stringLiterals('USER_ACCURACY', 'OVERALL_USER_ACCURACY')
@@ -156,13 +155,13 @@ class BaseContext implements Context {
     async setPage(page: Page): Promise<void> {
 
         if (page === 'open-lesson') {
-            const lez = getLesson(await readText().then((res: string) => { return JSON.parse(res) })) //if lesson not already there, ask upload file
+            const lez = getLesson(JSON.parse(await readText())) //if lesson not already there, ask upload file
             lez.setScheduler(this)
             this.set('LESSON', lez)
         }
 
         if (page === 'edit-lesson') {
-            let lez = getLessonBuilder(await readText().then((res: any) => { return JSON.parse(res) }))
+            let lez = getLessonBuilder(JSON.parse(await readText()))
             this.setLessonBuilder(lez)
         }
 

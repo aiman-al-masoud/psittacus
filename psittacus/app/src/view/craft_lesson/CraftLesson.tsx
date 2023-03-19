@@ -4,6 +4,7 @@ import { MetadataIncompleteError } from "../../model/lesson/LessonBuilder";
 import { WordDict } from "../../model/proposition/PropositionBuilder";
 import MenuButton from "../recycled/buttons/MenuButton";
 import "../../index.css"
+import { sendBugReport } from "../../model/utilities/Utils";
 
 //@ts-ignore
 import DefinitionsTable from "./DefinitionsTable.jsx";
@@ -13,8 +14,6 @@ import Metadata from "./Metadata.jsx";
 import TextEditor from "./TextEditor.jsx";
 //@ts-ignore
 import Styles from "../Styles";
-//@ts-ignore
-import { sendBugReport } from "../../model/utilities/Utils.js";
 
 
 type Props = { c: Context }
@@ -125,7 +124,7 @@ export default class CraftLesson extends Component<Props> {
                     this.props.c.set('EDITING_MODE', 'METADATA')
                     break
                 default:
-                    sendBugReport(e.toString() + " " + e.stack)
+                    sendBugReport(e.toString() + " " + e.stack, this.props.c)
             }
         }
 

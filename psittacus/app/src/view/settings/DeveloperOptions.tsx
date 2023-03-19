@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
+import { readText, saveToComp } from "../../model/utilities/Utils";
 
 //@ts-ignore
 import PropositionSchedulerFactory from "../../model/schedulers/proposition_scheduler/PropositionSchedulerFactory.js";
-//@ts-ignore
-import { readText, saveToComp } from "../../model/utilities/Utils.js";
 //@ts-ignore
 import Styles from "../Styles.js";
 //@ts-ignore

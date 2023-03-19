@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import { SettingsKeys } from "../../model/Settings.js";
 import DeveloperOptions from "./DeveloperOptions";
+import { readText, saveToComp } from "../../model/utilities/Utils";
 
 // @ts-ignore
 import PropositionSchedulerFactory from "../../model/schedulers/proposition_scheduler/PropositionSchedulerFactory.js";
 // @ts-ignore
 import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
-// @ts-ignore
-import { readText, saveToComp } from "../../model/utilities/Utils.js";
-
 
 
 export default class Settings extends Component<{ c: Context }> {
