@@ -24,6 +24,7 @@ export type TransientKeys = BooleanTransientKeys | NumberTransientKeys | Editing
 export type Keys =
     TransientKeys
     | SettingsKeys
+    | 'LESSON'
 
 export type PlayMode = 'STANDARD' | 'EXPLANATION' | 'LESSON_OVER'
 export type EditMode = 'LESSON' | 'METADATA' | 'EXPLAINATION'
@@ -46,6 +47,7 @@ export interface Context extends Settings {
     get<T extends NumberTransientKeys>(key: T): number
     get<T extends EditingModeTransientKeys>(key: T): EditMode
     get<T extends PlayModeTransientKeys>(key: T): PlayMode
+    get(key: 'LESSON'): Lesson
 
 
     set<T extends BooleanSettingsKeys | BooleanTransientKeys>(key: T, val: boolean): void
@@ -54,11 +56,10 @@ export interface Context extends Settings {
     set<T extends NumberTransientKeys>(key: T, val: number): void
     set<T extends EditingModeTransientKeys>(key: T, val: EditMode): void
     set<T extends PlayModeTransientKeys>(key: T, val: PlayMode): void
+    set(key: 'LESSON', value: Lesson): void
 
 
     forceUpdate(): void
-    getLesson(): Lesson
-    setLesson(lesson: Lesson): void
     getCurrentPage(): Page
     setCurrentPage(page: Page): void
     setForceUpdate(forceUpdate: () => void): void
@@ -83,7 +84,6 @@ export function getContext(opts: GetContextArgs): Context {
 
 class BaseContext implements Context {
 
-    protected lesson?: Lesson
     protected currentPage?: Page
 
     constructor(
@@ -116,7 +116,7 @@ class BaseContext implements Context {
         this.lessonBuilder = undefined
     }
 
-    set(key: Keys, value: any): void {
+    set(key: any, value: any): void {
 
         if (settingsKeys.includes(key as any)) {
             this.opts.S.set(key as any, value as any)
@@ -135,20 +135,6 @@ class BaseContext implements Context {
         } else {
             return this.contextDict[key]
         }
-
-    }
-
-    setLesson(lesson: Lesson): void {
-        this.lesson = lesson
-    }
-
-    getLesson() {
-
-        if (!this.lesson) {
-            throw 'No Lesson in Context!'
-        }
-
-        return this.lesson
 
     }
 

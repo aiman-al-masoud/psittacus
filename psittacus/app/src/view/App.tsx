@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Settings from "./settings/Settings";
-import { Context, getContext } from "../model/Context"
+import { Context } from "../model/Context"
 import History from "./history/History";
 import MainMenu from "./MainMenu"
 import Download from "./download/Download";
@@ -90,7 +90,7 @@ export default class App extends Component<Props, State> {
                 {
                     const lez = args?.lesson ?? getLesson(await readText().then((res: any) => { return JSON.parse(res) })) //if lesson not already there, ask upload file
                     lez.setScheduler(this.props.c)
-                    this.props.c.setLesson(lez)
+                    this.props.c.set('LESSON', lez)
                     newPage = <TakeLesson c={this.props.c} ref={this.ref} />
                     break
                 }

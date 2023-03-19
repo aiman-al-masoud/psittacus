@@ -16,11 +16,11 @@ export default class InputManager extends Component<{ c: Context, userInput: any
     choose = (inputType: InputType): JSX.Element => {
         switch (inputType) {
             case 'ALWAYS_BUTTONS':
-                return <ButtonInput userInput={this.props.userInput} proposition={this.props.c.getLesson().getCurrent()} />
+                return <ButtonInput userInput={this.props.userInput} proposition={this.props.c.get('LESSON').getCurrent()} />
             case 'ALWAYS_KEYBOARD':
                 return <TextInput userInput={this.props.userInput} />
             case 'LESSON_DEFAULT':
-                return this.choose(this.props.c.getLesson().getCurrent().wordButtons ? 'ALWAYS_BUTTONS' : 'ALWAYS_KEYBOARD')
+                return this.choose(this.props.c.get('LESSON').getCurrent().wordButtons ? 'ALWAYS_BUTTONS' : 'ALWAYS_KEYBOARD')
         }
     }
 
