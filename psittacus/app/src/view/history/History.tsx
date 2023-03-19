@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import { getLessonIdsHistory, getCachedLessonById, Lesson } from "../../model/lesson/Lesson";
 import { Metadata } from "../../model/lesson/LessonBuilder.js";
+import LessonsTable from "../recycled/lessons_table/LessonsTable"
 
 //@ts-ignore
 import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
-//@ts-ignore
-import LessonsTable from "../recycled/lessons_table/LessonsTable.jsx"
 
 
 export default class History extends Component<{ c: Context }> {
@@ -39,6 +38,7 @@ export default class History extends Component<{ c: Context }> {
             <div className="text_tip">{this.props.c.L.history_here}</div>
 
             <LessonsTable
+                c={this.props.c}
                 takeLesson={this.playLesson}
                 fetchLessonIds={(x: Metadata) => getLessonIdsHistory(this.props.c, x)}
                 fetchLessonById={getCachedLessonById} />
