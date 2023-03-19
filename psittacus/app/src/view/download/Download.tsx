@@ -3,9 +3,6 @@ import { Context } from "../../model/Context.js";
 import { isMetadataMatching, Lesson } from '../../model/lesson/Lesson'
 import LessonsTable from "../recycled/lessons_table/LessonsTable"
 
-//@ts-ignore
-import Server from "../../model/utilities/Server.js";
-
 type Props = {
     c: Context
 }
@@ -30,14 +27,14 @@ export default class Download extends Component<Props, State>{
             <span className="text_tip">{this.props.c.L.here_you_can_search_for_and_download}</span>
             <br />
             <br />
-            <LessonsTable c={this.props.c} takeLesson={this.playLesson} fetchLessonIds={this.state.fetchLessonIds} fetchLessonById={Server.getInstance().downloadLesson} />
+            <LessonsTable c={this.props.c} takeLesson={this.playLesson} fetchLessonIds={this.state.fetchLessonIds} fetchLessonById={this.props.c.server.downloadLesson} />
         </div>)
     }
 
     componentDidMount() {
 
         let task = () => {
-            Server.getInstance()
+            this.props.c.server
                 .getLessonIndeces()
                 .then((ids: string[]) => {
                     this.setState({

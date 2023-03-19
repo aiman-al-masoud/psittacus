@@ -11,6 +11,7 @@ import { getUrlTracker, UrlTracker } from "./UrlTracker"
 import { Page } from "../view/Page"
 import { getIcons, Icons } from "./Icons"
 import { readText } from "./utilities/readText"
+import { getServer, Server } from "./utilities/Server"
 
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
@@ -65,6 +66,7 @@ export interface Context extends Settings {
 
     readonly icons: Icons
     readonly urlTracker: UrlTracker
+    readonly server: Server
 }
 
 export interface GetContextArgs extends GetSettingsArgs {
@@ -90,6 +92,7 @@ class BaseContext implements Context {
 
     readonly urlTracker = getUrlTracker(this)
     readonly icons = getIcons()
+    readonly server = getServer()
 
     constructor(
         readonly opts: GetContextArgs,
