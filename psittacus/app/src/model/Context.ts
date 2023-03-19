@@ -10,7 +10,7 @@ import { stringLiterals, ElementType } from "./utilities/stringLiterals"
 import { getUrlTracker, UrlTracker } from "./UrlTracker"
 import { Page } from "../view/Page"
 import { getIcons, Icons } from "./Icons"
-import { readText } from "./utilities/Utils";
+import { readText } from "./utilities/readText"
 
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')

@@ -23,40 +23,40 @@ import Database from "./Database";
  * ```
  * 
  */
-export default class UserProgress{
+export default class UserProgress {
 
-    static userProgress(){
+    static userProgress() {
         return JSON.parse(localStorage.getItem("user_progress")) ?? { "lesson_scores": {} }
     }
 
-    static lessonsScores(){
-        return Object.entries(this.userProgress().lesson_scores).map( e => {e[1]["id"] = e[0]; return e[1] } )
-    } 
+    static lessonsScores() {
+        return Object.entries(this.userProgress().lesson_scores).map(e => { e[1]["id"] = e[0]; return e[1] })
+    }
 
     /**
      * @param {string} lessonId 
      * @returns 
      */
-    static scoresForLesson(lessonId){
+    static scoresForLesson(lessonId) {
         return this.userProgress().lesson_scores[lessonId]
     }
-    
+
     /**
      * 
      * @param {string} lessonId 
      * @param {*} data 
      */
-    static async saveLessonScore(lessonId, data){
-        let p  = this.userProgress()
+    static async saveLessonScore(lessonId, data) {
+        let p = this.userProgress()
         p.lesson_scores[lessonId] = data
         localStorage.setItem("user_progress", JSON.stringify(p))
     }
 
-    static async importProgress(data){
+    static async importProgress(data) {
         localStorage.setItem("user_progress", JSON.stringify(data))
     }
 
-    static async eraseProgress(){
+    static async eraseProgress() {
         localStorage.setItem("user_progress", JSON.stringify({ "lesson_scores": {} }))
         Database.get().cachedLessons().clear()
     }

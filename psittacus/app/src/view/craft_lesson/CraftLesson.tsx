@@ -3,8 +3,8 @@ import { Context } from "../../model/Context";
 import { MetadataIncompleteError } from "../../model/lesson/LessonBuilder";
 import { WordDict } from "../../model/proposition/PropositionBuilder";
 import MenuButton from "../recycled/buttons/MenuButton";
+import { sendBugReport } from "../../model/utilities/sendBugReport";
 import "../../index.css"
-import { sendBugReport } from "../../model/utilities/Utils";
 
 //@ts-ignore
 import DefinitionsTable from "./DefinitionsTable.jsx";

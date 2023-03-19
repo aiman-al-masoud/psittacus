@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import { SettingsKeys } from "../../model/Settings.js";
 import DeveloperOptions from "./DeveloperOptions";
-import { readText, saveToComp } from "../../model/utilities/Utils";
+import { readText } from "../../model/utilities/readText";
+import { saveToComp } from "../../model/utilities/saveToComp";
 
 // @ts-ignore
 import PropositionSchedulerFactory from "../../model/schedulers/proposition_scheduler/PropositionSchedulerFactory.js";
