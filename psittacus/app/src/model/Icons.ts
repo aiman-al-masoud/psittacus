@@ -1,4 +1,7 @@
 import * as Icon from 'react-feather'
+//@ts-ignore
+import PlayAudioIcon from '../../res/play-audio.png'
+
 
 export interface Icons {
     Home: object
@@ -14,6 +17,7 @@ export interface Icons {
     RotateCcw: object
     FilePlus: object
     Settings: object
+    PlayAudio: any
 }
 
 export function getIcons(): Icons {
@@ -35,7 +39,8 @@ class FeatherIcons implements Icons {
         readonly Info = Icon.Info,
         readonly RotateCcw = Icon.RotateCcw,
         readonly FilePlus = Icon.FilePlus,
-        readonly Settings = Icon.Settings
+        readonly Settings = Icon.Settings,
+        readonly PlayAudio = PlayAudioIcon
     ) {
 
     }

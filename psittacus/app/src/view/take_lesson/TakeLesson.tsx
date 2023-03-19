@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
-import "../../index.css"
-
 import InputManager from "./InputManager";
+import "../../index.css"
 
 //@ts-ignore
 import HoverableSentence from "./HoverableSentence.jsx";
@@ -12,8 +11,6 @@ import Styles from "../Styles.js";
 import Explanation from "./Explanation.jsx";
 //@ts-ignore
 import LessonOver from "./LessonOver.jsx";
-//@ts-ignore
-import PlayAudioIcon from "../../../res/play-audio.png"
 
 
 type Props = { c: Context }
@@ -64,7 +61,7 @@ export default class TakeLesson extends Component<Props, {}> {
                     className="play_audio_button"
                     style={(this.props.c.get('LESSON').getCurrent().targetToNative && (this.props.c.get('PLAY_MODE') != 'LESSON_OVER')) ? Styles.visibleInline : Styles.invisible}
                     title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>
-                    <img src={PlayAudioIcon} />  </button>
+                    <img src={this.props.c.icons.PlayAudio} />  </button>
 
             </div>
 
@@ -80,7 +77,7 @@ export default class TakeLesson extends Component<Props, {}> {
                     <div className="text_tip">{this.props.c.L.need_a_tip_hover_words}</div>
                     <br />
                     <HoverableSentence wordDict={this.props.c.get('LESSON').getCurrent().getAnswerWordDict()} />
-                    <button onClick={this.props.c.get('LESSON').getCurrent().play} className="play_audio_button" style={((!this.props.c.get('LESSON').getCurrent().targetToNative) && (this.props.c.get('PLAY_MODE') != 'LESSON_OVER')) ? Styles.visibleInline : Styles.invisible} title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>   <img src={PlayAudioIcon} />  </button>
+                    <button onClick={this.props.c.get('LESSON').getCurrent().play} className="play_audio_button" style={((!this.props.c.get('LESSON').getCurrent().targetToNative) && (this.props.c.get('PLAY_MODE') != 'LESSON_OVER')) ? Styles.visibleInline : Styles.invisible} title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`}>   <img src={this.props.c.icons.PlayAudio} />  </button>
                 </div>
 
                 <h2>{this.props.c.L.your_accuracy}: {this.props.c.get('USER_ACCURACY')}%</h2>
