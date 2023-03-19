@@ -1,6 +1,6 @@
 import UserProgress from "../utilities/UserProgress";
 // import Lesson from "./Lesson";
-import PropositionSchedulerFactory from "../schedulers/proposition_scheduler/PropositionSchedulerFactory";
+// import PropositionSchedulerFactory from "../schedulers/proposition_scheduler/PropositionSchedulerFactory";
 import { getCachedLessonById } from "./Lesson";
 
 /**

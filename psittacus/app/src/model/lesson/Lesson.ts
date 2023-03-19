@@ -1,13 +1,10 @@
 import { getProposition, Proposition } from '../proposition/Proposition'
 import { LessonData, Metadata } from './LessonBuilder'
 import { LessonProgressData } from '../UserProgress'
+import { Context } from '../Context'
 
-
-//@ts-ignore
-import PropositionSchedulerFactory from "../schedulers/proposition_scheduler/PropositionSchedulerFactory.js"
 //@ts-ignore
 import Database from "../utilities/Database.js"
-import { Context } from '../Context'
 
 
 export interface Lesson {
@@ -21,6 +18,7 @@ export interface Lesson {
     saveScore(context: Context): void
     setScheduler(context: Context): void
     getExplaination(): string
+    getPropositions(): Proposition[]
 }
 
 export function getLesson(data: LessonData): Lesson {
@@ -40,14 +38,11 @@ class BaseLesson implements Lesson {
         readonly explanationText = data.explanation.text,
         readonly metadata = data.metadata,
         readonly propositions = data.propositions.map(p => { return getProposition(p) }),
-        // readonly oldScores = UserProgress.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
-        // readonly scheduler = PropositionSchedulerFactory.getScheduler(this.oldScores, propositions)
     ) {
     }
 
     setScheduler(context: Context): void {
-        const oldScores = context.UP.scoresForLesson(this.getId()) //may be nullish, if lesson with this id never taken
-        this.scheduler = PropositionSchedulerFactory.getScheduler(oldScores, this.propositions)
+        this.scheduler = context.propoSchedFac.get(this)
     }
 
     /**
@@ -68,15 +63,9 @@ class BaseLesson implements Lesson {
      * Is this lesson over yet?
      */
     isOver(context: Context) {
-        let over = this.scheduler.isOver()
+        const over = this.scheduler.isOver()
 
-        // //if this lesson is over, save the score
-        // if (over) {
-        //     UserProgress.saveLessonScore(this.getId(), this.dumpScores())
-        //     this.cacheLesson()
-        // }
-
-        if (over) {
+        if (over) { //if this lesson is over, save the score
             this.saveScore(context)
         }
 
@@ -133,6 +122,10 @@ class BaseLesson implements Lesson {
         return this.explanationText
     }
 
+    getPropositions(): Proposition[] {
+        return this.propositions
+    }
+
 }
 
 
@@ -147,8 +140,7 @@ export function parseId(lessonId: string): Metadata {
  * Load a previously cached Lesson on the DB back into memory. 
  */
 export async function getCachedLessonById(id: string) {
-    let record = await Database.get().cachedLessons().get(id)
-    // return new Lesson(record.lesson)
+    const record = await Database.get().cachedLessons().get(id)
     return getLesson(record.lesson)
 }
 

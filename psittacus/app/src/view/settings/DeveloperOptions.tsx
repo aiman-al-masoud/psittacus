@@ -4,15 +4,11 @@ import { readText } from "../../model/utilities/readText";
 import { saveToComp } from "../../model/utilities/saveToComp";
 
 //@ts-ignore
-import PropositionSchedulerFactory from "../../model/schedulers/proposition_scheduler/PropositionSchedulerFactory.js";
-//@ts-ignore
 import Styles from "../Styles.js";
 //@ts-ignore
 import ClassLoader from "../../model/utilities/ClassLoader.js";
 //@ts-ignore
 import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
-//@ts-ignore
-import PropositionScheduler from "../../model/schedulers/proposition_scheduler/PropositionScheduler.js";
 //@ts-ignore
 import LessonScheduler from "../../model/schedulers/lesson_scheduler/LessonScheduler.js";
 
@@ -54,8 +50,8 @@ export default class DeveloperOptions extends Component<{ c: Context }> {
                 <h2>{this.props.c.L.run_custom_code}</h2>
                 <div className="text_warning">{this.props.c.L.caution_running_custom_code}</div>
                 <br />
-                <button onClick={async () => { PropositionSchedulerFactory.addCustomScheduler(await readText()) }} className="normal_button">{this.props.c.L.add_custom_proposition_scheduler}</button>
-                <button onClick={() => { saveToComp(PropositionScheduler.getTemplate(), "my-propo-scheduler.js", "text/plain") }}>{this.props.c.L.template}</button>
+                <button onClick={async () => { this.props.c.propoSchedFac.add(await readText()) }} className="normal_button">{this.props.c.L.add_custom_proposition_scheduler}</button>
+                <button onClick={() => { saveToComp(this.props.c.propoSchedFac.getTemplate(), "my-propo-scheduler.js", "text/plain") }}>{this.props.c.L.template}</button>
                 <br />
                 <button onClick={async () => { LessonSchedulerFactory.addCustomScheduler(await readText()) }} className="normal_button">{this.props.c.L.add_custom_lesson_scheduler}</button>
                 <button onClick={() => { saveToComp(LessonScheduler.getTemplate(), "my-lesson-scheduler.js", "text/plain") }}>{this.props.c.L.template}</button>

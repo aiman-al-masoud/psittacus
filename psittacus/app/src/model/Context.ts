@@ -12,6 +12,7 @@ import { Page } from "../view/Page"
 import { getIcons, Icons } from "./Icons"
 import { readText } from "./utilities/readText"
 import { getServer, Server } from "./utilities/Server"
+import { getPropoSchedulerFactory, PropoSchedulerFactory } from "./schedulers/proposition_scheduler/PropoSchedulerFactory"
 
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
@@ -67,6 +68,7 @@ export interface Context extends Settings {
     readonly icons: Icons
     readonly urlTracker: UrlTracker
     readonly server: Server
+    readonly propoSchedFac: PropoSchedulerFactory
 }
 
 export interface GetContextArgs extends GetSettingsArgs {
@@ -93,6 +95,7 @@ class BaseContext implements Context {
     readonly urlTracker = getUrlTracker(this)
     readonly icons = getIcons()
     readonly server = getServer()
+    readonly propoSchedFac = getPropoSchedulerFactory(this)
 
     constructor(
         readonly opts: GetContextArgs,
