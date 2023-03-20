@@ -1,7 +1,8 @@
 import * as Icon from 'react-feather'
 //@ts-ignore
-import PlayAudioIcon from '../../res/play-audio.png'
-
+import PlayAudioIcon from './play-audio.png'
+//@ts-ignore
+import FaviconIcon from './favicon.png'
 
 export interface Icons {
     Home: object
@@ -18,6 +19,7 @@ export interface Icons {
     FilePlus: object
     Settings: object
     PlayAudio: any
+    Favicon: any
 }
 
 export function getIcons(): Icons {
@@ -27,6 +29,11 @@ export function getIcons(): Icons {
 class FeatherIcons implements Icons {
 
     constructor(
+
+        /**
+         * Modified version of: https://pixabay.com/illustrations/parrot-bird-perched-drawing-art-6805595/
+         */
+        readonly Favicon = FaviconIcon,
 
         /**
          * https://www.iconfinder.com/icons/510856/audio_sound_speaker_volume_icon

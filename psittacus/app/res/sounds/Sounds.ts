@@ -1,9 +1,9 @@
 //@ts-ignore
-import CorrectSound from '../../res/correct.mp3'
+import CorrectSound from './correct.mp3'
 //@ts-ignore
-import WrongSound from '../../res/wrong.mp3'
+import WrongSound from './wrong.mp3'
 //@ts-ignore
-import SelectSound from '../../res/select.mp3'
+import SelectSound from './select.mp3'
 
 export interface Sounds {
     CorrectSound: Base64

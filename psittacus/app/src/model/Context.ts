@@ -9,13 +9,13 @@ import { getLesson, Lesson } from "./lesson/Lesson"
 import { stringLiterals, ElementType } from "./utilities/stringLiterals"
 import { getUrlTracker, UrlTracker } from "./UrlTracker"
 import { Page } from "../view/Page"
-import { getIcons, Icons } from "./Icons"
+import { getIcons, Icons } from "../../res/icons/Icons"
 import { readText } from "./utilities/readText"
 import { getServer, Server } from "./utilities/Server"
 import { getPropoSchedulerFactory, PropoSchedulerFactory } from "./schedulers/proposition_scheduler/PropoSchedulerFactory"
 import { getLessonSchedulerFactory, LessonSchedulerFactory } from "./schedulers/lesson_scheduler/LessonSchedulerFactory"
 import { Database, getDatabase } from "./utilities/Database"
-import { getSounds, Sounds } from "./Sounds"
+import { getSounds, Sounds } from '../../res/sounds/Sounds'
 
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
@@ -69,7 +69,7 @@ export interface Context extends Settings {
     setForceUpdate(forceUpdate: () => void): void
 
     readonly icons: Icons
-    readonly sounds:Sounds
+    readonly sounds: Sounds
     readonly urlTracker: UrlTracker
     readonly server: Server
     readonly propoSchedFac: PropoSchedulerFactory
