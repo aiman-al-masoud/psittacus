@@ -13,6 +13,7 @@ export default class MixedLesson implements Lesson {
     protected lessons: Lesson[] = []
     protected propositions: Proposition[] = []
     protected explanationText = ''
+    protected context?: Context
     protected scheduler?: PropositionScheduler
 
     /**
@@ -20,8 +21,8 @@ export default class MixedLesson implements Lesson {
      * @param {string} lessonId 
      * @param {[number]} propositionHashes 
      */
-    async addLesson(lessonId: string, propositionHashes: number[]) {
-        let lesson = await getCachedLessonById(lessonId)
+    async addLesson(lessonId: string, propositionHashes: number[], context: Context) {
+        let lesson = await getCachedLessonById(lessonId, context)
         this.lessons.push(lesson)
         this.propositions.push(...lesson.getPropositions().filter(p => propositionHashes.includes(p.getHash())))
     }
@@ -43,14 +44,12 @@ export default class MixedLesson implements Lesson {
             for (let lesson of this.lessons) {
 
                 const oldScores = context.UP.scoresForLesson(lesson.getId())
+                const newScores = lesson.dumpScores()
 
-                let newScores = lesson.dumpScores()
+                oldScores.propositions = oldScores.propositions.sort((p1, p2) => p1[0] - p2[0])
+                newScores.propositions = newScores.propositions.sort((p1, p2) => p1[0] - p2[0])
 
-                oldScores.propositions = oldScores.propositions.sort((p1: any, p2: any) => p1[0] - p2[0])//TODO:? order maybe wrong?
-                newScores.propositions = newScores.propositions.sort((p1: any, p2: any) => p1[0] - p2[0])//TODO:? order maybe wrong?
-
-                //if a score in undefined in newScores, substitute it 
-                //with the corresponding one in oldScores.
+                //if score undefined in newScores, substitute it w/ corresponding one in oldScores.
                 newScores.propositions = newScores.propositions.map((p, index) => { return [p[0], p[1] ?? oldScores.propositions[index][1]] })
                 newScores.overall = newScores.propositions.map(p => p[1]).reduce((s1, s2) => s1 + s2) / newScores.propositions.length
 
@@ -89,7 +88,8 @@ export default class MixedLesson implements Lesson {
 
     }
 
-    setScheduler(context: Context): void {
+    setContext(context: Context): void {
+        this.context = context
         this.scheduler = context.propoSchedFac.get(this)
     }
 

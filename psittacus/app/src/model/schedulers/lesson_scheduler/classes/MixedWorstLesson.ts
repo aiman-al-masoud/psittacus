@@ -2,8 +2,7 @@
 import { Context } from "../../../Context";
 import MixedLesson from "../../../lesson/MixedLesson";
 
-import { MIN_PASSING_SCORE, Proposition } from "../../../proposition/Proposition";
-import { LessonProgressData } from "../../../UserProgress";
+import { MIN_PASSING_SCORE } from "../../../proposition/Proposition";
 import { LessonScheduler } from "../LessonScheduler";
 
 /**
@@ -11,7 +10,10 @@ import { LessonScheduler } from "../LessonScheduler";
  */
 export default class MixedWorstLesson implements LessonScheduler {
 
-    constructor(protected lessonsScores: LessonProgressData[]) {
+    constructor(
+        protected context: Context,
+        protected lessonsScores = context.UP.lessonScores()
+    ) {
 
     }
 
@@ -25,7 +27,7 @@ export default class MixedWorstLesson implements LessonScheduler {
 
         for (let s of this.lessonsScores) {
             let hashes = s.propositions.filter(p => p[1] < MIN_PASSING_SCORE).map(p => p[0])               //sort((p1, p2)=>{return p1[1] - p2[1]  })
-            await ml.addLesson(s.lessonId, hashes)
+            await ml.addLesson(s.lessonId, hashes, this.context)
         }
 
         if (ml.getPropositions().length === 0) {

@@ -1,21 +1,21 @@
 import { LessonScheduler } from "../LessonScheduler";
-// import L from "../../../utilities/Language";
 import { getCachedLessonById } from "../../../lesson/Lesson";
 import { Context } from "../../../Context";
-import { LessonProgressData } from "../../../UserProgress";
 
 
 export default class WorstLessonFirst implements LessonScheduler {
 
-    constructor(protected lessonsScores: LessonProgressData[]) {
-        // super()
-        this.lessonsScores = this.lessonsScores.sort((s1, s2) => { return s1.overall - s2.overall })
+    constructor(
+        protected context: Context,
+        protected lessonsScores = context.UP.lessonScores()
+    ) {
+        this.lessonsScores = this.lessonsScores.sort((s1, s2) => s1.overall - s2.overall)
     }
 
     async next() {
-        this.lessonsScores = this.lessonsScores.sort((s1, s2) => { return s1.overall - s2.overall })
+        this.lessonsScores = this.lessonsScores.sort((s1, s2) => s1.overall - s2.overall)
         let x = this.lessonsScores[0]
-        return await getCachedLessonById(x.lessonId) /*  getCachedLessonById(x.id) */
+        return await getCachedLessonById(x.lessonId, this.context)
     }
 
     static getType() {

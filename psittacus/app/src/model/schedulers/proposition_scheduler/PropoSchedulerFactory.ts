@@ -29,7 +29,7 @@ class BasePropoSchedulerFactory implements PropoSchedulerFactory {
         readonly context: Context,
         readonly schedulers: { [name: string]: Constructor<BasePropositionScheduler> } = { WorstFirst, UntilAllCorrect }
     ) {
-        this.reload()
+        // this.reload() //TODO!
     }
 
     get(lesson: Lesson): PropositionScheduler {

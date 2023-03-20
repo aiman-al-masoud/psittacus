@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
 import { getLessonIdsHistory, getCachedLessonById, Lesson } from "../../model/lesson/Lesson";
-import { Metadata } from "../../model/lesson/LessonBuilder.js";
 import LessonsTable from "../recycled/lessons_table/LessonsTable"
-
-//@ts-ignore
-// import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 
 
 export default class History extends Component<{ c: Context }> {
 
-    // readonly lessonScheduler = LessonSchedulerFactory.getScheduler()
     readonly lessonScheduler = this.props.c.lessonSchedFac.get()
 
     playLesson = (lesson: Lesson) => {
-        lesson.setScheduler(this.props.c)
+        lesson.setContext(this.props.c)
         this.props.c.set('LESSON', lesson)
         this.props.c.setPage('take-lesson')
     }
@@ -41,8 +36,8 @@ export default class History extends Component<{ c: Context }> {
             <LessonsTable
                 c={this.props.c}
                 takeLesson={this.playLesson}
-                fetchLessonIds={(x: Metadata) => getLessonIdsHistory(this.props.c, x)}
-                fetchLessonById={getCachedLessonById} />
+                fetchLessonIds={x => getLessonIdsHistory(this.props.c, x)}
+                fetchLessonById={id => getCachedLessonById(id, this.props.c)} />
 
         </div>)
     }

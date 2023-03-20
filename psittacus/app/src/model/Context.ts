@@ -14,6 +14,7 @@ import { readText } from "./utilities/readText"
 import { getServer, Server } from "./utilities/Server"
 import { getPropoSchedulerFactory, PropoSchedulerFactory } from "./schedulers/proposition_scheduler/PropoSchedulerFactory"
 import { getLessonSchedulerFactory, LessonSchedulerFactory } from "./schedulers/lesson_scheduler/LessonSchedulerFactory"
+import { Database, getDatabase } from "./utilities/Database"
 
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
@@ -70,7 +71,8 @@ export interface Context extends Settings {
     readonly urlTracker: UrlTracker
     readonly server: Server
     readonly propoSchedFac: PropoSchedulerFactory
-    readonly lessonSchedFac:LessonSchedulerFactory
+    readonly lessonSchedFac: LessonSchedulerFactory
+    readonly db: Database
 }
 
 export interface GetContextArgs extends GetSettingsArgs {
@@ -99,6 +101,7 @@ class BaseContext implements Context {
     readonly server = getServer()
     readonly propoSchedFac = getPropoSchedulerFactory(this)
     readonly lessonSchedFac = getLessonSchedulerFactory(this)
+    readonly db = getDatabase()
 
     constructor(
         readonly opts: GetContextArgs,
@@ -165,7 +168,7 @@ class BaseContext implements Context {
 
         if (page === 'open-lesson') {
             const lez = getLesson(JSON.parse(await readText())) //if lesson not already there, ask upload file
-            lez.setScheduler(this)
+            lez.setContext(this)
             this.set('LESSON', lez)
         }
 

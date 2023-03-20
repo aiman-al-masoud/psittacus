@@ -3,10 +3,6 @@ import { LessonData, Metadata } from './LessonBuilder'
 import { LessonProgressData } from '../UserProgress'
 import { Context } from '../Context'
 
-//@ts-ignore
-import Database from "../utilities/Database.js"
-
-
 export interface Lesson {
     next(): void
     getCurrent(): Proposition
@@ -14,11 +10,11 @@ export interface Lesson {
     getScore(): number
     getId(): string
     dumpScores(): LessonProgressData
-    cacheLesson(): Promise<void>
+    cacheLesson(context: Context): Promise<void>
     saveScore(context: Context): void
-    setScheduler(context: Context): void
     getExplaination(): string
     getPropositions(): Proposition[]
+    setContext(context: Context): void
 }
 
 export function getLesson(data: LessonData): Lesson {
@@ -31,6 +27,7 @@ export function getLesson(data: LessonData): Lesson {
  */
 class BaseLesson implements Lesson {
 
+    protected context?: Context
     protected scheduler: any
 
     constructor(
@@ -41,7 +38,8 @@ class BaseLesson implements Lesson {
     ) {
     }
 
-    setScheduler(context: Context): void {
+    setContext(context: Context): void {
+        this.context = context
         this.scheduler = context.propoSchedFac.get(this)
     }
 
@@ -67,7 +65,7 @@ class BaseLesson implements Lesson {
 
         if (over) { //if this lesson is over, save the score
             this.saveScore(context)
-            this.cacheLesson()
+            this.cacheLesson(context)
         }
 
         return over
@@ -108,11 +106,11 @@ class BaseLesson implements Lesson {
     /**
      * Cache this Lesson, overwriting it in case of conflicting ids.
      */
-    async cacheLesson() {
+    async cacheLesson(context: Context) {
 
-        await Database.get().cachedLessons().delete(this.getId())
+        context.db.cachedLessons().delete(this.getId())
 
-        Database.get().cachedLessons().add({
+        context.db.cachedLessons().add({
             id: this.getId(),
             lesson: this.data
         })
@@ -140,8 +138,8 @@ export function parseId(lessonId: string): Metadata {
 /**
  * Load a previously cached Lesson on the DB back into memory. 
  */
-export async function getCachedLessonById(id: string) {
-    const record = await Database.get().cachedLessons().get(id)
+export async function getCachedLessonById(id: string, context: Context) {
+    const record = await context.db.cachedLessons().get(id)
     return getLesson(record.lesson)
 }
 
