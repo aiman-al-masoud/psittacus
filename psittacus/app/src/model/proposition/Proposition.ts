@@ -1,8 +1,6 @@
 import { PropositionData, WordDict } from "./PropositionBuilder"
 import { Context } from "../Context"
-
-//@ts-ignore
-import { playBase64 } from "../utilities/Recorder"
+import { playBase64 } from "../utilities/playBase64"
 
 export interface Proposition {
     play(): void

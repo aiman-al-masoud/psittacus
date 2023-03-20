@@ -1,4 +1,4 @@
-export {Recorder, playBase64}
+export { Recorder }
 
 /**
  * The code in between slashes originally comes from here:
@@ -40,8 +40,6 @@ const recordAudio = () =>
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
 async function audioToBase64(audioFile) {
     return new Promise((resolve, reject) => {
         let reader = new FileReader();
@@ -75,14 +73,3 @@ class Recorder {
     }
 
 }
-
-
-function playBase64(base64String){
-    let audio = document.createElement("audio")
-    audio.src = base64String
-    audio.play()
-}
-
-
-
-

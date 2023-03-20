@@ -1,6 +1,7 @@
+import { playBase64 } from "../utilities/playBase64"
 
 //@ts-ignore
-import { Recorder, playBase64 } from "../utilities/Recorder.js"
+import { Recorder } from "../utilities/Recorder.js"
 
 export type WordDict = { [word: string]: string }
 

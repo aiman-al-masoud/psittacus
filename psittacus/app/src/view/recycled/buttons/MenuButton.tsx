@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { Context } from "../../../model/Context";
-
-//@ts-ignore
-// import SelectSound from "../../../../res/select.mp3"
-//@ts-ignore
-import { playBase64 } from "../../../model/utilities/Recorder";
+import { playBase64 } from '../../../model/utilities/playBase64';
 
 type Props = {
     c: Context,
