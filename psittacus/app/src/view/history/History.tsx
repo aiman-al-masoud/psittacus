@@ -5,12 +5,13 @@ import { Metadata } from "../../model/lesson/LessonBuilder.js";
 import LessonsTable from "../recycled/lessons_table/LessonsTable"
 
 //@ts-ignore
-import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
+// import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 
 
 export default class History extends Component<{ c: Context }> {
 
-    readonly lessonScheduler = LessonSchedulerFactory.getScheduler()
+    // readonly lessonScheduler = LessonSchedulerFactory.getScheduler()
+    readonly lessonScheduler = this.props.c.lessonSchedFac.get()
 
     playLesson = (lesson: Lesson) => {
         lesson.setScheduler(this.props.c)

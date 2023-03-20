@@ -6,7 +6,7 @@ import { readText } from "../../model/utilities/readText";
 import { saveToComp } from "../../model/utilities/saveToComp";
 
 // @ts-ignore
-import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
+// import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 
 
 export default class Settings extends Component<{ c: Context }> {
@@ -53,11 +53,11 @@ export default class Settings extends Component<{ c: Context }> {
             <div className="text_tip">{this.props.c.L.lesson_scheduler_is}</div>
 
             <select value={this.props.c.get('LESSON_SCHEDULER')} onChange={(event) => { this.onSet('LESSON_SCHEDULER', event) }} >
-                {LessonSchedulerFactory.getTypes().map((opt: any, index: any) => { return <option title={opt} key={index}>{opt}</option> })}
+                {this.props.c.lessonSchedFac.getTypes().map((opt: any, index: any) => { return <option title={opt} key={index}>{opt}</option> })}
             </select>
 
             <div className="text_tip">
-                {LessonSchedulerFactory.getCurrentSchedulersDescription()}
+                {this.props.c.lessonSchedFac.describeCurrent()}
             </div>
 
             <h1>{this.props.c.L.manage_data_about_your_progress}</h1>

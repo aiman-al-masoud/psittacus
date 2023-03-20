@@ -7,10 +7,11 @@ import { saveToComp } from "../../model/utilities/saveToComp";
 import Styles from "../Styles.js";
 //@ts-ignore
 import ClassLoader from "../../model/utilities/ClassLoader.js";
+
 //@ts-ignore
-import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
+// import LessonSchedulerFactory from "../../model/schedulers/lesson_scheduler/LessonSchedulerFactory.js";
 //@ts-ignore
-import LessonScheduler from "../../model/schedulers/lesson_scheduler/LessonScheduler.js";
+// import LessonScheduler from "../../model/schedulers/lesson_scheduler/LessonScheduler.js";
 
 
 
@@ -53,8 +54,8 @@ export default class DeveloperOptions extends Component<{ c: Context }> {
                 <button onClick={async () => { this.props.c.propoSchedFac.add(await readText()) }} className="normal_button">{this.props.c.L.add_custom_proposition_scheduler}</button>
                 <button onClick={() => { saveToComp(this.props.c.propoSchedFac.getTemplate(), "my-propo-scheduler.js", "text/plain") }}>{this.props.c.L.template}</button>
                 <br />
-                <button onClick={async () => { LessonSchedulerFactory.addCustomScheduler(await readText()) }} className="normal_button">{this.props.c.L.add_custom_lesson_scheduler}</button>
-                <button onClick={() => { saveToComp(LessonScheduler.getTemplate(), "my-lesson-scheduler.js", "text/plain") }}>{this.props.c.L.template}</button>
+                <button onClick={async () => { this.props.c.lessonSchedFac.add(await readText()) }} className="normal_button">{this.props.c.L.add_custom_lesson_scheduler}</button>
+                <button onClick={() => { saveToComp( this.props.c.lessonSchedFac.getTemplate(), "my-lesson-scheduler.js", "text/plain") }}>{this.props.c.L.template}</button>
                 <br />
                 <br />
                 <div className="text_tip">{this.props.c.L.click_reload_or_remove_custom_code}</div>
