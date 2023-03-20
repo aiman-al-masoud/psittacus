@@ -19,11 +19,11 @@ export default class WorstLessonFirst implements LessonScheduler {
     }
 
     static getType() {
-        return "WorstFirst"
+        return "WorstLessonFirst"
     }
 
     getType() {
-        return "WorstFirst"
+        return "WorstLessonFirst"
     }
 
     static getDescription(context?: Context) {

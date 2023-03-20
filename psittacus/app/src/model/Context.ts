@@ -1,4 +1,4 @@
-import { BooleanSettingsKeys, getSettings, GetSettingsArgs, InputType, InputTypeKeys, Settings, settingsKeys, SettingsKeys, StringSettingsKeys } from "./Settings"
+import { BooleanSettingsKeys, getSettings, GetSettingsArgs, InputType, InputTypeKeys, Settings, settingsKeys, SettingsKeys, StringSettingsKeys } from "./settings/Settings"
 import { getUserProgress, UserProgress } from "./UserProgress"
 import { LangPack } from "../../res/lang_packs/LangPack"
 import { english } from "../../res/lang_packs/english"

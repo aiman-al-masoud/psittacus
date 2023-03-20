@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
-import { SettingsKeys } from "../../model/Settings.js";
+import { SettingsKeys } from "../../model/settings/Settings.js";
 import DeveloperOptions from "./DeveloperOptions";
 import { readText } from "../../model/utilities/readText";
 import { saveToComp } from "../../model/utilities/saveToComp";

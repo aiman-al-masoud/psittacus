@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
-import { InputType } from "../../model/Settings.js";
+import { InputType } from "../../model/settings/Settings.js";
 import TextInput from "./TextInput";
 import ButtonInput from "./ButtonInput";
 
