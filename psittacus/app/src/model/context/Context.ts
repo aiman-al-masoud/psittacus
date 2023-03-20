@@ -1,4 +1,4 @@
-import { getSettings, GetSettingsArgs, Settings } from "../settings/Settings"
+import { getSettings, Settings } from "../settings/Settings"
 import { getUserProgress, UserProgress } from "../utilities/UserProgress"
 import { LangPack } from "../../../res/lang_packs/LangPack"
 import { english } from "../../../res/lang_packs/english"
