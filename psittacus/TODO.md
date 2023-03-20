@@ -1,3 +1,9 @@
+# Fixes
+
+- check server before pushing changes to production!
+- finish up translating ClassLoader to ts.
+- fix bug related to MixedLesson/WorstFirst!
+
 # "PR"
 
 - Make some lessons!
@@ -87,7 +93,7 @@ https://en.wikipedia.org/wiki/Spaced_repetition
 
 - Write some automated tests: selenium, cypress, xdotool.
 
-# PALG on Server?
+# [PALG](../palg/README.md) on Server?
 
 - w/ Argostranslate NOT Google.
 - js randomly samples uploaded text
