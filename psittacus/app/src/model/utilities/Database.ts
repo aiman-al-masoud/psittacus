@@ -1,13 +1,22 @@
 import Dexie from "dexie"
 import { Table } from "dexie"
+import { LessonData } from "../lesson/LessonBuilder"
 
 export function getDatabase(): Database {
     return new DexieDatabase()
 }
 
+type LessonDataRecord = { id: string, lesson: LessonData }
+type SourceCodeRecord = { classname: string, category: string, sourceCode: string }
+type Record = LessonDataRecord | SourceCodeRecord
+type TableName = 'cachedLessons' | 'customSourceCode'
+
 export interface Database {
-    cachedLessons(): Table
-    customSourceCode(): Table
+    get(table: 'cachedLessons', id: string): Promise<LessonDataRecord>
+    get(table: 'customSourceCode', classname: string): Promise<SourceCodeRecord>
+    add(table: 'cachedLessons', record: LessonDataRecord): Promise<any>
+    add(table: 'customSourceCode', record: SourceCodeRecord): Promise<any>
+    delete(table: TableName, id: string): Promise<void>
 }
 
 /**
@@ -17,6 +26,7 @@ export interface Database {
 class DexieDatabase implements Database {
 
     readonly db = new Dexie("psittacus")
+    readonly dbAny = this.db as any
 
     constructor() {
         this.db.version(4).stores({
@@ -25,12 +35,20 @@ class DexieDatabase implements Database {
         })
     }
 
-    cachedLessons(): Table {
-        return (this.db as any).cachedLessons
+    add(name: TableName, record: Record): Promise<any> {
+        return this.getTable(name).add(record)
     }
 
-    customSourceCode(): Table {
-        return (this.db as any).customSourceCode
+    delete(table: TableName, id: string): Promise<void> {
+        return this.getTable(table).delete(id)
+    }
+
+    get(table: any, id: any): Promise<any> {
+        return this.getTable(table).get(id) as any
+    }
+
+    protected getTable(tableName: TableName) {
+        return (this.db as any)[tableName] as Table
     }
 
 }

@@ -108,11 +108,11 @@ class BaseLesson implements Lesson {
      */
     async cacheLesson(context: Context) {
 
-        context.db.cachedLessons().delete(this.getId())
+        context.db.delete('cachedLessons', this.getId())
 
-        context.db.cachedLessons().add({
+        context.db.add('cachedLessons', {
             id: this.getId(),
-            lesson: this.data
+            lesson: this.data,
         })
 
     }
@@ -139,7 +139,7 @@ export function parseId(lessonId: string): Metadata {
  * Load a previously cached Lesson on the DB back into memory. 
  */
 export async function getCachedLessonById(id: string, context: Context) {
-    const record = await context.db.cachedLessons().get(id)
+    const record = await context.db.get('cachedLessons', id)
     return getLesson(record.lesson)
 }
 
