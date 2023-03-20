@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { WordDict } from "../../model/proposition/PropositionBuilder";
+import { WordDict } from "../../model/formats/PropositionData";
 
 type Props = {
     wordDict: WordDict,

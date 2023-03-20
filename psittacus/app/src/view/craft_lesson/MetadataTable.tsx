@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
-import { Metadata } from "../../model/lesson/LessonBuilder.js";
 import DefinitionsTable from "./DefinitionsTable";
+import { Metadata } from "../../model/formats/Metadata.js";
 
 export default class MetadataTable extends Component<{ c: Context, metadataDict: Metadata, onModifyMetadata: (x: any) => void }>{
 

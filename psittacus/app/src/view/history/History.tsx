@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context.js";
-import { getLessonIdsHistory, getCachedLessonById, Lesson } from "../../model/lesson/Lesson";
+import { Lesson } from "../../model/lesson/Lesson";
+import { getCachedLessonById } from "../../model/lesson/functions/getCachedLessonById";
 import LessonsTable from "../recycled/lessons_table/LessonsTable"
+import { getLessonIdsHistory } from "../../model/lesson/functions/getLessonIdsHistory";
 
 
 export default class History extends Component<{ c: Context }> {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Context } from "../../../model/Context";
-import { Lesson, parseId } from "../../../model/lesson/Lesson";
+import { Lesson } from "../../../model/lesson/Lesson";
+import { parseId } from "../../../model/lesson/functions/parseId";
 
 type Props = {
     c: Context,

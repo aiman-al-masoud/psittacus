@@ -1,6 +1,6 @@
 import Dexie from "dexie"
 import { Table } from "dexie"
-import { LessonData } from "../lesson/LessonBuilder"
+import { LessonData } from "../formats/LessonData"
 
 export function getDatabase(): Database {
     return new DexieDatabase()

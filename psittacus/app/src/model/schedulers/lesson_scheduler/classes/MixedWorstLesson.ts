@@ -1,9 +1,8 @@
 
 import { Context } from "../../../Context";
-import MixedLesson from "../../../lesson/MixedLesson";
 import { MIN_PASSING_SCORE } from "../../../proposition/Proposition";
 import { LessonScheduler } from "../LessonScheduler";
-
+import MixedLesson from "../../../lesson/classes/MixedLesson";
 
 /**
  * Creates a `MixedLesson` from the top `Proposition`s the student performed the worst on.

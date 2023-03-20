@@ -1,6 +1,7 @@
 import { Context } from "../../Context"
-import { Proposition, nullProposition } from "../../proposition/Proposition"
+import { Proposition } from "../../proposition/Proposition"
 import { LessonProgressData } from "../../UserProgress"
+import { nullProposition } from "../../proposition/Proposition"
 
 /**
  * Decides what `Proposition` the student should see at any point of a `Lesson`.

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Context } from "../../model/Context";
-import { MetadataIncompleteError } from "../../model/lesson/LessonBuilder";
-import { WordDict } from "../../model/proposition/PropositionBuilder";
+import { MetadataIncompleteError } from "../../model/lesson/builder/LessonBuilder";
 import MenuButton from "../recycled/buttons/MenuButton";
 import { sendBugReport } from "../../model/utilities/sendBugReport";
 import DefinitionsTable from "./DefinitionsTable";
 import MetadataTable from "./MetadataTable";
-import { Metadata } from "../../model/lesson/LessonBuilder";
 import TextEditor from "./TextEditor";
+import { WordDict } from "../../model/formats/PropositionData";
+import { Metadata } from "../../model/formats/Metadata";
 import "../../index.css"
 
 //@ts-ignore
