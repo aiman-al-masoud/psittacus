@@ -36,7 +36,7 @@ export default class App extends Component<Props, {}> {
 
         return (
             <div>
-                <MenuButton onClick={() => this.props.c.setPage('menu')} icon={this.props.c.icons.Home} title={this.props.c.L.home} />
+                <MenuButton c={this.props.c} onClick={() => this.props.c.setPage('menu')} icon={this.props.c.icons.Home} title={this.props.c.L.home} />
                 {this.getPage(this.props.c.getPage())}
             </div>
         )

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import { Context } from "../../../model/Context";
 
 //@ts-ignore
-import SelectSound from "../../../../res/select.mp3"
+// import SelectSound from "../../../../res/select.mp3"
 //@ts-ignore
 import { playBase64 } from "../../../model/utilities/Recorder";
 
 type Props = {
+    c: Context,
     title: string,
     onClick: () => void,
     icon: any,
@@ -19,24 +21,8 @@ type Props = {
  */
 export default class MenuButton extends Component<Props> {
 
-    // /**
-    //  * 
-    //  * @param {{
-    //  * title : string, 
-    //  * onClick : function, 
-    //  * icon : string | object,
-    //  * style : *,
-    //  * highlight : boolean,
-    //  * flippedX : boolean
-    //  * }} props 
-    //  */
-    // constructor(props) {
-    //     super(props)
-    //     this.props = props
-    // }
-
     onClick = () => {
-        playBase64(SelectSound)
+        playBase64(this.props.c.sounds.SelectSound)
         this.props.onClick()
     }
 

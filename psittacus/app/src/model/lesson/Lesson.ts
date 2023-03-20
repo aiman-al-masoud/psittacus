@@ -28,7 +28,7 @@ class BaseLesson implements Lesson {
 
     readonly explanationText = this.data.explanation.text
     readonly metadata = this.data.metadata
-    readonly propositions = this.data.propositions.map(p => getProposition(p))
+    readonly propositions = this.data.propositions.map(p => getProposition(p, this.context))
     readonly scheduler = this.context.propoSchedFac.get(this)
 
     constructor(
@@ -73,7 +73,7 @@ class BaseLesson implements Lesson {
      * Get Lesson's overall score.
      */
     getScore() {
-        return parseInt((this.propositions.map((p) => p.getScore() ).reduce((a, b) => a + b ) / this.propositions.length) + '')
+        return parseInt((this.propositions.map((p) => p.getScore()).reduce((a, b) => a + b) / this.propositions.length) + '')
     }
 
     /**

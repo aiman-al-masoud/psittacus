@@ -1,11 +1,8 @@
 import { PropositionData, WordDict } from "./PropositionBuilder"
+import { Context } from "../Context"
 
 //@ts-ignore
 import { playBase64 } from "../utilities/Recorder"
-//@ts-ignore
-import CorrectSound from "../../../res/correct.mp3"
-//@ts-ignore
-import WrongSound from "../../../res/wrong.mp3"
 
 export interface Proposition {
     play(): void
@@ -23,8 +20,8 @@ export interface Proposition {
     readonly extraWords: string
 }
 
-export function getProposition(data: PropositionData): Proposition {
-    return new BaseProposition(data)
+export function getProposition(data: PropositionData, c: Context): Proposition {
+    return new BaseProposition(data, c)
 }
 
 /**
@@ -44,6 +41,7 @@ class BaseProposition implements Proposition {
 
     constructor(
         readonly data: PropositionData,
+        readonly c: Context,
         readonly sentenceOne = data.sentence_one,
         readonly sentenceTwo = data.sentence_two,
         readonly audioBase64 = data.audio_base64,
@@ -89,9 +87,9 @@ class BaseProposition implements Proposition {
 
         //play sound if considered correct
         if (result > MIN_PASSING_SCORE) {
-            playBase64(CorrectSound)
+            playBase64(this.c.sounds.CorrectSound)
         } else {
-            playBase64(WrongSound)
+            playBase64(this.c.sounds.WrongSound)
         }
 
         return result
@@ -136,12 +134,64 @@ class BaseProposition implements Proposition {
     }
 
     getHash = () => {
-        return (this.sentenceOne + this.sentenceTwo).split("").map((c) => c.charCodeAt(0)).reduce((a, b) => a + b )
+        return (this.sentenceOne + this.sentenceTwo).split("").map((c) => c.charCodeAt(0)).reduce((a, b) => a + b)
     }
 
 }
 
+
+// export const NullProposition = getProposition({ sentence_one: "placeholder text: if u see it report a bug!", sentence_two: "testo che tiene il posto: se lo vedi segnala il baco!", audio_base64: "data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", word_dict: { "ciao": "hello" }, reverse_dict: { "hello": "ciao" }, target_to_native: true, word_buttons: false, extra_words: '' })
+
+// export const getNullPropo = (c: Context) => getProposition({
+//     sentence_one: "placeholder text: if u see it report a bug!",
+//     sentence_two: "testo che tiene il posto: se lo vedi segnala il baco!",
+//     audio_base64: "data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==",
+//     word_dict: { "ciao": "hello" },
+//     reverse_dict: { "hello": "ciao" },
+//     target_to_native: true,
+//     word_buttons: false,
+//     extra_words: ''
+// }, c)
+
+
+
 /**
 * Used as a placeholder to make sure nothing breaks when you run out of real ones.
 */
-export const NullProposition = getProposition({ sentence_one: "placeholder text: if u see it report a bug!", sentence_two: "testo che tiene il posto: se lo vedi segnala il baco!", audio_base64: "data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", word_dict: { "ciao": "hello" }, reverse_dict: { "hello": "ciao" }, target_to_native: true, word_buttons: false, extra_words: '' })
+export class NullProposition implements Proposition {
+
+    play(): void {
+
+    }
+
+    check(userTranslation: string): number {
+        return 0
+    }
+    getScore(): number {
+        return 0
+    }
+    sentenceOneEntries(): string[][] {
+        return []
+    }
+    sentenceTwoEntries(): string[][] {
+        return []
+    }
+    getQuestionWordDict(): string[][] {
+        return []
+    }
+    getAnswerWordDict(): string[][] {
+        return []
+    }
+    getHash(): number {
+        return 0
+    }
+    readonly targetToNative: boolean = false
+    readonly wordButtons: boolean = false
+    readonly wordDict: WordDict = {}
+    readonly reverseDict: WordDict = {}
+    readonly extraWords: string = ''
+
+}
+
+export const nullProposition = new NullProposition()
+// export const NullProposition = getProposition({ sentence_one: "placeholder text: if u see it report a bug!", sentence_two: "testo che tiene il posto: se lo vedi segnala il baco!", audio_base64: "data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", word_dict: { "ciao": "hello" }, reverse_dict: { "hello": "ciao" }, target_to_native: true, word_buttons: false, extra_words: '' })

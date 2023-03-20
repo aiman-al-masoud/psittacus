@@ -1,5 +1,5 @@
 import { Context } from "../Context";
-import { NullProposition, Proposition } from "../proposition/Proposition";
+import { nullProposition, Proposition } from "../proposition/Proposition";
 import { LessonProgressData } from "../UserProgress";
 import { getCachedLessonById, Lesson } from "./Lesson";
 
@@ -35,7 +35,7 @@ export default class MixedLesson implements Lesson {
     }
 
     getCurrent() {
-        return this.scheduler?.getCurrent() ?? NullProposition
+        return this.scheduler?.getCurrent() ?? nullProposition
     }
 
     isOver() {

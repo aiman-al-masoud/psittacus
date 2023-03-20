@@ -15,6 +15,7 @@ import { getServer, Server } from "./utilities/Server"
 import { getPropoSchedulerFactory, PropoSchedulerFactory } from "./schedulers/proposition_scheduler/PropoSchedulerFactory"
 import { getLessonSchedulerFactory, LessonSchedulerFactory } from "./schedulers/lesson_scheduler/LessonSchedulerFactory"
 import { Database, getDatabase } from "./utilities/Database"
+import { getSounds, Sounds } from "./Sounds"
 
 
 export const booleanContextKeys = stringLiterals('RECORDING', 'SOLUTION_HIDDEN')
@@ -68,6 +69,7 @@ export interface Context extends Settings {
     setForceUpdate(forceUpdate: () => void): void
 
     readonly icons: Icons
+    readonly sounds:Sounds
     readonly urlTracker: UrlTracker
     readonly server: Server
     readonly propoSchedFac: PropoSchedulerFactory
@@ -98,6 +100,7 @@ class BaseContext implements Context {
 
     readonly urlTracker = getUrlTracker(this)
     readonly icons = getIcons()
+    readonly sounds = getSounds()
     readonly server = getServer(this)
     readonly propoSchedFac = getPropoSchedulerFactory(this)
     readonly lessonSchedFac = getLessonSchedulerFactory(this)

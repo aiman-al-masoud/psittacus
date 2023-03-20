@@ -1,5 +1,5 @@
 import { Context } from "../../Context"
-import { Proposition, NullProposition } from "../../proposition/Proposition"
+import { Proposition, nullProposition } from "../../proposition/Proposition"
 import { LessonProgressData } from "../../UserProgress"
 
 /**
@@ -17,6 +17,7 @@ export interface PropositionScheduler {
 export abstract class BasePropositionScheduler implements PropositionScheduler {
 
     constructor(
+        readonly context: Context,
         readonly oldScores: LessonProgressData,
         readonly propositions: Proposition[],
         protected counter = 0,
@@ -37,7 +38,7 @@ export abstract class BasePropositionScheduler implements PropositionScheduler {
     }
 
     getCurrent() {
-        return this.current ?? NullProposition
+        return this.current ?? nullProposition
     }
 
 }

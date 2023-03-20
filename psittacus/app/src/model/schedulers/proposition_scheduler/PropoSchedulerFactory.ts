@@ -2,12 +2,10 @@ import { Context } from "../../Context";
 import { Lesson } from "../../lesson/Lesson";
 import UntilAllCorrect from "./classes/UntilAllCorrect";
 import WorstFirst from "./classes/WorstFirst";
-import { BasePropositionScheduler, PropositionScheduler } from "./PropositionScheduler";
+import { PropositionScheduler } from "./PropositionScheduler";
 
 //@ts-ignore
 import ClassLoader from "../../utilities/ClassLoader"
-
-type Constructor<T> = new (...args: any[]) => T
 
 export function getPropoSchedulerFactory(context: Context): PropoSchedulerFactory {
     return new BasePropoSchedulerFactory(context)
@@ -25,9 +23,11 @@ const CATEGORY_CUSTOM_CODE = "PropositionScheduler"
 
 class BasePropoSchedulerFactory implements PropoSchedulerFactory {
 
+    readonly schedulersList = [WorstFirst, UntilAllCorrect]
+    readonly schedulers = this.schedulersList.map(x => ({ [x.getType()]: x })).reduce((a, b) => ({ ...a, ...b }))
+
     constructor(
         readonly context: Context,
-        readonly schedulers: { [name: string]: Constructor<BasePropositionScheduler> } = { WorstFirst, UntilAllCorrect }
     ) {
         // this.reload() //TODO!
     }
@@ -39,7 +39,7 @@ class BasePropoSchedulerFactory implements PropoSchedulerFactory {
         const scores = this.context.UP.scoresForLesson(lesson.getId())
         const propositions = lesson.getPropositions()
 
-        return new cons(scores, propositions)
+        return new cons(this.context, scores, propositions)
     }
 
     add(sourceCode: string): void {

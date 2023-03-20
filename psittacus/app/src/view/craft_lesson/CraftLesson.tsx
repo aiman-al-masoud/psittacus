@@ -138,7 +138,10 @@ export default class CraftLesson extends Component<Props> {
                     this.props.c.getLessonBuilder().prev()
                     this.props.c.forceUpdate()
                 }}
-                    title={this.props.c.L.previous_sentence} icon={this.props.c.icons.ArrowRight} flippedX={true} />
+                    title={this.props.c.L.previous_sentence}
+                    icon={this.props.c.icons.ArrowRight}
+                    flippedX={true}
+                    c={this.props.c} />
 
                 <span title={this.props.c.L.current_sentence} style={{ cursor: "default" }}>
                     {this.props.c.getLessonBuilder().currentIndex()} / {this.props.c.getLessonBuilder().size()}
@@ -149,7 +152,8 @@ export default class CraftLesson extends Component<Props> {
                     this.props.c.forceUpdate()
                 }}
                     title={this.props.c.L.next_sentence}
-                    icon={this.props.c.icons.ArrowRight} />
+                    icon={this.props.c.icons.ArrowRight}
+                    c={this.props.c} />
 
             </div>
 
@@ -159,8 +163,8 @@ export default class CraftLesson extends Component<Props> {
 
             <div className="vertical_center_container">
                 <input onInput={this.onSentenceOneInput} type="text" ref={this.inputSentenceOne} value={this.props.c.getLessonBuilder().getCurrent().sentenceOne} className="normal_textbox" />
-                <MenuButton onClick={this.toggleRecorder} title={`${this.props.c.L.record} (${this.props.c.L.shortcut_record_audio})`} icon={this.props.c.icons.Mic} highlight={this.props.c.get('RECORDING')} />
-                <MenuButton onClick={this.props.c.getLessonBuilder().getCurrent().playAudio} title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`} icon={this.props.c.icons.Play} />
+                <MenuButton c={this.props.c} onClick={this.toggleRecorder} title={`${this.props.c.L.record} (${this.props.c.L.shortcut_record_audio})`} icon={this.props.c.icons.Mic} highlight={this.props.c.get('RECORDING')} />
+                <MenuButton c={this.props.c} onClick={this.props.c.getLessonBuilder().getCurrent().playAudio} title={`${this.props.c.L.play_audio} (${this.props.c.L.shortcut_play_audio})`} icon={this.props.c.icons.Play} />
             </div>
 
             <h1>{this.props.c.L.translate_to_source_lang}</h1>
@@ -191,10 +195,10 @@ export default class CraftLesson extends Component<Props> {
 
         return (<div>
 
-            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', 'METADATA') }} title={this.props.c.L.edit_metadata} icon={this.props.c.icons.Tag} highlight={this.props.c.get('EDITING_MODE') == 'METADATA'} />
-            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', 'LESSON') }} title={this.props.c.L.edit_sentences} icon={this.props.c.icons.Edit} highlight={this.props.c.get('EDITING_MODE') == 'LESSON'} />
-            <MenuButton onClick={() => { this.props.c.set('EDITING_MODE', 'EXPLAINATION') }} title={this.props.c.L.edit_explanation} icon={this.props.c.icons.BookOpen} highlight={this.props.c.get('EDITING_MODE') == 'EXPLAINATION'} />
-            <MenuButton onClick={() => { this.onSave() }} title={`${this.props.c.L.save_lesson} (${this.props.c.L.shortcut_save_lesson})`} icon={this.props.c.icons.Save} />
+            <MenuButton c={this.props.c} onClick={() => { this.props.c.set('EDITING_MODE', 'METADATA') }} title={this.props.c.L.edit_metadata} icon={this.props.c.icons.Tag} highlight={this.props.c.get('EDITING_MODE') == 'METADATA'} />
+            <MenuButton c={this.props.c} onClick={() => { this.props.c.set('EDITING_MODE', 'LESSON') }} title={this.props.c.L.edit_sentences} icon={this.props.c.icons.Edit} highlight={this.props.c.get('EDITING_MODE') == 'LESSON'} />
+            <MenuButton c={this.props.c} onClick={() => { this.props.c.set('EDITING_MODE', 'EXPLAINATION') }} title={this.props.c.L.edit_explanation} icon={this.props.c.icons.BookOpen} highlight={this.props.c.get('EDITING_MODE') == 'EXPLAINATION'} />
+            <MenuButton c={this.props.c} onClick={() => { this.onSave() }} title={`${this.props.c.L.save_lesson} (${this.props.c.L.shortcut_save_lesson})`} icon={this.props.c.icons.Save} />
 
             <div style={this.props.c.get('EDITING_MODE') == 'LESSON' ? Styles.visible : Styles.invisible}>{mainBody}</div>
             <div style={this.props.c.get('EDITING_MODE') == 'METADATA' ? Styles.visible : Styles.invisible}> <MetadataTable c={this.props.c} metadataDict={this.props.c.getLessonBuilder().getMetadata()} onModifyMetadata={this.onModifyMetadata} /> </div>
