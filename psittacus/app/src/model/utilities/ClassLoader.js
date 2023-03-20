@@ -1,5 +1,5 @@
 import Database from "./Database";
-import S from "./Settings";
+// import S from "./Settings";
 
 /**
  * Provides facilities for loading and storing custom code.

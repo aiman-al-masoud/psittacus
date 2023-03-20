@@ -4,14 +4,12 @@ import { MetadataIncompleteError } from "../../model/lesson/LessonBuilder";
 import { WordDict } from "../../model/proposition/PropositionBuilder";
 import MenuButton from "../recycled/buttons/MenuButton";
 import { sendBugReport } from "../../model/utilities/sendBugReport";
+import DefinitionsTable from "./DefinitionsTable";
+import MetadataTable from "./MetadataTable";
+import { Metadata } from "../../model/lesson/LessonBuilder";
+import TextEditor from "./TextEditor";
 import "../../index.css"
 
-//@ts-ignore
-import DefinitionsTable from "./DefinitionsTable.jsx";
-//@ts-ignore
-import Metadata from "./Metadata.jsx";
-//@ts-ignore
-import TextEditor from "./TextEditor.jsx";
 //@ts-ignore
 import Styles from "../Styles";
 
@@ -199,8 +197,8 @@ export default class CraftLesson extends Component<Props> {
             <MenuButton onClick={() => { this.onSave() }} title={`${this.props.c.L.save_lesson} (${this.props.c.L.shortcut_save_lesson})`} icon={this.props.c.icons.Save} />
 
             <div style={this.props.c.get('EDITING_MODE') == 'LESSON' ? Styles.visible : Styles.invisible}>{mainBody}</div>
-            <div style={this.props.c.get('EDITING_MODE') == 'METADATA' ? Styles.visible : Styles.invisible}> <Metadata metadataDict={this.props.c.getLessonBuilder().getMetadata()} onModifyMetadata={this.onModifyMetadata} /> </div>
-            <div style={this.props.c.get('EDITING_MODE') == 'EXPLAINATION' ? Styles.visible : Styles.invisible}><TextEditor onTextChange={this.onExplainationChange} text={this.props.c.getLessonBuilder().getExplanation()} /></div>
+            <div style={this.props.c.get('EDITING_MODE') == 'METADATA' ? Styles.visible : Styles.invisible}> <MetadataTable c={this.props.c} metadataDict={this.props.c.getLessonBuilder().getMetadata()} onModifyMetadata={this.onModifyMetadata} /> </div>
+            <div style={this.props.c.get('EDITING_MODE') == 'EXPLAINATION' ? Styles.visible : Styles.invisible}><TextEditor c={this.props.c} onTextChange={this.onExplainationChange} text={this.props.c.getLessonBuilder().getExplanation()} /></div>
 
         </div>)
     }
