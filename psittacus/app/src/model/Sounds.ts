@@ -18,7 +18,20 @@ export function getSounds(): Sounds {
 }
 
 class BaseSounds implements Sounds {
+
+    /**
+     * https://freesound.org/people/StavSounds/sounds/546081/
+     */
     readonly CorrectSound = CorrectSound
+
+    /**
+     * https://freesound.org/people/Raclure/sounds/483598/
+     */
     readonly WrongSound = WrongSound
+
+    /**
+     * https://freesound.org/s/413310/
+     */
     readonly SelectSound = SelectSound
+
 }

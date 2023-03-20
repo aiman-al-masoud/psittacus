@@ -27,6 +27,13 @@ export function getIcons(): Icons {
 class FeatherIcons implements Icons {
 
     constructor(
+
+        /**
+         * https://www.iconfinder.com/icons/510856/audio_sound_speaker_volume_icon
+         * Author: https://www.iconfinder.com/iconify
+         */
+        readonly PlayAudio = PlayAudioIcon,
+
         readonly Home = Icon.Home,
         readonly ArrowRight = Icon.ArrowRight,
         readonly Mic = Icon.Mic,
@@ -40,11 +47,10 @@ class FeatherIcons implements Icons {
         readonly RotateCcw = Icon.RotateCcw,
         readonly FilePlus = Icon.FilePlus,
         readonly Settings = Icon.Settings,
-        readonly PlayAudio = PlayAudioIcon
+
     ) {
 
     }
-
 
 }
 
