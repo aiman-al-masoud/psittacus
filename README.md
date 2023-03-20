@@ -135,20 +135,14 @@ yarn run dev-build
 
 to generate an un-minified developer build (easier to debug).
 
-And maybe consider doing this in `jsconfig.json`:
-
-```
-"checkJs" : true
-```
-
-(This option is far too annoying to stay on all the time, and doesn't even catch
-all of the errors for lack of information).
-
 ## Contributing
 
 ### Adding a Language
 
-[Add a language](./psittacus/app/res/lang_packs/)
+- [Translate the App](./psittacus/app/res/lang_packs/)
+- [Have a look at the TODOs](./psittacus/TODO.md)
+
+To propose your change feel free to post a pull request.
 
 </details>
 
@@ -168,7 +162,7 @@ For more info:
 
 # Images/Sounds
 
-[Icons](./psittacus/app/res/icons/Icons.ts)
-[Sounds](./psittacus/app/res/sounds/Sounds.ts)
+- [Icons](./psittacus/app/res/icons/Icons.ts)
+- [Sounds](./psittacus/app/res/sounds/Sounds.ts)
 
 </details>

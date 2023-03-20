@@ -1,6 +1,0 @@
-{
-    "compilerOptions": {
-        "checkJs" : false,  
-        "jsx": "react"
-    }
-}
