@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Settings from "./settings/Settings";
-import { Context } from "../model/Context"
+import { Context } from "../model/context/Context"
 import History from "./history/History";
 import MainMenu from "./MainMenu"
 import Download from "./download/Download";
@@ -8,7 +8,7 @@ import Info from "./info/Info";
 import "../index.css"
 import CraftLesson from "./craft_lesson/CraftLesson";
 import TakeLesson from "./take_lesson/TakeLesson";
-import { Page, sensitivePages } from "./Page";
+import { Page, sensitivePages } from "../model/settings/Keys";
 import MenuButton from "./recycled/buttons/MenuButton";
 
 

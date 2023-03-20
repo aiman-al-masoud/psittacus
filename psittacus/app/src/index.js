@@ -1,7 +1,7 @@
 import reactDOM from 'react-dom'
 import React from 'react'
 import App from './view/App'
-import { getContext } from './model/Context'
+import { getContext } from './model/context/Context'
 
 // global context
 const context = getContext({})

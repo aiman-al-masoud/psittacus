@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../model/Context.js";
+import { Context } from "../../model/context/Context.js";
 import { Lesson } from "../../model/lesson/Lesson";
 import { getCachedLessonById } from "../../model/lesson/functions/getCachedLessonById";
 import LessonsTable from "../recycled/lessons_table/LessonsTable"

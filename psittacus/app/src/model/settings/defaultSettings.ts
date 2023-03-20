@@ -1,6 +1,6 @@
 import WorstLessonFirst from "../schedulers/lesson_scheduler/classes/WorstLessonFirst";
 import WorstFirst from "../schedulers/proposition_scheduler/classes/WorstFirst";
-import { SettingsKeys } from "./Settings";
+import { SettingsKeys } from "./Keys";
 
 export const defaultSettings: { [k in SettingsKeys]: any } = {
 

@@ -1,8 +1,8 @@
 import { Proposition } from '../../proposition/Proposition';
 import { getProposition } from '../../proposition/Proposition';
 import { LessonData } from "../../formats/LessonData";
-import { LessonProgressData } from '../../UserProgress';
-import { Context } from '../../Context';
+import { LessonProgressData } from '../../utilities/UserProgress';
+import { Context } from '../../context/Context';
 import { Lesson } from '../Lesson';
 
 export class BaseLesson implements Lesson {

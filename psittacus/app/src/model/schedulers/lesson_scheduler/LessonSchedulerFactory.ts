@@ -1,5 +1,5 @@
 import { LessonScheduler } from "./LessonScheduler"
-import { Context } from "../../Context"
+import { Context } from "../../context/Context"
 import WorstLessonFirst from "./classes/WorstLessonFirst"
 import MixedWorstLesson from "./classes/MixedWorstLesson"
 import OldestLessonFirst from "./classes/OldestLessonFirst"

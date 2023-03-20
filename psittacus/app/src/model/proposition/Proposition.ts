@@ -1,4 +1,4 @@
-import { Context } from "../Context"
+import { Context } from "../context/Context"
 import { BaseProposition, NullProposition } from "./classes/BaseProposition"
 import { WordDict } from "../formats/PropositionData"
 import { PropositionData } from "../formats/PropositionData"

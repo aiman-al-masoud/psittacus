@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../../model/Context";
+import { Context } from "../../../model/context/Context";
 import { Lesson } from "../../../model/lesson/Lesson";
 import { parseId } from "../../../model/lesson/functions/parseId";
 

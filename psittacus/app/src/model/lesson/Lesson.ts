@@ -1,7 +1,7 @@
 import { Proposition } from '../proposition/Proposition'
 import { LessonData } from "../formats/LessonData"
-import { LessonProgressData } from '../UserProgress'
-import { Context } from '../Context'
+import { LessonProgressData } from '../utilities/UserProgress'
+import { Context } from '../context/Context'
 import { BaseLesson } from './classes/BaseLesson'
 
 /**

@@ -1,5 +1,5 @@
 import { BasePropositionScheduler } from "../PropositionScheduler"
-import { Context } from "../../../Context"
+import { Context } from "../../../context/Context"
 
 
 /**

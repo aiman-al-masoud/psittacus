@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../model/Context.js";
+import { Context } from "../../model/context/Context.js";
 import { readText } from "../../model/utilities/readText";
 import { saveToComp } from "../../model/utilities/saveToComp";
 

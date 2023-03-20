@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../model/Context";
+import { Context } from "../../model/context/Context";
 
 export default class LessonOver extends Component<{ c: Context, overallUserAccuracy: number }> {
 

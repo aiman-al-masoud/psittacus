@@ -1,6 +1,6 @@
-import { Context } from "../../Context"
+import { Context } from "../../context/Context"
 import { Proposition } from "../../proposition/Proposition"
-import { LessonProgressData } from "../../UserProgress"
+import { LessonProgressData } from "../../utilities/UserProgress"
 import { nullProposition } from "../../proposition/Proposition"
 
 /**

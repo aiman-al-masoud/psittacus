@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../../model/Context";
+import { Context } from "../../../model/context/Context";
 import { playBase64 } from '../../../model/utilities/playBase64';
 
 type Props = {

@@ -1,5 +1,5 @@
 
-import { Context } from "../../../Context";
+import { Context } from "../../../context/Context";
 import { MIN_PASSING_SCORE } from "../../../proposition/Proposition";
 import { LessonScheduler } from "../LessonScheduler";
 import MixedLesson from "../../../lesson/classes/MixedLesson";

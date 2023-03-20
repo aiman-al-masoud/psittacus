@@ -1,4 +1,4 @@
-import { Context } from "../../Context";
+import { Context } from "../../context/Context";
 import { Lesson } from "../../lesson/Lesson";
 import UntilAllCorrect from "./classes/UntilAllCorrect";
 import WorstFirst from "./classes/WorstFirst";

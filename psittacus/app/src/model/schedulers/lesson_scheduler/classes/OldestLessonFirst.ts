@@ -1,6 +1,6 @@
 import { LessonScheduler } from "../LessonScheduler";
 import { getCachedLessonById } from "../../../lesson/functions/getCachedLessonById";
-import { Context } from "../../../Context";
+import { Context } from "../../../context/Context";
 
 export default class OldestLessonFirst implements LessonScheduler {
 

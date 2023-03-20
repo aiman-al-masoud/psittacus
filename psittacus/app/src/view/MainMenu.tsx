@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Context } from "../model/Context"
+import { Context } from "../model/context/Context"
 import MainMenuButton from "./recycled/buttons/MainMenuButton"
 
 

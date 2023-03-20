@@ -1,6 +1,6 @@
-import { Context } from "../../Context"
+import { Context } from "../../context/Context"
 import { Proposition, nullProposition } from "../../proposition/Proposition"
-import { LessonProgressData } from "../../UserProgress"
+import { LessonProgressData } from "../../utilities/UserProgress"
 import { getCachedLessonById } from "../functions/getCachedLessonById"
 import { Lesson } from "../Lesson"
 

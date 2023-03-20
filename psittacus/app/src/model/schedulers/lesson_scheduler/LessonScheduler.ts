@@ -1,5 +1,5 @@
 import { Lesson } from "../../lesson/Lesson";
-import { Context } from "../../Context";
+import { Context } from "../../context/Context";
 
 /**
  * Decides what `Lesson` a user should revise.

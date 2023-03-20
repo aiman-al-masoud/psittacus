@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Context } from "../../model/Context.js";
-import { InputType } from "../../model/settings/Settings.js";
+import { Context } from "../../model/context/Context.js";
 import TextInput from "./TextInput";
 import ButtonInput from "./ButtonInput";
+import { InputType } from "../../model/settings/Keys.js";
 
 
 export default class InputManager extends Component<{ c: Context, userInput: any }> {

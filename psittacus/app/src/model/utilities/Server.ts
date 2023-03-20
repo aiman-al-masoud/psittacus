@@ -1,5 +1,5 @@
 import { getLesson, Lesson } from "../lesson/Lesson"
-import { Context } from "../Context"
+import { Context } from "../context/Context"
 
 export interface Server {
     getLessonIndeces(): Promise<string[]>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../model/Context.js";
+import { Context } from "../../model/context/Context.js";
 
 type PropsType = {
     c: Context

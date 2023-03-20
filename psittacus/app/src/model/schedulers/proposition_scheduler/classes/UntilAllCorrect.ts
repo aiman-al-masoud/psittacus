@@ -1,6 +1,6 @@
 import { BasePropositionScheduler } from "../PropositionScheduler"
 import { MIN_PASSING_SCORE } from "../../../proposition/Proposition"
-import { Context } from "../../../Context"
+import { Context } from "../../../context/Context"
 
 /**
  * A memory-less `PropositionScheduler` that plays the `Proposition`s in the

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DOMPurify from 'dompurify'
-import { Context } from "../../model/Context";
+import { Context } from "../../model/context/Context";
 
 
 /**

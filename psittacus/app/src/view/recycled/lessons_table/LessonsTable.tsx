@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../../model/Context.js";
+import { Context } from "../../../model/context/Context.js";
 import { Lesson } from "../../../model/lesson/Lesson.js";
 import LessonRow from "./LessonRow";
 import { Metadata } from "../../../model/formats/Metadata.js";

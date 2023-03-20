@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../model/Context";
+import { Context } from "../../model/context/Context";
 import { MetadataIncompleteError } from "../../model/lesson/builder/LessonBuilder";
 import MenuButton from "../recycled/buttons/MenuButton";
 import { sendBugReport } from "../../model/utilities/sendBugReport";

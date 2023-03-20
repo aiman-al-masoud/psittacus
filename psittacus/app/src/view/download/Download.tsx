@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../model/Context";
+import { Context } from "../../model/context/Context";
 import { Lesson } from '../../model/lesson/Lesson'
 import LessonsTable from "../recycled/lessons_table/LessonsTable"
 import { isMetadataMatching } from "../../model/lesson/functions/isMetadataMatching";

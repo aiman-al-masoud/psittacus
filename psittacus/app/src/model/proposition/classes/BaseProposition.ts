@@ -1,5 +1,5 @@
 import { PropositionData, WordDict } from "../../formats/PropositionData";
-import { Context } from "../../Context";
+import { Context } from "../../context/Context";
 import { playBase64 } from "../../utilities/playBase64";
 import { Proposition, MIN_PASSING_SCORE } from "../Proposition";
 

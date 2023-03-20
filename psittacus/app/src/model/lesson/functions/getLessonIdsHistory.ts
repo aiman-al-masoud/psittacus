@@ -1,6 +1,6 @@
 import { isMetadataMatching } from "./isMetadataMatching";
 import { Metadata } from "../../formats/Metadata";
-import { Context } from "../../Context";
+import { Context } from "../../context/Context";
 
 /**
 * Retrieve the ids of the lessons in history, with optional filtering on their metadata.

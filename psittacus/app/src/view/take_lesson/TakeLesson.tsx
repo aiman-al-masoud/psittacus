@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Context } from "../../model/Context.js";
+import { Context } from "../../model/context/Context.js";
 import InputManager from "./InputManager";
 import HoverableSentence from "./HoverableSentence"
 import LessonOver from "./LessonOver";
