@@ -1,16 +1,21 @@
 import { getLesson, Lesson } from "../lesson/Lesson"
+import { Context } from "../Context"
 
 export interface Server {
     getLessonIndeces(): Promise<string[]>
     downloadLesson(lessonId: string): Promise<Lesson>
 }
 
-export function getServer(): Server {
-    return new BaseServer()
+export function getServer(context: Context): Server {
+    return new BaseServer(context)
 }
 
 class BaseServer implements Server {
 
+    constructor(
+        readonly context: Context,
+    ) {
+    }
 
     async getLessonIndeces() {
         let r = await fetch("/get-lesson-indeces")
@@ -29,7 +34,7 @@ class BaseServer implements Server {
                 body: JSON.stringify({ "lesson-index": lessonId })
             })
 
-        return getLesson(await res.json())
+        return getLesson(await res.json(), this.context)
     }
 
 }

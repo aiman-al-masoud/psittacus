@@ -136,7 +136,7 @@ class BaseProposition implements Proposition {
     }
 
     getHash = () => {
-        return (this.sentenceOne + this.sentenceTwo).split("").map((c) => { return c.charCodeAt(0) }).reduce((a, b) => { return a + b })
+        return (this.sentenceOne + this.sentenceTwo).split("").map((c) => c.charCodeAt(0)).reduce((a, b) => a + b )
     }
 
 }

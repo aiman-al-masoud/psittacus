@@ -14,7 +14,7 @@ export default class DefinitionsTable extends Component<Props, {}>{
 
         return (
             <table ref={this.table} onInput={() => { this.props.onTableModified(this.defintionTableToDict()) }}>
-                {Object.entries(this.props.wordDict).map((entry, index) => { return <tr key={index}><td><input type="text" value={entry[0]} readOnly /></td><td><input type="text" value={entry[1]} /></td></tr> })}
+                {Object.entries(this.props.wordDict).map((entry, index) => <tr key={index}><td><input type="text" value={entry[0]} readOnly /></td><td><input type="text" value={entry[1]} /></td></tr> )}
             </table>
         )
     }

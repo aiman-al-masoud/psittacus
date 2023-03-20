@@ -19,9 +19,9 @@ export default class WorstFirst extends BasePropositionScheduler {
 
         try {
             const propoScores = this.oldScores.propositions
-            propoScores.sort((p1: any, p2: any) => { return p1[1] - p2[1] }) //sort by score (index=1) // in-place        
-            const hashes = propoScores.map((p: any) => { return p[0] }) //get hashes (index=0)
-            this.propositions.sort((p1, p2) => { return hashes.indexOf(p1.getHash()) - hashes.indexOf(p2.getHash()) }) // in-place
+            propoScores.sort((p1, p2) => p1[1] - p2[1]) //sort by score (index=1) // in-place        
+            const hashes = propoScores.map(p => p[0]) //get hashes (index=0)
+            this.propositions.sort((p1, p2) => hashes.indexOf(p1.getHash()) - hashes.indexOf(p2.getHash())) // in-place
         } catch {
             console.log(`${this.constructor.name}: failed to sort propositions by old scores. Normal if it's the first time user takes lesson w/ this id.`)
         }

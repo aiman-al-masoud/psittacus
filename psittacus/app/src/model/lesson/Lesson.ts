@@ -6,19 +6,18 @@ import { Context } from '../Context'
 export interface Lesson {
     next(): void
     getCurrent(): Proposition
-    isOver(context: Context): boolean
+    isOver(): boolean
     getScore(): number
     getId(): string
     dumpScores(): LessonProgressData
-    cacheLesson(context: Context): Promise<void>
-    saveScore(context: Context): void
+    cacheLesson(): Promise<void>
+    saveScore(): void
     getExplaination(): string
     getPropositions(): Proposition[]
-    setContext(context: Context): void
 }
 
-export function getLesson(data: LessonData): Lesson {
-    return new BaseLesson(data)
+export function getLesson(data: LessonData, context: Context): Lesson {
+    return new BaseLesson(data, context)
 }
 
 /**
@@ -27,20 +26,15 @@ export function getLesson(data: LessonData): Lesson {
  */
 class BaseLesson implements Lesson {
 
-    protected context?: Context
-    protected scheduler: any
+    readonly explanationText = this.data.explanation.text
+    readonly metadata = this.data.metadata
+    readonly propositions = this.data.propositions.map(p => getProposition(p))
+    readonly scheduler = this.context.propoSchedFac.get(this)
 
     constructor(
         readonly data: LessonData,
-        readonly explanationText = data.explanation.text,
-        readonly metadata = data.metadata,
-        readonly propositions = data.propositions.map(p => { return getProposition(p) }),
+        readonly context: Context,
     ) {
-    }
-
-    setContext(context: Context): void {
-        this.context = context
-        this.scheduler = context.propoSchedFac.get(this)
     }
 
     /**
@@ -60,26 +54,26 @@ class BaseLesson implements Lesson {
     /**
      * Is this lesson over yet?
      */
-    isOver(context: Context) {
+    isOver() {
         const over = this.scheduler.isOver()
 
-        if (over) { //if this lesson is over, save the score
-            this.saveScore(context)
-            this.cacheLesson(context)
+        if (over) { //if this lesson is over, save the score and cache the lesson
+            this.saveScore()
+            this.cacheLesson()
         }
 
         return over
     }
 
-    saveScore(context: Context): void {
-        context.UP.saveLessonScore(this.getId(), this.dumpScores())
+    saveScore(): void {
+        this.context?.UP.saveLessonScore(this.getId(), this.dumpScores())
     }
 
     /**
      * Get Lesson's overall score.
      */
     getScore() {
-        return parseInt((this.propositions.map((p) => { return p.getScore() }).reduce((a, b) => { return a + b }) / this.propositions.length) + '')
+        return parseInt((this.propositions.map((p) => p.getScore() ).reduce((a, b) => a + b ) / this.propositions.length) + '')
     }
 
     /**
@@ -106,11 +100,11 @@ class BaseLesson implements Lesson {
     /**
      * Cache this Lesson, overwriting it in case of conflicting ids.
      */
-    async cacheLesson(context: Context) {
+    async cacheLesson() {
 
-        context.db.delete('cachedLessons', this.getId())
+        this.context?.db.delete('cachedLessons', this.getId())
 
-        context.db.add('cachedLessons', {
+        this.context?.db.add('cachedLessons', {
             id: this.getId(),
             lesson: this.data,
         })
@@ -140,7 +134,7 @@ export function parseId(lessonId: string): Metadata {
  */
 export async function getCachedLessonById(id: string, context: Context) {
     const record = await context.db.get('cachedLessons', id)
-    return getLesson(record.lesson)
+    return getLesson(record.lesson, context)
 }
 
 /**

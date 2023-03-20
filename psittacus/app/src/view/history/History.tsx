@@ -9,7 +9,6 @@ export default class History extends Component<{ c: Context }> {
     readonly lessonScheduler = this.props.c.lessonSchedFac.get()
 
     playLesson = (lesson: Lesson) => {
-        lesson.setContext(this.props.c)
         this.props.c.set('LESSON', lesson)
         this.props.c.setPage('take-lesson')
     }

@@ -39,7 +39,7 @@ export default class TakeLesson extends Component<Props, {}> {
         }
 
         this.props.c.set('SOLUTION_HIDDEN', !this.props.c.get('SOLUTION_HIDDEN'))
-        this.props.c.set('PLAY_MODE', this.props.c.get('LESSON').isOver(this.props.c) ? 'LESSON_OVER' : this.props.c.get('PLAY_MODE'))
+        this.props.c.set('PLAY_MODE', this.props.c.get('LESSON').isOver() ? 'LESSON_OVER' : this.props.c.get('PLAY_MODE'))
         this.props.c.set('OVERALL_USER_ACCURACY', this.props.c.get('LESSON').getScore())
 
     }

@@ -107,7 +107,7 @@ class BaseLessonBuilder implements LessonBuilder {
     save = () => {
 
         //every metadata value MUST BE NON-FALSY!
-        if (!Object.values(this.metadata).every((val) => { return !!val })) {
+        if (!Object.values(this.metadata).every(val => !!val)) {
             throw MetadataIncompleteError
         }
 

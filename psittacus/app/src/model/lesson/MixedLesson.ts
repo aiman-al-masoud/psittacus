@@ -1,6 +1,5 @@
 import { Context } from "../Context";
 import { NullProposition, Proposition } from "../proposition/Proposition";
-import { PropositionScheduler } from "../schedulers/proposition_scheduler/PropositionScheduler";
 import { LessonProgressData } from "../UserProgress";
 import { getCachedLessonById, Lesson } from "./Lesson";
 
@@ -13,8 +12,12 @@ export default class MixedLesson implements Lesson {
     protected lessons: Lesson[] = []
     protected propositions: Proposition[] = []
     protected explanationText = ''
-    protected context?: Context
-    protected scheduler?: PropositionScheduler
+    readonly scheduler = this.context.propoSchedFac.get(this)
+
+    constructor(
+        readonly context: Context,
+    ) {
+    }
 
     /**
      * 
@@ -35,7 +38,7 @@ export default class MixedLesson implements Lesson {
         return this.scheduler?.getCurrent() ?? NullProposition
     }
 
-    isOver(context: Context) {
+    isOver() {
 
         let over = this.scheduler?.isOver() ?? false //TODO?
 
@@ -43,17 +46,17 @@ export default class MixedLesson implements Lesson {
 
             for (let lesson of this.lessons) {
 
-                const oldScores = context.UP.scoresForLesson(lesson.getId())
+                const oldScores = this.context?.UP.scoresForLesson(lesson.getId()) ?? { propositions: [], overall: 0, lessonId: lesson.getId() }
                 const newScores = lesson.dumpScores()
 
                 oldScores.propositions = oldScores.propositions.sort((p1, p2) => p1[0] - p2[0])
                 newScores.propositions = newScores.propositions.sort((p1, p2) => p1[0] - p2[0])
 
                 //if score undefined in newScores, substitute it w/ corresponding one in oldScores.
-                newScores.propositions = newScores.propositions.map((p, index) => { return [p[0], p[1] ?? oldScores.propositions[index][1]] })
+                newScores.propositions = newScores.propositions.map((p, index) => [p[0], p[1] ?? oldScores.propositions[index][1]])
                 newScores.overall = newScores.propositions.map(p => p[1]).reduce((s1, s2) => s1 + s2) / newScores.propositions.length
 
-                context.UP.saveLessonScore(lesson.getId(), newScores)
+                this.context?.UP.saveLessonScore(lesson.getId(), newScores)
             }
         }
 
@@ -61,7 +64,7 @@ export default class MixedLesson implements Lesson {
     }
 
     getScore() {
-        return parseInt((this.propositions.map((p) => { return p.getScore() }).reduce((a, b) => { return a + b }) / this.propositions.length) + '')
+        return parseInt((this.propositions.map((p) => p.getScore()).reduce((a, b) => a + b) / this.propositions.length) + '')
     }
 
     getId(): string {
@@ -80,17 +83,12 @@ export default class MixedLesson implements Lesson {
         return {} as any
     }
 
-    saveScore(context: Context): void {
+    saveScore(): void {
 
     }
 
     async cacheLesson(): Promise<void> {
 
-    }
-
-    setContext(context: Context): void {
-        this.context = context
-        this.scheduler = context.propoSchedFac.get(this)
     }
 
 }

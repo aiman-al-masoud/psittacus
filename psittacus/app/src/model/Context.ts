@@ -98,7 +98,7 @@ class BaseContext implements Context {
 
     readonly urlTracker = getUrlTracker(this)
     readonly icons = getIcons()
-    readonly server = getServer()
+    readonly server = getServer(this)
     readonly propoSchedFac = getPropoSchedulerFactory(this)
     readonly lessonSchedFac = getLessonSchedulerFactory(this)
     readonly db = getDatabase()
@@ -167,8 +167,7 @@ class BaseContext implements Context {
     async setPage(page: Page): Promise<void> {
 
         if (page === 'open-lesson') {
-            const lez = getLesson(JSON.parse(await readText())) //if lesson not already there, ask upload file
-            lez.setContext(this)
+            const lez = getLesson(JSON.parse(await readText()), this)  //if lesson not already there, ask upload file
             this.set('LESSON', lez)
         }
 

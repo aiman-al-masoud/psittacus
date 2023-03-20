@@ -12,7 +12,7 @@ import { Context } from "../../../Context"
  */
 export default class UntilAllCorrect extends BasePropositionScheduler {
 
-    readonly screwedUpPropositions = this.propositions.filter((p) => { return p.getScore() < MIN_PASSING_SCORE }) //list of 'questions' user failed at
+    readonly screwedUpPropositions = this.propositions.filter(p => p.getScore() < MIN_PASSING_SCORE) //list of 'questions' user failed at
 
     initSequence(): void {
 
@@ -25,7 +25,7 @@ export default class UntilAllCorrect extends BasePropositionScheduler {
 
     isOver() { //lesson over, if current Proposition undefined, and no screwed up proposition
         return (!this.current) &&
-            (this.propositions.filter((p) => { return p.getScore() < MIN_PASSING_SCORE }).length <= 0)
+            (this.propositions.filter(p => p.getScore() < MIN_PASSING_SCORE).length <= 0)
     }
 
     getType() {

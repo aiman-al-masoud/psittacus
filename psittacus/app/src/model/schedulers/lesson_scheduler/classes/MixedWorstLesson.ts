@@ -1,9 +1,9 @@
 
 import { Context } from "../../../Context";
 import MixedLesson from "../../../lesson/MixedLesson";
-
 import { MIN_PASSING_SCORE } from "../../../proposition/Proposition";
 import { LessonScheduler } from "../LessonScheduler";
+
 
 /**
  * Creates a `MixedLesson` from the top `Proposition`s the student performed the worst on.
@@ -11,7 +11,7 @@ import { LessonScheduler } from "../LessonScheduler";
 export default class MixedWorstLesson implements LessonScheduler {
 
     constructor(
-        protected context: Context,
+        readonly context: Context,
         protected lessonsScores = context.UP.lessonScores()
     ) {
 
@@ -23,7 +23,7 @@ export default class MixedWorstLesson implements LessonScheduler {
         let n = 5
         this.lessonsScores.splice(n) //worst n lessons
 
-        let ml = new MixedLesson()
+        let ml = new MixedLesson(this.context)
 
         for (let s of this.lessonsScores) {
             let hashes = s.propositions.filter(p => p[1] < MIN_PASSING_SCORE).map(p => p[0])               //sort((p1, p2)=>{return p1[1] - p2[1]  })
