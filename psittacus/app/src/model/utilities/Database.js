@@ -12,17 +12,17 @@ export default class Database {
     constructor() {
         this.db = new Dexie("psittacus")
 
-        this.db.version(3).stores({
+        this.db.version(4).stores({
             cachedLessons: "id, lesson",
-            customSourceCode : "classname, category, sourceCode"
+            customSourceCode: "classname, category, sourceCode"
         })
     }
 
     /**
      * @returns {Database}
      */
-    static get(){
-        return ( Database.instance = Database.instance ?? new Database() )
+    static get() {
+        return (Database.instance = Database.instance ?? new Database())
     }
 
     /**
@@ -37,7 +37,7 @@ export default class Database {
      * 
      * @returns {Table}
      */
-    customSourceCode(){
+    customSourceCode() {
         return this.db.customSourceCode
     }
 

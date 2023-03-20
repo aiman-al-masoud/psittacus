@@ -67,6 +67,7 @@ class BaseLesson implements Lesson {
 
         if (over) { //if this lesson is over, save the score
             this.saveScore(context)
+            this.cacheLesson()
         }
 
         return over
@@ -98,7 +99,7 @@ class BaseLesson implements Lesson {
         return {
             last_taken: new Date().getTime(),
             overall: this.getScore(),
-            propositions: this.propositions.map((p) => { return [p.getHash() + '', p.getScore()] }),
+            propositions: this.propositions.map(p => [p.getHash(), p.getScore()]),
             lessonId: this.getId()
         }
 

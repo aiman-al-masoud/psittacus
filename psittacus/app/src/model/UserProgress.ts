@@ -12,7 +12,7 @@ export interface LessonProgressData {
     lessonId: string
     last_taken: number,
     overall: number,
-    propositions: [string, number][]
+    propositions: [number, number][] /* hash, score */
 }
 
 export interface UserProgress {
