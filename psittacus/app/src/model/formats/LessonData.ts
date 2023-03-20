@@ -3,7 +3,12 @@ import { Metadata } from "./Metadata";
 
 
 export interface LessonData {
-    propositions: PropositionData[];
-    metadata: Metadata;
-    explanation: { text: string; };
+
+    propositions: PropositionData[]
+    metadata: Metadata
+
+    /** 
+     * for theoretical introductions or insights related to the propositions. 
+     */
+    explanation: { text: string }
 }
