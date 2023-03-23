@@ -1,6 +1,7 @@
 import { getSettings, Settings } from "../settings/Settings"
 import { getUserProgress, UserProgress } from "../utilities/UserProgress"
 import { LangPack } from "../../../res/lang_packs/LangPack"
+import { chinese } from "../../../res/lang_packs/chinese";
 import { english } from "../../../res/lang_packs/english"
 import { italian } from "../../../res/lang_packs/italian"
 import { spanish } from "../../../res/lang_packs/spanish"
@@ -68,7 +69,7 @@ export function getContext(opts: GetContextArgs): Context {
     return new BaseContext({
         UP: getUserProgress(),
         S: getSettings({}),
-        langPacks: { english, italian, spanish },
+        langPacks: { chinese, english, italian, spanish },
         forceUpdate: opts.forceUpdate,
     })
 }
