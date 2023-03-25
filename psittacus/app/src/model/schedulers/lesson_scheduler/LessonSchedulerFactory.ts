@@ -19,14 +19,12 @@ export function getLessonSchedulerFactory(context: Context): LessonSchedulerFact
     return new BaseLessonSchedulerFactory(context)
 }
 
-type Constructor<T> = new (...args: any[]) => T
-
 const CATEGORY_CUSTOM_CODE = 'LessonScheduler'
 
 class BaseLessonSchedulerFactory implements LessonSchedulerFactory {
-
-
-    readonly schedulers: { [x: string]: Constructor<LessonScheduler> } = { OldestLessonFirst, MixedWorstLesson, WorstLessonFirst }
+    
+    readonly schedulersList = [OldestLessonFirst, MixedWorstLesson, WorstLessonFirst]
+    readonly schedulers = this.schedulersList.map(x => ({ [x.getType()]: x })).reduce((a, b) => ({ ...a, ...b }))
 
     constructor(readonly context: Context) {
         // this.reload() //TODO!
