@@ -12,7 +12,8 @@ export const booleanSettingKeys = stringLiterals('DEV_OPTIONS_ENABLED')
 export const stringSettingKeys = stringLiterals(
     'PROPOSITION_SCHEDULER',
     'APP_LANGUAGE',
-    'LESSON_SCHEDULER'
+    'LESSON_SCHEDULER',
+    'PSITTACUS_VERSION'
 )
 export const inputTypeSettingKeys = stringLiterals('INPUT_TYPE')
 export const settingsKeys = booleanSettingKeys.concat(stringSettingKeys as any).concat(inputTypeSettingKeys as any)
@@ -27,7 +28,6 @@ export const numberContextKeys = stringLiterals(
 )
 export const editingModeContextKeys = stringLiterals('EDITING_MODE')
 export const playModeContextKeys = stringLiterals('PLAY_MODE')
-// export const contextKeys = booleanContextKeys.concat(numberContextKeys as any).concat(editingModeContextKeys as any).concat(playModeContextKeys as any)
 
 export const sensitivePages = stringLiterals(
     'craft-new-lesson',
