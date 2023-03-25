@@ -127,5 +127,6 @@ export const chinese: LangPack = {
     "current_sentence": "当前句子 / 总句子",
     "target_to_native": "目标语言到源语言",
     "input_type_is": "选择是键入解决方案，还是使用课程提供的单词提示。",
+    "input_type" : "Input Type"
 
 }

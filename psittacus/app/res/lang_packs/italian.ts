@@ -126,7 +126,8 @@ export const italian: LangPack = {
     "click_to_open": "Clicca per Aprire",
     "current_sentence": "Frase Attuale / Totale Frasi",
     "target_to_native": "Obbiettivo a Origine",
-    "input_type_is": "Scegli se usare la tastiera o se selezionare le parole proposte dalla lezione."
+    "input_type_is": "Scegli se usare la tastiera o se selezionare le parole proposte dalla lezione.",
+    "input_type" : "Tipo Immissione"
 
 
 }

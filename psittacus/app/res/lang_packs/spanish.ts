@@ -126,6 +126,7 @@ export const spanish: LangPack = {
     "click_to_open": "Click para abrir",
     "current_sentence": "Frase actual / Total de frases",
     "target_to_native": "Objetivo a Nativo",
-    "input_type_is": "Choose whether to type in your solution, or to use word tips provided by the lesson."
+    "input_type_is": "Choose whether to type in your solution, or to use word tips provided by the lesson.",
+    "input_type": "Input Type"
 
 }

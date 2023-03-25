@@ -126,7 +126,8 @@ export const arabic: LangPack = {
     "click_to_open": "اضغط لتفتح",
     "current_sentence": "الجملة الحالية / جميع الجمل",
     "target_to_native": "هدف إل أصل",
-    "input_type_is": "إختر ما بين أن تكتب الإيجابة أو أن تستخدم ازرار الكلمات"
+    "input_type_is": "إختر ما بين أن تكتب الإيجابة أو أن تستخدم ازرار الكلمات",
+    "input_type" : "نوع الإدخال"
 
 
 }

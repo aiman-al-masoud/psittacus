@@ -125,5 +125,6 @@ export const english = {
     "current_sentence": "Current Sentence / Total Sentences",
     "target_to_native": "Target to Native",
     "input_type_is": "Choose whether to type in your solution, or to use word tips provided by the lesson.",
+    "input_type" : "Input Type"
 
 }

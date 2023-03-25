@@ -63,7 +63,7 @@ export default class Settings extends Component<{ c: Context }> {
             <button onClick={this.importProgress} className="normal_button">{this.props.c.L.import_progress}</button>
             <button onClick={this.eraseProgress} className="normal_button">{this.props.c.L.erase_progress}</button>
 
-            <h1>Input Type</h1>
+            <h1>{this.props.c.L.input_type}</h1>
 
             <div className="text_tip">{this.props.c.L.input_type_is}</div>
 
