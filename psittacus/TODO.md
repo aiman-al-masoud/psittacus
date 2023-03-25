@@ -1,6 +1,5 @@
 # Fixes
 
-- check server before pushing changes to production!
 - finish up translating ClassLoader to ts.
 - fix bug related to MixedLesson/WorstFirst!
 

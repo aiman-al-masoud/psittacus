@@ -17,12 +17,12 @@ class BaseServer implements Server {
     ) {
     }
 
-    async getLessonIndeces() {
+    getLessonIndeces = async () => {
         let r = await fetch("/get-lesson-indeces")
         return r.json()
     }
 
-    async downloadLesson(lessonId: string) {
+    downloadLesson = async (lessonId: string) => {
 
         let res = await fetch('/download-lesson',
             {
