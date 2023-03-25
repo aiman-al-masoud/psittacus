@@ -2,6 +2,7 @@ import { LangPack } from "./LangPack";
 
 export const spanish: LangPack = {
 
+    "language_own_name" : "español",
     "app_name": "Psittacus",
     "support_email": "luxlunarislabs@gmail.com",
     "home": "Home",

@@ -1,5 +1,7 @@
 export const english = {
 
+
+    "language_own_name" : "English",
     "app_name": "Psittacus",
     "support_email": "luxlunarislabs@gmail.com",
     "home": "Home",

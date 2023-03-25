@@ -7,7 +7,7 @@ export const defaultSettings: { [k in SettingsKeys]: any } = {
     INPUT_TYPE: 'LESSON_DEFAULT',
     DEV_OPTIONS_ENABLED: false,
     PROPOSITION_SCHEDULER: WorstFirst.getType(),
-    APP_LANGUAGE: 'english',
+    APP_LANGUAGE: 'English',
     LESSON_SCHEDULER: WorstLessonFirst.getType(),
 
 }

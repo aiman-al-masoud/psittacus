@@ -2,6 +2,7 @@ import { LangPack } from "./LangPack";
 
 export const arabic: LangPack = {
 
+    "language_own_name" : "عربي",
     "app_name": "بسيتاكوس",
     "support_email": "luxlunarislabs@gmail.com",
     "home": "بيت",

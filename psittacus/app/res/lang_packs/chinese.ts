@@ -2,6 +2,7 @@ import { LangPack } from "./LangPack";
 
 export const chinese: LangPack = {
 
+    "language_own_name" : "中文",
     "app_name": "Psittacus",
     "support_email": "luxlunarislabs@gmail.com",
     "home": "主页",
