@@ -22,12 +22,12 @@ export class BaseContext implements Context {
     readonly propoSchedFac = getPropoSchedulerFactory(this)
     readonly lessonSchedFac = getLessonSchedulerFactory(this)
     readonly db = getDatabase()
+    protected lessonBuilder: LessonBuilder | undefined = this.opts.lessonBuilder ?? getLessonBuilder({}, this)
 
     constructor(
         readonly opts: GetContextArgs,
         readonly UP = opts.UP,
         readonly inputTypes = opts.S.inputTypes,
-        protected lessonBuilder: LessonBuilder | undefined = opts.lessonBuilder ?? getLessonBuilder({}),
         protected contextDict = {} as any
     ) {
     }
@@ -41,7 +41,7 @@ export class BaseContext implements Context {
     }
 
     getLessonBuilder(): LessonBuilder {
-        return this.lessonBuilder ?? (this.lessonBuilder = getLessonBuilder({}))
+        return this.lessonBuilder ?? (this.lessonBuilder = getLessonBuilder({}, this))
     }
 
     setLessonBuilder(lessonBuilder: LessonBuilder): void {
@@ -92,7 +92,7 @@ export class BaseContext implements Context {
         }
 
         if (page === 'edit-lesson') {
-            let lez = getLessonBuilder(JSON.parse(await readText()))
+            let lez = getLessonBuilder(JSON.parse(await readText()), this)
             this.setLessonBuilder(lez)
         }
 

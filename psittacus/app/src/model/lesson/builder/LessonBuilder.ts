@@ -2,9 +2,7 @@ import { PropositionBuilder } from '../../proposition/builder/PropositionBuilder
 import { BaseLessonBuilder } from './BaseLessonBuilder'
 import { LessonData } from '../../formats/LessonData'
 import { Metadata } from '../../formats/Metadata'
-
-//@ts-ignore
-export const packageJson = require.context("../../../..", false, /package.json$/).keys().map(require.context("../../../..", false, /package.json$/))[0]
+import { Context } from '../../context/Context'
 
 /**
  * Builds, edits and saves lessons.
@@ -23,8 +21,8 @@ export interface LessonBuilder {
     getExplanation(): string
 }
 
-export function getLessonBuilder(data: Partial<LessonData>): LessonBuilder {
-    return new BaseLessonBuilder(data)
+export function getLessonBuilder(data: Partial<LessonData>, context: Context): LessonBuilder {
+    return new BaseLessonBuilder(data, context)
 }
 
 export const MetadataTemplate: Metadata = {

@@ -2,22 +2,25 @@ import { getPropositionBuilder } from '../../proposition/builder/PropositionBuil
 import { saveToComp } from "../../utilities/saveToComp";
 import { LessonData } from '../../formats/LessonData';
 import { Metadata } from '../../formats/Metadata';
-import { LessonBuilder, MetadataTemplate, packageJson, MetadataIncompleteError } from './LessonBuilder';
+import { LessonBuilder, MetadataTemplate, MetadataIncompleteError } from './LessonBuilder';
+import { Context } from '../../context/Context';
 
 export class BaseLessonBuilder implements LessonBuilder {
 
+    readonly propositions = this.data.propositions?.length ? this.data.propositions.map(p => getPropositionBuilder(p)) : [getPropositionBuilder({})]
+    protected current = 0
+    protected metadata = { ...MetadataTemplate, ...this.data.metadata ?? {} }
+    protected explanationHtmlString = this.data.explanation?.text ?? ''
+
     constructor(
         readonly data: Partial<LessonData>,
-        readonly propositions = data.propositions?.length ? data.propositions.map(p => getPropositionBuilder(p)) : [getPropositionBuilder({})],
-        protected current = 0,
-        protected metadata = { ...MetadataTemplate, ...data.metadata ?? {} },
-        protected explanationHtmlString = data.explanation?.text ?? ''
+        readonly context: Context,
     ) {
     }
 
     toJson(): LessonData {
         return {
-            metadata: { ...this.metadata, last_modified: new Date().getTime(), psittacus_version: packageJson.version },
+            metadata: { ...this.metadata, last_modified: new Date().getTime(), psittacus_version: this.context.get('PSITTACUS_VERSION') },
             propositions: this.propositions.filter((p) => !p.isEmpty()).map((p) => p.toJson()),
             explanation: { text: this.explanationHtmlString }
         };
